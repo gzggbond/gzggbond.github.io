@@ -3,17 +3,17 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: Hexo
-subtitle: ''
-description: ''
+title: '棱镜里的日常'
+subtitle: '用文字锁住记忆'
+description: '记录过去，活在当下，展望未来'
 keywords:
-author: John Doe
-language: en
-timezone: ''
+author: Z_Jump_Dragon
+language: zh-CN 
+timezone: Asia/Shanghai 
 
 # URL
 ## Set your site url here. For example, if you use GitHub Page, set url as 'https://username.github.io/project'
-url: http://example.com
+url: https://dragooon.top
 permalink: :year/:month/:day/:title/
 permalink_defaults:
 pretty_urls:
@@ -102,5 +102,5 @@ theme: landscape
 ## Docs: https://hexo.io/docs/one-command-deployment
 deploy:
   type: git
-  repository: https://github.com/ZYL618/ZYL618.github.io
+  repository: https://github.com/gzggbond/gzggbond.github.io
   branch: main
