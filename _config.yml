@@ -24,9 +24,15 @@ pretty_urls:
 # Directory
 source_dir: source
 public_dir: public
-tag_dir: tags
+tag_dir: tags # 标签页目录
+tag_generator:
+  per_page: 10          # 标签页分页设置（关键配置）
+  order_by: -date       # 按日期降序排列
 archive_dir: archives
 category_dir: categories
+category_generator:
+  per_page: 10          # 分类页单独设置分页数量
+  order_by: -date       # 按日期降序排列
 code_dir: downloads/code
 i18n_dir: :lang
 skip_render:
