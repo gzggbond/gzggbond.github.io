@@ -5,7 +5,7 @@ tags:
   - GitHub
   - Hexo
   - 腾讯云
-categoryies:
+categories:
   - 项目部署
 ---
 
@@ -34,7 +34,7 @@ nvm install 18
 nvm list
 ```
 
-<img src="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202507072124159.png" alt="image-20250623164606527" style="zoom: 50%;" />
+<img src="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202507072341234.png" alt="image-20250623164606527" style="zoom: 50%;" />
 
 ```shell
 # 启用指定版本的node.js环境
@@ -49,7 +49,7 @@ nvm use 18.20.8
 
 梯子确保可用后，在系统此处可查看代理服务器地址
 
-<img src="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202507072124237.png" alt="image-20250629150439961" style="zoom: 50%;" />
+<img src="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202507072341298.png" alt="image-20250629150439961" style="zoom: 50%;" />
 
 ```shell
 # 通过如下方式配置代理服务器地址
@@ -70,7 +70,7 @@ ssh-keygen -t rsa -C "你的邮箱地址"
 
 命令完成后若 `C:\Users\你的本机用户名\.ssh` 目录下拥有如下文件，说明本地私钥创建成功
 
-<img src="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202507072124175.png" alt="image-20250623165204572" style="zoom:67%;" />
+<img src="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202507072341247.png" alt="image-20250623165204572" style="zoom:67%;" />
 
 启动 SSH 代理（ssh-agent）并将私钥添加到代理中
 
@@ -86,11 +86,11 @@ ssh-add ~/.ssh/id_rsa
 cat ~/.ssh/id_rsa.pub
 ```
 
-<img src="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202507072124164.png" alt="image-20250623165644488" style="zoom:67%;" />
+<img src="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202507072341237.png" alt="image-20250623165644488" style="zoom:67%;" />
 
 打开GitHub进入个人Setting界面，将查询到的公钥信息复制并添加
 
-<img src="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202507072124239.png" alt="image-20250623165928605" style="zoom:50%;" />
+<img src="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202507072341303.png" alt="image-20250623165928605" style="zoom:50%;" />
 
 使用如下命令验证该环节是否成功
 
@@ -98,7 +98,7 @@ cat ~/.ssh/id_rsa.pub
 ssh -T git@github.com
 ```
 
-<img src="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202507072124163.png" alt="image-20250623170124316" style="zoom:67%;" />
+<img src="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202507072341238.png" alt="image-20250623170124316" style="zoom:67%;" />
 
 ## 1.3 Hexo基本配置
 
@@ -115,9 +115,9 @@ npm install hexo-deployer-git --save
 hexo server
 ```
 
-<img src="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202507072124263.png" alt="image-20250623171307314" style="zoom:67%;" />
+<img src="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202507072341009.png" alt="image-20250623171307314" style="zoom:67%;" />
 
-<img src="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202507072124626.png" alt="image-20250623171331262" style="zoom:50%;" />
+<img src="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202507072341316.png" alt="image-20250623171331262" style="zoom:50%;" />
 
 # 2. 利用GitHub管理
 
@@ -127,13 +127,13 @@ hexo server
 
    > 名称必须符合上述规则，否则可能会出错
 
-   <img src="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202507072124739.png" alt="image-20250629204150588" style="zoom: 50%;" />
+   <img src="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202507072341154.png" alt="image-20250629204150588" style="zoom: 50%;" />
 
-   ![image-20250629201442687](https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202507072124812.png)
+   ![image-20250629201442687](https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202507072341220.png)
 
 2. 将该项目克隆至本地（点进仓库即可看见克隆地址）
 
-   <img src="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202507072124687.png" alt="image-20250629204842349" style="zoom:67%;" />
+   <img src="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202507072341531.png" alt="image-20250629204842349" style="zoom:67%;" />
 
    在自定义的路径下，使用git工具完成项目克隆，未来在此项目下完成博客编写
 
@@ -148,7 +148,7 @@ hexo server
    git checkout -b "code"
    ```
 
-   <img src="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202507072124722.png" alt="image-20250629203023711" style="zoom: 67%;" />
+   <img src="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202507072341589.png" alt="image-20250629203023711" style="zoom: 67%;" />
 
    将本地分支推送至于远程，首次推送分支至远程需要本地内容有改动
 
@@ -165,7 +165,7 @@ hexo server
 
    通过GitHub仓库验证推送是否成功
 
-   <img src="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202507072124765.png" alt="image-20250629211413286" style="zoom:50%;" />
+   <img src="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202507072341821.png" alt="image-20250629211413286" style="zoom:50%;" />
 
 ## 2.2 创建Hexo项目
 
@@ -178,7 +178,7 @@ hexo server
 
 2. 打开 Hexo 项目下的 `_config.yml`
 
-   <img src="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202507072124178.png" alt="image-20250623172228084" style="zoom:67%;" />
+   <img src="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202507072341439.png" alt="image-20250623172228084" style="zoom:67%;" />
 
    拉至文件最下方，对相关内容进行修改
 
@@ -198,7 +198,7 @@ hexo server
 
    > 确保此时git属于code分支（在当前目录下打开git bash，若命令行处末尾显示code即说明当前处于code分支），若处于main分支则需要切换分支后再进行剪切，后续我们使用code分支完成源码的备份，使用main分支完成项目的静态资源维护
 
-   <img src="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202507072124318.png" alt="image-20250629212144974" style="zoom:67%;" />
+   <img src="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202507072341579.png" alt="image-20250629212144974" style="zoom:67%;" />
 
 2. 将源码进行备份至GitHub仓库
 
@@ -213,7 +213,7 @@ hexo server
 
    此时可在 code 分支看见我们推送的数据
 
-   <img src="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202507072124482.png" alt="image-20250629213024701" style="zoom:67%;" />
+   <img src="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202507072341943.png" alt="image-20250629213024701" style="zoom:67%;" />
 
 ### 2.2.1 静态资源维护
 
@@ -240,7 +240,7 @@ hexo server
 
 3. 此时可在main分支查看部署的具体资源情况
 
-   <img src="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202507072124637.png" alt="image-20250629215128189" style="zoom:67%;" />
+   <img src="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202507072341947.png" alt="image-20250629215128189" style="zoom:67%;" />
 
    此时可以通过网址访问初始页面
 
@@ -248,7 +248,7 @@ hexo server
    https://你的GitHub账户名.github.io/
    ```
 
-   <img src="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202507072124878.png" alt="image-20250629215424932" style="zoom: 50%;" />
+   <img src="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202507072341307.png" alt="image-20250629215424932" style="zoom: 50%;" />
 
 ## 2.3 后续维护
 
@@ -266,49 +266,49 @@ hexo server
 
 从经济实惠的角度考虑，选择.top后缀的域名即可，域名申请需要实名认证，可能需要半天左右的时间，具体的不再赘述，只需跟着系统指引即可
 
-<img src="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202507072124832.png" alt="image-20250630204211025" style="zoom:67%;" />
+<img src="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202507072341659.png" alt="image-20250630204211025" style="zoom:67%;" />
 
 完成域名申请后，可在个人主页查询域名的具体情况，如下👇
 
-<img src="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202507072124201.png" alt="image-20250630204451421" style="zoom:50%;" />
+<img src="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202507072341587.png" alt="image-20250630204451421" style="zoom:50%;" />
 
 ### 2.4.2 绑定GitHub Page
 
 1. 在博客项目的source文件夹下下创建“CNAME”文件，内容填写为自己的域名（如上即xxx.top，不要包含https，www以及斜杠部分）
 
-   <img src="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202507072124376.png" alt="image-20250702094707036" style="zoom: 67%;" />
+   <img src="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202507072341566.png" alt="image-20250702094707036" style="zoom: 67%;" />
 
    使用add，commit，push老三样将新添的内容推送至code分支
 
-   <img src="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202507072124951.png" alt="image-20250630205441059" style="zoom:67%;" />
+   <img src="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202507072341950.png" alt="image-20250630205441059" style="zoom:67%;" />
 
 2. 进入腾讯云的域名管理界面，点击需要目标域名的“解析”
 
-   <img src="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202507072124349.png" alt="image-20250701194319708" style="zoom:67%;" />
+   <img src="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202507072341036.png" alt="image-20250701194319708" style="zoom:67%;" />
 
    点击“新手快速解析”
 
-   <img src="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202507072124482.png" alt="image-20250701194454790" style="zoom: 50%;" />
+   <img src="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202507072341765.png" alt="image-20250701194454790" style="zoom: 50%;" />
 
    填写自己GitHub仓库的访问地址
 
-   <img src="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202507072124517.png" alt="image-20250701194713777" style="zoom: 50%;" />
+   <img src="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202507072341698.png" alt="image-20250701194713777" style="zoom: 50%;" />
 
    完成后可看到如下两条记录，对腾讯云的操作到此结束
 
-   <img src="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202507072124938.png" alt="image-20250701194856377" style="zoom:50%;" />
+   <img src="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202507072341001.png" alt="image-20250701194856377" style="zoom:50%;" />
 
 3. 进入GitHub仓库对应的Settings部分，选择Page选项，并将自己的域名填入保存
 
-   <img src="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202507072124304.png" alt="image-20250630205714086" style="zoom:67%;" />
+   <img src="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202507072341015.png" alt="image-20250630205714086" style="zoom:67%;" />
 
    当出现如下标志时，说明域名与该项目成功绑定
 
-   <img src="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202507072124655.png" alt="image-20250701195148565" style="zoom:67%;" />
+   <img src="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202507072341061.png" alt="image-20250701195148565" style="zoom:67%;" />
 
 4. 使用绑定的域名进行访问，成功跳转至我们自己的项目
 
-   <img src="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202507072124108.png" alt="image-20250701195253497" style="zoom:67%;" />
+   <img src="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202507072341341.png" alt="image-20250701195253497" style="zoom:67%;" />
 
 # 3. 从使用的角度出发认识Hexo
 
@@ -334,13 +334,13 @@ hexo server
 | `title`    | 网站标题（不同主题显示位置不一致）   |
 | `subtitle` | 网站副标题（不同主题显示位置不一致） |
 
-<img src="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202507072124221.png" alt="image-20250702095654608" style="zoom:67%;" />
+<img src="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202507072341654.png" alt="image-20250702095654608" style="zoom:67%;" />
 
 | 设置                 | 描述                                                         |
 | :------------------- | :----------------------------------------------------------- |
-| `description`        | 网站描述（在搜索引擎搜索出来后展示的简短描述）<br /><img src="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202507072124005.png" alt="image-20250702100455980" style="zoom: 50%;" /> |
+| `description`        | 网站描述（在搜索引擎搜索出来后展示的简短描述）<br /><img src="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202507072341679.png" alt="image-20250702100455980" style="zoom: 50%;" /> |
 | `keywords`           | 网站的关键词，支持多个关键词【Yml列表】（一些主题可以用于站内搜索） |
-| `author`             | 作者名称（网页左下角）<br /><img src="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202507072124207.png" alt="image-20250702100654273" style="zoom: 50%;" /> |
+| `author`             | 作者名称（网页左下角）<br /><img src="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202507072341113.png" alt="image-20250702100654273" style="zoom: 50%;" /> |
 | `language`           | 网站使用的语言，默认为 `en`（即英文），中文简体为`zh-CN`     |
 | `timezone`           | 网站时区， 电脑对应时区，对于中国大陆地区可以使用 `Asia/Shanghai` |
 | `permalink`          | 文章的[永久链接](https://hexo.io/zh-cn/docs/permalinks)格式，设置为`blog/:categoty/:title/`即文章生成的静态页面放在`blog/分类名/文章名`目录下 |
@@ -366,7 +366,7 @@ category_generator:
 
 初始情况下，Hexo为我们提供了三种模板
 
-<img src="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202507072124365.png" alt="image-20250707203104866" style="zoom:50%;" />
+<img src="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202507072341128.png" alt="image-20250707203104866" style="zoom:50%;" />
 
 当创建一篇新文章时，我们需要用如下命令，这样创建出的文章会按照目录结构存放
 
@@ -389,11 +389,11 @@ tags:
 
 创建后的文件存放在`source`文件夹的`_post`目录下
 
-<img src="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202507072124711.png" alt="image-20250707204427194" style="zoom:67%;" />
+<img src="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202507072341224.png" alt="image-20250707204427194" style="zoom:67%;" />
 
 创建出的初始内容如下，`title`部分为传入参数，日期为创建时的日期。这部分信息在`Hexo`中称为[Front-matter](https://hexo.io/zh-cn/docs/front-matter)，更多参数详情请见官方文档，此处仅介绍用法
 
-<img src="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202507072124351.png" alt="image-20250707204704275" style="zoom:67%;" />
+<img src="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202507072341889.png" alt="image-20250707204704275" style="zoom:67%;" />
 
 当需要为文章划定分类或者添加标签时，在`Front-matter`中使用`tags`或`categories`关键字进行标签或者分类管理
 
@@ -430,8 +430,60 @@ categories:
 
 ## 3.3 source文件夹
 
+> 使用Typora作为Markdown编辑器即可，面对初始化主题或许有些不适配，但是当后续换成第三方提供的主题，如Fluid时，几乎完美适配，唯一的区别就是在文章顶部需要保留`Front-matter`的内容用于指定文章的标题，标签，分类等信息
+>
+> 此外关于图片信息，如果有条件的话建议利用PicGo将其存储到云空间，这样可以使得项目更为轻量级，具体可以参考[Typora+PicGo+腾讯云COS搭建图床](https://blog.csdn.net/xk1835217729/article/details/123958269)
 
++ `_post`目录下存放的为使用`hexo new post xxx`创建的文章
 
++ `_drafts`目录下存放的为使用`hexo new draft xxx`创建的草稿文章
 
++ `yourname`目录下存放的为使用`hexo new page yourname`创建的文章
 
-`（持续更新，未完待续...）`
+  > 这部分创建的文件夹为自定义的`yourname`，文章名为`index.md`，不在博客正文中出现，但是可能在博客的“关于”界面需要使用，如后续部署的fluid主题就需要使用`hexo new page about`生成一个页面单独显示，具体在后续布置主题时介绍
+
+## 3.4 Fluid主题安装
+
+> Hexo原生主题十分老久，市面上存在大量开源主题，[Butterfly](https://butterfly.js.org/)，[NextX](https://theme-next.js.org/)，[Fluid](https://hexo.fluid-dev.com/)等，更多的主题可以参考官方文档或者直接咨询大模型，挑选自己喜爱的一款即可
+
+各主题的迁移大同小异，此处以`Fluid`为例
+
+1. 在博客目录下打开命令行，利用`npm`安装`fluid`主题
+
+   ```bash
+   npm install --save hexo-theme-fluid
+   ```
+
+   在`node_modules`文件夹下看见`hexo-theme-fluid`即安装成功
+
+   <img src="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202507072341107.png" alt="image-20250707223123613" style="zoom:67%;" />
+
+2. 进入`hexo-theme-fluid`文件夹，复制其`_config.yml`配置文件并将其重命名为`_config.fluid.yml`，移动至项目根目录
+
+   <img src="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202507072341334.png" alt="image-20250707223340557" style="zoom:50%;" />
+
+3. 打开`_config.yml`进行配置
+
+   ```yaml
+   # 将主题进行修改
+   theme: fluid
+   ```
+
+   此时在本地使用命令`hexo server`后已能顺利访问到修改后的主题
+
+   <img src="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202507072341589.png" alt="image-20250707223646403" style="zoom:50%;" />
+
+4. 创建“关于”界面
+
+   ```bash
+   # 首次应用主题需要手动进行创建，否则该连接无内容
+   hexo new page "关于本站"
+   ```
+
+   <img src="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202507072341576.png" alt="image-20250707230420537" style="zoom:50%;" />
+
+### 3.4.1 更多定制化服务
+
+一些细节的设置通过操作`_config.fluid.yml`与`_config.yml`实现，前者优先级更高，且配置文件内部几乎都有比较详尽的中文注释，根据需要进行修改即可
+
+例如需要修改背景图片，则定位至`node_modules\hexo-theme-fluid\source\img`路径下添加自己的图片并修改配置文件路径即可，此外还有诸多插件可以用于丰富主题内容，如背景音乐等，具体的情况可在网上查询相关资料进行添加。
