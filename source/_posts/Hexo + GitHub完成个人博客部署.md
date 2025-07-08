@@ -1,10 +1,12 @@
 ---
 title: Hexo + GitHub完成个人博客部署
 date: 2025-07-07 20:41:49
+excerpt: 本文详细阐述了通过Hexo + GitHub部署个人在线博客的全部流程，有兴趣的朋友可以跟着动手尝试搭建属于自己的个人博客！
+sticky: 100
 tags:
   - GitHub
   - Hexo
-  - 腾讯云
+  - 域名申请
 categories:
   - 项目部署
 ---
@@ -323,7 +325,7 @@ hexo server
 |   └── _posts	# 文章文件
 ```
 
-本节将对各部分作用进行解释，并展示常见的用法（更加详细的内容请看[Hexo官方文档](https://hexo.io/zh-cn/docs/configuration)），最后为项目换上较为流行的 Fluid 主题
+本节将对各部分作用进行解释，并展示常见的用法（更加详细的内容请看[Hexo Fluid官方文档](https://hexo.fluid-dev.com/docs/guide/)），最后为项目换上较为流行的 Fluid 主题
 
 ## 3.1 _config.yml
 
@@ -482,8 +484,8 @@ categories:
 
    <img src="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202507072341576.png" alt="image-20250707230420537" style="zoom:50%;" />
 
-### 3.4.1 更多定制化服务
+## 3.5 更多定制化服务
 
-一些细节的设置通过操作`_config.fluid.yml`与`_config.yml`实现，前者优先级更高，且配置文件内部几乎都有比较详尽的中文注释，根据需要进行修改即可
+一些细节的设置通过操作`_config.fluid.yml`与`_config.yml`实现，前者优先级更高，且配置文件内部几乎都有比较详尽的中文注释，根据需要进行修改即可，或参考[Hexo Fluid配置指南](https://hexo.fluid-dev.com/docs/guide/)
 
 例如需要修改背景图片，则定位至`node_modules\hexo-theme-fluid\source\img`路径下添加自己的图片并修改配置文件路径即可，此外还有诸多插件可以用于丰富主题内容，如背景音乐等，具体的情况可在网上查询相关资料进行添加。

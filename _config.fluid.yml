@@ -484,7 +484,7 @@ footer:
 index:
   # 首页 Banner 头图，可以是相对路径或绝对路径，以下相同
   # Path of Banner image, can be a relative path or an absolute path, the same on other pages
-  banner_img: /img/our/default.png
+  banner_img: /img/our/home.png
 
   # 头图高度，屏幕百分比
   # Height ratio of banner image
@@ -535,7 +535,7 @@ index:
   # 打开文章的标签方式
   # The browser tag to open the post
   # Available: _blank | _self
-  post_url_target: _blank
+  post_url_target: _self
 
   # 是否显示文章信息（时间、分类、标签）
   # Meta information of post
@@ -556,8 +556,8 @@ index:
 # Post Page
 #---------------------------
 post:
-  banner_img: /img/our/default.png
-  banner_img_height: 70
+  banner_img: /img/our/article.png
+  banner_img_height: 100
   banner_mask_alpha: 0.3
 
   # 文章在首页的默认封面图，当没有指定 index_img 时会使用该图片，若两者都为空则不显示任何图片
@@ -920,8 +920,8 @@ discuss:
 # Archive Page
 #---------------------------
 archive:
-  banner_img: /img/our/default.png
-  banner_img_height: 60
+  banner_img: /img/our/archive.png
+  banner_img_height: 100
   banner_mask_alpha: 0.3
 
 
@@ -931,8 +931,8 @@ archive:
 #---------------------------
 category:
   enable: true
-  banner_img: /img/our/default.png
-  banner_img_height: 60
+  banner_img: /img/our/category.png
+  banner_img_height: 100
   banner_mask_alpha: 0.3
 
   # 分类的排序字段，前面带减号是倒序，不带减号是正序
@@ -960,8 +960,8 @@ category:
 #---------------------------
 tag:
   enable: true
-  banner_img: /img/our/default.png
-  banner_img_height: 80
+  banner_img: /img/our/tag.png
+  banner_img_height: 100
   banner_mask_alpha: 0.3
   tagcloud:
     min_font: 15
@@ -977,9 +977,9 @@ tag:
 #---------------------------
 about:
   enable: true
-  banner_img: /img/our/default.png
-  banner_img_height: 60
-  banner_mask_alpha: 0.3
+  # banner_img: /img/our/about.png
+  # banner_img_height: 100
+  # banner_mask_alpha: 0.3
   avatar: /img/avatar.png
   name: "Fluid"
   intro: "An elegant theme for Hexo"
@@ -999,8 +999,8 @@ about:
 # Custom Page through `hexo new page`
 #---------------------------
 page:
-  banner_img: /img/our/default.png
-  banner_img_height: 60
+  banner_img: /img/our/about.png
+  banner_img_height: 100
   banner_mask_alpha: 0.3
 
 
