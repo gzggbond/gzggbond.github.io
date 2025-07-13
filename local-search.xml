@@ -4,12 +4,39 @@
   
   
   <entry>
-    <title>Hexo + GitHub完成个人博客部署</title>
-    <link href="/blog/%E9%A1%B9%E7%9B%AE%E9%83%A8%E7%BD%B2/Hexo%20+%20GitHub%E5%AE%8C%E6%88%90%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E9%83%A8%E7%BD%B2/"/>
-    <url>/blog/%E9%A1%B9%E7%9B%AE%E9%83%A8%E7%BD%B2/Hexo%20+%20GitHub%E5%AE%8C%E6%88%90%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E9%83%A8%E7%BD%B2/</url>
+    <title>Word文档自动化基础</title>
+    <link href="/blog/%E5%AD%A6%E4%B9%A0/Python%E7%AC%AC%E4%B8%89%E6%96%B9%E5%BA%93/Word%E6%96%87%E6%A1%A3%E8%87%AA%E5%8A%A8%E5%8C%96%E5%9F%BA%E7%A1%80/"/>
+    <url>/blog/%E5%AD%A6%E4%B9%A0/Python%E7%AC%AC%E4%B8%89%E6%96%B9%E5%BA%93/Word%E6%96%87%E6%A1%A3%E8%87%AA%E5%8A%A8%E5%8C%96%E5%9F%BA%E7%A1%80/</url>
     
     
     <categories>
+      
+      <category>学习</category>
+      
+      <category>Python第三方库</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>办公自动化</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>Hexo + GitHub完成个人博客部署</title>
+    <link href="/blog/%E5%AD%A6%E4%B9%A0/%E9%A1%B9%E7%9B%AE%E9%83%A8%E7%BD%B2/Hexo%20+%20GitHub%E5%AE%8C%E6%88%90%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E9%83%A8%E7%BD%B2/"/>
+    <url>/blog/%E5%AD%A6%E4%B9%A0/%E9%A1%B9%E7%9B%AE%E9%83%A8%E7%BD%B2/Hexo%20+%20GitHub%E5%AE%8C%E6%88%90%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E9%83%A8%E7%BD%B2/</url>
+    
+    
+    <categories>
+      
+      <category>学习</category>
       
       <category>项目部署</category>
       
@@ -18,9 +45,7 @@
     
     <tags>
       
-      <tag>GitHub</tag>
-      
-      <tag>Hexo</tag>
+      <tag>博客搭建</tag>
       
       <tag>域名申请</tag>
       
