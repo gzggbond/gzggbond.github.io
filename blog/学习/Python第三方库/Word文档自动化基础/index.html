@@ -29,7 +29,7 @@
 <meta property="og:description" content="第三方库python-docx可以实现word的简单自动化，面对Excel数据需要按照一定格式大量转换为Word文档的需求时，掌握此项技术可以大大提高效率！">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2025-07-13T13:54:21.000Z">
-<meta property="article:modified_time" content="2025-07-13T14:02:43.624Z">
+<meta property="article:modified_time" content="2025-07-17T01:43:36.232Z">
 <meta property="article:author" content="Z_Jump_Dragon">
 <meta property="article:tag" content="办公自动化">
 <meta name="twitter:card" content="summary_large_image">
@@ -70,6 +70,10 @@
 
 
 
+  
+<link rel="stylesheet" href="/css/cloudedGlass.css">
+
+
 
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
@@ -90,7 +94,7 @@
 <meta name="generator" content="Hexo 7.3.0"></head>
 
 
-<body>
+<body><!-- hexo injector body_begin start --><div id="web_bg"></div><!-- hexo injector body_begin end -->
   
 
   <header>
@@ -365,6 +369,9 @@
 <p>每个Word文档至少有一个节。如果文档没有手动分节，整个文档就是一个节，通过插入分节符（如 “下一页”、“连续”、“偶数页” 等），可以将文档分成多个节，各节可以有独立的页面设置。</p>
 </blockquote>
 <h2 id="页面设置相关属性"><a href="#页面设置相关属性" class="headerlink" title="页面设置相关属性"></a>页面设置相关属性</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> docx.enum.section <span class="hljs-keyword">import</span> WD_ORIENT<br><span class="hljs-keyword">from</span> docx.shared <span class="hljs-keyword">import</span> Cm<br>section = doc.sections[<span class="hljs-number">0</span>]<br><span class="hljs-comment"># 修改页面方向为横向</span><br>section.orientation = WD_ORIENT.LANDSCAPE<br><span class="hljs-comment"># A4纸大小</span><br>section.page_width = Cm(<span class="hljs-number">29.7</span>)<br>section.page_height = Cm(<span class="hljs-number">21.0</span>)<br><span class="hljs-comment"># 页面边距设置</span><br>section.left_margin = Cm(<span class="hljs-number">2.5</span>)    <br>section.right_margin = Cm(<span class="hljs-number">2.5</span>)   <br>section.top_margin = Cm(<span class="hljs-number">3</span>)     <br>section.bottom_margin = Cm(<span class="hljs-number">3</span>)  <br></code></pre></td></tr></table></figure>
+
+<h2 id="分节符"><a href="#分节符" class="headerlink" title="分节符"></a>分节符</h2><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs py"><span class="hljs-keyword">from</span> docx.enum.section <span class="hljs-keyword">import</span> WD_SECTION<br><span class="hljs-comment"># 插入下一页分节符（新节从下一页开始）</span><br>doc.add_section(WD_SECTION.NEW_PAGE)<br><span class="hljs-comment"># 连续分节符会在当前位置开始新节，不强制分页</span><br>doc.add_section(WD_SECTION.CONTINUOUS)<br></code></pre></td></tr></table></figure>
+
 
                 
               </div>
@@ -662,5 +669,5 @@
   <noscript>
     <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
   </noscript>
-</body>
+<!-- hexo injector body_end start --><script src="/js/backgroundize.js"></script><!-- hexo injector body_end end --></body>
 </html>
