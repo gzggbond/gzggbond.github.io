@@ -279,3 +279,14 @@ section.right_margin = Cm(2.5)
 section.top_margin = Cm(3)     
 section.bottom_margin = Cm(3)  
 ```
+
+## 分节符
+
+```py
+from docx.enum.section import WD_SECTION
+# 插入下一页分节符（新节从下一页开始）
+doc.add_section(WD_SECTION.NEW_PAGE)
+# 连续分节符会在当前位置开始新节，不强制分页
+doc.add_section(WD_SECTION.CONTINUOUS)
+```
+
