@@ -492,3 +492,5 @@ categories:
 <img src="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202507081020616.png" alt="image-20250708102053016" style="zoom:67%;" />
 
 <img src="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202507081020179.png" alt="image-20250708102013453" style="zoom: 67%;" />
+
+关于背景图片固定，毛玻璃背景特效等可参考👉[Hexo fluid 全屏背景图随日夜模式切换以及正文底页毛玻璃效果](https://4rozen.github.io/archives/Hexo/60191.html)

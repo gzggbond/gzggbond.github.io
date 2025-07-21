@@ -129,7 +129,7 @@ p.alignment = WD_ALIGN_PARAGRAPH.CENTER  # 居中对齐
 from docx.shared import Cm
 # 左缩进1厘米
 p.paragraph_format.left_indent = Cm(1.0)  
-# 首行缩进0.5厘米
+# 首行缩进0.5厘米【负数为悬挂缩进】
 p.paragraph_format.first_line_indent = Cm(0.5)  
 ```
 
@@ -138,10 +138,15 @@ p.paragraph_format.first_line_indent = Cm(0.5)
 ```python
 # 1.5倍行距
 p.paragraph_format.line_spacing_rule = WD_LINE_SPACING.ONE_POINT_FIVE 
+# 设置固定行距为21磅
+p.line_spacing_rule = WD_LINE_SPACING.EXACTLY 
+p.paragraph_format.line_spacing = Pt(21)
+# 首行缩进（两个中文字符大约42磅）
+p.paragraph_format.first_line_indent = Pt(42)
 # 段前间距6磅
-paragraph.paragraph_format.space_before = Pt(6)  
+p.paragraph_format.space_before = Pt(6)  
 # 段后间距6磅
-paragraph.paragraph_format.space_after = Pt(6)   
+p.paragraph_format.space_after = Pt(6)   
 ```
 
 ## 分页
