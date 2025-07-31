@@ -4,6 +4,31 @@
   
   
   <entry>
+    <title>服务器离线环境部署指南</title>
+    <link href="/blog/%E5%AD%A6%E4%B9%A0/%E7%8E%AF%E5%A2%83%E9%83%A8%E7%BD%B2/%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%A6%BB%E7%BA%BF%E7%8E%AF%E5%A2%83%E9%83%A8%E7%BD%B2%E6%8C%87%E5%8D%97/"/>
+    <url>/blog/%E5%AD%A6%E4%B9%A0/%E7%8E%AF%E5%A2%83%E9%83%A8%E7%BD%B2/%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%A6%BB%E7%BA%BF%E7%8E%AF%E5%A2%83%E9%83%A8%E7%BD%B2%E6%8C%87%E5%8D%97/</url>
+    
+    
+    <categories>
+      
+      <category>学习</category>
+      
+      <category>环境部署</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Linux环境离线部署</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>Word文档自动化基础</title>
     <link href="/blog/%E5%AD%A6%E4%B9%A0/Python%E7%AC%AC%E4%B8%89%E6%96%B9%E5%BA%93/Word%E6%96%87%E6%A1%A3%E8%87%AA%E5%8A%A8%E5%8C%96%E5%9F%BA%E7%A1%80/"/>
     <url>/blog/%E5%AD%A6%E4%B9%A0/Python%E7%AC%AC%E4%B8%89%E6%96%B9%E5%BA%93/Word%E6%96%87%E6%A1%A3%E8%87%AA%E5%8A%A8%E5%8C%96%E5%9F%BA%E7%A1%80/</url>
@@ -30,15 +55,15 @@
   
   <entry>
     <title>Hexo + GitHub完成个人博客部署</title>
-    <link href="/blog/%E5%AD%A6%E4%B9%A0/%E9%A1%B9%E7%9B%AE%E9%83%A8%E7%BD%B2/Hexo%20+%20GitHub%E5%AE%8C%E6%88%90%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E9%83%A8%E7%BD%B2/"/>
-    <url>/blog/%E5%AD%A6%E4%B9%A0/%E9%A1%B9%E7%9B%AE%E9%83%A8%E7%BD%B2/Hexo%20+%20GitHub%E5%AE%8C%E6%88%90%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E9%83%A8%E7%BD%B2/</url>
+    <link href="/blog/%E5%AD%A6%E4%B9%A0/%E7%8E%AF%E5%A2%83%E9%83%A8%E7%BD%B2/Hexo%20+%20GitHub%E5%AE%8C%E6%88%90%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E9%83%A8%E7%BD%B2/"/>
+    <url>/blog/%E5%AD%A6%E4%B9%A0/%E7%8E%AF%E5%A2%83%E9%83%A8%E7%BD%B2/Hexo%20+%20GitHub%E5%AE%8C%E6%88%90%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E9%83%A8%E7%BD%B2/</url>
     
     
     <categories>
       
       <category>学习</category>
       
-      <category>项目部署</category>
+      <category>环境部署</category>
       
     </categories>
     

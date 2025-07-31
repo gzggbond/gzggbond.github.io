@@ -1,0 +1,693 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/our/logo.png">
+  <link rel="icon" href="/img/our/logo.png">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="Z_Jump_Dragon">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="Linux服务器处于离线环境时，许多资源无法一步到位，需要手动部署相关依赖环境，过程繁琐且易遇到奇奇怪怪的问题，现将完美解决方案进行记录，便于后续有类似需求时提高处理效率">
+<meta property="og:type" content="article">
+<meta property="og:title" content="服务器离线环境部署指南">
+<meta property="og:url" content="https://dragooon.top/blog/%E5%AD%A6%E4%B9%A0/%E7%8E%AF%E5%A2%83%E9%83%A8%E7%BD%B2/%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%A6%BB%E7%BA%BF%E7%8E%AF%E5%A2%83%E9%83%A8%E7%BD%B2%E6%8C%87%E5%8D%97/index.html">
+<meta property="og:site_name" content="棱镜里的日常">
+<meta property="og:description" content="Linux服务器处于离线环境时，许多资源无法一步到位，需要手动部署相关依赖环境，过程繁琐且易遇到奇奇怪怪的问题，现将完美解决方案进行记录，便于后续有类似需求时提高处理效率">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202507311718499.png">
+<meta property="og:image" content="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202507311718497.png">
+<meta property="og:image" content="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202507311718492.png">
+<meta property="og:image" content="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202507311718529.png">
+<meta property="og:image" content="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202507311718578.png">
+<meta property="og:image" content="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202507311718515.png">
+<meta property="og:image" content="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202507311718025.png">
+<meta property="og:image" content="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202507311718033.png">
+<meta property="article:published_time" content="2025-07-31T09:17:50.000Z">
+<meta property="article:modified_time" content="2025-07-31T09:29:54.928Z">
+<meta property="article:author" content="Z_Jump_Dragon">
+<meta property="article:tag" content="Linux环境离线部署">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202507311718499.png">
+  
+  
+  
+  <title>服务器离线环境部署指南 - 棱镜里的日常</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+  
+<link rel="stylesheet" href="/css/cloudedGlass.css">
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"dragooon.top","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":60,"cursorChar":"_","loop":false,"scope":["home"]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"left","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":3},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":false};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+
+<body><!-- hexo injector body_begin start --><div id="web_bg"></div><!-- hexo injector body_begin end -->
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 100vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>棱镜里的日常</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/our/article.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle">服务器离线环境部署指南</span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-author" aria-hidden="true"></i>
+        Z_Jump_Dragon
+      </span>
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2025-07-31 17:17" pubdate>
+          2025年7月31日 下午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          1.1k 字
+        
+      </span>
+    
+
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+        <div class="scroll-down-bar">
+          <i class="iconfont icon-arrowdown"></i>
+        </div>
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="padding-left: 2rem; margin-right: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">服务器离线环境部署指南</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h1 id="1-VSCode插件离线安装"><a href="#1-VSCode插件离线安装" class="headerlink" title="1. VSCode插件离线安装"></a>1. VSCode插件离线安装</h1><p>插件安装包下载地址：<a target="_blank" rel="noopener" href="https://marketplace.visualstudio.com/">https://marketplace.visualstudio.com/</a></p>
+<blockquote>
+<p>若该地址下载的插件安装包无法正确安装，可以来到插件对应的GitHub地址进行下载后缀为.vsix的安装包，例子如下：</p>
+</blockquote>
+<img src="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202507311718499.png" srcset="/img/loading.gif" lazyload alt="image-20250723181704821" style="zoom:50%;" />
+
+<img src="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202507311718497.png" srcset="/img/loading.gif" lazyload alt="image-20250723181736397" style="zoom:67%;" />
+
+<img src="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202507311718492.png" srcset="/img/loading.gif" lazyload alt="image-20250723181757154" style="zoom:50%;" />
+
+<p>下载完安装包后，通过XFTP将文件传输至于服务器，接着直接安装即可</p>
+<img src="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202507311718529.png" srcset="/img/loading.gif" lazyload alt="image-20250723181904627" style="zoom:67%;" />
+
+<h1 id="2-局域网环境VSCode远程连接服务器"><a href="#2-局域网环境VSCode远程连接服务器" class="headerlink" title="2. 局域网环境VSCode远程连接服务器"></a>2. 局域网环境VSCode远程连接服务器</h1><h2 id="2-1-SSH服务安装"><a href="#2-1-SSH服务安装" class="headerlink" title="2.1 SSH服务安装"></a>2.1 SSH服务安装</h2><ol>
+<li><p>下载SSH服务所需的安装包（与系统版本对应）</p>
+<blockquote>
+<p>如果不清楚当前系统对应的版本可以询问豆包</p>
+</blockquote>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://security.ubuntu.com/ubuntu/pool/main/n/ncurses/ncurses-term_6.2-0ubuntu2.1_all.deb">ncurses-term_6.2-0ubuntu2.1_all.deb</a></li>
+<li><a target="_blank" rel="noopener" href="https://security.ubuntu.com/ubuntu/pool/main/o/openssh/openssh-sftp-server_8.2p1-4ubuntu0.13_amd64.deb"> openssh-sftp-server_8.2p1-4ubuntu0.13_amd64.deb</a></li>
+<li><a target="_blank" rel="noopener" href="https://security.ubuntu.com/ubuntu/pool/main/o/openssh/openssh-server_8.2p1-4ubuntu0.13_amd64.deb"> openssh-server_8.2p1-4ubuntu0.13_amd64.deb</a></li>
+<li><a target="_blank" rel="noopener" href="https://security.ubuntu.com/ubuntu/pool/main/s/ssh-import-id/ssh-import-id_5.10-0ubuntu1_all.deb"> ssh-import-id_5.10-0ubuntu1_all.deb</a></li>
+</ul>
+</li>
+<li><p>上传后执行安装命令</p>
+<blockquote>
+<p>Ubuntu系统安装该服务后续开机会自启动</p>
+</blockquote>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_"># </span><span class="language-bash">安装目标路径下的所有.deb后缀安装包</span><br>dpkg -i /目标路径/*.deb<br><span class="hljs-meta prompt_"># </span><span class="language-bash">防火墙允许22号端口通过</span><br>ufw allow 22<br><span class="hljs-meta prompt_"># </span><span class="language-bash">启动SSH服务</span><br>systemctl start ssh<br></code></pre></td></tr></table></figure></li>
+</ol>
+<h2 id="2-2-vscode本地服务器安装"><a href="#2-2-vscode本地服务器安装" class="headerlink" title="2.2 vscode本地服务器安装"></a>2.2 vscode本地服务器安装</h2><blockquote>
+<p>当VSCode开启SSH服务时，会在目标主机安装VScode本地服务器，作用是映射本地与远程的路径信息以及同步编辑行为等。在离线环境下，相关资源无法从互联网获取，因此需要手动进行干预</p>
+</blockquote>
+<ol>
+<li><p>按照如下👇方式查看自己VSCode的commit信息并保存</p>
+<blockquote>
+<p>可以理解为建立连接时的id信息</p>
+</blockquote>
+<img src="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202507311718578.png" srcset="/img/loading.gif" lazyload alt="image-20250728102318409" style="zoom: 33%;" />
+
+<img src="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202507311718515.png" srcset="/img/loading.gif" lazyload alt="image-20250728102419828" style="zoom: 50%;" />
+</li>
+<li><p>浏览器分别输入以下网址，进行文件下载并创建相应文件夹</p>
+<blockquote>
+<p><strong>commit必须进行对应替换，否则最后连接后会出现无法读取远程目录的情况！！！</strong></p>
+</blockquote>
+<ul>
+<li><strong>vscode-server-linux-x64.tar</strong>：<code>https://update.code.visualstudio.com/commit:替换为自己的commit号/server-linux-x64/stable</code></li>
+<li><strong>vscode_cli_alpine_x64_cli.tar.gz</strong>：<code>https://update.code.visualstudio.com/commit:替换为自己的commit号/cli-alpine-x64/stable</code></li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_"># </span><span class="language-bash">在用户目录下创建.vscode-server/cli/servers三个文件夹</span><br>mkdir -r ~/.vscode-server/cli/servers<br><span class="hljs-meta prompt_"># </span><span class="language-bash">在servers文件夹下再创建Stable-&#123;commit_id&#125;文件夹</span><br>mkdir Stable-&#123;commit_id&#125;<br></code></pre></td></tr></table></figure>
+
+<p>目录层级如下所示</p>
+<img src="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202507311718025.png" srcset="/img/loading.gif" lazyload alt="image-20250728104413292" style="zoom:50%;" />
+</li>
+<li><p>解压文件至指定目录</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_"># </span><span class="language-bash">将vscode-server-linux-x64.tar压缩包解压至刚刚创建的路径，commit_id进行相应替换</span><br>tar -zxvf /目标路径/vscode-server-linux-x64.tar -C ~/.vscode-server/cli/servers/Stable-&#123;commit_id&#125;<br><span class="hljs-meta prompt_"># </span><span class="language-bash">将vscode_cli_alpine_x64_cli.tar.gz压缩包（仅有code文件）解压到.vscode-server下</span><br>tar -zxvf /目标路径/vscode_cli_alpine_x64_cli.tar.gz -C ~/.vscode-server<br><span class="hljs-meta prompt_"># </span><span class="language-bash">将文件命名为<span class="hljs-string">&quot;code-&#123;commit_id&#125;&quot;</span>，如下👇</span><br></code></pre></td></tr></table></figure>
+
+<img src="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202507311718033.png" srcset="/img/loading.gif" lazyload alt="image-20250728105124921" style="zoom:50%;" />
+
+<p>由此即可完成vscode本地服务器配置</p>
+</li>
+</ol>
+<p>若后续有新的主机需要连接服务器，只需要在对应位置创建新的<code>Stable-&#123;commit_id&#125;</code>文件夹并解压<code>vscode-server-linux-x64.tar</code>压缩包以及解压<code>vscode_cli_alpine_x64_cli.tar.gz</code>，将其重命名为<code>code-&#123;commit_id&#125;</code>并将其移动到对应目录位置即可</p>
+<h1 id="3-离线部署conda虚拟环境"><a href="#3-离线部署conda虚拟环境" class="headerlink" title="3. 离线部署conda虚拟环境"></a>3. 离线部署conda虚拟环境</h1><p>如果需要在服务器离线部署Python虚拟环境（服务器要提前安装MiniConda），可参考以下步骤：</p>
+<ol>
+<li><p>寻找拥有MiniConda且联网的Linux系统，创建初始环境并指定python版本</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 创建指定python版本且名为env_name的虚拟环境，安装conda-pack工具</span><br>conda create --name env_name python=xxx conda-pack工具<br></code></pre></td></tr></table></figure>
+
+<p>将当前基础环境进行打包</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 打包env_name这个虚拟环境，只需将其解压至conda对应的envs目录下即可完成迁移</span><br><span class="hljs-comment"># 注意：打包的系统需要与虚拟环境的系统一致，否则环境无法兼容</span><br>conda pack -n env_name -o env_name.tar.gz<br></code></pre></td></tr></table></figure>
+
+<p>利用XFtp或其他的文件传输工具将工具传输至于离线服务器的<code>minicoda/envs</code>目录下，将当前环境进行解压到指定目录即可完成基础环境的迁移</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_"># </span><span class="language-bash">在minicoda/envs路径下创建env_name文件夹</span><br>mkdir -p env_name<br><span class="hljs-meta prompt_"># </span><span class="language-bash">解压虚拟环境</span><br>tar -zxvf env_name.tar.gz -C env_name<br></code></pre></td></tr></table></figure>
+
+<blockquote>
+<p>可在离线服务器中存放一个仅有python的库作为环境源，后续若是需要类似的python虚拟环境只需要复制<code>minicoda/envs</code>下的环境源文件夹即可</p>
+</blockquote>
+</li>
+<li><p>在自己的Windows电脑上安装相关依赖</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># 安装Linux平台与python3.10匹配的requirements.txt涉及的二进制包(.whl)到当前的offline文件夹中</span><br>pip download -r requirements.txt -d ./offline/ --platform manylinux2014_x86_64 --python-version <span class="hljs-number">3.10</span>  --only-binary=:<span class="hljs-built_in">all</span>:<br><br><span class="hljs-comment"># 若只想单独安装某第三方库，则使用如下命令</span><br><span class="hljs-comment"># 安装Linux平台与python3.10匹配的的pandas及其相关依赖的二进制包(.whl)到当前的offline文件夹中</span><br>pip download pandas -d ./offline/ --platform manylinux2014_x86_64 --python-version <span class="hljs-number">3.10</span>  --only-binary=:<span class="hljs-built_in">all</span>:   <br></code></pre></td></tr></table></figure>
+
+<p>将offline文件夹压缩传送至离线服务器</p>
+</li>
+<li><p>离线服务器安装依赖</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 切换至目标虚拟环境</span><br>conda activate env_name<br><span class="hljs-comment"># 根据当前的依赖生成requirements.txt文件</span><br><span class="hljs-built_in">ls</span> ./offline/*.whl &gt; requirements.txt<br><span class="hljs-comment"># 安装所有依赖</span><br>pip install -r requirements.txt<br></code></pre></td></tr></table></figure></li>
+</ol>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E5%AD%A6%E4%B9%A0/" class="category-chain-item">学习</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/%E5%AD%A6%E4%B9%A0/%E7%8E%AF%E5%A2%83%E9%83%A8%E7%BD%B2/" class="category-chain-item">环境部署</a>
+  
+  
+
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/Linux%E7%8E%AF%E5%A2%83%E7%A6%BB%E7%BA%BF%E9%83%A8%E7%BD%B2/" class="print-no-link">#Linux环境离线部署</a>
+      
+    </div>
+  
+</div>
+
+
+              
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/blog/%E5%AD%A6%E4%B9%A0/Python%E7%AC%AC%E4%B8%89%E6%96%B9%E5%BA%93/Word%E6%96%87%E6%A1%A3%E8%87%AA%E5%8A%A8%E5%8C%96%E5%9F%BA%E7%A1%80/" title="Word文档自动化基础">
+                        <span class="hidden-mobile">Word文档自动化基础</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       用文字锁住记忆 
+    </div>
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+<!-- hexo injector body_end start --><script src="/js/backgroundize.js"></script><!-- hexo injector body_end end --></body>
+</html>
