@@ -37,7 +37,7 @@
 <meta property="og:image" content="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202507311718025.png">
 <meta property="og:image" content="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202507311718033.png">
 <meta property="article:published_time" content="2025-07-31T09:17:50.000Z">
-<meta property="article:modified_time" content="2025-07-31T09:29:54.928Z">
+<meta property="article:modified_time" content="2025-07-31T11:12:54.258Z">
 <meta property="article:author" content="Z_Jump_Dragon">
 <meta property="article:tag" content="Linux环境离线部署">
 <meta name="twitter:card" content="summary_large_image">
@@ -333,7 +333,7 @@
 <blockquote>
 <p>Ubuntu系统安装该服务后续开机会自启动</p>
 </blockquote>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_"># </span><span class="language-bash">安装目标路径下的所有.deb后缀安装包</span><br>dpkg -i /目标路径/*.deb<br><span class="hljs-meta prompt_"># </span><span class="language-bash">防火墙允许22号端口通过</span><br>ufw allow 22<br><span class="hljs-meta prompt_"># </span><span class="language-bash">启动SSH服务</span><br>systemctl start ssh<br></code></pre></td></tr></table></figure></li>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 安装目标路径下的所有.deb后缀安装包</span><br>dpkg -i /目标路径/*.deb<br><span class="hljs-comment"># 防火墙允许22号端口通过</span><br>ufw allow 22<br><span class="hljs-comment"># 启动SSH服务</span><br>systemctl start ssh<br></code></pre></td></tr></table></figure></li>
 </ol>
 <h2 id="2-2-vscode本地服务器安装"><a href="#2-2-vscode本地服务器安装" class="headerlink" title="2.2 vscode本地服务器安装"></a>2.2 vscode本地服务器安装</h2><blockquote>
 <p>当VSCode开启SSH服务时，会在目标主机安装VScode本地服务器，作用是映射本地与远程的路径信息以及同步编辑行为等。在离线环境下，相关资源无法从互联网获取，因此需要手动进行干预</p>
@@ -355,7 +355,7 @@
 <li><strong>vscode-server-linux-x64.tar</strong>：<code>https://update.code.visualstudio.com/commit:替换为自己的commit号/server-linux-x64/stable</code></li>
 <li><strong>vscode_cli_alpine_x64_cli.tar.gz</strong>：<code>https://update.code.visualstudio.com/commit:替换为自己的commit号/cli-alpine-x64/stable</code></li>
 </ul>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_"># </span><span class="language-bash">在用户目录下创建.vscode-server/cli/servers三个文件夹</span><br>mkdir -r ~/.vscode-server/cli/servers<br><span class="hljs-meta prompt_"># </span><span class="language-bash">在servers文件夹下再创建Stable-&#123;commit_id&#125;文件夹</span><br>mkdir Stable-&#123;commit_id&#125;<br></code></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 在用户目录下创建.vscode-server/cli/servers三个文件夹</span><br><span class="hljs-built_in">mkdir</span> -r ~/.vscode-server/cli/servers<br><span class="hljs-comment"># 在servers文件夹下再创建Stable-&#123;commit_id&#125;文件夹</span><br><span class="hljs-built_in">mkdir</span> Stable-&#123;commit_id&#125;<br></code></pre></td></tr></table></figure>
 
 <p>目录层级如下所示</p>
 <img src="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202507311718025.png" srcset="/img/loading.gif" lazyload alt="image-20250728104413292" style="zoom:50%;" />
@@ -378,7 +378,7 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 打包env_name这个虚拟环境，只需将其解压至conda对应的envs目录下即可完成迁移</span><br><span class="hljs-comment"># 注意：打包的系统需要与虚拟环境的系统一致，否则环境无法兼容</span><br>conda pack -n env_name -o env_name.tar.gz<br></code></pre></td></tr></table></figure>
 
 <p>利用XFtp或其他的文件传输工具将工具传输至于离线服务器的<code>minicoda/envs</code>目录下，将当前环境进行解压到指定目录即可完成基础环境的迁移</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_"># </span><span class="language-bash">在minicoda/envs路径下创建env_name文件夹</span><br>mkdir -p env_name<br><span class="hljs-meta prompt_"># </span><span class="language-bash">解压虚拟环境</span><br>tar -zxvf env_name.tar.gz -C env_name<br></code></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 在minicoda/envs路径下创建env_name文件夹</span><br><span class="hljs-built_in">mkdir</span> -p env_name<br><span class="hljs-comment"># 解压虚拟环境</span><br>tar -zxvf env_name.tar.gz -C env_name<br></code></pre></td></tr></table></figure>
 
 <blockquote>
 <p>可在离线服务器中存放一个仅有python的库作为环境源，后续若是需要类似的python虚拟环境只需要复制<code>minicoda/envs</code>下的环境源文件夹即可</p>
