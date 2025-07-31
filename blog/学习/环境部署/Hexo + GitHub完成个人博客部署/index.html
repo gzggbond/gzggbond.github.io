@@ -70,7 +70,7 @@
 <meta property="og:image" content="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202507081020616.png">
 <meta property="og:image" content="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202507081020179.png">
 <meta property="article:published_time" content="2025-07-07T12:41:49.000Z">
-<meta property="article:modified_time" content="2025-07-31T09:26:58.236Z">
+<meta property="article:modified_time" content="2025-07-31T11:16:32.963Z">
 <meta property="article:author" content="Z_Jump_Dragon">
 <meta property="article:tag" content="博客搭建">
 <meta property="article:tag" content="域名申请">
@@ -344,14 +344,14 @@
 <p>nvm是node.js版本管理工具（可以理解为node.js版的conda）；node.js使得JavaScript可以在服务端运行而不仅仅在浏览器，使得其可以用于开发后端服务，npm是node.js的包管理工具，类似于python环境中的pip；git用于与GitHub建立连接，通过配置密钥可以省略身份验证阶段，安全性更高的同时提高效率</p>
 </blockquote>
 <h2 id="1-1-nvm与node-js安装"><a href="#1-1-nvm与node-js安装" class="headerlink" title="1.1 nvm与node.js安装"></a>1.1 nvm与node.js安装</h2><p>nvm安装查询相关资料进行傻瓜式安装即可，当在命令提示符输入以下命令显示版本号即安装成功</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">nvm version<br></code></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">nvm version<br></code></pre></td></tr></table></figure>
 
 <p>node.js可通过nvm直接安装，通过<a target="_blank" rel="noopener" href="https://nodejs.org/en/about/previous-releases">node.js版本</a> 查询可用版本，安装命令如下：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_"># </span><span class="language-bash">安装v18的node.js</span><br>nvm install 18<br><span class="hljs-meta prompt_"># </span><span class="language-bash">查询nvm拥有的node.js环境</span><br>nvm list<br></code></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 安装v18的node.js</span><br>nvm install 18<br><span class="hljs-comment"># 查询nvm拥有的node.js环境</span><br>nvm list<br></code></pre></td></tr></table></figure>
 
 <img src="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202507072341234.png" srcset="/img/loading.gif" lazyload alt="image-20250623164606527" style="zoom: 50%;" />
 
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_"># </span><span class="language-bash">启用指定版本的node.js环境</span><br>nvm use 18.20.8<br></code></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 启用指定版本的node.js环境</span><br>nvm use 18.20.8<br></code></pre></td></tr></table></figure>
 
 <h2 id="1-2-git配置"><a href="#1-2-git配置" class="headerlink" title="1.2 git配置"></a>1.2 git配置</h2><h3 id="代理配置"><a href="#代理配置" class="headerlink" title="代理配置"></a>代理配置</h3><blockquote>
 <p>访问GitHub时常会出现访问延时的情况，建议自己找到梯子，为git配置代理服务器</p>
@@ -359,19 +359,19 @@
 <p>梯子确保可用后，在系统此处可查看代理服务器地址</p>
 <img src="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202507072341298.png" srcset="/img/loading.gif" lazyload alt="image-20250629150439961" style="zoom: 50%;" />
 
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_"># </span><span class="language-bash">通过如下方式配置代理服务器地址</span><br>git config --global http.proxy &#x27;http://代理服务器地址:端口&#x27;<br>git config --global https.proxy &#x27;https://代理服务器地址:端口&#x27;<br><span class="hljs-meta prompt_"># </span><span class="language-bash">通过如下方式查询是否配置成功</span><br>git config --global --get https.proxy<br>git config --global --get http.proxy<br></code></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 通过如下方式配置代理服务器地址</span><br>git config --global http.proxy <span class="hljs-string">&#x27;http://代理服务器地址:端口&#x27;</span><br>git config --global https.proxy <span class="hljs-string">&#x27;https://代理服务器地址:端口&#x27;</span><br><span class="hljs-comment"># 通过如下方式查询是否配置成功</span><br>git config --global --get https.proxy<br>git config --global --get http.proxy<br></code></pre></td></tr></table></figure>
 
 <h3 id="密钥配置"><a href="#密钥配置" class="headerlink" title="密钥配置"></a>密钥配置</h3><p>打开git bash并输入如下命令</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">ssh-keygen -t rsa -C &quot;你的邮箱地址&quot;<br></code></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">ssh-keygen -t rsa -C <span class="hljs-string">&quot;你的邮箱地址&quot;</span><br></code></pre></td></tr></table></figure>
 
 <p>命令完成后若 <code>C:\Users\你的本机用户名\.ssh</code> 目录下拥有如下文件，说明本地私钥创建成功</p>
 <img src="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202507072341247.png" srcset="/img/loading.gif" lazyload alt="image-20250623165204572" style="zoom:67%;" />
 
 <p>启动 SSH 代理（ssh-agent）并将私钥添加到代理中</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs shell">eval &quot;$(ssh-agent -s)&quot; <br>ssh-add ~/.ssh/id_rsa<br></code></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">eval</span> <span class="hljs-string">&quot;<span class="hljs-subst">$(ssh-agent -s)</span>&quot;</span> <br>ssh-add ~/.ssh/id_rsa<br></code></pre></td></tr></table></figure>
 
 <p>查看该私钥对应的公钥（以ssh-rsa开头，以邮箱地址结尾）</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_"># </span><span class="language-bash">查询私钥对应的公钥</span><br>cat ~/.ssh/id_rsa.pub<br></code></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 查询私钥对应的公钥</span><br><span class="hljs-built_in">cat</span> ~/.ssh/id_rsa.pub<br></code></pre></td></tr></table></figure>
 
 <img src="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202507072341237.png" srcset="/img/loading.gif" lazyload alt="image-20250623165644488" style="zoom:67%;" />
 
@@ -379,12 +379,12 @@
 <img src="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202507072341303.png" srcset="/img/loading.gif" lazyload alt="image-20250623165928605" style="zoom:50%;" />
 
 <p>使用如下命令验证该环节是否成功</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">ssh -T git@github.com<br></code></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">ssh -T git@github.com<br></code></pre></td></tr></table></figure>
 
 <img src="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202507072341238.png" srcset="/img/loading.gif" lazyload alt="image-20250623170124316" style="zoom:67%;" />
 
 <h2 id="1-3-Hexo基本配置"><a href="#1-3-Hexo基本配置" class="headerlink" title="1.3 Hexo基本配置"></a>1.3 Hexo基本配置</h2><p>Hexo 是一个基于 Node.js 的快速、简洁且高效的静态网站生成器。它允许你使用 Markdown 或其他标记语言编写文章，然后通过简单的命令将其转换为静态 HTML 页面，适合用于搭建博客、项目文档、个人网站等。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_"># </span><span class="language-bash">直接通过npm进行安装</span><br>npm install -g hexo-cli<br><span class="hljs-meta prompt_"># </span><span class="language-bash">初始化Hexo 项目，自动创建一个完整的博客目录结构，并安装必要的依赖文件</span><br>hexo init<br><span class="hljs-meta prompt_"># </span><span class="language-bash">安装git自动部署发布hexo插件</span><br>npm install hexo-deployer-git --save<br><span class="hljs-meta prompt_"># </span><span class="language-bash">启动本地服务器，验证hexo是否安装成功</span><br>hexo server<br></code></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 直接通过npm进行安装</span><br>npm install -g hexo-cli<br><span class="hljs-comment"># 初始化Hexo 项目，自动创建一个完整的博客目录结构，并安装必要的依赖文件</span><br>hexo init<br><span class="hljs-comment"># 安装git自动部署发布hexo插件</span><br>npm install hexo-deployer-git --save<br><span class="hljs-comment"># 启动本地服务器，验证hexo是否安装成功</span><br>hexo server<br></code></pre></td></tr></table></figure>
 
 <img src="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202507072341009.png" srcset="/img/loading.gif" lazyload alt="image-20250623171307314" style="zoom:67%;" />
 
@@ -418,7 +418,7 @@
 </ol>
 <h2 id="2-2-创建Hexo项目"><a href="#2-2-创建Hexo项目" class="headerlink" title="2.2 创建Hexo项目"></a>2.2 创建Hexo项目</h2><ol>
 <li><p>创建一个空文件夹，执行如下命令，完成博客项目的初始化</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_"># </span><span class="language-bash">初始化Hexo 项目，自动创建一个完整的博客目录结构，并安装必要的依赖文件</span><br>hexo init<br></code></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 初始化Hexo 项目，自动创建一个完整的博客目录结构，并安装必要的依赖文件</span><br>hexo init<br></code></pre></td></tr></table></figure>
 </li>
 <li><p>打开 Hexo 项目下的 <code>_config.yml</code></p>
 <img src="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202507072341439.png" srcset="/img/loading.gif" lazyload alt="image-20250623172228084" style="zoom:67%;" />
@@ -444,16 +444,16 @@
 <blockquote>
 <p>由于该插件是安装在本地的，因此每一个全新的hexo项目都需要重新安装</p>
 </blockquote>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_"># </span><span class="language-bash">安装git自动部署工具</span><br>npm install hexo-deployer-git --save<br></code></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 安装git自动部署工具</span><br>npm install hexo-deployer-git --save<br></code></pre></td></tr></table></figure>
 </li>
 <li><p>执行Hexo自动部署的三个步骤</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_"># </span><span class="language-bash">清理 Hexo 缓存</span><br>hexo clean   <br><span class="hljs-meta prompt_"># </span><span class="language-bash">重新生成静态文件</span><br>hexo generate  <br><span class="hljs-meta prompt_"># </span><span class="language-bash">完成本地项目部署至GitHub</span> <br><span class="hljs-meta prompt_">#</span><span class="language-bash">（由于在_config.yml中配置过，因此生成的静态资源会发布至main分支）</span><br>hexo deploy    <br></code></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 清理 Hexo 缓存</span><br>hexo clean   <br><span class="hljs-comment"># 重新生成静态文件</span><br>hexo generate  <br><span class="hljs-comment"># 完成本地项目部署至GitHub </span><br><span class="hljs-comment">#（由于在_config.yml中配置过，因此生成的静态资源会发布至main分支）</span><br>hexo deploy    <br></code></pre></td></tr></table></figure>
 </li>
 <li><p>此时可在main分支查看部署的具体资源情况</p>
 <img src="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202507072341947.png" srcset="/img/loading.gif" lazyload alt="image-20250629215128189" style="zoom:67%;" />
 
 <p>此时可以通过网址访问初始页面</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">https://你的GitHub账户名.github.io/<br></code></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">https://你的GitHub账户名.github.io/<br></code></pre></td></tr></table></figure>
 
 <img src="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202507072341307.png" srcset="/img/loading.gif" lazyload alt="image-20250629215424932" style="zoom: 50%;" /></li>
 </ol>
@@ -498,7 +498,7 @@
 <img src="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202507072341341.png" srcset="/img/loading.gif" lazyload alt="image-20250701195253497" style="zoom:67%;" /></li>
 </ol>
 <h1 id="3-从使用的角度出发认识Hexo"><a href="#3-从使用的角度出发认识Hexo" class="headerlink" title="3. 从使用的角度出发认识Hexo"></a>3. 从使用的角度出发认识Hexo</h1><p>在Hexo生成的初始项目下，我们着重关注如下内容👇</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs shell">.<br>├── _config.yml # 网站的配置文件，您可以在此配置大部分的参数。<br>├── scaffolds	# 模版文件夹，当新建文章时，Hexo会根据scaffold存储模板来创建文件。<br>├── source	# 资源文件夹，用于存放用户资源<br>|   ├── _drafts	# 草稿文件，自动部署时此部分不会生成静态资源<br>|   └── _posts	# 文章文件<br></code></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs bash">.<br>├── _config.yml <span class="hljs-comment"># 网站的配置文件，您可以在此配置大部分的参数。</span><br>├── scaffolds	<span class="hljs-comment"># 模版文件夹，当新建文章时，Hexo会根据scaffold存储模板来创建文件。</span><br>├── <span class="hljs-built_in">source</span>	<span class="hljs-comment"># 资源文件夹，用于存放用户资源</span><br>|   ├── _drafts	<span class="hljs-comment"># 草稿文件，自动部署时此部分不会生成静态资源</span><br>|   └── _posts	<span class="hljs-comment"># 文章文件</span><br></code></pre></td></tr></table></figure>
 
 <p>本节将对各部分作用进行解释，并展示常见的用法（更加详细的内容请看<a target="_blank" rel="noopener" href="https://hexo.fluid-dev.com/docs/guide/">Hexo Fluid官方文档</a>），最后为项目换上较为流行的 Fluid 主题</p>
 <h2 id="3-1-config-yml"><a href="#3-1-config-yml" class="headerlink" title="3.1 _config.yml"></a>3.1 _config.yml</h2><p>该文件主要针对网页全体对象进行配置，如下👇</p>
