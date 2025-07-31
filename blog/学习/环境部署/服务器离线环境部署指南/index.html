@@ -37,7 +37,7 @@
 <meta property="og:image" content="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202507311718025.png">
 <meta property="og:image" content="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202507311718033.png">
 <meta property="article:published_time" content="2025-07-31T09:17:50.000Z">
-<meta property="article:modified_time" content="2025-07-31T11:14:32.061Z">
+<meta property="article:modified_time" content="2025-07-31T11:15:16.118Z">
 <meta property="article:author" content="Z_Jump_Dragon">
 <meta property="article:tag" content="Linux环境离线部署">
 <meta name="twitter:card" content="summary_large_image">
@@ -361,7 +361,7 @@
 <img src="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202507311718025.png" srcset="/img/loading.gif" lazyload alt="image-20250728104413292" style="zoom:50%;" />
 </li>
 <li><p>解压文件至指定目录</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_"># </span><span class="language-bash">将vscode-server-linux-x64.tar压缩包解压至刚刚创建的路径，commit_id进行相应替换</span><br>tar -zxvf /目标路径/vscode-server-linux-x64.tar -C ~/.vscode-server/cli/servers/Stable-&#123;commit_id&#125;<br><span class="hljs-meta prompt_"># </span><span class="language-bash">将vscode_cli_alpine_x64_cli.tar.gz压缩包（仅有code文件）解压到.vscode-server下</span><br>tar -zxvf /目标路径/vscode_cli_alpine_x64_cli.tar.gz -C ~/.vscode-server<br><span class="hljs-meta prompt_"># </span><span class="language-bash">将文件命名为<span class="hljs-string">&quot;code-&#123;commit_id&#125;&quot;</span>，如下👇</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 将vscode-server-linux-x64.tar压缩包解压至刚刚创建的路径，commit_id进行相应替换</span><br>tar -zxvf /目标路径/vscode-server-linux-x64.tar -C ~/.vscode-server/cli/servers/Stable-&#123;commit_id&#125;<br><span class="hljs-comment"># 将vscode_cli_alpine_x64_cli.tar.gz压缩包（仅有code文件）解压到.vscode-server下</span><br>tar -zxvf /目标路径/vscode_cli_alpine_x64_cli.tar.gz -C ~/.vscode-server<br><span class="hljs-comment"># 将文件命名为&quot;code-&#123;commit_id&#125;&quot;，如下👇</span><br></code></pre></td></tr></table></figure>
 
 <img src="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202507311718033.png" srcset="/img/loading.gif" lazyload alt="image-20250728105124921" style="zoom:50%;" />
 
