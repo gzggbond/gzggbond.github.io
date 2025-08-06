@@ -22,13 +22,13 @@ categories:
 
 nvm安装查询相关资料进行傻瓜式安装即可，当在命令提示符输入以下命令显示版本号即安装成功
 
-```shell
+```bash
 nvm version
 ```
 
 node.js可通过nvm直接安装，通过[node.js版本](https://nodejs.org/en/about/previous-releases) 查询可用版本，安装命令如下：
 
-```shell
+```bash
 # 安装v18的node.js
 nvm install 18
 # 查询nvm拥有的node.js环境
@@ -37,7 +37,7 @@ nvm list
 
 <img src="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202507072341234.png" alt="image-20250623164606527" style="zoom: 50%;" />
 
-```shell
+```bash
 # 启用指定版本的node.js环境
 nvm use 18.20.8
 ```
@@ -52,7 +52,7 @@ nvm use 18.20.8
 
 <img src="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202507072341298.png" alt="image-20250629150439961" style="zoom: 50%;" />
 
-```shell
+```bash
 # 通过如下方式配置代理服务器地址
 git config --global http.proxy 'http://代理服务器地址:端口'
 git config --global https.proxy 'https://代理服务器地址:端口'
@@ -65,7 +65,7 @@ git config --global --get http.proxy
 
 打开git bash并输入如下命令
 
-```shell
+```bash
 ssh-keygen -t rsa -C "你的邮箱地址"
 ```
 
@@ -75,14 +75,14 @@ ssh-keygen -t rsa -C "你的邮箱地址"
 
 启动 SSH 代理（ssh-agent）并将私钥添加到代理中
 
-```shell
+```bash
 eval "$(ssh-agent -s)" 
 ssh-add ~/.ssh/id_rsa
 ```
 
 查看该私钥对应的公钥（以ssh-rsa开头，以邮箱地址结尾）
 
-```shell
+```bash
 # 查询私钥对应的公钥
 cat ~/.ssh/id_rsa.pub
 ```
@@ -95,7 +95,7 @@ cat ~/.ssh/id_rsa.pub
 
 使用如下命令验证该环节是否成功
 
-```shell
+```bash
 ssh -T git@github.com
 ```
 
@@ -105,7 +105,7 @@ ssh -T git@github.com
 
 Hexo 是一个基于 Node.js 的快速、简洁且高效的静态网站生成器。它允许你使用 Markdown 或其他标记语言编写文章，然后通过简单的命令将其转换为静态 HTML 页面，适合用于搭建博客、项目文档、个人网站等。
 
-```shell
+```bash
 # 直接通过npm进行安装
 npm install -g hexo-cli
 # 初始化Hexo 项目，自动创建一个完整的博客目录结构，并安装必要的依赖文件
@@ -172,7 +172,7 @@ hexo server
 
 1. 创建一个空文件夹，执行如下命令，完成博客项目的初始化
 
-   ```shell
+   ```bash
    # 初始化Hexo 项目，自动创建一个完整的博客目录结构，并安装必要的依赖文件
    hexo init
    ```
@@ -222,14 +222,14 @@ hexo server
 
    > 由于该插件是安装在本地的，因此每一个全新的hexo项目都需要重新安装
 
-   ```shell
+   ```bash
    # 安装git自动部署工具
    npm install hexo-deployer-git --save
    ```
 
 2. 执行Hexo自动部署的三个步骤
 
-   ```shell
+   ```bash
    # 清理 Hexo 缓存
    hexo clean   
    # 重新生成静态文件
@@ -245,7 +245,7 @@ hexo server
 
    此时可以通过网址访问初始页面
 
-   ```shell
+   ```bash
    https://你的GitHub账户名.github.io/
    ```
 
@@ -315,7 +315,7 @@ hexo server
 
 在Hexo生成的初始项目下，我们着重关注如下内容👇
 
-```shell
+```bash
 .
 ├── _config.yml # 网站的配置文件，您可以在此配置大部分的参数。
 ├── scaffolds	# 模版文件夹，当新建文章时，Hexo会根据scaffold存储模板来创建文件。
