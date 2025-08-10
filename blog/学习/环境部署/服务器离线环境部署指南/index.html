@@ -32,6 +32,7 @@
 <meta property="og:image" content="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202507311718497.png">
 <meta property="og:image" content="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202507311718492.png">
 <meta property="og:image" content="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202507311718529.png">
+<meta property="og:image" content="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202508092050214.png">
 <meta property="og:image" content="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202507311718578.png">
 <meta property="og:image" content="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202507311718515.png">
 <meta property="og:image" content="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202507311718025.png">
@@ -43,7 +44,7 @@
 <meta property="og:image" content="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202508061545640.png">
 <meta property="og:image" content="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202508061544941.png">
 <meta property="article:published_time" content="2025-07-31T09:17:50.000Z">
-<meta property="article:modified_time" content="2025-08-06T07:55:49.721Z">
+<meta property="article:modified_time" content="2025-08-10T05:19:43.479Z">
 <meta property="article:author" content="Z_Jump_Dragon">
 <meta property="article:tag" content="Linux环境离线部署">
 <meta name="twitter:card" content="summary_large_image">
@@ -249,7 +250,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          2.2k 字
+          2.7k 字
         
       </span>
     
@@ -326,10 +327,15 @@
 <p>下载完安装包后，通过XFTP将文件传输至于服务器，接着直接安装即可</p>
 <img src="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202507311718529.png" srcset="/img/loading.gif" lazyload alt="image-20250723181904627" style="zoom:67%;" />
 
-<h1 id="2-局域网环境VSCode远程连接服务器"><a href="#2-局域网环境VSCode远程连接服务器" class="headerlink" title="2. 局域网环境VSCode远程连接服务器"></a>2. 局域网环境VSCode远程连接服务器</h1><h2 id="2-1-SSH服务安装"><a href="#2-1-SSH服务安装" class="headerlink" title="2.1 SSH服务安装"></a>2.1 SSH服务安装</h2><ol>
+<h1 id="2-局域网环境VSCode远程连接服务器"><a href="#2-局域网环境VSCode远程连接服务器" class="headerlink" title="2. 局域网环境VSCode远程连接服务器"></a>2. 局域网环境VSCode远程连接服务器</h1><h2 id="2-1-SSH服务安装"><a href="#2-1-SSH服务安装" class="headerlink" title="2.1 SSH服务安装"></a>2.1 SSH服务安装</h2><blockquote>
+<p>如果安装的是Ubuntu24.xx版本，系统设置内已自带SSH监听服务，只需要在设置界面打开即可</p>
+</blockquote>
+<img src="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202508092050214.png" srcset="/img/loading.gif" lazyload alt="image-20250809205018125" style="zoom: 33%;" />
+
+<ol>
 <li><p>下载SSH服务所需的安装包（与系统版本对应）</p>
 <blockquote>
-<p>如果不清楚当前系统对应的版本可以询问豆包</p>
+<p>一个比较方便的方法是在Windows商店下载对应的Ubuntu系统，利用本地的网络环境执行如下命令</p>
 </blockquote>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 下载openssh-server及其依赖项</span><br><span class="hljs-built_in">sudo</span> apt-get install --download-only --reinstall -o Dir::Cache::archives=/mnt/d/apt_pkgs openssh-server -y<br></code></pre></td></tr></table></figure>
 </li>
@@ -359,13 +365,13 @@
 <li><strong>vscode-server-linux-x64.tar</strong>：<code>https://update.code.visualstudio.com/commit:替换为自己的commit号/server-linux-x64/stable</code></li>
 <li><strong>vscode_cli_alpine_x64_cli.tar.gz</strong>：<code>https://update.code.visualstudio.com/commit:替换为自己的commit号/cli-alpine-x64/stable</code></li>
 </ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 在用户目录下创建.vscode-server/cli/servers三个文件夹</span><br><span class="hljs-built_in">mkdir</span> -r ~/.vscode-server/cli/servers<br><span class="hljs-comment"># 在servers文件夹下再创建Stable-&#123;commit_id&#125;文件夹</span><br><span class="hljs-built_in">mkdir</span> Stable-&#123;commit_id&#125;<br></code></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 在用户目录下创建.vscode-server/cli/servers三个文件夹</span><br><span class="hljs-built_in">mkdir</span> -p ~/.vscode-server/cli/servers<br><span class="hljs-comment"># 在servers文件夹下再创建Stable-&#123;commit_id&#125;文件夹</span><br><span class="hljs-built_in">mkdir</span> Stable-&#123;commit_id&#125;<br></code></pre></td></tr></table></figure>
 
 <p>目录层级如下所示</p>
 <img src="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202507311718025.png" srcset="/img/loading.gif" lazyload alt="image-20250728104413292" style="zoom:50%;" />
 </li>
 <li><p>解压文件至指定目录</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 将vscode-server-linux-x64.tar压缩包解压至刚刚创建的路径，commit_id进行相应替换</span><br>tar -zxvf /目标路径/vscode-server-linux-x64.tar -C ~/.vscode-server/cli/servers/Stable-&#123;commit_id&#125;<br><span class="hljs-comment"># 将vscode_cli_alpine_x64_cli.tar.gz压缩包（仅有code文件）解压到.vscode-server下</span><br>tar -zxvf /目标路径/vscode_cli_alpine_x64_cli.tar.gz -C ~/.vscode-server<br><span class="hljs-comment"># 将文件命名为&quot;code-&#123;commit_id&#125;&quot;，如下👇</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 将vscode-server-linux-x64.tar压缩包解压至刚刚创建的路径，commit_id进行相应替换</span><br><span class="hljs-comment"># 解压后的文件夹需要重命名为server</span><br>tar -zxvf /目标路径/vscode-server-linux-x64.tar.gz -C ~/.vscode-server/cli/servers/Stable-&#123;commit_id&#125;<br><span class="hljs-comment"># 将vscode_cli_alpine_x64_cli.tar.gz压缩包（仅有code文件）解压到.vscode-server下</span><br>tar -zxvf /目标路径/vscode_cli_alpine_x64_cli.tar.gz -C ~/.vscode-server<br><span class="hljs-comment"># 将文件命名为&quot;code-&#123;commit_id&#125;&quot;，如下👇</span><br></code></pre></td></tr></table></figure>
 
 <img src="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202507311718033.png" srcset="/img/loading.gif" lazyload alt="image-20250728105124921" style="zoom:50%;" />
 
@@ -376,6 +382,7 @@
 <h1 id="3-离线部署conda虚拟环境"><a href="#3-离线部署conda虚拟环境" class="headerlink" title="3. 离线部署conda虚拟环境"></a>3. 离线部署conda虚拟环境</h1><p>如果需要在服务器离线部署Python虚拟环境（服务器要提前安装MiniConda），可参考以下步骤：</p>
 <blockquote>
 <p>Miniconda下载地址：<a target="_blank" rel="noopener" href="https://repo.anaconda.com/miniconda/">https://repo.anaconda.com/miniconda/</a></p>
+<p>pip 通过 -e 参数进行安装但是后续修改了项目位置，可以在envs&#x2F;虚拟环境名称&#x2F;lib&#x2F;当前环境<code>python版本/site-packages/__editablexxx.py</code>进行修改</p>
 </blockquote>
 <ol>
 <li><p>寻找拥有MiniConda且联网的Linux系统，创建初始环境并指定python版本</p>
@@ -400,10 +407,13 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 切换至目标虚拟环境</span><br>conda activate env_name<br><span class="hljs-comment"># 根据当前的依赖生成requirements.txt文件</span><br><span class="hljs-built_in">ls</span> ./offline/*.whl &gt; requirements.txt<br><span class="hljs-comment"># 安装所有依赖</span><br>pip install -r requirements.txt<br></code></pre></td></tr></table></figure></li>
 </ol>
 <h1 id="4-Linux常用命令"><a href="#4-Linux常用命令" class="headerlink" title="4.Linux常用命令"></a>4.Linux常用命令</h1><h2 id="4-1-下载安装"><a href="#4-1-下载安装" class="headerlink" title="4.1 下载安装"></a>4.1 下载安装</h2><p><strong>apt软件包</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 确保本地系统环境足够干净，否则依赖下载不全</span><br><span class="hljs-comment"># 下载软件包到指定目录</span><br><span class="hljs-built_in">sudo</span> apt-get install --download-only --reinstall  -o Dir::Cache::archives=存储地址 包名 -y<br><span class="hljs-comment"># 例如下载ssh相关安装包</span><br><span class="hljs-built_in">sudo</span> apt-get install --download-only --reinstall -o Dir::Cache::archives=/mnt/d/apt_pkgs openssh-server -y<br><br><span class="hljs-comment"># 安装.deb存放的软件</span><br><span class="hljs-built_in">sudo</span> dpkg -i ./*deb<br></code></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">sudo</span> apt update<br><span class="hljs-comment"># 确保本地系统环境足够干净，否则依赖下载不全</span><br><span class="hljs-comment"># 下载软件包到指定目录</span><br><span class="hljs-built_in">sudo</span> apt-get install --download-only --reinstall  -o Dir::Cache::archives=存储地址 包名 -y<br><br><span class="hljs-comment"># 安装软件对应的所有.deb</span><br><span class="hljs-built_in">sudo</span> dpkg -i ./*deb<br></code></pre></td></tr></table></figure>
 
+<blockquote>
+<p>由于deb安装并不会判断依赖关系，因此初次安装有些依赖可能装不上，只需要再次执行即可</p>
+</blockquote>
 <p><strong>conda环境</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 将本地的虚拟环境打包（直接解压至miniconda的envs目录下就可以使用）</span><br>conda pack -n your_env_name -o your_env_name.tar.gz<br></code></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 将本地的虚拟环境打包（直接解压至miniconda的envs的空目录下就可以使用）</span><br>conda pack -n your_env_name -o your_env_name.tar.gz<br></code></pre></td></tr></table></figure>
 
 <h2 id="4-2-防火墙"><a href="#4-2-防火墙" class="headerlink" title="4.2 防火墙"></a>4.2 防火墙</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 查看防火墙当前存在的规则</span><br><span class="hljs-built_in">sudo</span> ufw status numbered<br><span class="hljs-comment"># 开放xx端口</span><br><span class="hljs-built_in">sudo</span> ufw allow xx<br><span class="hljs-comment"># xx端口禁止通行</span><br><span class="hljs-built_in">sudo</span> ufw deny xx<br><span class="hljs-comment"># 删除某条规则[最左侧的序号]</span><br><span class="hljs-built_in">sudo</span> ufw delete xx<br><span class="hljs-comment"># 重启防火墙</span><br><span class="hljs-built_in">sudo</span> ufw reload<br><span class="hljs-comment"># 禁用/启用防火墙</span><br><span class="hljs-built_in">sudo</span> ufw <span class="hljs-built_in">disable</span>/enable <br></code></pre></td></tr></table></figure>
 
@@ -423,9 +433,12 @@
 
 <h2 id="4-5-文件"><a href="#4-5-文件" class="headerlink" title="4.5 文件"></a>4.5 文件</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 递归复制</span><br><span class="hljs-built_in">cp</span> -r <span class="hljs-built_in">source</span> dest<br><span class="hljs-comment"># 创建多级文件夹</span><br><span class="hljs-built_in">mkdir</span> -p xxx<br></code></pre></td></tr></table></figure>
 
+<h2 id="4-6-磁盘"><a href="#4-6-磁盘" class="headerlink" title="4.6 磁盘"></a>4.6 磁盘</h2><p><strong>永久挂载外接硬盘</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 查看所有存储设备及分区，定位到需要挂载的设备并记住UUID与文件系统类型</span><br>lsblk -f<br><br><span class="hljs-comment"># 将存储设备sda3挂载到/mnt/storage4T【文件系统为ext4是设备】</span><br><span class="hljs-built_in">sudo</span> vim /etc/fstab<br><span class="hljs-comment">########</span><br><span class="hljs-comment"># 在文件尾部添加如下内容，并保存退出</span><br>UUID=xxx /mnt/storage4T ext4 defaults 0 2<br><span class="hljs-comment">#UUID=你的UUID 挂载位置 文件系统类型 defaults 0 2</span><br><span class="hljs-comment">########</span><br><span class="hljs-comment"># 配置生效</span><br><span class="hljs-built_in">sudo</span> mount -a<br>systemctl daemon-reload<br><span class="hljs-comment"># 查看是否挂载成功，接着重启验证</span><br><span class="hljs-built_in">df</span> -h  <br></code></pre></td></tr></table></figure>
+
 <h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 关机</span><br>init 0<br><span class="hljs-comment"># 查看80端口占用情况</span><br>lsof -i :80<br><span class="hljs-comment"># 查询系统架构</span><br><span class="hljs-built_in">uname</span> -m<br></code></pre></td></tr></table></figure>
 
-<h1 id="5-显卡驱动及驱动安装"><a href="#5-显卡驱动及驱动安装" class="headerlink" title="5. 显卡驱动及驱动安装"></a>5. 显卡驱动及驱动安装</h1><blockquote>
+<h1 id="5-显卡工具及驱动安装"><a href="#5-显卡工具及驱动安装" class="headerlink" title="5. 显卡工具及驱动安装"></a>5. 显卡工具及驱动安装</h1><blockquote>
 <p>若要在算法中使用Nvidia显卡，驱动以及CUDA工具必不可少</p>
 </blockquote>
 <p>使用Nvidia官方的CUDA Toolkit进行安装时可以顺带安装对应的驱动，因此无需提前安装驱动</p>
@@ -439,20 +452,20 @@
 <p>👆选配后往下滑，可看见对应的下载地址👇</p>
 <img src="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202508061522100.png" srcset="/img/loading.gif" lazyload alt="image-20250806152222010" style="zoom:50%;" />
 
-<p>安装前需要确保服务器拥有gcc，g++，make，binutils软件包（使用apt下载），gcc需要手动软链接cc工具</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 手动创建cc到gcc的软链接【确保gcc已安装】</span><br><span class="hljs-built_in">sudo</span> <span class="hljs-built_in">ln</span> -s /usr/bin/gcc /usr/bin/cc<br><span class="hljs-comment"># 能查询到说明安装</span><br>cc --version<br></code></pre></td></tr></table></figure>
+<p>安装前需要确保服务器拥有gcc，g++，make，binutils软件包（使用apt下载），先安装gcc再安装g++，顺序错了会导致gcc某些包安装失败，此时需要手动软链接cc工具</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 手动创建cc到gcc的软链接【确保gcc已安装】</span><br><span class="hljs-built_in">sudo</span> <span class="hljs-built_in">ln</span> -s /usr/bin/gcc /usr/bin/cc<br><span class="hljs-comment"># 先安装gcc能查询到说明安装</span><br>cc --version<br></code></pre></td></tr></table></figure>
 
 <p>赋予安装包执行权限</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 到指定目录下执行，赋予执行权限</span><br><span class="hljs-built_in">sudo</span> <span class="hljs-built_in">chmod</span> +x ./cuda_12.8.0_570.86.10_linux.run<br><span class="hljs-comment"># 关闭图形化界面【显卡驱动安装必须关闭图形化界面】</span><br>init 0<br><span class="hljs-comment"># 执行安装包</span><br><span class="hljs-built_in">sudo</span> ./cuda_12.8.0_570.86.10_linux.run<br></code></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 到指定目录下执行，赋予执行权限</span><br><span class="hljs-built_in">sudo</span> <span class="hljs-built_in">chmod</span> +x ./cuda_12.8.0_570.86.10_linux.run<br><span class="hljs-comment"># 关闭图形化界面【显卡驱动安装必须关闭图形化界面】</span><br><span class="hljs-comment"># 该命令黑屏时按快捷键Ctrl+Alt+F2~F6切换至于其他文本终端</span><br><span class="hljs-built_in">sudo</span> systemctl isolate multi-user.target<br><span class="hljs-comment"># 执行安装包</span><br><span class="hljs-built_in">sudo</span> ./cuda_12.8.0_570.86.10_linux.run<br></code></pre></td></tr></table></figure>
 
 <p>安装过程依照系统提示即可，其中X代表选择，空白代表没选中</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 配置环境变量</span><br>vim ~/.bashrc<br><span class="hljs-comment">##############</span><br><span class="hljs-comment"># 在~/.bashrc末尾添加如下内容</span><br><span class="hljs-built_in">export</span> PATH=/usr/local/cuda-12.8/bin:<span class="hljs-variable">$PATH</span><br><span class="hljs-built_in">export</span> LD_LIBRARY_PATH=/usr/local/cuda-12.8/lib64:<span class="hljs-variable">$LD_LIBRARY_PATH</span><br><span class="hljs-comment">############</span><br><span class="hljs-comment"># 刷新环境变量</span><br><span class="hljs-built_in">source</span> ~/.bashrc<br><span class="hljs-comment"># 若有对应版本输出则安装成功</span><br>nvidia-smi<br>nvcc --version<br></code></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 配置环境变量</span><br>vim ~/.bashrc<br><span class="hljs-comment">##############</span><br><span class="hljs-comment"># 在~/.bashrc末尾添加如下内容</span><br><span class="hljs-built_in">export</span> PATH=/usr/local/cuda-12.8/bin:<span class="hljs-variable">$PATH</span><br><span class="hljs-built_in">export</span> LD_LIBRARY_PATH=/usr/local/cuda-12.8/lib64:<span class="hljs-variable">$LD_LIBRARY_PATH</span><br><span class="hljs-comment">############</span><br><span class="hljs-comment"># 刷新环境变量</span><br><span class="hljs-built_in">source</span> ~/.bashrc<br><span class="hljs-comment"># 若有对应版本输出则安装成功</span><br>nvidia-smi<br>nvcc --version<br><span class="hljs-comment"># 切换为图形模式</span><br><span class="hljs-built_in">sudo</span> systemctl isolate graphical.target<br></code></pre></td></tr></table></figure>
 
 <h1 id="6-Ubuntu系统重装"><a href="#6-Ubuntu系统重装" class="headerlink" title="6. Ubuntu系统重装"></a>6. Ubuntu系统重装</h1><blockquote>
-<p>准备好一个16GB以上的空U盘！</p>
+<p>准备好一个16GB以上的空U盘！若系统卡死，则同时按住Ctrl + Alt，接着依次按PriSc，R，E，I，S，U，B即可完成安全重启</p>
 </blockquote>
 <ol>
-<li><p>在清华镜像源下载所需版本的系统资源（<a target="_blank" rel="noopener" href="https://mirrors.tuna.tsinghua.edu.cn/ubuntu-releases/">Ubuntu22.04</a>），选择<code>desktop-amd64.iso</code>结尾的文件下载</p>
+<li><p>在清华镜像源下载所需版本的系统资源（<a target="_blank" rel="noopener" href="https://mirrors.tuna.tsinghua.edu.cn/ubuntu-releases/">Ubuntu</a>），选择<code>desktop-amd64.iso</code>结尾的文件下载</p>
 </li>
 <li><p>下载系统启动盘构造工具<a target="_blank" rel="noopener" href="https://filehippo.com/download_ultra-iso/post_download/?dt=internalDownload">UltraISO</a>，双击安装，选择默认选项即可，安装完成启动后，选择“继续试用”</p>
 <img src="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202508061545702.png" srcset="/img/loading.gif" lazyload alt="image-20250805090644910" style="zoom:33%;" />
@@ -463,10 +476,17 @@
 <li><p>选择本地空U盘路径，点击“格式化”，再点击“写入”</p>
 <img src="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202508061544941.png" srcset="/img/loading.gif" lazyload alt="image-20250805093307182" style="zoom: 33%;" />
 </li>
-<li><p>将U盘插入主机，开机过程中一直按F12，直至进入BIOS系统，选择使用U盘启动</p>
+<li><p>将U盘插入主机，开机过程中来回按F12，直至进入BIOS系统，选择使用U盘启动</p>
 </li>
 <li><p>接着按照系统指引进行初始化即可</p>
 </li>
+</ol>
+<p>当电脑内置Nvidia显卡且安装过程中未勾选安装初始Nvidia驱动时（推荐勾选，后续安装），开机后可能出现卡在Logo页面的情况，此时需要如下操作才能进入系统页面</p>
+<ol>
+<li><p>同时按住Ctrl + Alt，接着依次按PriSc，R，E，I，S，U，B完成安全重启</p>
+</li>
+<li><p>重启过程中选择“Ubuntu 高级选项”–&gt;”recovery mode”，加载完毕后选择”root”选项进入，在命令行输入如下命令：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">sudo</span> vi /etc/default/grub<br><span class="hljs-comment"># 按i进入编辑模式，将GRUB_CMDLINE_LINUX_DEFAULT修改为如下内容后保存退出</span><br>GRUB_CMDLINE_LINUX_DEFAULT=<span class="hljs-string">&quot;quiet splash nomodeset&quot;</span><br><span class="hljs-built_in">sudo</span> update-grub<br>reboot<br></code></pre></td></tr></table></figure></li>
 </ol>
 
                 
