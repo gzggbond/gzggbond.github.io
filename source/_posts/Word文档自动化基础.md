@@ -250,6 +250,42 @@ cell.paragraphs[0].text = "保留格式的文本"
 cell.paragraphs[0].runs[0].text = "第一个段落的第一个run"
 ```
 
+## 表格边框
+
+```python
+from docx import Document
+from docx.shared import Pt
+from docx.enum.table import WD_TABLE_ALIGNMENT
+from docx.oxml import OxmlElement
+from docx.oxml.ns import qn
+
+# 创建文档
+doc = Document()
+
+# 创建表格（3行4列），有网格风格
+table = doc.add_table(rows=3, cols=4,style='Table Grid')
+
+# 设置整个表格的边框为实线，粗细为1.5磅
+tbl = table._tbl  # 获取底层的XML元素
+tblPr = tbl.tblPr
+
+# 设置表格边框
+tblBorders = OxmlElement('w:tblBorders')
+# for border_name in ['top', 'left', 'bottom', 'right', 'insideH', 'insideV']:
+# 外边框
+for border_name in ['top', 'left', 'bottom', 'right']:
+    border = OxmlElement(f'w:{border_name}')
+    border.set(qn('w:val'), 'single')  # 边框样式：single实线
+    border.set(qn('w:sz'), '12')  # 边框粗细（8代表0.5磅，每增加8，增加0.5磅）
+    border.set(qn('w:space'), '0')  # 边框间距
+    border.set(qn('w:color'), '000000')  # 边框颜色，黑色
+    tblBorders.append(border)
+tblPr.append(tblBorders)
+doc.save('table_with_borders.docx')
+```
+
+
+
 # 5. 图片相关操作
 
 > 通过段落加Run的方式添加图片，图片大小需要在添加时指定
