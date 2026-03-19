@@ -1,0 +1,838 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/our/logo.png">
+  <link rel="icon" href="/img/our/logo.png">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="Z_Jump_Dragon">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="docker通过容器化的思想（容器共享内核），将每个应用所需的环境进行隔离，使得同一台服务器上部署管理多个环境变得更为简便">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Docker基础">
+<meta property="og:url" content="https://dragooon.top/blog/%E8%BD%AF%E4%BB%B6%E4%BD%BF%E7%94%A8/%E8%BD%AF%E4%BB%B6%E4%BD%BF%E7%94%A8/Docker%E5%9F%BA%E7%A1%80/index.html">
+<meta property="og:site_name" content="棱镜里的日常">
+<meta property="og:description" content="docker通过容器化的思想（容器共享内核），将每个应用所需的环境进行隔离，使得同一台服务器上部署管理多个环境变得更为简便">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202411291003280.png">
+<meta property="og:image" content="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202411141603162.png">
+<meta property="og:image" content="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202411141604681.png">
+<meta property="og:image" content="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202411141605307.png">
+<meta property="og:image" content="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202411141605681.png">
+<meta property="og:image" content="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202411141606901.png">
+<meta property="og:image" content="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202411291426684.png">
+<meta property="og:image" content="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202411291425373.png">
+<meta property="og:image" content="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202411291021970.png">
+<meta property="og:image" content="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202411291025416.png">
+<meta property="og:image" content="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202411291031510.png">
+<meta property="og:image" content="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202411291032013.png">
+<meta property="og:image" content="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202411291026955.png">
+<meta property="og:image" content="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202411291507474.png">
+<meta property="og:image" content="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202411291523844.png">
+<meta property="og:image" content="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202411291525375.png">
+<meta property="og:image" content="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202411291530682.png">
+<meta property="og:image" content="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202411291553099.png">
+<meta property="og:image" content="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202411291555731.png">
+<meta property="og:image" content="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202411291414692.png">
+<meta property="og:image" content="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202411291128607.png">
+<meta property="og:image" content="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202412020945374.png">
+<meta property="og:image" content="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202412020951458.png">
+<meta property="og:image" content="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202412021009682.png">
+<meta property="og:image" content="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202412031624775.png">
+<meta property="og:image" content="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202412041137618.png">
+<meta property="og:image" content="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202412041403815.png">
+<meta property="og:image" content="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202412041629906.png">
+<meta property="og:image" content="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202412041724939.png">
+<meta property="og:image" content="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202412041726394.png">
+<meta property="article:published_time" content="2023-09-09T06:27:23.000Z">
+<meta property="article:modified_time" content="2026-03-19T09:01:12.978Z">
+<meta property="article:author" content="Z_Jump_Dragon">
+<meta property="article:tag" content="软件使用">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202411291003280.png">
+  
+  
+  
+  <title>Docker基础 - 棱镜里的日常</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+  
+<link rel="stylesheet" href="/css/cloudedGlass.css">
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"dragooon.top","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":60,"cursorChar":"_","loop":false,"scope":["home"]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"left","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":3},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":false};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+
+<body><!-- hexo injector body_begin start --><div id="web_bg"></div><!-- hexo injector body_begin end -->
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 100vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>棱镜里的日常</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/our/article.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle">Docker基础</span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-author" aria-hidden="true"></i>
+        Z_Jump_Dragon
+      </span>
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2023-09-09 14:27" pubdate>
+          2023年9月9日 下午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          2.1k 字
+        
+      </span>
+    
+
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+        <div class="scroll-down-bar">
+          <i class="iconfont icon-arrowdown"></i>
+        </div>
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="padding-left: 2rem; margin-right: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">Docker基础</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h1 id="1-Docker简介"><a href="#1-Docker简介" class="headerlink" title="1. Docker简介"></a>1. Docker简介</h1><p>Docker 通过 Docker Hub 实现一行命令安装应用（镜像）【Nginx，Mysql等】，避免繁琐的部署操作。同时通过轻量级（相对于虚拟机）的容器化的思想（容器共享内核），将每个应用所需的环境进行隔离，使得同一台服务器上部署管理多个环境变得更为简便。</p>
+<blockquote>
+<p>简单来说，可以把 Docker 是一个大容器，里边可以根据需求下载各类镜像，再根据需要自定义镜像并创建出一个个小容器，容器环境是最终暴露给外部的环境。</p>
+</blockquote>
+<img src="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202411291003280.png" srcset="/img/loading.gif" lazyload alt="image-20241129100322967" style="zoom:80%;" />
+
+<h1 id="2-Windows环境部署docker"><a href="#2-Windows环境部署docker" class="headerlink" title="2. Windows环境部署docker"></a>2. Windows环境部署docker</h1><ol>
+<li><p>确保Windows为专业版（否则无 Hyper-V 选项）且做如下设置</p>
+<img src="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202411141603162.png" srcset="/img/loading.gif" lazyload alt="image-20241114160341845" style="zoom: 33%;" />
+
+<img src="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202411141604681.png" srcset="/img/loading.gif" lazyload alt="image-20241114160435595" style="zoom:33%;" />
+
+<img src="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202411141605307.png" srcset="/img/loading.gif" lazyload alt="image-20241114160519278" style="zoom:50%;" />
+
+<img src="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202411141605681.png" srcset="/img/loading.gif" lazyload alt="image-20241114160550647" style="zoom:50%;" />
+
+<img src="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202411141606901.png" srcset="/img/loading.gif" lazyload alt="image-20241114160614875" style="zoom:50%;" />
+</li>
+<li><p>docker安装</p>
+<p><a target="_blank" rel="noopener" href="https://www.docker.com/products/docker-desktop/">docker下载地址【Windows的x86架构对应AMD64】</a></p>
+<p>第一次启动时要使用管理员身份！</p>
+</li>
+</ol>
+<h1 id="3-入门案例"><a href="#3-入门案例" class="headerlink" title="3. 入门案例"></a>3. 入门案例</h1><blockquote>
+<p>拉取nginx镜像，自定义带有 nginx 镜像的容器名为 mynginx ，启动 nginx 服务，并成功访问欢迎界面</p>
+</blockquote>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_"># </span><span class="language-bash">拉取 nginx 镜像</span><br>docker pull nginx <br><span class="hljs-meta prompt_"># </span><span class="language-bash">后台启动服务，自定义镜像名为mynginx，完成容器内部端口80到实际端口88的映射</span><br>docker run -d --name mynginx -p 80:88 nginx<br></code></pre></td></tr></table></figure>
+
+<img src="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202411291426684.png" srcset="/img/loading.gif" lazyload alt="image-20241129142619651" style="zoom:80%;" />
+
+<img src="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202411291425373.png" srcset="/img/loading.gif" lazyload alt="image-20241129142503305" style="zoom:67%;" />
+
+<h1 id="4-镜像相关命令"><a href="#4-镜像相关命令" class="headerlink" title="4. 镜像相关命令"></a>4. 镜像相关命令</h1><ul>
+<li><p>查询是否有 nginx 镜像</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">docker search nginx <br></code></pre></td></tr></table></figure>
+
+<img src="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202411291021970.png" srcset="/img/loading.gif" lazyload alt="image-20241129102153929" style="zoom:67%;" />
+</li>
+<li><p>下载 nginx 镜像</p>
+<blockquote>
+<p>无法科学上网的需要配置国内下载仓库，具体看其他帖子</p>
+</blockquote>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">docker pull nginx <br></code></pre></td></tr></table></figure>
+
+<img src="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202411291025416.png" srcset="/img/loading.gif" lazyload alt="image-20241129102539380" style="zoom:67%;" />
+
+<p>如果需要下载指定版本的镜像，需要去 Docker Hub 查询</p>
+<img src="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202411291031510.png" srcset="/img/loading.gif" lazyload alt="image-20241129103150433" style="zoom:50%;" />
+
+<p>找到需要版本后，可以用框框处语句进行下载</p>
+<img src="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202411291032013.png" srcset="/img/loading.gif" lazyload alt="image-20241129103249967" style="zoom:67%;" />
+</li>
+<li><p>查询当前所拥有的镜像</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">docker images<br></code></pre></td></tr></table></figure>
+
+<img src="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202411291026955.png" srcset="/img/loading.gif" lazyload alt="image-20241129102642927" style="zoom:80%;" />
+</li>
+<li><p>删除 nginx 镜像</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_"># </span><span class="language-bash">需要输入镜像完整名（也可以使用Image ID删除）</span><br>docker rmi nginx:latest <br></code></pre></td></tr></table></figure>
+</li>
+<li><p>保存镜像</p>
+<blockquote>
+<p>保存的镜像可像正常文件一样传输，用户只需要拿到镜像加载即可复刻镜像环境</p>
+</blockquote>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_"># </span><span class="language-bash">将指定容器环境（此处是mynginx）保存为镜像（mynginx:1.0 ，1.0是标签）</span><br>docker commit -m &quot;update xxx&quot; mynginx mynginx:1.0 <br><span class="hljs-meta prompt_"># </span><span class="language-bash">将mynginx:1.0镜像保存为压缩包</span><br>docker save -o mynginx.tar mynginx:1.0 <br></code></pre></td></tr></table></figure>
+</li>
+<li><p>加载镜像</p>
+<blockquote>
+<p>用于复刻封装好的镜像环境</p>
+</blockquote>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_"># </span><span class="language-bash">加载mynginx.tar封装的镜像</span><br>docker load -i mynginx.tar<br></code></pre></td></tr></table></figure>
+
+<p>加载完毕后使用 run 语句即可将其复刻为容器实例</p>
+</li>
+</ul>
+<h1 id="5-镜像推送社区"><a href="#5-镜像推送社区" class="headerlink" title="5. 镜像推送社区"></a>5. 镜像推送社区</h1><img src="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202411291507474.png" srcset="/img/loading.gif" lazyload alt="image-20241129150709437" style="zoom:80%;" />
+
+<ol>
+<li><p>准备好 Docker Hub 账号并在终端登录</p>
+<img src="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202411291523844.png" srcset="/img/loading.gif" lazyload alt="image-20241129152327720" style="zoom:50%;" />
+
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">docker login<br></code></pre></td></tr></table></figure>
+
+<img src="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202411291525375.png" srcset="/img/loading.gif" lazyload alt="image-20241129152534333" style="zoom:80%;" />
+</li>
+<li><p>复制镜像并使用指定名称，格式为：<code>用户名/镜像名</code></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">docker tag mynginx:1.0 excellentlong/mynginx:v1.0<br></code></pre></td></tr></table></figure>
+
+<p><img src="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202411291530682.png" srcset="/img/loading.gif" lazyload alt="image-20241129153002648"></p>
+</li>
+<li><p>推送镜像到指定仓库</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_"># </span><span class="language-bash">确保账号为excellentlong且存在mynginx仓库</span><br>docker push excellentlong/mynginx:v1.0<br></code></pre></td></tr></table></figure>
+
+<img src="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202411291553099.png" srcset="/img/loading.gif" lazyload alt="image-20241129155310058" style="zoom:67%;" />
+
+<img src="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202411291555731.png" srcset="/img/loading.gif" lazyload alt="image-20241129155550613" style="zoom: 50%;" />
+
+<p>后续别人需要使用只需要搜索使用 pull 命令即可拉取到本地</p>
+</li>
+</ol>
+<h1 id="6-容器相关命令"><a href="#6-容器相关命令" class="headerlink" title="6. 容器相关命令"></a>6. 容器相关命令</h1><ul>
+<li><p>运行 nginx:latest 镜像</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_"># </span><span class="language-bash">创建并启用一个新的容器实例</span><br>docker run nginx:latest<br><span class="hljs-meta prompt_"># </span><span class="language-bash">后台启动服务，自定义容器名为mynginx，完成容器内部端口80到实际端口88的映射</span><br>docker run -d --name mynginx -p 88:80 nginx<br></code></pre></td></tr></table></figure>
+
+<p>容器内部的端口是独立的（此处的80），暴露在外的端口是唯一的（此处的88）</p>
+<img src="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202411291414692.png" srcset="/img/loading.gif" lazyload alt="image-20241129141407555" style="zoom:50%;" />
+
+
+</li>
+<li><p>查看应用</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_"># </span><span class="language-bash">查看运行中的容器</span><br>docker ps <br><span class="hljs-meta prompt_"># </span><span class="language-bash">查看所有容器</span><br>docker ps -a<br></code></pre></td></tr></table></figure>
+
+<img src="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202411291128607.png" srcset="/img/loading.gif" lazyload alt="image-20241129112828575" style="zoom:50%;" />
+</li>
+<li><p>启动</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_"># </span><span class="language-bash">启用一个已经存在的容器（容器ID可以不写全，只要足够区分即可）</span><br>docker start 容器ID/容器NAMES<br></code></pre></td></tr></table></figure>
+</li>
+<li><p>停止</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">docker stop 容器ID/容器NAMES<br></code></pre></td></tr></table></figure>
+</li>
+<li><p>重启</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">docker restart 容器ID/容器NAMES<br></code></pre></td></tr></table></figure>
+</li>
+<li><p>状态</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">docker stats 容器ID/容器NAMES<br></code></pre></td></tr></table></figure>
+</li>
+<li><p>日志</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">docker logs 容器ID/容器NAMES<br></code></pre></td></tr></table></figure>
+</li>
+<li><p>删除</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_"># </span><span class="language-bash">f参数是强制删除，即不关闭容器的情况下也能删除</span><br>docker rm [-f] 容器ID/容器NAMES<br></code></pre></td></tr></table></figure>
+</li>
+<li><p>进入某个容器的bash环境</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_"># </span><span class="language-bash">进入app01容器的bash环境</span><br>docker exec -it app01 bash<br></code></pre></td></tr></table></figure></li>
+</ul>
+<h1 id="7-文件挂载"><a href="#7-文件挂载" class="headerlink" title="7. 文件挂载"></a>7. 文件挂载</h1><p>由于docker内部容器非常轻量级，因此管理编辑容器内部文件并不方便，为此我们可以在启动容器时使用文件挂载的方式将内部容器与外部环境进行关联，从而只需要在外部进行操作即可完成对内部容器的修改。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_"># </span><span class="language-bash">创建并启动app01容器，同时将容器内外路径进行关联</span><br>docker run -d -p 80:80 -v 外部目录路径:内部目录路径 --name app01 nginx<br></code></pre></td></tr></table></figure>
+
+<p>使用👆这一方式进行挂载是以外部环境为准，即挂载的外部目录为空，则对应的内部环境也会被置空</p>
+<p>另外一种挂载方式是卷映射，它以内部环境为准，同样是使用 -v 进行指定，如下👇</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_"># </span><span class="language-bash">使用卷挂载的方式，docker会自动分配映射目录</span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">卷默认挂载在/var/lib/docker/volumes/&lt;卷名&gt;/_data下，windows未知</span><br>docker run -d -p 99:80 -v ngconf:/etc/nginx --name app02 nginx<br>docker run --add-host=www.saigoumvp.work:127.0.0.1 -v admin:/app/admin -p 8089:8089 --name adminapp adminapp:v2<br></code></pre></td></tr></table></figure>
+
+<p><strong>卷常见操作</strong></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_"># </span><span class="language-bash">查看</span><br>docker volume ls<br><span class="hljs-meta prompt_"># </span><span class="language-bash">手动创建卷xxx</span><br>docker volume create xxx<br><span class="hljs-meta prompt_"># </span><span class="language-bash">查看卷xxx挂载位置</span><br>docker volume inspect xxx<br></code></pre></td></tr></table></figure>
+
+<h1 id="8-自定义网络"><a href="#8-自定义网络" class="headerlink" title="8. 自定义网络"></a>8. 自定义网络</h1><p>Docker 内部有专属网络环境，容器内部可通过此内部网相互访问（此时使用的端口是容器内部端口），默认的网络环境是 docker0</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_"># </span><span class="language-bash">查看容器app01的内部网络</span><br>docker container inspect app01<br></code></pre></td></tr></table></figure>
+
+<img src="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202412020945374.png" srcset="/img/loading.gif" lazyload alt="image-20241202094547295" style="zoom:67%;" />
+
+<p>进入 app02 的 bash 模式，即可通过内部 IP:端口号 直接访问</p>
+<img src="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202412020951458.png" srcset="/img/loading.gif" lazyload alt="image-20241202095145407" style="zoom:50%;" />
+
+<p>IP地址由于种种原因会容易发生变化，我们希望可以通过容器名称完成访问（类似域名），而在 docker0 网络环境下不支持这种方式，因此引入自定义网络机制</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_"># </span><span class="language-bash">自定义网络mynetwork</span><br>docker network create mynetwork<br><span class="hljs-meta prompt_"># </span><span class="language-bash">查询存在的网络</span><br>docker network ls<br></code></pre></td></tr></table></figure>
+
+<img src="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202412021009682.png" srcset="/img/loading.gif" lazyload alt="image-20241202100900651" style="zoom:67%;" />
+
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_"># </span><span class="language-bash">在run时加入network关键字即可加入自定义网络</span><br>docker run -d --name app01 -p 88:80 --network mynetwork nginx<br>docker run -d --name app02 -p 99:80 --network mynetwork nginx<br></code></pre></td></tr></table></figure>
+
+<p>app01 访问 app02 的 nginx 界面</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_"># </span><span class="language-bash">bash环境下直接使用容器名:端口号访问</span><br>curl http://app02:80<br></code></pre></td></tr></table></figure>
+
+<h1 id="7-批量操作容器"><a href="#7-批量操作容器" class="headerlink" title="7. 批量操作容器"></a>7. 批量操作容器</h1><blockquote>
+<p> 通过 compose.yaml 文件可以批量操作容器，省去繁琐的多次参数配置，且在迁移时依旧可以执行</p>
+</blockquote>
+<p><strong>实验：使用 compose.yaml 实现如下命令</strong></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_"># </span><span class="language-bash">创建blog自定义网络</span><br>docker network create blog<br><span class="hljs-meta prompt_"># </span><span class="language-bash">启动mysql</span><br>docker run -d -p 3306:3306 \<br>-e MYSQL_ROOT_PASSWORD=123456 \<br>-e MYSOL_DATABASE=wordpress \<br>-v mysql-data:/var/lib/mysql \<br>-v D:\Program\Docker\Mount:/etc/mysql/conf.d \<br>--restart always --name mysql \<br>--network blog \<br>mysql:8.0<br><span class="hljs-meta prompt_"># </span><span class="language-bash">启动wordpress</span><br>docker run -d-p 8080:80 \<br>-e WORDPRESS_DB_HOST=mysql \<br>-e WORDPRESS_DB_USER=root \<br>-e WORDPRESS_DB_PASSWORD=123456 \<br>-e WORDPRESS_DB_NAME=wordpress \<br>-v wordpress:/var/www/html \<br>--restart always --name wordpress-app \<br>--network blog \<br>wordpress:latest<br></code></pre></td></tr></table></figure>
+
+<p><strong>顶级元素</strong>：compose.yaml 中第一层的元素</p>
+<blockquote>
+<p>name，service，networks，volumes，conifgs（少用），secrets（少用）</p>
+</blockquote>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><code class="hljs yaml"><span class="hljs-attr">name:</span> <span class="hljs-string">myblog</span><br><span class="hljs-attr">services:</span> <br>  <span class="hljs-attr">mysql:</span> <br>    <span class="hljs-comment"># 自定义容器名称</span><br>    <span class="hljs-attr">container_name:</span> <span class="hljs-string">mysql</span><br>    <span class="hljs-comment"># 拉取mysql最新镜像</span><br>    <span class="hljs-attr">image:</span> <span class="hljs-string">mysql</span><br>    <span class="hljs-attr">ports:</span><br>      <span class="hljs-comment"># 内外端口映射</span><br>      <span class="hljs-bullet">-</span> <span class="hljs-string">&quot;3307:3306&quot;</span><br>    <span class="hljs-attr">environment:</span><br>      <span class="hljs-comment"># 设置初始化密码</span><br>      <span class="hljs-attr">MYSQL_ROOT_PASSWORD:</span> <span class="hljs-number">123456</span><br>      <span class="hljs-comment"># 设置数据库名称</span><br>      <span class="hljs-attr">MYSOL_DATABASE:</span> <span class="hljs-string">wordpress</span> <br>    <span class="hljs-attr">volumes:</span><br>      <span class="hljs-comment"># 将/var/lib/mysql文件夹挂载到卷mysql-data</span><br>      <span class="hljs-bullet">-</span> <span class="hljs-string">mysql-data:/var/lib/mysql</span><br>      <span class="hljs-comment"># /etc/mysql/conf.d目录关联至D:\Program\Docker\Mount</span><br>      <span class="hljs-bullet">-</span> <span class="hljs-string">D:\Program\Docker\Mount:/etc/mysql/conf.d</span><br>    <span class="hljs-comment"># 设置开机自动启动</span><br>    <span class="hljs-attr">restart:</span> <span class="hljs-string">always</span><br>    <span class="hljs-comment"># 划分至blog自定义网络</span><br>    <span class="hljs-attr">networks:</span><br>      <span class="hljs-bullet">-</span> <span class="hljs-string">blog</span><br>  <span class="hljs-attr">wordpress:</span><br>    <span class="hljs-attr">image:</span> <span class="hljs-string">wordpress</span><br>    <span class="hljs-attr">ports:</span><br>      <span class="hljs-bullet">-</span> <span class="hljs-string">&quot;8086:80&quot;</span><br>    <span class="hljs-attr">environment:</span><br>      <span class="hljs-attr">WORDPRESS_DB_HOST:</span> <span class="hljs-string">mysql</span><br>      <span class="hljs-attr">WORDPRESS_DB_USER:</span> <span class="hljs-string">root</span><br>      <span class="hljs-attr">WORDPRESS_DB_PASSWORD:</span> <span class="hljs-number">123456</span><br>      <span class="hljs-attr">WORDPRESS_DB_NAME:</span> <span class="hljs-string">wordpress</span><br>    <span class="hljs-attr">volumes:</span><br>      <span class="hljs-bullet">-</span> <span class="hljs-string">wordpress:/var/www/html</span><br>    <span class="hljs-attr">restart:</span> <span class="hljs-string">always</span><br>    <span class="hljs-attr">networks:</span><br>      <span class="hljs-bullet">-</span> <span class="hljs-string">blog</span><br>    <span class="hljs-comment"># wordpress要在mysql之后启动</span><br>    <span class="hljs-attr">depends_on:</span> <br>      <span class="hljs-bullet">-</span> <span class="hljs-string">mysql</span><br><span class="hljs-comment"># 用到的卷名需要声明</span><br><span class="hljs-attr">volumes:</span><br>  <span class="hljs-attr">mysql-data:</span><br>  <span class="hljs-attr">wordpress:</span><br><span class="hljs-comment"># 用到的自定义网络也需要声明</span><br><span class="hljs-attr">networks:</span><br>  <span class="hljs-attr">blog:</span><br></code></pre></td></tr></table></figure>
+
+<p>各顶级元素更详细写法可参考：<a target="_blank" rel="noopener" href="https://docs.docker.com/reference/compose-file/">https://docs.docker.com/reference/compose-file/</a></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_"># </span><span class="language-bash">-f指定yaml文件名，默认是compose.yaml，-d是后台启动</span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">如果需要使用修改后的配置，只需要再次执行此语句即可（这样会销毁旧容器且创建新容器）</span><br>docker compose -f compose.yaml up -d<br></code></pre></td></tr></table></figure>
+
+<img src="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202412031624775.png" srcset="/img/loading.gif" lazyload alt="image-20241203162354683" style="zoom:50%;" />
+
+<p>若能成功访问此界面，说明部署启动成功</p>
+<img src="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202412041137618.png" srcset="/img/loading.gif" lazyload alt="image-20241204113748519" style="zoom:50%;" />
+
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_"># </span><span class="language-bash">下线容器，即移除创建的容器</span><br>docker compose down<br><span class="hljs-meta prompt_"># </span><span class="language-bash">移除容器时把相关镜像和卷也移除</span><br>docker compose down --rmi all -v<br></code></pre></td></tr></table></figure>
+
+<img src="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202412041403815.png" srcset="/img/loading.gif" lazyload alt="image-20241204140313678" style="zoom:67%;" />
+
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_"># </span><span class="language-bash">启动compose.yaml中指定名字的容器，默认定位到yaml中所有容器</span><br>docker compose start x1 x2<br><span class="hljs-meta prompt_"># </span><span class="language-bash">停止compose.yaml中指定名字的容器</span><br>docker compose stop x1 x2<br></code></pre></td></tr></table></figure>
+
+<h1 id="9-自定义镜像"><a href="#9-自定义镜像" class="headerlink" title="9. 自定义镜像"></a>9. 自定义镜像</h1><blockquote>
+<p>当我们需要将本地项目部署至docker中时，需要自定义镜像，后续别人只要拥有此镜像即可运行项目</p>
+</blockquote>
+<p>自定义镜像关键是使用 Dockerfile 文件指定所需环境，暴露端口，启动命令等信息，常见语句如下：</p>
+<img src="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202412041629906.png" srcset="/img/loading.gif" lazyload alt="image-20241204162949668" style="zoom: 50%;" />
+
+<p><strong>实验：在 docker 部署 SpringBootDemo.jar 项目</strong></p>
+<p>SpringBootDemo.jar 下载地址如下👇</p>
+<p><code>通过百度网盘分享的文件：SpringBootDemo.jar 链接：https://pan.baidu.com/s/1vxxQdOTdXrasuU_cHGAAAg  提取码：alib</code></p>
+<ol>
+<li><p>编辑dockerfile文件</p>
+<figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs dockerfile"><span class="hljs-comment"># 依赖jdk17镜像</span><br><span class="hljs-keyword">FROM</span> meddream/jdk17<br><span class="hljs-comment"># 指定作者名字</span><br><span class="hljs-keyword">LABEL</span><span class="language-bash"> author=zzzz</span><br><span class="hljs-comment"># 将当前目录下SpringBootDemo.jar复制到镜像根目录下【一个镜像可以理解为一个Linux系统】，并重命名为app.jar</span><br><span class="hljs-keyword">COPY</span><span class="language-bash"> SpringBootDemo.jar /app.jar</span><br><span class="hljs-comment"># 服务器启动指令</span><br><span class="hljs-keyword">ENTRYPOINT</span><span class="language-bash"> [<span class="hljs-string">&quot;java&quot;</span>,<span class="hljs-string">&quot;-jar&quot;</span>,<span class="hljs-string">&quot;/app.jar&quot;</span>]</span><br><span class="hljs-comment"># 声明访问端口</span><br><span class="hljs-keyword">EXPOSE</span> <span class="hljs-number">8080</span><br></code></pre></td></tr></table></figure>
+</li>
+<li><p>构建镜像</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_"># </span><span class="language-bash">使用编辑好的Dockerfile构建镜像，镜像名称为myjavaapp，版本号是v1.0，最后的.代表需要构建镜像的项目在当前目录下</span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">如果构建失败，可以先尝试使用pull将依赖镜像拉取到本地，相关镜像信息可在Docker Hub寻找</span><br>docker build -f Dockerfile -t myjavaapp:v1.0 .<br></code></pre></td></tr></table></figure>
+
+<img src="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202412041724939.png" srcset="/img/loading.gif" lazyload alt="image-20241204172411845" style="zoom:67%;" />
+</li>
+<li><p>创建镜像对应容器并测试</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">docker run -d -p 8888:8080 myjavaapp:v1.0<br></code></pre></td></tr></table></figure>
+
+<img src="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202412041726394.png" srcset="/img/loading.gif" lazyload alt="image-20241204172606356" style="zoom:67%;" /></li>
+</ol>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E8%BD%AF%E4%BB%B6%E4%BD%BF%E7%94%A8/" class="category-chain-item">软件使用</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/%E8%BD%AF%E4%BB%B6%E4%BD%BF%E7%94%A8/" class="print-no-link">#软件使用</a>
+      
+    </div>
+  
+</div>
+
+
+              
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/blog/%E8%BD%AF%E4%BB%B6%E4%BD%BF%E7%94%A8/%E8%BD%AF%E4%BB%B6%E4%BD%BF%E7%94%A8/Conda%E8%99%9A%E6%8B%9F%E7%8E%AF%E5%A2%83/" title="Conda虚拟环境">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">Conda虚拟环境</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/blog/%E8%BD%AF%E4%BB%B6%E4%BD%BF%E7%94%A8/%E8%BD%AF%E4%BB%B6%E4%BD%BF%E7%94%A8/VSCode%E5%BF%AB%E6%8D%B7%E9%94%AE/" title="VSCode快捷键">
+                        <span class="hidden-mobile">VSCode快捷键</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       用文字锁住记忆 
+    </div>
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+<!-- hexo injector body_end start --><script src="/js/backgroundize.js"></script><!-- hexo injector body_end end --></body>
+</html>

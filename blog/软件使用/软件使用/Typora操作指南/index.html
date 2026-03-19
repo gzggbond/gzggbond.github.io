@@ -1,0 +1,652 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/our/logo.png">
+  <link rel="icon" href="/img/our/logo.png">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="Z_Jump_Dragon">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="Typora是一款非常好用的Markdown编辑器，本文对其使用技巧做了总结">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Typora操作指南">
+<meta property="og:url" content="https://dragooon.top/blog/%E8%BD%AF%E4%BB%B6%E4%BD%BF%E7%94%A8/%E8%BD%AF%E4%BB%B6%E4%BD%BF%E7%94%A8/Typora%E6%93%8D%E4%BD%9C%E6%8C%87%E5%8D%97/index.html">
+<meta property="og:site_name" content="棱镜里的日常">
+<meta property="og:description" content="Typora是一款非常好用的Markdown编辑器，本文对其使用技巧做了总结">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2024-04-19T06:27:23.000Z">
+<meta property="article:modified_time" content="2026-03-19T09:04:55.170Z">
+<meta property="article:author" content="Z_Jump_Dragon">
+<meta property="article:tag" content="软件使用">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+  
+  <title>Typora操作指南 - 棱镜里的日常</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+  
+<link rel="stylesheet" href="/css/cloudedGlass.css">
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"dragooon.top","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":60,"cursorChar":"_","loop":false,"scope":["home"]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"left","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":3},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":false};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+
+<body><!-- hexo injector body_begin start --><div id="web_bg"></div><!-- hexo injector body_begin end -->
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 100vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>棱镜里的日常</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/our/article.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle">Typora操作指南</span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-author" aria-hidden="true"></i>
+        Z_Jump_Dragon
+      </span>
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2024-04-19 14:27" pubdate>
+          2024年4月19日 下午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          1.5k 字
+        
+      </span>
+    
+
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+        <div class="scroll-down-bar">
+          <i class="iconfont icon-arrowdown"></i>
+        </div>
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="padding-left: 2rem; margin-right: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">Typora操作指南</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h1 id="常用快捷键"><a href="#常用快捷键" class="headerlink" title="常用快捷键"></a>常用快捷键</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">// 快捷键可自定义，具体操作方式可在CSDN搜索，此处为默认快捷键</span><br><span class="hljs-comment">// 加粗</span><br>Ctrl + B	<br><span class="hljs-comment">// 倾斜</span><br>Ctrl + I		<br><span class="hljs-comment">// 高亮</span><br>Ctrl + Shift + H	<br><span class="hljs-comment">// 添加超链接</span><br>Ctrl + K		<br><span class="hljs-comment">// 添加表格</span><br>Ctrl + T		<br><span class="hljs-comment">// 进入数学公式模式</span><br>Ctrl + Shift + M	<br><span class="hljs-comment">// 文档内查找数据</span><br>Ctrl + F<br></code></pre></td></tr></table></figure>
+
+<h1 id="1-文字"><a href="#1-文字" class="headerlink" title="1. 文字"></a>1. 文字</h1><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-comment">&lt;!--改变文字对齐方式--&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">align</span>=<span class="hljs-string">&quot;center/left/right&quot;</span>&gt;</span>文字<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>   <br><span class="hljs-comment">&lt;!--改变字体样式--&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">font</span> <span class="hljs-attr">size</span>=<span class="hljs-string">大小</span> <span class="hljs-attr">color</span>=<span class="hljs-string">&quot;颜色&quot;</span> <span class="hljs-attr">face</span>=<span class="hljs-string">&quot;字体&quot;</span>&gt;</span>文字<span class="hljs-tag">&lt;/<span class="hljs-name">font</span>&gt;</span>  <br><span class="hljs-comment">&lt;!--加粗，斜体--&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">b</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">b</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">i</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">i</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+<p>&#x3D;&#x3D;高亮&#x3D;&#x3D;，利用<code>==高亮文字==</code>实现</p>
+<h1 id="2-目录"><a href="#2-目录" class="headerlink" title="2. 目录"></a>2. 目录</h1><p>输入<code>[toc]</code>自动根据标题生成目录</p>
+<h2 id="2-1-页面内部跳转"><a href="#2-1-页面内部跳转" class="headerlink" title="2.1 页面内部跳转"></a>2.1 页面内部跳转</h2><blockquote>
+<p>有时候内容比较长，很后边的内容有可能会涉及到前面输入的图片之类，如果总是滑上滑下不是很方便，这时候就需要使用到内部页面跳转功能</p>
+</blockquote>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-comment">&lt;!-- 只需要进行这样简单设置，接下来按住Ctrl，鼠标左键点击&quot;点我跳转到图片1&quot;就可以来到图片1的位置 --&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;p1&quot;</span>&gt;</span>图片1<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">&quot;#p1&quot;</span>&gt;</span>点我跳转到图片1<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+<h1 id="3-数学公式代码插入"><a href="#3-数学公式代码插入" class="headerlink" title="3. 数学公式代码插入"></a>3. 数学公式代码插入</h1><p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/Xuxiaokang/p/15654336.html#%E5%A6%82%E4%BD%95%E8%BE%93%E5%85%A5%E6%8B%AC%E5%8F%B7%E5%92%8C%E5%88%86%E9%9A%94%E7%AC%A6">数学公式网站</a></p>
+<blockquote>
+<p>普通代码【如<code>java</code>】，只需输入&#96;&#96;&#96;&#96;java&#96;进行选择即可</p>
+</blockquote>
+<p>①输入<code>$数学公式$</code>包围住数学公式；②快捷键<code>ctrl+shitf+M</code>。</p>
+<p><font color="red">所有数学表示都要在<code>$ $</code>里才能发挥作用，<code>&#123;&#125;</code>在<code>$</code>里代替小括号实际作用</font></p>
+<p><strong>如果一点<code>Latex</code>代码都不想学，可以直接来到<a target="_blank" rel="noopener" href="https://www.latexlive.com/home">在线Latex编辑器</a>寻找自己需要查找的符号代码【上传图片也行】，接着赋值进<code>MarkDown</code>编辑器中即可</strong></p>
+<p>下边都是常用的一些基础语法👇</p>
+<h2 id="3-1-上标下标"><a href="#3-1-上标下标" class="headerlink" title="3.1 上标下标"></a>3.1 上标下标</h2><p>$x^2$，上标利用 <strong><code>^</code></strong> 实现  ；$x_2$，下标利用 <strong><code>_</code></strong> 实现</p>
+<h2 id="3-2-根号"><a href="#3-2-根号" class="headerlink" title="3.2 根号"></a>3.2 根号</h2><p>$\sqrt{2}$，根号利用 <strong><code>\sqrt&#123;被开方数&#125;</code></strong> 实现；$\sqrt[3]{4}$，多少次根利用  <strong><code>\sqrt[多少次根]&#123;被开方数&#125;</code></strong> 实现</p>
+<h2 id="3-3-上下水平线"><a href="#3-3-上下水平线" class="headerlink" title="3.3 上下水平线"></a>3.3 上下水平线</h2><p>$\underline{a+b}$，下水平线用 <strong><code>\underline&#123;被划线部分&#125;</code></strong> 实现</p>
+<p>$\overline{a+b}$，上水平线用 <strong><code>\overline&#123;被划线部分&#125;</code></strong> 实现</p>
+<h2 id="3-4-水平方向大括号"><a href="#3-4-水平方向大括号" class="headerlink" title="3.4 水平方向大括号"></a>3.4 水平方向大括号</h2><p>$\overbrace{x+y}^{我是说明}$</p>
+<p>水平方向上大括号利用 <strong><code>\overbrace&#123;被括起来的内容&#125;</code></strong> ，若要对括起来的内容进行说明，可<strong>在{被括起来的内容}后添加 ^{说明内容} 实现</strong></p>
+<p>$\underbrace{x+y}_{我是说明}$，</p>
+<p>水平方向下大括号利用 <strong><code>\underbrace&#123;被括起来的内容&#125;</code></strong> ，若要对括起来的内容进行说明，可<strong>在{被括起来的内容}后添加 _{说明内容} 实现</strong></p>
+<h2 id="3-5-向量"><a href="#3-5-向量" class="headerlink" title="3.5 向量"></a>3.5 向量</h2><p>$\overrightarrow{AB}$，实现<strong>右</strong>方向的向量通过 <strong><code>\overrightarrow&#123;AB&#125;</code></strong> 实现</p>
+<p>$\overleftarrow{AB}$，实现<strong>左</strong>方向的向量通过 <strong><code>\overleftarrow&#123;AB&#125;</code></strong> 实现</p>
+<h2 id="3-6-分数"><a href="#3-6-分数" class="headerlink" title="3.6 分数"></a>3.6 分数</h2><p>$\frac{\sqrt{3}}{2}$，分数利用 **<code>\frac&#123;分子&#125;&#123;分母&#125;</code>**实现</p>
+<p>$\dfrac{\sqrt{3}}{2}$，分数利用 **<code>\dfrac&#123;分子&#125;&#123;分母&#125;</code>**使分数看上去更大一些</p>
+<h2 id="3-7-积分"><a href="#3-7-积分" class="headerlink" title="3.7 积分"></a>3.7 积分</h2><p>$\int$ ，积分符号用 <strong><code>\int</code></strong> 实现；</p>
+<p>$\int_{0}^{1}$，积分上下限利用 <strong><code>\int_&#123;下限&#125;^&#123;上限&#125;</code></strong> 实现</p>
+<h2 id="3-8-求和"><a href="#3-8-求和" class="headerlink" title="3.8 求和"></a>3.8 求和</h2><p>$\sum{}$ ，求和符号用 <strong><code>\sum&#123;式子&#125;</code></strong> 实现</p>
+<p>$\sum_{0}^{k}$，求和上下限用 <strong><code>\sum_&#123;下限&#125;^&#123;上限&#125;&#123;式子&#125;</code></strong> 实现</p>
+<h2 id="3-9-连乘"><a href="#3-9-连乘" class="headerlink" title="3.9 连乘"></a>3.9 连乘</h2><p>$\prod$，连乘符号用 <strong><code>\prod&#123;式子&#125;</code></strong> 实现</p>
+<p>$\prod_{0}^{k}$，连乘上下限用 <strong><code>\prod_&#123;下限&#125;^&#123;上限&#125;&#123;式子&#125;</code></strong> 实现</p>
+<h2 id="3-10-极限"><a href="#3-10-极限" class="headerlink" title="3.10 极限"></a>3.10 极限</h2><p>$\lim\limits_{x\rightarrow\infty}$，<strong><code>\lim\limits_&#123;极限下标&#125;</code></strong></p>
+<h2 id="3-11-特殊符号"><a href="#3-11-特殊符号" class="headerlink" title="3.11 特殊符号"></a>3.11 特殊符号</h2><p>$\rightarrow$，右箭头**<code>\rightarrow</code><strong>；  $\infty$，无穷</strong><code>\infty</code><strong>；$\in$，属于</strong>\in**</p>
+<h2 id="3-12-希腊字母"><a href="#3-12-希腊字母" class="headerlink" title="3.12 希腊字母"></a>3.12 希腊字母</h2><p>$\alpha$：<strong>\alpha</strong>  ；$\beta$：<strong>\beta</strong> ；$\gamma$：<strong>\gamma</strong> ；$\theta$：<strong>\theta</strong> ；$\rho$：<strong>\rho</strong> ；$\lambda$：<strong>\lambda</strong> ；$\mu$：<strong>\mu</strong> <br>$\Delta$：<strong>\Delta</strong> ；$\pi$：<strong>\pi</strong> ；$\Omega$：<strong>\Omega</strong></p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/Krone_/article/details/99710062?ops_request_misc=%25257B%252522request%25255Fid%252522%25253A%252522160905456416780277818200%252522%25252C%252522scm%252522%25253A%25252220140713.130102334.pc%25255Fall.%252522%25257D&request_id=160905456416780277818200&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~all~first_rank_v2~rank_v29-2-99710062.pc_search_result_cache&utm_term=markdowm%E5%B8%8C%E8%85%8A%E5%AD%97%E7%AC%A6">更多希腊字母</a></p>
+<h2 id="3-13-运算符"><a href="#3-13-运算符" class="headerlink" title="3.13 运算符"></a>3.13 运算符</h2><p>$\ge$：<strong>\ge</strong> ；$\le$：<strong>\le</strong> ；$\ne$：<strong>\ne</strong> </p>
+<p>$\times$：<strong>\times</strong> ；$\div$：<strong>\div</strong></p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/LB_yifeng/article/details/83302697?utm_medium=distribute.pc_relevant_t0.none-task-blog-BlogCommendFromMachineLearnPai2-1.control&depth_1-utm_source=distribute.pc_relevant_t0.none-task-blog-BlogCommendFromMachineLearnPai2-1.control">更多数学符号使用</a></p>
+<h2 id="3-14-矩阵"><a href="#3-14-矩阵" class="headerlink" title="3.14 矩阵"></a>3.14 矩阵</h2><h3 id="无边框"><a href="#无边框" class="headerlink" title="无边框"></a>无边框</h3><p>$$<br>\begin{matrix} 1 &amp; 2 &amp; 3\ 4 &amp; 5 &amp; 6\ \end{matrix}<br>$$</p>
+<p><strong><code>\begin&#123;matrix&#125;</code></strong>：表示矩阵开始<br><strong><code>&amp;</code></strong>：分隔元素<br><strong><code>\</code>**：换行<br>**<code>\end&#123;matrix&#125;</code></strong>：表示矩阵结束</p>
+<h3 id="有边框"><a href="#有边框" class="headerlink" title="有边框"></a>有边框</h3><p>$$<br>\left[\begin{matrix} 1 &amp; 2 &amp; 3\ 4 &amp; 5 &amp; 6\ \end{matrix}\right]<br>$$</p>
+<p><strong><code>\left[</code></strong>：表示左边框，边框类型为[，写在最开始</p>
+<p><strong><code>\right]</code></strong>：右边框，边框类型为]，写在最后</p>
+<h3 id="行列式"><a href="#行列式" class="headerlink" title="行列式"></a>行列式</h3><p>$$<br>\left|\begin{matrix} 1 &amp; 2 &amp; 3\ 4 &amp; 5 &amp; 6\ \end{matrix}\right|<br>$$</p>
+<p><strong><code>\left|</code></strong>：表示左边框，边框类型为<code>|</code>，写在最开始</p>
+<p><strong><code>\right|</code></strong>：右边框，边框类型为<code>|</code>，写在最后</p>
+<h2 id="3-15-方程组"><a href="#3-15-方程组" class="headerlink" title="3.15 方程组"></a>3.15 方程组</h2><p>$$<br>\begin{equation} \left{<br>\begin{array}{lr}<br>x&#x3D;\dfrac{3\pi}{2}(1+2t)\cos(\dfrac{3\pi}{2}(1+2t)), &amp;  \<br>y&#x3D;s, &amp; 0\leq s\leq L,|t|\leq1.\<br>z&#x3D;\dfrac{3\pi}{2}(1+2t)\sin(\dfrac{3\pi}{2}(1+2t)), &amp;<br>\end{array}<br>\right.<br>\end{equation}<br>$$</p>
+<p><code>\begin&#123;equation&#125;</code>  <strong>&#x2F;&#x2F;方程组开始的标志</strong> <br><code>\left\\&#123;</code>  <strong>&#x2F;&#x2F;方程组固定格式，注意是两条杠，括号表示左边的大括号</strong><br> <code>\begin&#123;array&#125;&#123;lr&#125;</code>  &#x2F;&#x2F;<strong>{array}部分表示方程组由数组构成，{lr}表示有两列，第一列左对齐(即式子)，									第二列右对齐(即取值范围，不过例子中取值范围只有一条，看不出左右)<br></strong><code>x=\dfrac&#123;3\pi&#125;&#123;2&#125;(1+2t)\cos(\dfrac&#123;3\pi&#125;&#123;2&#125;(1+2t)), &amp;  \\\</code>             <br><code>y=s, &amp; 0\leq s\leq L,|t|\leq1.\\\</code>  <strong>&#x2F;&#x2F;&amp;表示换一列(如式子到取值范围)；\\表示换一行</strong>           <br><code>z=\dfrac&#123;3\pi&#125;&#123;2&#125;(1+2t)\sin(\dfrac&#123;3\pi&#125;&#123;2&#125;(1+2t)), &amp; </code>              <br><code>\end&#123;array&#125;</code> <strong>&#x2F;&#x2F;数组结束标志</strong><br><code>\right.</code> <strong>&#x2F;&#x2F;方程组固定格式，英文句号不要忘记</strong><br><code>\end&#123;equation&#125;</code> <strong>&#x2F;&#x2F;方程组结束的标志</strong></p>
+<h1 id="4-emoji表情插入"><a href="#4-emoji表情插入" class="headerlink" title="4. emoji表情插入"></a>4. emoji表情插入</h1><p>基本形式是<code>:表情对应单词</code>，如👇</p>
+<p>:smile:	<code>:smile</code></p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_43630810/article/details/109108879">更多emoji表情具体单词</a></p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E8%BD%AF%E4%BB%B6%E4%BD%BF%E7%94%A8/" class="category-chain-item">软件使用</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/%E8%BD%AF%E4%BB%B6%E4%BD%BF%E7%94%A8/" class="print-no-link">#软件使用</a>
+      
+    </div>
+  
+</div>
+
+
+              
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/blog/%E6%B5%8B%E8%AF%95%E5%B7%A5%E5%85%B7/%E6%B5%8B%E8%AF%95%E5%B7%A5%E5%85%B7/Fiddler%E5%9F%BA%E7%A1%80/" title="Fiddler基础">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">Fiddler基础</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/blog/%E6%B5%8B%E8%AF%95%E6%8A%80%E6%9C%AF%E6%A0%88/%E6%B5%8B%E8%AF%95%E6%A1%86%E6%9E%B6/%E6%B5%8B%E8%AF%95%E6%8A%80%E6%9C%AF%E6%A0%88/%E6%B5%8B%E8%AF%95%E6%A1%86%E6%9E%B6/UnitTest%E5%9F%BA%E7%A1%80/" title="UnitTest基础">
+                        <span class="hidden-mobile">UnitTest基础</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       用文字锁住记忆 
+    </div>
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+<!-- hexo injector body_end start --><script src="/js/backgroundize.js"></script><!-- hexo injector body_end end --></body>
+</html>

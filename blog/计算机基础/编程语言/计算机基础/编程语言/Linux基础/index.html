@@ -1,0 +1,1345 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/our/logo.png">
+  <link rel="icon" href="/img/our/logo.png">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="Z_Jump_Dragon">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="本文对于Linux的基本用法做了系统性总结，持续更新">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Linux基础">
+<meta property="og:url" content="https://dragooon.top/blog/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Linux%E5%9F%BA%E7%A1%80/index.html">
+<meta property="og:site_name" content="棱镜里的日常">
+<meta property="og:description" content="本文对于Linux的基本用法做了系统性总结，持续更新">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202307111118223.png">
+<meta property="og:image" content="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202307111119009.png">
+<meta property="og:image" content="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202403181701687.png">
+<meta property="og:image" content="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202307111520656.png">
+<meta property="og:image" content="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202403301443613.png">
+<meta property="og:image" content="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202307291540593.png">
+<meta property="og:image" content="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202307291435607.png">
+<meta property="og:image" content="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202307291543140.png">
+<meta property="og:image" content="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202403311301330.png">
+<meta property="og:image" content="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202403311317508.png">
+<meta property="og:image" content="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202307121404066.png">
+<meta property="og:image" content="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202403202044285.png">
+<meta property="og:image" content="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202404282116347.png">
+<meta property="og:image" content="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202404282111831.png">
+<meta property="og:image" content="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202404282117617.png">
+<meta property="og:image" content="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202404291032477.png">
+<meta property="article:published_time" content="2025-07-15T05:27:50.000Z">
+<meta property="article:modified_time" content="2026-03-19T08:22:00.333Z">
+<meta property="article:author" content="Z_Jump_Dragon">
+<meta property="article:tag" content="编程语言">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202307111118223.png">
+  
+  
+  
+  <title>Linux基础 - 棱镜里的日常</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+  
+<link rel="stylesheet" href="/css/cloudedGlass.css">
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"dragooon.top","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":60,"cursorChar":"_","loop":false,"scope":["home"]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"left","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":3},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":false};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+
+<body><!-- hexo injector body_begin start --><div id="web_bg"></div><!-- hexo injector body_begin end -->
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 100vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>棱镜里的日常</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/our/article.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle">Linux基础</span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-author" aria-hidden="true"></i>
+        Z_Jump_Dragon
+      </span>
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2025-07-15 13:27" pubdate>
+          2025年7月15日 下午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          6k 字
+        
+      </span>
+    
+
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+        <div class="scroll-down-bar">
+          <i class="iconfont icon-arrowdown"></i>
+        </div>
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="padding-left: 2rem; margin-right: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">Linux基础</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h1 id="1-远程连接"><a href="#1-远程连接" class="headerlink" title="1. 远程连接"></a>1. 远程连接</h1><p><code>ifconfig</code>：查看 Linux 主机 ip 地址</p>
+<img src="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202307111118223.png" srcset="/img/loading.gif" lazyload alt="image-20230711111834194" style="zoom: 50%;" />
+
+<p>打开 XShell 新建会话</p>
+<img src="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202307111119009.png" srcset="/img/loading.gif" lazyload alt="image-20230711111908981" style="zoom: 50%;" />
+
+<p>点击用户身份验证，输入系统账号密码后点击连接即可</p>
+<img src="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202403181701687.png" srcset="/img/loading.gif" lazyload alt="image-20240318170106580" style="zoom: 50%;" />
+
+<h1 id="2-vim编辑器"><a href="#2-vim编辑器" class="headerlink" title="2. vim编辑器"></a>2. vim编辑器</h1><img src="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202307111520656.png" srcset="/img/loading.gif" lazyload alt="image-20230711152015426" style="zoom: 50%;" />
+
+<ul>
+<li><p><strong>正常模式</strong></p>
+<blockquote>
+<p>以  vim 打开一个文件就直接进入一般模式了（这是默认的模式）。在这个模式中，可以使用『上下左右』按键来移动光标，可以使用『删除字符』或『删除整行』来处理档案内容，也可以使用『复制、粘贴』来处理文件数据</p>
+</blockquote>
+<ul>
+<li><p><code>yy</code>：拷贝当前行</p>
+<blockquote>
+<p>拷贝包括当前行在内向下共 5 行并粘贴：5yyp（p 的作用是粘贴）</p>
+</blockquote>
+</li>
+<li><p><code>dd</code>：删除当前行</p>
+<blockquote>
+<p>删除当前行向下的 5 行：5dd</p>
+</blockquote>
+</li>
+<li><p><code>g</code>：移动到文件尾行</p>
+<blockquote>
+<p>移动到文件首行：gg</p>
+</blockquote>
+</li>
+<li><p><code>u</code>：撤销上一步操作</p>
+</li>
+<li><p>定位到第3行：先按3，再按 shift+g</p>
+</li>
+<li><p><code>/xxx</code>：查找单词“xxx”，输入 n 定位下一个单词位置</p>
+</li>
+</ul>
+</li>
+<li><p>插入模式</p>
+<blockquote>
+<p>按下 <code>i，L，o，O，a，A，r，R</code> 等任何一个字母之后才会进入编辑模式，一般来说按 <code>i</code> 即可。</p>
+</blockquote>
+</li>
+<li><p>命令行模式</p>
+<blockquote>
+<p>在这个模式当中，可以提供你相关指令，完成读取、存盘、替换、离开 <code>vim</code>、显示行号等的动作。</p>
+</blockquote>
+<ul>
+<li><p><code>wq</code>：保存退出</p>
+<p><code>q</code>：退出</p>
+<p><code>q!</code>：不保存强制退出</p>
+</li>
+<li><p><code>set nu</code>：查看当前文件行号</p>
+<blockquote>
+<p>取消行号显示：set nonu</p>
+</blockquote>
+<img src="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202403301443613.png" srcset="/img/loading.gif" lazyload alt="image-20240330144300519" style="zoom:50%;" /></li>
+</ul>
+</li>
+</ul>
+<h1 id="3-用户管理"><a href="#3-用户管理" class="headerlink" title="3. 用户管理"></a>3. 用户管理</h1><ul>
+<li><p><code>su - 用户名</code>：切换到某个用户账号</p>
+</li>
+<li><p><code>logout</code>：登出当前用户</p>
+<blockquote>
+<p>此时为切换到此账号的用户接手</p>
+</blockquote>
+</li>
+<li><p><code>sudo passwd 用户名</code>：设置用户密码</p>
+<blockquote>
+<p>sudo即执行管理级别操作，所以此命令甚至可以设置 root 密码</p>
+</blockquote>
+</li>
+<li><p><code>useradd [-d] [-目录位置] [-g] [组名] 用户名</code>：添加账号</p>
+<blockquote>
+<p>可为当前用户指定组，不指定默认分到与用户名一致的组中；账号信息默认存储在home目录下，也可以自行指定</p>
+</blockquote>
+</li>
+<li><p><code>userdel [-r] 用户名</code>：删除用户</p>
+<blockquote>
+<p>不输入 -r 时，虽然用户已经删除，但是会保留 home 中的信息</p>
+</blockquote>
+</li>
+</ul>
+<h1 id="4-运行级别"><a href="#4-运行级别" class="headerlink" title="4. 运行级别"></a>4. 运行级别</h1><table>
+<thead>
+<tr>
+<th align="center">运行级别</th>
+<th align="center">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">0</td>
+<td align="center">关机</td>
+</tr>
+<tr>
+<td align="center">1</td>
+<td align="center">单用户【(找回丢失密码】</td>
+</tr>
+<tr>
+<td align="center">2</td>
+<td align="center">多用户状态没有网络服务</td>
+</tr>
+<tr>
+<td align="center">3:star:</td>
+<td align="center">多用户状态有网络服务</td>
+</tr>
+<tr>
+<td align="center">4</td>
+<td align="center">系统未使用保留给用户</td>
+</tr>
+<tr>
+<td align="center">5:star:</td>
+<td align="center">图形界面</td>
+</tr>
+<tr>
+<td align="center">6</td>
+<td align="center">系统重启</td>
+</tr>
+</tbody></table>
+<ul>
+<li><code>init 运行级别</code>：切换运行级别</li>
+</ul>
+<h1 id="5-Linux组"><a href="#5-Linux组" class="headerlink" title="5. Linux组"></a>5. Linux组</h1><ul>
+<li><p><code>id 用户名</code>：查看用户基本信息</p>
+</li>
+<li><p><code>sudo groupadd/groupdel 组名</code>：添加&#x2F;删除组</p>
+</li>
+<li><p>所有者</p>
+<blockquote>
+<p>一般为文件创建者</p>
+</blockquote>
+<ul>
+<li><code>chown [选项] 用户名 文件名</code>：修改文件所有者</li>
+<li><code>chown 用户名:组 文件/文件夹</code>：改变文件的所有者和组</li>
+</ul>
+</li>
+<li><p>所在组</p>
+<blockquote>
+<p>当某个用户创建了一个文件后，这个文件的所在组就是该用户所在的组</p>
+</blockquote>
+<ul>
+<li><p><code>chgrp 组名 文件名</code>：修改文件所在的组</p>
+<blockquote>
+<p>和 chown 作用类似，不过其可以单独改变组</p>
+</blockquote>
+</li>
+</ul>
+</li>
+<li><p>其他组</p>
+<blockquote>
+<p>除文件的所有者和所在组的用户外，系统的其它用户都是文件的其它组</p>
+</blockquote>
+<ul>
+<li><code>usermode -g 组名 用户名</code>：将用户移动到指定组</li>
+<li><code>usermode -d 目录名 用户名</code>：改变用户登录的初始目录</li>
+</ul>
+</li>
+</ul>
+<h2 id="修改权限"><a href="#修改权限" class="headerlink" title="修改权限"></a>修改权限</h2><blockquote>
+<p>通过 <code>chmod</code> 指令，可以修改<strong>文件或目录</strong>的权限</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs python">u：文件所有者		g：文件的组		o：其他人		a：所有用户【u,g,o的总和】<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li><p>方式一：字母加符号👉+，-，&#x3D; 变更权限</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># 给文件所有者赋予rwx权限，所有组赋予rx权限，其他人赋予x权限</span><br>chmod u=rwx,g=rx,o=x 文件/目录名<br><span class="hljs-comment"># 给其他人增加此文件的w权限</span><br>chmod o+w 文件/目录名<br><span class="hljs-comment"># 删除所有人对此文件的x权限【可执行权限】</span><br>chmod a-x 文件/目录名<br></code></pre></td></tr></table></figure>
+</li>
+<li><p>方式二：数字加符号👉+，-，&#x3D; 变更权限</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># 二进制数，0-7能囊括所有权限组合【0是无权限】</span><br>r=<span class="hljs-number">4</span>		w=<span class="hljs-number">2</span>		x=<span class="hljs-number">1</span><br><span class="hljs-comment"># 给文件所有者赋予rwx权限(7)，所有组赋予rx权限(5)，其他人赋予x权限(1)</span><br>chmod <span class="hljs-number">751</span> 文件/目录名<br></code></pre></td></tr></table></figure></li>
+</ul>
+<h1 id="6-定时执行"><a href="#6-定时执行" class="headerlink" title="6. 定时执行"></a>6. 定时执行</h1><blockquote>
+<p>有些重要工作必须周而复始地执行，如病毒扫描；个别用户可能希望执行某些程序，比如对数据库进行备份</p>
+</blockquote>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_"># </span><span class="language-bash">在Ubuntu或Debian中需要使用如下命令进行安装</span><br>sudo apt-get update &amp;&amp; sudo apt-get install cron<br>sudo apt-get update &amp;&amp; sudo apt-get install at<br><span class="hljs-meta prompt_"># </span><span class="language-bash">在RHEL，CentOS，Fedora则需要使用如下命令安装</span><br>sudo yum install vixie-cron<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li><p><code>crontab [选项]</code>：定时反复执行</p>
+<ul>
+<li><p>-e：编辑 crontab 定时任务，此时与 vim 操作类似</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_"># </span><span class="language-bash">编辑 crontab 定时任务</span><br>crontab -e<br><span class="hljs-meta prompt_"># </span><span class="language-bash">输入以下内容：每隔一分钟在控制台往b.txt追加一次Hello字符串</span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">路径必须是绝对路径</span><br>* * * * * echo Hello &gt;&gt; /root/my_folder/b.txt<br><span class="hljs-meta prompt_"># </span><span class="language-bash">编辑完毕后需要重启cron服务，令新规则生效</span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">stop/start/status：停止/开启/状态，默认cron服务状态为停止</span><br>service cron restart<br></code></pre></td></tr></table></figure>
+
+<table>
+<thead>
+<tr>
+<th>项目</th>
+<th>含义</th>
+<th>范围</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>第 1 个 <code>*</code> 位置</td>
+<td>一小时当中的第几分钟</td>
+<td>0-59</td>
+</tr>
+<tr>
+<td>第 2 个 <code>*</code> 位置</td>
+<td>一天当中第几小时</td>
+<td>0-23</td>
+</tr>
+<tr>
+<td>第 3 个 <code>*</code> 位置</td>
+<td>一个月当中第几天</td>
+<td>1-31</td>
+</tr>
+<tr>
+<td>第 4 个 <code>*</code> 位置</td>
+<td>一年当中第几个月</td>
+<td>1-12</td>
+</tr>
+<tr>
+<td>第 5 个 <code>*</code> 位置</td>
+<td>一周当中的星期几</td>
+<td>0-7【0和7都是周日】</td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th>特殊符号</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>*</code></td>
+<td>代表任何时间。比如第一个 <code>*</code> 就代表一小时中每分钟都执行一次的意思。</td>
+</tr>
+<tr>
+<td><code>,</code></td>
+<td>代表不连续的时间。比如 <code>0 8,12 * * *</code> 命令，就代表在每天的<code>8</code>点<code>0</code>分，<code>12</code>点<code>0</code>分都执行一次命令</td>
+</tr>
+<tr>
+<td><code>-</code></td>
+<td>代表连续的时间范围。比如 <code>0 5 * * 1-6</code> 命令，代表在周一到周六的凌晨<code>5</code>点<code>0</code>分执行命令</td>
+</tr>
+<tr>
+<td><code>*/n</code></td>
+<td>代表每隔n执行一次。比如 <code>*/10 * * * *</code> 命令，代表每隔<code>10</code>分钟就执行一遍命令</td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th>时间</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>45 22 * * *</td>
+<td>在22点45分执行命令</td>
+</tr>
+<tr>
+<td>0 17 * * 1</td>
+<td>每周一的17点0分执行命令</td>
+</tr>
+<tr>
+<td>0 5 1,15 * *</td>
+<td>每月1号和15号的凌晨5点0分执行命令</td>
+</tr>
+<tr>
+<td>40 4 * * 1-5</td>
+<td>每周一到周五的凌晨4点40分执行命令</td>
+</tr>
+<tr>
+<td>*&#x2F;10 4 * * *</td>
+<td>每天的凌晨4点，每隔10分钟执行一次命令</td>
+</tr>
+<tr>
+<td>0 0 1,15 * 1</td>
+<td>每月1号和15号，每周1的0点0分都会执行命令。<br />注意：星期几和几号最好不要同时出现，因为他们定义的都是天。非常容易让管理员混乱。</td>
+</tr>
+</tbody></table>
+</li>
+<li><p>-l：查询 crontab 任务</p>
+</li>
+<li><p>-r：删除当前用户所有的 crontab 任务</p>
+</li>
+</ul>
+</li>
+<li><p><code>at [选项] [时间]</code>：一次性定时计划任务，执行完一个任务后不再执行此任务</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_"># </span><span class="language-bash">设置一分钟后执行</span><br>at now + 1 minutes<br><span class="hljs-meta prompt_"># </span><span class="language-bash">输入要执行的语句</span><br>echo &quot;Hello,at&quot; &gt;&gt; /root/my_folder/b.txt<br><span class="hljs-meta prompt_"># </span><span class="language-bash">按Ctrl + D结束输入</span><br></code></pre></td></tr></table></figure>
+
+<ul>
+<li><p>-v：显示任务将被执行的时间</p>
+</li>
+<li><p>在使用 at 命令的时候，一定要保证 atd 进程的启动，可以使用相关指令来查看</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_"># </span><span class="language-bash">进程状态/启动/重启/停止</span><br>service atd status/start/restart/stop <br></code></pre></td></tr></table></figure>
+
+<p>at 命令是一次性定时计划任务，at 的守护进程 atd 会以后台模式运行，检查作业队列来运行。默认情况下，atd 守护进程每 60 秒检查一次作业队列，有作业时，会检查作业运行时间，如果时间与当前时间匹配，则运行此作业。</p>
+</li>
+<li><p>时间规则</p>
+<ul>
+<li><p>接受在当天的 <code>hh:mm</code>（小时:分钟）式的时间指定。假如该时间已过去，那么就放在第二天执行。</p>
+<blockquote>
+<p>例如：04:00</p>
+</blockquote>
+</li>
+<li><p>使用 <code>midnight，noon，teatime</code>（一般是下午 4 点）等比较模糊的词语来指定时间</p>
+</li>
+<li><p>采用  12 小时计时制，即在时间后面加上 AM（上午）或 PM（下午）来说明</p>
+<blockquote>
+<p>例如：12pm</p>
+</blockquote>
+</li>
+<li><p>指定命令执行的具体日期，指定格式为 <code>month day</code>（月日）或 <code>mm/dd/yy</code> （月&#x2F;日&#x2F;年）或 <code>dd.mm.yy</code><br>（日.月.年），指定的日期必须跟在指定时间的后面</p>
+<blockquote>
+<p>例如：<code>04:00 2021-03-1</code></p>
+</blockquote>
+</li>
+<li><p>使用相对计时法。指定格式为：<code>now + count time-units</code>， now 就是当前时间，<code>time-units</code>是时间单位，这里能够是<code>minutes</code>、<code>hours</code> 、<code>days</code>、<code>weeks</code>。<code>count</code>是时间的数量，几天，几小时</p>
+<blockquote>
+<p>例如：now + 5 minutes</p>
+</blockquote>
+</li>
+<li><p>直接使用<code>today</code> （今天）、<code>tomorrow</code>（明天）来指定完成命令的时间</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h1 id="7-Linux分区"><a href="#7-Linux分区" class="headerlink" title="7. Linux分区"></a>7. Linux分区</h1><blockquote>
+<p>Linux 内的磁盘可以划分为多个分区，每个分区可以通过挂载 mount 的方式将这些存储空间分配给文件目录，当先前挂载的空间不够大时，还能够另外挂载其他分区为文件目录获得更大的存储空间</p>
+</blockquote>
+<img src="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202307291540593.png" srcset="/img/loading.gif" lazyload alt="image-20230729154047436" style="zoom: 50%;" />
+
+<ul>
+<li><p><code>lsblk</code>：查看磁盘分配空间</p>
+<img src="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202307291435607.png" srcset="/img/loading.gif" lazyload alt="image-20230729143525500" style="zoom:67%;" />
+</li>
+<li><p><code>df -h</code>：查看磁盘使用情况（-h：带计量单位）</p>
+<img src="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202307291543140.png" srcset="/img/loading.gif" lazyload alt="image-20230729154307100" style="zoom:67%;" />
+</li>
+<li><p><code>du [选项] [指定目录]</code>：指定目录占用大小汇总</p>
+<blockquote>
+<p>若不填写指定目录则默认查询当前目录的磁盘占用情况</p>
+</blockquote>
+<ul>
+<li>-h：带计量单位</li>
+<li>-a：含文件</li>
+<li>-c：列出明细的同时增加汇总值</li>
+<li>-s ：生成汇总信息，即只显示目录或文件的总大小，而不显示其包含的每个子目录或文件的详细大小</li>
+<li>–max-depth&#x3D;1：展示子目录最大深度</li>
+</ul>
+<img src="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202403311301330.png" srcset="/img/loading.gif" lazyload alt="image-20240331130056254" style="zoom:67%;" /></li>
+</ul>
+<h1 id="8-进程管理"><a href="#8-进程管理" class="headerlink" title="8. 进程管理"></a>8. 进程管理</h1><ol>
+<li>在 Linux 中，每个执行的程序都称为一个进程，每一个进程都分配一个 ID 号【PID，进程号】</li>
+<li>前台进程就是用户目前的屏幕上可以进行操作的进程<br>后台进程则是实际在操作，但在屏幕上却无法看到的进程【如 MYSQL 服务】</li>
+<li>一般系统的服务都是以后台进程的方式存在，而且都会常驻在系统中，直到关机才结束</li>
+</ol>
+<ul>
+<li><p><code>ps [选项]</code>：查看进程相关信息</p>
+<ul>
+<li>-a：显示当前终端【前台】的所有进程信息</li>
+<li>-u：以用户的格式显示进程信息</li>
+<li>-x：显示后台进程运行的参数</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_"># </span><span class="language-bash">还可以配合grep语句对显示内容进行过滤</span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">如下是看看是否有sshd服务</span><br>ps -aux | grep sshd<br></code></pre></td></tr></table></figure>
+
+<img src="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202403311317508.png" srcset="/img/loading.gif" lazyload alt="image-20240331131744471" style="zoom:67%;" />
+
+<p>各列代表的含义如下👇：</p>
+<ul>
+<li>USER：用户名称</li>
+<li>PID：进程号</li>
+<li>%CPU：进程占用 CPU 的百分比</li>
+<li>%MEM：进程占用物理内存的百分比</li>
+<li>VSZ：进程占用的虚拟内存大小【单位：KB】</li>
+<li>RSS：进程占用的物理内存大小【单位：KB 】</li>
+<li>TT：终端名称缩写。</li>
+<li>STAT：进程状态，其中 S 代表睡眠，s- 表示该进程是会话的先导进程，N- 表示进程拥有比普通优先级更低的优先级，R- 正在运行，D- 短期等待，Z- 僵死进程，T- 被跟踪或者被停止等等</li>
+<li>STARTED：进程的启动时间</li>
+<li>TIME：CPU时间，即进程使用 CPU 的总时间</li>
+<li>COMMAND：启动进程所用的命令和参数，如果过长会被截断显示</li>
+</ul>
+</li>
+<li><p><code>pstree [选项]</code>：查看进程树，可以更直观看进程信息</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_"># </span><span class="language-bash">使用前确保相关包已安装</span><br>sudo apt-get install psmisc<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li>-p：显示进程的 PID</li>
+<li>-u：显示进程的所属用户</li>
+<li>-h：带计量单位</li>
+</ul>
+</li>
+<li><p><code>kill [选项] 进程ID或进程名</code>：用于终止或者操作运行中的进程</p>
+<blockquote>
+<p>进程号通过 ps 命令进行获取</p>
+</blockquote>
+<ul>
+<li>-9：强制终止进程，通常只在其他方法无效时使用</li>
+<li>-15：以友好的方式终止进程，它会请求进程优雅地退出，允许它进行清理工作</li>
+</ul>
+</li>
+<li><p><code>killall [选项] 进程名</code>：终止所有匹配（支持通配符）的进程</p>
+<ul>
+<li>-e：对命令行参数的模式进行匹配</li>
+<li>-g：终止与指定进程组的进程匹配</li>
+<li>-i：交互式模式，询问是否终止每个进程</li>
+<li>-q：静默模式，不显示任何输出</li>
+<li>-u：仅终止由指定用户拥有的进程</li>
+</ul>
+</li>
+</ul>
+<h1 id="9-服务管理"><a href="#9-服务管理" class="headerlink" title="9. 服务管理"></a>9. 服务管理</h1><blockquote>
+<p>服务（service）本质就是进程，不过是运行在后台的，通常会<strong>监听某个端口</strong>，等待其它程序的请求，如mysql , sshd，防火墙等，因此我们又称其为守护进程。</p>
+</blockquote>
+<ul>
+<li><p><code>service 服务名 [start/stop/restart/reload/status]</code><br><code>systemctl [start/stop/restart/status] 服务名</code></p>
+<blockquote>
+<p>对指定服务进行启动&#x2F;停止&#x2F;重启&#x2F;重新加载&#x2F;查看状态操作</p>
+</blockquote>
+</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs python">systemctl <span class="hljs-built_in">list</span>-units --<span class="hljs-built_in">type</span>=service<br><span class="hljs-comment"># 设置服务自启动状态</span><br>systemctl <span class="hljs-built_in">list</span>-unit-files [| grep 服务名]<br><span class="hljs-comment"># 设置服务开机启动</span><br>systemctl enable 服务名<br><span class="hljs-comment"># 关闭服务开机启动</span><br>systemctl disable 服务名<br><span class="hljs-comment"># 查询某个服务是否是自启动的</span><br>systemctl <span class="hljs-keyword">is</span>-enabled 服务名<br></code></pre></td></tr></table></figure>
+
+<p>在真正的生产环境，往往需要将防火墙打开，但问题来了，如果我们把防火墙打开，那么外部请求数据包就不能跟服务器监听端口通讯，此时就需要打开指定的端口。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># centos用firewall，ubuntu使用ufw</span><br><span class="hljs-comment"># 打开端口</span><br>firewall-cmd --permanent --add-port=端口号/协议<br><span class="hljs-comment"># 关闭端口</span><br>firewall-cmd --permanent --remove-port=端口号/协议<br><span class="hljs-comment"># 重新载入才能生效</span><br>firewall-cmd --reload<br><span class="hljs-comment"># 查询端口是否开放</span><br>firewall-cmd --query-port=端口/协议<br></code></pre></td></tr></table></figure>
+
+<h1 id="Shell常用命令"><a href="#Shell常用命令" class="headerlink" title="Shell常用命令"></a>Shell常用命令</h1><p>&#x3D;&#x3D;<strong><code>[选项]</code>通常就是 <code>-字母</code>，代表一些特殊作用</strong>&#x3D;&#x3D;</p>
+<h2 id="正则表达式"><a href="#正则表达式" class="headerlink" title="正则表达式"></a>正则表达式</h2><p><a target="_blank" rel="noopener" href="https://www.runoob.com/regexp/regexp-metachar.html">更多元字符含义</a></p>
+<ul>
+<li>*：代表零个或多个字符</li>
+<li>？：代表任意单个字符</li>
+<li>[ay]：代表该位置可以为 a 或者 y</li>
+<li>！：表示取反</li>
+<li>^&#x2F;$：只匹配行首&#x2F;尾</li>
+</ul>
+<h2 id="文件目录类"><a href="#文件目录类" class="headerlink" title="文件目录类"></a>文件目录类</h2><ul>
+<li><p><code>pwd</code>：显示当前在哪个目录下【绝对路径】</p>
+</li>
+<li><p><code>clear</code>：清除终端显示信息</p>
+</li>
+<li><p><code>ls [选项] [指定文件路径]</code>：显示当前目录下的文件名</p>
+<ul>
+<li><p>-a：显示当前目录所有的文件和目录，包括隐藏的</p>
+</li>
+<li><p>-l：以列表的方式显示信息</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_"># </span><span class="language-bash">若有<span class="hljs-built_in">ls</span> -l 显示内容如下👇</span><br>-rwxrw-r-- 1 root root 1213 Feb 2 09:39 abc<br><span class="hljs-meta prompt_"># </span><span class="language-bash">1 代表文件，若是其他数字则代表子目录数【包括隐藏文件夹，无子文件夹时值为2】</span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">第一个root代表用户，第二个root代表组</span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">1213 是文件大小【字节】，如果是文件夹显示4096字节</span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">Feb 2 09:39 是最后修改日期</span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">abc 是文件名</span><br></code></pre></td></tr></table></figure>
+
+<ul>
+<li><p><code>rwx</code> 作用到文件</p>
+<p><code>r</code> 代表可读 <code>read</code>：可以读取，查看<br><code>w</code> 代表可写 <code>write</code>：可以修改，但是不代表可以删除该文件，删除一个文件的前提条件是对该文件所在目录有写权限，才能删除该文件。<br><code>×</code> 代表可执行 <code>execute</code>：可以被执行</p>
+</li>
+<li><p><code>rwx</code> 作用到目录</p>
+<p><code>r</code> 代表可读 <code>read</code>：可以读取，ls查看目录内容<br><code>w</code> 代表可写 <code>write</code>：可以修改，对目录内创建+ 删除 + 重命名目录<br><code>×</code> 代表可执行 <code>execute</code>：可以进入该目录</p>
+</li>
+</ul>
+<ol>
+<li><p>第 <code>0</code> 位确定文件类型 <code>(d，-，l，c，b)</code></p>
+<p><code>-</code> 是普通文件</p>
+<p><code>l</code> 是链接，相当于 <code>windows</code> 的快捷方式</p>
+<p><code>d</code> 是目录，相当于 <code>windows</code> 的文件夹</p>
+<p><code>c</code> 是字符设备文件，鼠标，键盘</p>
+<p><code>b</code> 是块设备，比如硬盘</p>
+</li>
+<li><p>第 <code>1-3</code> 位确定所有者【该文件的所有者】拥有该文件的权限。</p>
+</li>
+<li><p>第 <code>4-6</code> 位确定所属组（同用户组的）拥有该文件的权限</p>
+</li>
+<li><p>第 <code>7-9</code> 位确定其他用户拥有该文件的权限</p>
+</li>
+</ol>
+</li>
+<li><p>-F：显示时区分文件与文件夹【文件夹后加&#x2F;，可执行文件加*】</p>
+</li>
+</ul>
+</li>
+<li><p><strong>cd 路径</strong>：切换到指定目录，**..**回到上一级，<strong>~</strong>回到家目录</p>
+</li>
+<li><p><strong>mkdir [选项] 路径</strong>：在指定路径下创建文件夹</p>
+<ul>
+<li>-p：根据需要创建父目录</li>
+</ul>
+</li>
+<li><p><strong>rmdir 目录名</strong>：删除空目录</p>
+</li>
+<li><p><strong>rm -rf 目录名</strong>：不论是否为空目录都进行删除</p>
+<blockquote>
+<p>通常 r 和 f 选项都会一起用</p>
+</blockquote>
+<ul>
+<li>-r：递归删除整个文件夹</li>
+<li>-f：强制删除不提示</li>
+</ul>
+</li>
+<li><p><strong>touch 文件名</strong>：创建一个空文件</p>
+</li>
+<li><p><strong>cp [选项] source dest</strong>：将 source 拷贝到 dest 下</p>
+<ul>
+<li>-r：递归复制整个文件夹【没有 -r 时只能拷贝单个文件】</li>
+<li>-i：当有目标位置有重名文件时会提示</li>
+</ul>
+</li>
+<li><p><strong>mv source dest</strong>：将文件由 source 移动至 dest ，不给文件名时默认与原文件名相同，若给出的是新文件名则是移动并重命名</p>
+<blockquote>
+<p>若是 source 和 dest 在指向同一目录但文件名不同，则起到重命名的效果</p>
+</blockquote>
+</li>
+<li><p><strong>echo 字符串</strong>：将字符串输出到控制台</p>
+<ul>
+<li>echo “Hello” &gt; a.txt：将字符串<strong>覆盖</strong>写入a.txt</li>
+<li>echo “Hello” &gt;&gt; a.txt：将字符串<strong>追加</strong>写入a.txt</li>
+</ul>
+</li>
+<li><p><strong>ln -s 原文件或目录 软链接名</strong>：为原文件创建软链接【快捷方式】</p>
+</li>
+<li><p><strong>cat [选项] 文件名 [| more]</strong>：查看文件内容【无编辑权限】，加上more可以使得文件内容可以按页显示</p>
+<ul>
+<li><p>-n：显示行号</p>
+</li>
+<li><p>more 可以配合以下快捷键进行操作👇</p>
+<img src="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202307121404066.png" srcset="/img/loading.gif" lazyload alt="image-20230712140353936" style="zoom: 50%;" /></li>
+</ul>
+</li>
+</ul>
+<h2 id="时间日期类"><a href="#时间日期类" class="headerlink" title="时间日期类"></a>时间日期类</h2><ul>
+<li><p><strong>date “格式”</strong>：显示当前日期，未填格式时为默认格式</p>
+<ul>
+<li><p>格式中，Y是年份，m是月份，d是天，H是时，M是分，S秒</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_"># </span><span class="language-bash">开头固定为+</span><br>date &quot;+%Y-%m-%d %H:%M:%S&quot;<br></code></pre></td></tr></table></figure>
+
+<img src="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202403202044285.png" srcset="/img/loading.gif" lazyload alt="image-20240320204356204" style="zoom: 80%;" /></li>
+</ul>
+</li>
+<li><p><strong>cal [年份]</strong>：显示当前月份日历，填写年份时显示全年日历</p>
+</li>
+</ul>
+<h2 id="查找"><a href="#查找" class="headerlink" title="查找"></a>查找</h2><ul>
+<li><p><strong>find 目录名 [选项] xxx</strong>：从指定目录向下遍历各个子目录，将满足条件的文件或目录显示在终端</p>
+<ul>
+<li>-name：按照指定的文件名查找文件</li>
+<li>-user：查找属于指定用户名所有文件</li>
+<li>-size：按照指定的文件大小查找文件</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_"># </span><span class="language-bash">查找home目录下的所有txt文件</span><br>find /home -name &quot;*.txt&quot;<br><span class="hljs-meta prompt_"># </span><span class="language-bash">查找根目录下大于200M的文件【+是大于，-是小于，只有数字是等于，单位有k,M,G】</span><br>find / -size +200M <br></code></pre></td></tr></table></figure>
+</li>
+<li><p><strong>locate 搜索位置</strong>：无需遍历整个系统，可以更快定位</p>
+<blockquote>
+<p>由于 locate 指令基于数据库进行查询，所以第一次运行前，必须使用 updatedb 指令创 建 locate 数据库</p>
+</blockquote>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_"># </span><span class="language-bash">有数据更新时候就需要执行一次</span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">yum install mlocate</span><br>updatedb<br>locate &quot;目标位置&quot;<br></code></pre></td></tr></table></figure>
+</li>
+<li><p><strong>grep [选项] 查找内容 源文件</strong>：grep 是过滤查找，管道符号|可以连接多个条件</p>
+<ul>
+<li>-n：显示行号</li>
+<li>-i：忽略字母大小写</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_"># </span><span class="language-bash">查看a.txt文件内容中包含字符串<span class="hljs-string">&quot;hello&quot;</span>的部分</span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">查找内容部分可以是正则表达式</span><br>cat a.txt | grep [选项] &quot;hello&quot;<br></code></pre></td></tr></table></figure>
+</li>
+<li><p><strong>wc [选项] 文件</strong>：根据选项返回文件对应信息</p>
+<ul>
+<li>-c：统计字节数</li>
+<li>-l：统计行数</li>
+<li>-m：统计字符数</li>
+<li>-w：统计字数</li>
+</ul>
+</li>
+<li><p><strong>tail [选项] 文件</strong>：显示文件的末尾内容</p>
+<ul>
+<li><code>-n &lt;number&gt;</code>：显示文件末尾的最后<code>&lt;number&gt;</code>行</li>
+<li><code>-f</code>：在显示文件末尾内容的同时继续监视文件的变化，实时显示新增的内容</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_"># </span><span class="language-bash">查看a.txt文件末尾5行的内容</span><br>tail -n 5 a.txt<br></code></pre></td></tr></table></figure></li>
+</ul>
+<h2 id="压缩和解压"><a href="#压缩和解压" class="headerlink" title="压缩和解压"></a>压缩和解压</h2><ul>
+<li><p><strong>zip [选项] xxx.zip 文件&#x2F;目录</strong>：压缩文件为zip格式</p>
+<ul>
+<li>-r：递归压缩，即压缩目录</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_"># </span><span class="language-bash">将home目录以及其下子文件一起压缩为myhome.zip</span><br>zip -r myhome.zip /home/<br></code></pre></td></tr></table></figure>
+</li>
+<li><p><strong>upzip [选项] xxx.zip</strong>：解压zip文件</p>
+<ul>
+<li>-d：指定解压后文件的存放目录</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_"># </span><span class="language-bash">将myhome.zip解压到opt目录下</span><br>unzip -d /opt/ myhome.zip<br></code></pre></td></tr></table></figure>
+</li>
+<li><p><strong>tar [选项] xxx.tar.gz 文件&#x2F;目录</strong>：根据不同选项对文件进行压缩&#x2F;解压</p>
+<blockquote>
+<p>通常解压使用 <code>-zxvf</code>，压缩使用 <code>-zcvf</code></p>
+</blockquote>
+<ul>
+<li>-c：产生.tar打包文件</li>
+<li>-v：显示详细信息</li>
+<li>-f：使用文件名，压缩解压都要用且放最右边</li>
+<li>-z：使用gzip算法</li>
+<li>-x：解压.tar文件</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_"># </span><span class="language-bash">压缩pig.txt和cat.txt</span><br>tar -zcvf pc.tar.gz /home/pig.txt /home/cat.txt<br><span class="hljs-meta prompt_"># </span><span class="language-bash">将home目录所有内容压缩为myhome.tar.gz</span><br>tar -zcvf myhome.tar.gz /home/<br><span class="hljs-meta prompt_"># </span><span class="language-bash">解压test.tar.gz到temp文件夹下【-C表示temp为目录】</span><br>tar -zxvf test.tar.gz -C temp<br></code></pre></td></tr></table></figure></li>
+</ul>
+<h2 id="磁盘空间"><a href="#磁盘空间" class="headerlink" title="磁盘空间"></a>磁盘空间</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_"># </span><span class="language-bash">查看磁盘空间</span><br>df -h<br><span class="hljs-meta prompt_"># </span><span class="language-bash">目录下所有文件和目录的大小的排序结果</span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">-n：令<span class="hljs-built_in">sort</span>命令将数字按值排序</span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">-r：降序排序</span><br>du -ah /* | sort -nr<br></code></pre></td></tr></table></figure>
+
+<h1 id="Ubuntu图形界面快捷键"><a href="#Ubuntu图形界面快捷键" class="headerlink" title="Ubuntu图形界面快捷键"></a>Ubuntu图形界面快捷键</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_"># </span><span class="language-bash">打开终端</span><br>Ctrl + Alt + T<br><span class="hljs-meta prompt_"># </span><span class="language-bash">终端进入全屏模式</span><br>F11<br><span class="hljs-meta prompt_"># </span><span class="language-bash">调大终端字体</span><br>Ctrl + Shift + +【主键盘上的+】<br><span class="hljs-meta prompt_"># </span><span class="language-bash">调小终端字体</span><br>Ctrl + -【主键盘上的-】<br>Enter【逐行查看】/Space【逐页查看】<br></code></pre></td></tr></table></figure>
+
+<h1 id="Linux各文件夹作用"><a href="#Linux各文件夹作用" class="headerlink" title="Linux各文件夹作用"></a>Linux各文件夹作用</h1><ol>
+<li><p><strong>&#x2F;bin</strong>:</p>
+<blockquote>
+<p>包含一些基本的系统命令，这些命令可以在系统引导时就可以使用，这些<strong>命令对于系统的基本运行是必需</strong>的。</p>
+</blockquote>
+</li>
+<li><p><strong>&#x2F;boot</strong>:</p>
+<blockquote>
+<p>包含引导加载程序和内核镜像文件，用于引导系统。通常情况下，这个文件夹包含用于启动Linux系统的所有必需文件。</p>
+</blockquote>
+</li>
+<li><p><strong>&#x2F;dev</strong>:</p>
+<blockquote>
+<p>包含设备文件，这些文件用于与系统中的硬件设备进行通信。例如，硬盘、键盘、鼠标等设备都通过这个文件夹进行访问。</p>
+</blockquote>
+</li>
+<li><p><strong>&#x2F;etc</strong>:</p>
+<blockquote>
+<p>包含系统配置文件，这些文件包括各种系统级别的配置，如网络配置、用户配置、软件配置等。</p>
+</blockquote>
+</li>
+<li><p><strong>&#x2F;home</strong>:</p>
+<blockquote>
+<p>包含用户的主目录。每个用户都有一个子目录，其中包含他们的个人文件和设置。</p>
+</blockquote>
+</li>
+<li><p><strong>&#x2F;lib</strong>:</p>
+<blockquote>
+<p>包含共享库文件，这些文件是用于支持可执行文件的共享代码的动态链接库。这些库在程序运行时被加载。</p>
+</blockquote>
+</li>
+<li><p><strong>&#x2F;media</strong> 和 <strong>&#x2F;mnt</strong>:</p>
+<blockquote>
+<p>用于挂载可移动介质，如USB驱动器、光盘等。通常，当你插入一个USB驱动器时，它会自动挂载到这些目录下。</p>
+</blockquote>
+</li>
+<li><p><strong>&#x2F;opt</strong>:</p>
+<blockquote>
+<p>用于安装可选的软件包。这些软件包通常不是系统的一部分，而是额外安装的。</p>
+</blockquote>
+</li>
+<li><p><strong>&#x2F;proc</strong>:</p>
+<blockquote>
+<p>包含系统进程的虚拟文件系统。这个文件夹中的文件提供了有关当前运行进程和系统状态的信息。</p>
+</blockquote>
+</li>
+<li><p><strong>&#x2F;root</strong>:</p>
+<blockquote>
+<p>root用户的主目录，root是系统中最高权限的用户。</p>
+</blockquote>
+</li>
+<li><p><strong>&#x2F;sbin</strong>:</p>
+<blockquote>
+<p>包含一些系统管理员使用的系统命令，这些命令通常需要特殊的权限才能运行。</p>
+</blockquote>
+</li>
+<li><p><strong>&#x2F;srv</strong>:</p>
+<blockquote>
+<p>用于存储特定服务或系统提供的数据。例如，Web服务器可能会将网站文件存储在此处。</p>
+</blockquote>
+</li>
+<li><p><strong>&#x2F;tmp</strong>:</p>
+<blockquote>
+<p>用于存储临时文件。这个文件夹中的文件通常会在系统重启时被清理掉。</p>
+</blockquote>
+</li>
+<li><p><strong>&#x2F;usr</strong>:</p>
+<blockquote>
+<p>包含用户安装的应用程序和文件。通常，系统管理员安装的软件包都会放在这个目录下。</p>
+</blockquote>
+</li>
+<li><p><strong>&#x2F;var</strong>:</p>
+<blockquote>
+<p>包含经常变化的文件，如日志文件、数据库文件等。这些文件的内容通常是系统或应用程序的状态信息。</p>
+</blockquote>
+</li>
+</ol>
+<h1 id="Linux环境部署"><a href="#Linux环境部署" class="headerlink" title="Linux环境部署"></a>Linux环境部署</h1><h2 id="JDK"><a href="#JDK" class="headerlink" title="JDK"></a>JDK</h2><ol>
+<li><p>官网下载 JDK 安装包，将其放置 &#x2F;usr&#x2F;java 文件夹下</p>
+<img src="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202404282116347.png" srcset="/img/loading.gif" lazyload alt="image-20240428211627291" style="zoom:50%;" />
+</li>
+<li><p>配置环境变量</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs bash">JAVA_HOME=/usr/java/JDK17<br>PATH=<span class="hljs-variable">$PATH</span>:<span class="hljs-variable">$JAVA_HOME</span>/bin<br>CLASSPATH=.:<span class="hljs-variable">$JAVA_HOME</span>/lib<br><span class="hljs-built_in">export</span> JAVA_HOME PATH CLASSPATH<br></code></pre></td></tr></table></figure>
+
+<ol>
+<li><code>JAVA_HOME=/usr/java/JDK17</code>：<ul>
+<li>这一行定义了一个环境变量 <code>JAVA_HOME</code>，它的值是 <code>/usr/java/JDK17</code>。</li>
+<li><code>JAVA_HOME</code> 通常用于指定Java开发工具包（JDK）的安装路径。在这个例子中，JDK的安装路径被设置为 <code>/usr/java/JDK17</code>。</li>
+</ul>
+</li>
+<li><code>PATH=$PATH:$JAVA_HOME/bin</code>：<ul>
+<li>这一行修改了 <code>PATH</code> 环境变量，将Java可执行文件的路径添加到了现有的 <code>PATH</code> 中。</li>
+<li><code>$PATH</code> 表示在原有的 <code>PATH</code> 值的基础上进行添加，<code>$JAVA_HOME/bin</code> 表示Java的可执行文件所在的目录。</li>
+<li>这样做的目的是让系统能够在任意路径下都能找到Java相关的命令，比如 <code>java</code>、<code>javac</code> 等。</li>
+</ul>
+</li>
+<li><code>CLASSPATH=.:$JAVA_HOME/lib</code>：<ul>
+<li>这一行定义了一个环境变量 <code>CLASSPATH</code>，用于指定Java编译器和运行时环境在查找类文件时所需搜索的路径。</li>
+<li><code>.</code> 表示当前目录，<code>$JAVA_HOME/lib</code> 表示Java类库所在的目录。</li>
+<li>这样设置 <code>CLASSPATH</code> 可以让Java编译器和运行时环境在查找类文件时优先搜索当前目录和Java类库目录。</li>
+</ul>
+</li>
+<li><code>export JAVA_HOME PATH CLASSPATH</code>：<ul>
+<li>这一行使用 <code>export</code> 命令将 <code>JAVA_HOME</code>、<code>PATH</code>、<code>CLASSPATH</code> 这三个环境变量导出，使它们对当前用户的所有子进程都可见。</li>
+<li>这样做的目的是确保在新的shell会话或子进程中，这些环境变量仍然保持有效，以便于使用Java开发工具包和运行Java程序。</li>
+</ul>
+</li>
+</ol>
+</li>
+<li><p>刷新profile文件，再通过<code>java -version</code>查看jdk版本</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">source /etc/profile<br></code></pre></td></tr></table></figure>
+
+<p><img src="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202404282111831.png" srcset="/img/loading.gif" lazyload alt="image-20240428211145729"></p>
+</li>
+</ol>
+<h2 id="Tomcat"><a href="#Tomcat" class="headerlink" title="Tomcat"></a>Tomcat</h2><ol>
+<li><p>官网下载Tomcat，将其放置 &#x2F;usr&#x2F;tomcat 文件夹下</p>
+<img src="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202404282117617.png" srcset="/img/loading.gif" lazyload alt="image-20240428211752581" style="zoom:50%;" />
+</li>
+<li><p>配置环境变量</p>
+<blockquote>
+<p>此处顺带配置了 JDK 环境，注意 JDK 和 Tomcat 版本需要适配</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs bash">JAVA_HOME=/usr/java/JDK8<br>CATALINA_HOME=/usr/tomcat/tomcat8<br>PATH=<span class="hljs-variable">$PATH</span>:<span class="hljs-variable">$JAVA_HOME</span>/bin:<span class="hljs-variable">$CATALINA_HOME</span>/bin<br>CLASSPATH=.:<span class="hljs-variable">$JAVA_HOME</span>/lib:<span class="hljs-variable">$CATALINA_HOME</span>/lib<br><span class="hljs-built_in">export</span> JAVA_HOME CATALINA_HOME PATH CLASSPATH<br></code></pre></td></tr></table></figure>
+</li>
+<li><p>刷新profile文件，进入tomcat的bin目录下操作 startup.sh 启动 tomcat 服务器，能够通过 ip:8080 端口访问即部署成功</p>
+<img src="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202404291032477.png" srcset="/img/loading.gif" lazyload alt="image-20240429103154367" style="zoom:80%;" /></li>
+</ol>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/" class="category-chain-item">计算机基础</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/" class="category-chain-item">编程语言</a>
+  
+  
+
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/" class="print-no-link">#编程语言</a>
+      
+    </div>
+  
+</div>
+
+
+              
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/blog/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/Python%E5%9F%BA%E7%A1%80/" title="Python基础">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">Python基础</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/blog/Python/%E5%8A%9E%E5%85%AC%E6%95%88%E7%8E%87/Python/%E5%8A%9E%E5%85%AC%E6%95%88%E7%8E%87/docx%E5%BA%93%E4%BD%BF%E7%94%A8%E6%89%8B%E5%86%8C/" title="docx库使用手册">
+                        <span class="hidden-mobile">docx库使用手册</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       用文字锁住记忆 
+    </div>
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+<!-- hexo injector body_end start --><script src="/js/backgroundize.js"></script><!-- hexo injector body_end end --></body>
+</html>

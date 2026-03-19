@@ -1,0 +1,1085 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/our/logo.png">
+  <link rel="icon" href="/img/our/logo.png">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="Z_Jump_Dragon">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="Pandas以Numpy为基础，借力Numpy模块在计算方面性能高的优势，基于matplotlib，能够简便的画图，同时拥有独特的数据结构，常用于处理结构化数据">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Pandas库使用手册">
+<meta property="og:url" content="https://dragooon.top/blog/Python/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/Python/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/Pandas%E5%BA%93%E4%BD%BF%E7%94%A8%E6%89%8B%E5%86%8C/index.html">
+<meta property="og:site_name" content="棱镜里的日常">
+<meta property="og:description" content="Pandas以Numpy为基础，借力Numpy模块在计算方面性能高的优势，基于matplotlib，能够简便的画图，同时拥有独特的数据结构，常用于处理结构化数据">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202304142054391.png">
+<meta property="og:image" content="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202304142056995.png">
+<meta property="og:image" content="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202304142057603.png">
+<meta property="og:image" content="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202304142107242.png">
+<meta property="og:image" content="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202304142116131.png">
+<meta property="og:image" content="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202304142118808.png">
+<meta property="og:image" content="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202307261109867.png">
+<meta property="og:image" content="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202307261110696.png">
+<meta property="og:image" content="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202304142041436.png">
+<meta property="og:image" content="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202309161636197.png">
+<meta property="og:image" content="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202309161638576.png">
+<meta property="og:image" content="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202304142041735.png">
+<meta property="og:image" content="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202304142041817.png">
+<meta property="og:image" content="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202304142041813.png">
+<meta property="og:image" content="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202304142041962.png">
+<meta property="og:image" content="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202304142041103.png">
+<meta property="og:image" content="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202304142041950.png">
+<meta property="og:image" content="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202304081637100.png">
+<meta property="og:image" content="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202304142041117.png">
+<meta property="og:image" content="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202304142041618.png">
+<meta property="og:image" content="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202304081637565.png">
+<meta property="og:image" content="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202304142041179.png">
+<meta property="og:image" content="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202304142041544.png">
+<meta property="og:image" content="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202304142041573.png">
+<meta property="og:image" content="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202304142041547.png">
+<meta property="og:image" content="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202304142041394.png">
+<meta property="og:image" content="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202304142041081.png">
+<meta property="og:image" content="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202304142041741.png">
+<meta property="og:image" content="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202304142041748.png">
+<meta property="og:image" content="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202304142041928.png">
+<meta property="og:image" content="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202304142041042.png">
+<meta property="og:image" content="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202304142041580.png">
+<meta property="og:image" content="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202304142041580.png">
+<meta property="og:image" content="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202307261122238.png">
+<meta property="og:image" content="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202307261135335.png">
+<meta property="og:image" content="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202307261136901.png">
+<meta property="og:image" content="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202308041116248.png">
+<meta property="article:published_time" content="2024-03-31T00:41:49.000Z">
+<meta property="article:modified_time" content="2026-03-19T08:09:42.487Z">
+<meta property="article:author" content="Z_Jump_Dragon">
+<meta property="article:tag" content="数据分析">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202304142054391.png">
+  
+  
+  
+  <title>Pandas库使用手册 - 棱镜里的日常</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+  
+<link rel="stylesheet" href="/css/cloudedGlass.css">
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"dragooon.top","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":60,"cursorChar":"_","loop":false,"scope":["home"]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"left","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":3},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":false};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+
+<body><!-- hexo injector body_begin start --><div id="web_bg"></div><!-- hexo injector body_begin end -->
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 100vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>棱镜里的日常</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/our/article.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle">Pandas库使用手册</span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-author" aria-hidden="true"></i>
+        Z_Jump_Dragon
+      </span>
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2024-03-31 08:41" pubdate>
+          2024年3月31日 早上
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          4k 字
+        
+      </span>
+    
+
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+        <div class="scroll-down-bar">
+          <i class="iconfont icon-arrowdown"></i>
+        </div>
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="padding-left: 2rem; margin-right: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">Pandas库使用手册</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <p><code>Pandas</code>以<code>Numpy</code>为基础，借力<code>Numpy</code>模块在计算方面性能高的优势，基于<code>matplotlib</code>，能够简便的画图，同时拥有独特的数据结构，常用于处理结构化数据</p>
+<h1 id="1-数据结构"><a href="#1-数据结构" class="headerlink" title="1. 数据结构"></a>1. 数据结构</h1><blockquote>
+<p><code>Pandas</code>中一共有三种数据结构，分别为：<code>Series</code>、<code>DataFrame</code>和<code>MultiIndex</code>，其中<code>Series</code>是<strong>一维数据结构</strong>，<code>DataFrame</code>是<strong>二维的表格型数据结构</strong>，<code>MultiIndex</code>是三维的数据结构</p>
+</blockquote>
+<h2 id="1-1-Series"><a href="#1-1-Series" class="headerlink" title="1.1 Series"></a>1.1 Series</h2><blockquote>
+<p><code>Series</code>是一个类似于一维数组的数据结构，它能够保存任何类型的数据，比如整数、字符串、浮点数等，主要由一组数据和与之相关的索引两部分构成【像字典一样】</p>
+</blockquote>
+<h3 id="Series创建"><a href="#Series创建" class="headerlink" title="Series创建"></a>Series创建</h3><p><code>pd.Series(data=None, index=None, dtype=None)</code> </p>
+<ul>
+<li><code>data</code>：传入的数据，可以是<code>ndarray</code>、<code>list</code>等</li>
+<li><code>index</code>：索引，必须是唯一的，且与数据的长度相等。如果没有传入索引参数，则默认会自动创建一个从<code>0-(N-1)</code>的整数索引</li>
+<li><code>dtype</code>：数据的类型</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> pandas <span class="hljs-keyword">as</span> pd<br><span class="hljs-keyword">import</span> numpy <span class="hljs-keyword">as</span> np<br><span class="hljs-comment"># 生成0到3【不包括】之间的整数，索引为默认索引【从0开始】</span><br>a = pd.Series([<span class="hljs-number">5</span>,<span class="hljs-number">6</span>,<span class="hljs-number">7</span>,<span class="hljs-number">8</span>])<br><span class="hljs-built_in">print</span>(a)<br></code></pre></td></tr></table></figure>
+
+<img src="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202304142054391.png" srcset="/img/loading.gif" lazyload alt="image-20230414205440304" style="zoom:80%;" />
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># 指定索引</span><br>a = pd.Series(data=[<span class="hljs-number">5</span>,<span class="hljs-number">6</span>,<span class="hljs-number">7</span>,<span class="hljs-number">8</span>], index=[<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>])<br><span class="hljs-built_in">print</span>(a)<br></code></pre></td></tr></table></figure>
+
+<img src="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202304142056995.png" srcset="/img/loading.gif" lazyload alt="image-20230414205629951" style="zoom:80%;" />
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># 通过字典数据创建</span><br>color_count = pd.Series(&#123;<span class="hljs-string">&#x27;red&#x27;</span>:<span class="hljs-number">100</span>, <span class="hljs-string">&#x27;blue&#x27;</span>:<span class="hljs-number">200</span>&#125;)<br><span class="hljs-built_in">print</span>(color_count)<br></code></pre></td></tr></table></figure>
+
+<img src="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202304142057603.png" srcset="/img/loading.gif" lazyload alt="image-20230414205759573" style="zoom:80%;" />
+
+<h3 id="Series属性"><a href="#Series属性" class="headerlink" title="Series属性"></a>Series属性</h3><blockquote>
+<p>为了更方便地操作<code>Series</code>对象中的索引和数据，<code>Series</code>中提供了两个属性<code>index</code>和<code>values</code></p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># 数据接上</span><br>color_count.index <br><span class="hljs-comment"># 结果 </span><br>Index([<span class="hljs-string">&#x27;red&#x27;</span>, <span class="hljs-string">&#x27;blue&#x27;</span>], dtype=<span class="hljs-string">&#x27;object&#x27;</span>)<br><br>color_count.values<br><span class="hljs-comment"># 结果</span><br>array([<span class="hljs-number">100</span>, <span class="hljs-number">200</span>], dtype=int64)<br><br><span class="hljs-comment"># 可以用索引访问值 </span><br>color_count[<span class="hljs-number">1</span>]<br><span class="hljs-comment"># 结果</span><br><span class="hljs-number">200</span><br></code></pre></td></tr></table></figure>
+
+<h3 id="Series实例方法"><a href="#Series实例方法" class="headerlink" title="Series实例方法"></a>Series实例方法</h3><ul>
+<li><p><code>isnull()</code>：当前索引对应值存放的为<code>None</code>时返回<code>True</code>，反之为<code>False</code>【<code>notnull()</code>有类似用法】</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python">a = pd.Series([<span class="hljs-number">1</span>,<span class="hljs-literal">None</span>,<span class="hljs-number">3</span>])<br><span class="hljs-built_in">print</span>(a.isnull())<br></code></pre></td></tr></table></figure>
+
+<img src="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202304142107242.png" srcset="/img/loading.gif" lazyload alt="image-20230414210727207" style="zoom:80%;" /></li>
+</ul>
+<h2 id="1-2-DataFrame"><a href="#1-2-DataFrame" class="headerlink" title="1.2 DataFrame"></a>1.2 DataFrame</h2><blockquote>
+<p><code>DataFrame</code>是一个类似于二维数组或表格【如<code>excel</code>】的对象，既有行索引，又有列索引 ，其每一列就是一个<code>Series</code></p>
+</blockquote>
+<ul>
+<li>列索引，表名不同列，纵向索引<code>columns</code>，<code>axis=0</code></li>
+<li>行索引，表明不同行，横向索引<code>index</code>，<code>axis=1</code></li>
+</ul>
+<h3 id="DataFrame的创建"><a href="#DataFrame的创建" class="headerlink" title="DataFrame的创建"></a>DataFrame的创建</h3><p><code>pd.DataFrame(data=None, index=None, columns=None)</code></p>
+<ul>
+<li><code>index</code>：行标签。如果没有传入索引参数，则默认会自动创建一个从<code>0-(N-1)</code>的整数索引</li>
+<li><code>columns</code>：列标签。如果没有传入索引参数，则默认会自动创建一个从<code>0-(N-1)</code>的整数索引</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> pandas <span class="hljs-keyword">as</span> pd<br><span class="hljs-keyword">import</span> numpy <span class="hljs-keyword">as</span> np<br><br><span class="hljs-comment"># 3行3列，大小处于70-100之间</span><br>score=np.random.randint(<span class="hljs-number">70</span>,<span class="hljs-number">100</span>,[<span class="hljs-number">3</span>,<span class="hljs-number">3</span>])<br><span class="hljs-comment"># 构造列索引序列</span><br>subjects = [<span class="hljs-string">&quot;语文&quot;</span>, <span class="hljs-string">&quot;数学&quot;</span>, <span class="hljs-string">&quot;英语&quot;</span>]<br><span class="hljs-comment"># 添加列索引</span><br>data = pd.DataFrame(score, columns=subjects)<br>data<br></code></pre></td></tr></table></figure>
+
+<img src="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202304142116131.png" srcset="/img/loading.gif" lazyload alt="image-20230414211655093" style="zoom:80%;" />
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># 也可以以字典的形式创建</span><br>df = pd.DataFrame(&#123;<span class="hljs-string">&#x27;month&#x27;</span>: [<span class="hljs-number">1</span>, <span class="hljs-number">4</span>, <span class="hljs-number">7</span>, <span class="hljs-number">10</span>], <br>                   <span class="hljs-string">&#x27;year&#x27;</span>: [<span class="hljs-number">2012</span>, <span class="hljs-number">2014</span>, <span class="hljs-number">2013</span>, <span class="hljs-number">2014</span>], <br>                   <span class="hljs-string">&#x27;sale&#x27;</span>:[<span class="hljs-number">55</span>, <span class="hljs-number">40</span>, <span class="hljs-number">84</span>, <span class="hljs-number">31</span>]&#125;)<br>df<br></code></pre></td></tr></table></figure>
+
+<img src="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202304142118808.png" srcset="/img/loading.gif" lazyload alt="image-20230414211815771" style="zoom:80%;" />
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># 传入二维数组进行创建</span><br>df1 = pd.DataFrame([[<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>]])<br>df2 = pd.DataFrame([[<span class="hljs-number">1</span>],[<span class="hljs-number">2</span>],[<span class="hljs-number">3</span>]])<br></code></pre></td></tr></table></figure>
+
+<p><img src="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202307261109867.png" srcset="/img/loading.gif" lazyload alt="image-20230726110936752" style="zoom: 67%;" /><img src="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202307261110696.png" srcset="/img/loading.gif" lazyload alt="image-20230726111003655" style="zoom: 67%;" /></p>
+<h3 id="DataFrame的属性"><a href="#DataFrame的属性" class="headerlink" title="DataFrame的属性"></a>DataFrame的属性</h3><table>
+<thead>
+<tr>
+<th>属性名</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>shape</code></td>
+<td><code>DataFrame</code>的维度</td>
+</tr>
+<tr>
+<td><code>index</code></td>
+<td>行索引的列表集合</td>
+</tr>
+<tr>
+<td><code>columns</code></td>
+<td>列索引的列表集合</td>
+</tr>
+<tr>
+<td><code>values</code></td>
+<td>所有值的集合</td>
+</tr>
+<tr>
+<td><code>T</code></td>
+<td>转置</td>
+</tr>
+</tbody></table>
+<h3 id="DataFrame的索引设置"><a href="#DataFrame的索引设置" class="headerlink" title="DataFrame的索引设置"></a>DataFrame的索引设置</h3><h4 id="修改索引值"><a href="#修改索引值" class="headerlink" title="修改索引值"></a>修改索引值</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># 必须整体全部修改 </span><br>data.index/columns = [<span class="hljs-number">7</span>,<span class="hljs-number">8</span>,<span class="hljs-number">9</span>]<br><br><span class="hljs-comment"># 错误修改方式 </span><br>data.index/coloums[<span class="hljs-number">3</span>] = <span class="hljs-number">9</span><br></code></pre></td></tr></table></figure>
+
+<h4 id="重设索引"><a href="#重设索引" class="headerlink" title="重设索引"></a>重设索引</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># 重置索引，True使得行索引变回默认值且删除掉原索引列；False则保留原行索引列</span><br>data = data.reset_index(drop=<span class="hljs-literal">True</span>)<br><br><span class="hljs-comment"># 使得语文列变成行索引，也可以传入列表使得多列成为一个索引</span><br>data.set_index(<span class="hljs-string">&#x27;语文&#x27;</span>)<br></code></pre></td></tr></table></figure>
+
+<h3 id="DataFrame实例方法"><a href="#DataFrame实例方法" class="headerlink" title="DataFrame实例方法"></a>DataFrame实例方法</h3><ul>
+<li><p><code>value_counts()</code>：统计当前列各元素个数【降序排列】</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># 统计data的num1中各元素的个数</span><br>data[<span class="hljs-string">&#x27;num1&#x27;</span>].value_counts()<br></code></pre></td></tr></table></figure>
+</li>
+<li><p><code>head/tail(x)</code>：显示前&#x2F;后<code>x</code>行内容，默认为<code>5</code></p>
+</li>
+<li><p><code>date_range(&#39;2021-01-01&#39;, periods=4)</code>：生成从2021&#x2F;01&#x2F;01开始往后4天的日期数据</p>
+</li>
+<li><p><code>drop_duplicates(subset=[&#39;A&#39;])</code>：如果两行在列 A’上的值相同，则其中一行将被保留，而另一行将被删除。</p>
+</li>
+</ul>
+<h1 id="2-基本数据操作"><a href="#2-基本数据操作" class="headerlink" title="2. 基本数据操作"></a>2. 基本数据操作</h1><h2 id="2-1-索引操作"><a href="#2-1-索引操作" class="headerlink" title="2.1 索引操作"></a>2.1 索引操作</h2><blockquote>
+<p><code>DataFrame</code>采用索引取值时采用<strong>先列后行</strong>的方式；直接使用切片操作时只能对<strong>行</strong>切片，得到的依旧是 DataFrame</p>
+</blockquote>
+<img src="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202304142041436.png" srcset="/img/loading.gif" lazyload alt="image-20220903124332488" style="zoom: 67%;" />
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># 取出第1行往后的数据，在此基础上再次取第1行往后数据</span><br>df[<span class="hljs-number">1</span>:][<span class="hljs-number">1</span>:]<br></code></pre></td></tr></table></figure>
+
+<img src="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202309161636197.png" srcset="/img/loading.gif" lazyload alt="image-20230916163633095" style="zoom:67%;" />
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># 取出month这列【实则是Series】第1行往后数据</span><br>df[<span class="hljs-string">&#x27;month&#x27;</span>][<span class="hljs-number">1</span>:]<br></code></pre></td></tr></table></figure>
+
+<img src="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202309161638576.png" srcset="/img/loading.gif" lazyload alt="image-20230916163802546" style="zoom:67%;" />
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># 利用loc方法可以按照行名列名【包括当前行列】实现切片，并且是先取行再取列</span><br>df.loc[:<span class="hljs-number">1</span>,:<span class="hljs-string">&quot;year&quot;</span>]<br></code></pre></td></tr></table></figure>
+
+<img src="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202304142041735.png" srcset="/img/loading.gif" lazyload alt="image-20220903125002716" style="zoom:67%;" />
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># 利用iloc方法实现按照索引切片，同样是先取行再取列</span><br>df.iloc[:<span class="hljs-number">1</span>,:<span class="hljs-number">2</span>]<br></code></pre></td></tr></table></figure>
+
+<img src="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202304142041817.png" srcset="/img/loading.gif" lazyload alt="image-20220903142135759" style="zoom:67%;" />
+
+<h2 id="2-2-赋值操作"><a href="#2-2-赋值操作" class="headerlink" title="2.2 赋值操作"></a>2.2 赋值操作</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># 对一整列赋值</span><br>df.month=<span class="hljs-number">1</span>	<span class="hljs-comment"># 方法1</span><br>df[<span class="hljs-string">&#x27;month&#x27;</span>]=<span class="hljs-number">1</span>	<span class="hljs-comment"># 方法2</span><br><span class="hljs-comment"># 对某个具体部分赋值【注意先列后行】</span><br>df[<span class="hljs-string">&quot;month&quot;</span>][<span class="hljs-number">1</span>]=<span class="hljs-number">3</span><br></code></pre></td></tr></table></figure>
+
+<h2 id="2-3-排序"><a href="#2-3-排序" class="headerlink" title="2.3 排序"></a>2.3 排序</h2><h3 id="DataFrame排序"><a href="#DataFrame排序" class="headerlink" title="DataFrame排序"></a>DataFrame排序</h3><p><code>df.sort_values(by=, ascending=)</code></p>
+<ul>
+<li><code>by</code>：指定排序参考的键</li>
+<li><code>ascending</code>：默认升序，<code>False</code>时降序</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># 按照year关键字从小到大排序</span><br>df.sort_values(by=<span class="hljs-string">&#x27;year&#x27;</span>)<br><span class="hljs-comment"># 先按照year关键字从小到大排序，再按照sale排序</span><br>df.sort_values(by=[<span class="hljs-string">&#x27;year&#x27;</span>,<span class="hljs-string">&#x27;sale&#x27;</span>]) <br></code></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># 按照索引排序</span><br>df.sort_index()<br></code></pre></td></tr></table></figure>
+
+<h3 id="Series排序"><a href="#Series排序" class="headerlink" title="Series排序"></a>Series排序</h3><p><code>series.sort_values(ascending=)</code></p>
+<ul>
+<li><code>series</code>没有<code>by</code>参数，因为其只有一列</li>
+<li><code>DataFrame</code>的其中一列就是一个<code>Series</code>，可以通过下标取出</li>
+<li>同样由<code>sort_index()</code>方法按照索引进行排序</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># 取出year这一行进行排序</span><br>df[<span class="hljs-string">&#x27;year&#x27;</span>].sort_values(ascending=<span class="hljs-literal">True</span>)<br></code></pre></td></tr></table></figure>
+
+<h1 id="3-DataFrame运算"><a href="#3-DataFrame运算" class="headerlink" title="3. DataFrame运算"></a>3. DataFrame运算</h1><h2 id="3-1-算术运算"><a href="#3-1-算术运算" class="headerlink" title="3.1 算术运算"></a>3.1 算术运算</h2><p><code>add/sub(other)</code></p>
+<blockquote>
+<p>进行数学运算加上【减去】具体的一个数字</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># year列全部加1</span><br>df[<span class="hljs-string">&#x27;year&#x27;</span>].add(<span class="hljs-number">1</span>)<br></code></pre></td></tr></table></figure>
+
+<h2 id="3-2-逻辑运算"><a href="#3-2-逻辑运算" class="headerlink" title="3.2 逻辑运算"></a>3.2 逻辑运算</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># 返回以此条件为依据的布尔值</span><br>df[<span class="hljs-string">&quot;month&quot;</span>]&gt;<span class="hljs-number">2</span><br><span class="hljs-comment"># 同时这些布尔值可以帮助我们筛选元素</span><br>df[df[<span class="hljs-string">&quot;month&quot;</span>]&gt;<span class="hljs-number">2</span>]<br></code></pre></td></tr></table></figure>
+
+<img src="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202304142041813.png" srcset="/img/loading.gif" lazyload alt="image-20220903153421213" style="zoom:50%;" />
+
+<p><code>query(expr)</code></p>
+<ul>
+<li><code>expr</code>：查询语句字符串</li>
+<li>可以放入多个条件，使得查询更为精确</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># 查找year为2014且month为4的行</span><br>df.query(<span class="hljs-string">&quot;year==2014 &amp; month==4&quot;</span>)<br></code></pre></td></tr></table></figure>
+
+<p><code>isin(values)</code></p>
+<blockquote>
+<p>判断某个值是否在<code>values</code>集合中，同样可以用于筛选元素</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># 查询month值是1或7的行</span><br>df[df[<span class="hljs-string">&#x27;month&#x27;</span>].isin([<span class="hljs-number">1</span>,<span class="hljs-number">7</span>])]<br></code></pre></td></tr></table></figure>
+
+<img src="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202304142041962.png" srcset="/img/loading.gif" lazyload alt="image-20220903154526380" style="zoom:67%;" />
+
+<h2 id="3-3-统计运算"><a href="#3-3-统计运算" class="headerlink" title="3.3 统计运算"></a>3.3 统计运算</h2><p><code>describe()</code></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># 展示每一列的基本数据信息</span><br>df.describe()<br></code></pre></td></tr></table></figure>
+
+<img src="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202304142041103.png" srcset="/img/loading.gif" lazyload alt="image-20220904110431251" style="zoom: 67%;" />
+
+<h3 id="统计函数"><a href="#统计函数" class="headerlink" title="统计函数"></a>统计函数</h3><blockquote>
+<p>对于单个函数去进行统计的时候，坐标轴还是按照默认列“<code>columns</code>” (<code>axis=0</code>, <code>default</code>)，如果要对行需要指定(<code>axis=1</code>)</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># 求出每一列的最大值</span><br>df.<span class="hljs-built_in">max</span>(axis=<span class="hljs-number">0</span>)<br><span class="hljs-comment"># 输出</span><br>month      <span class="hljs-number">10</span><br>year     <span class="hljs-number">2014</span><br>sale       <span class="hljs-number">84</span><br>dtype: int64<br><br><span class="hljs-comment"># 最小值，标准差，方差，中位数，众数，平均数，总数，最大值下标，最小值下标</span><br><span class="hljs-built_in">min</span>()/std()/var()/median()/mode()/mean()/<span class="hljs-built_in">sum</span>()/idxmax()/idxmin()<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li><p><code>agg()</code> 方法（缩写自 “aggregate”）来对每个分组应用一个或多个聚合函数，以生成汇总统计信息</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># 按照shop_name分组后，对price这列使用sum聚合函数且新列命名为sum</span><br>data.groupby([<span class="hljs-string">&quot;shop_name&quot;</span>])[<span class="hljs-string">&quot;price&quot;</span>].agg([<span class="hljs-string">&#x27;sum&#x27;</span>])<br></code></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="累计统计函数"><a href="#累计统计函数" class="headerlink" title="累计统计函数"></a>累计统计函数</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># 计算month前n个数的合并记录</span><br>df[<span class="hljs-string">&quot;month&quot;</span>].cumsum()<br><span class="hljs-comment"># 输出</span><br><span class="hljs-number">0</span>     <span class="hljs-number">1</span>		<span class="hljs-comment"># 前1个数的和，1</span><br><span class="hljs-number">1</span>     <span class="hljs-number">5</span>		<span class="hljs-comment"># 前2个数字的和，1+4=5</span><br><span class="hljs-number">2</span>    <span class="hljs-number">12</span>		<span class="hljs-comment"># 前3个数字的和，1+4+7=12</span><br><span class="hljs-number">3</span>    <span class="hljs-number">22</span>		<span class="hljs-comment"># 前4个数字的和，1+4+7+10=22</span><br>Name: month, dtype: int64<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># 含义同理，cumprod()是累乘积</span><br>cummax()/cummin()/cumprod()		<br></code></pre></td></tr></table></figure>
+
+<p><code>apply(func, axis=0)</code></p>
+<ul>
+<li><code>func</code>：自定义函数</li>
+<li><code>axis=0</code>：默认是列，<code>axis=1</code>为对行运算</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs python">df[[<span class="hljs-string">&#x27;month&#x27;</span>, <span class="hljs-string">&#x27;year&#x27;</span>]].apply(<span class="hljs-keyword">lambda</span> x: x.<span class="hljs-built_in">max</span>() - x.<span class="hljs-built_in">min</span>(), axis=<span class="hljs-number">0</span>)<br><span class="hljs-comment"># 输出</span><br>month    <span class="hljs-number">9</span><br>year     <span class="hljs-number">2</span><br>dtype: int64<br></code></pre></td></tr></table></figure>
+
+<h1 id="4-文件的读取与存储"><a href="#4-文件的读取与存储" class="headerlink" title="4. 文件的读取与存储"></a>4. 文件的读取与存储</h1><blockquote>
+<p>我们的数据大部分存在于文件当中，所以<code>Pandas</code>会支持复杂的<code>IO</code>操作，<code>Pandas</code>的<code>API</code>支持众多的文件格式，如<code>CSV</code>、<code>SQL</code>、<code>XLS</code>、<code>JSON</code>、 <code>HDF5</code>【常用的是<code>CSV</code>和<code>HDF5</code>】</p>
+</blockquote>
+<img src="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202304142041950.png" srcset="/img/loading.gif" lazyload alt="image-20220904132423081" style="zoom:50%;" />
+
+<h2 id="4-1-CSV"><a href="#4-1-CSV" class="headerlink" title="4.1 CSV"></a>4.1 CSV</h2><p><code>read_csv()</code></p>
+<ul>
+<li><code>filepath_or_buffer</code>：文件路径</li>
+<li><code>sep</code>：分隔符，默认用”<code>,</code>“隔开</li>
+<li><code>usecols</code>：指定读取的列名，列表形式</li>
+<li><code>skiprows</code>：读取时跳过的行数</li>
+<li><code>header</code>：指定将哪一行作为列名。默认为 <code>0</code>，表示使用第一行作为列名。如果没有列名，则设置为 <code>None</code>。</li>
+<li><code>names</code>：自定义列名</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># 读取文件,并且指定只获取&#x27;month&#x27;, &#x27;year&#x27;指标 </span><br>data = pd.read_csv(<span class="hljs-string">&#x27;df.csv&#x27;</span>, usecols=[<span class="hljs-string">&#x27;month&#x27;</span>, <span class="hljs-string">&#x27;year&#x27;</span>])<br></code></pre></td></tr></table></figure>
+
+<p><code>to_csv()</code></p>
+<blockquote>
+<p>此方法也可以写入txt文件</p>
+</blockquote>
+<ul>
+<li><code>path_or_buf</code>：文件路径</li>
+<li><code>sep</code>：分隔符，默认用”<code>,</code>“隔开 </li>
+<li><code>columns</code>：选择需要的列索引</li>
+<li><code>header</code>：是否写进列索引值【默认为<code>True</code>】</li>
+<li><code>index</code>：是否写进行索引</li>
+<li><code>lineterminator</code>：末尾插入字符</li>
+<li><code>mode</code>：’<code>w</code>‘：重写， ‘<code>a</code>‘ 追加</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># 将文件写到当前目录下</span><br>df.to_csv(path_or_buf=<span class="hljs-string">&#x27;./df.csv&#x27;</span>,mode=<span class="hljs-string">&#x27;w&#x27;</span>)<br></code></pre></td></tr></table></figure>
+
+<h2 id="4-2-HDF5"><a href="#4-2-HDF5" class="headerlink" title="4.2 HDF5"></a>4.2 HDF5</h2><p><code>pandas.read_hdf(path_or_buf，key =None，** kwargs)</code></p>
+<blockquote>
+<p>从<code>h5</code>文件当中读取数据，使用是需要<code>python</code>确保安装了<code>tables</code>模块</p>
+</blockquote>
+<ul>
+<li><code>path_or_buffer</code>：文件路径 </li>
+<li><code>key</code>：读取的键【当前要存取的<code>DataFrame</code>的名字】</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs python">data2 = pd.read_hdf(path_or_buf=<span class="hljs-string">&#x27;data.h5&#x27;</span>,key=<span class="hljs-string">&#x27;data&#x27;</span>)<br></code></pre></td></tr></table></figure>
+
+<p><code>DataFrame.to_hdf(path_or_buf, key, **kwargs)</code></p>
+<blockquote>
+<p>用法与读取方法类似，不过此处是<code>DataFrame</code>对象进行操作</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># 将data写入当前目录下</span><br>data.to_hdf(path_or_buf=<span class="hljs-string">&#x27;../data.h5&#x27;</span>, key=<span class="hljs-string">&#x27;data&#x27;</span>)<br></code></pre></td></tr></table></figure>
+
+<p>注意：优先选择使用<code>HDF5</code>文件存储</p>
+<p>HDF5在存储的时候支持压缩，使用的方式是<code>blosc</code>，这个是速度最快的也是<code>pandas</code>默认支持的，使用压缩可以提磁盘利用率，节省空间 ，<code>HDF5</code>还是跨平台的，可以轻松迁移到<code>hadoop</code>上面</p>
+<h1 id="5-缺失值处理"><a href="#5-缺失值处理" class="headerlink" title="5. 缺失值处理"></a>5. 缺失值处理</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs python">score = np.random.randint(<span class="hljs-number">40</span>, <span class="hljs-number">60</span>, [<span class="hljs-number">3</span>, <span class="hljs-number">4</span>])<br>subjects = [<span class="hljs-string">&quot;语文&quot;</span>, <span class="hljs-string">&quot;数学&quot;</span>, <span class="hljs-string">&quot;英语&quot;</span>, <span class="hljs-string">&quot;政治&quot;</span>]<br>stus = [<span class="hljs-string">&quot;同学&quot;</span>+<span class="hljs-built_in">str</span>(i) <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(score.shape[<span class="hljs-number">0</span>])]<br>df = pd.DataFrame(data=score, columns=subjects, index=stus)<br>df[<span class="hljs-string">&quot;物理&quot;</span>]=np.NaN	<span class="hljs-comment"># 手动添加物理列，并将其值置空</span><br>df		<span class="hljs-comment"># 在jupyter上输出df</span><br></code></pre></td></tr></table></figure>
+
+<img src="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202304081637100.png" srcset="/img/loading.gif" lazyload alt="image-20220905154427131" style="zoom:67%;" />
+
+<ul>
+<li><p>判断数据中是否包含<code>NaN</code></p>
+<ul>
+<li><p><code>pd.isnull(df)</code></p>
+<img src="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202304142041117.png" srcset="/img/loading.gif" lazyload alt="image-20220905154653690" style="zoom:67%;" />
+</li>
+<li><p><code>pd.notnull(df)</code></p>
+<p>执行结果与<code>isnull</code>正好相反</p>
+</li>
+</ul>
+</li>
+<li><p>删除存在的缺失值<code>dropna()</code></p>
+<table>
+<thead>
+<tr>
+<th>Parameters</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>axis</td>
+<td><code>0</code>为行 <code>1</code>为列【与常用规则相反】，<code>default 0</code>，数据删除维度</td>
+</tr>
+<tr>
+<td>how</td>
+<td><code>any</code>：删除带有<code>NAN</code>的行；<code>all</code>：删除全为<code>NaN</code>的行</td>
+</tr>
+<tr>
+<td>thresh</td>
+<td><code>int</code>，保留至少 <code>int</code> 个非<code>NaN</code>行</td>
+</tr>
+<tr>
+<td>subset</td>
+<td><code>list</code>，在特定列缺失值处理</td>
+</tr>
+<tr>
+<td>inplace</td>
+<td><code>bool</code>，是否修改源文件</td>
+</tr>
+</tbody></table>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># 删除至少有一个元素为NaN的行【修改axis参数可以使其变为列】</span><br>df.dropna()<br><span class="hljs-comment"># 删除所有元素为NaN的行【修改axis参数可以使其变为列】</span><br>df.dropna(how=<span class="hljs-string">&quot;all&quot;</span>)<br><span class="hljs-comment"># 保留至少有2个非NaN的行</span><br>df.dropna(thresh=<span class="hljs-number">2</span>)<br><span class="hljs-comment"># 该列中若有NaN值，则将该值对应的行删除</span><br>df.dropna(subset=[<span class="hljs-string">&#x27;物理&#x27;</span>])<br><span class="hljs-comment"># inplace设置为True时则是对原数据进行删除</span><br></code></pre></td></tr></table></figure>
+</li>
+<li><p>如果缺失值没有使用<code>NaN</code>标记，比如使用”<code>?</code>“ ，则我们处理的思路为先替换‘<code>?</code>’为<code>np.nan</code>，然后继续处理【<code>df.replace(to_replace=, value=)</code>】</p>
+</li>
+</ul>
+<h1 id="6-数据离散化"><a href="#6-数据离散化" class="headerlink" title="6. 数据离散化"></a>6. 数据离散化</h1><p><strong>连续属性的离散化就是在连续属性的值域上，将值域划分为若干个离散的区间，最后用不同的符号或整数值代表落在每个子区间中的属性值</strong></p>
+<ul>
+<li>假如有人的身高数据：165，174，160，180，159，163，192，184</li>
+<li>假设按照身高分几个区间段：<code>150~165, 165~180,180~195</code></li>
+</ul>
+<p>这样我们将数据分到了三个区间段，我可以对应的标记为矮、中、高三个类别，实现了数据的离散化</p>
+<p><code>pd.qcut(data, q)</code></p>
+<ul>
+<li><code>data</code>：要进行分组的列，如学科中的”数学”列</li>
+<li><code>q</code>：要<strong>自动划分</strong>为<code>q</code>组</li>
+</ul>
+<p><code>series.value_counts()</code></p>
+<blockquote>
+<p>统计相同值的个数，配合<code>qcut</code>使用则是统计相同区间的个数</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs python">p_change=df[<span class="hljs-string">&quot;数学&quot;</span>]<br><span class="hljs-comment"># 自动划分为两组</span><br>qcut=pd.qcut(p_change,<span class="hljs-number">2</span>)<br><span class="hljs-comment"># 统计每一组的数量</span><br>qcut.value_counts()<br><br><span class="hljs-comment"># 输出</span><br>(<span class="hljs-number">44.999</span>, <span class="hljs-number">49.0</span>]    <span class="hljs-number">2</span>		<span class="hljs-comment"># 在此区间的有两个数</span><br>(<span class="hljs-number">49.0</span>, <span class="hljs-number">59.0</span>]      <span class="hljs-number">1</span><br>Name: 数学, dtype: int64<br></code></pre></td></tr></table></figure>
+
+<p><code>pd.cut(data, bins)</code></p>
+<ul>
+<li>data：待划分的series数据</li>
+<li>bins：自定义划分区域</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs python">p_change=df[<span class="hljs-string">&quot;数学&quot;</span>]<br><span class="hljs-comment"># 自定义区域为(45,50]，(50,60]</span><br>bins=[<span class="hljs-number">45</span>,<span class="hljs-number">50</span>,<span class="hljs-number">60</span>]<br><span class="hljs-comment"># 根据此区域进行划分统计</span><br>cut=pd.cut(p_change,bins)<br><span class="hljs-comment"># 统计相同区间的个数</span><br>cut.value_counts()<br><br><span class="hljs-comment"># 输出</span><br>(<span class="hljs-number">45</span>, <span class="hljs-number">50</span>]    <span class="hljs-number">1</span><br>(<span class="hljs-number">50</span>, <span class="hljs-number">60</span>]    <span class="hljs-number">1</span><br>Name: 数学, dtype: int64<br></code></pre></td></tr></table></figure>
+
+<h2 id="one-hot-编码"><a href="#one-hot-编码" class="headerlink" title="one-hot 编码"></a>one-hot 编码</h2><blockquote>
+<p>把每个类别生成一个布尔列，这些列中只有一列可以为这个样本取值为<code>1</code>，其又被称为独热编码</p>
+</blockquote>
+<img src="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202304142041618.png" srcset="/img/loading.gif" lazyload alt="image-20220905175351153" style="zoom:67%;" />
+
+<p><code>pandas.get_dummies(data, prefix=None)</code></p>
+<ul>
+<li><code>data</code>：已经划好区间的<code>series</code></li>
+<li><code>prefix</code>：区间列名前缀，起提示作用</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs python">pd.get_dummies(cut,prefix=<span class="hljs-string">&quot;rise&quot;</span>)<br></code></pre></td></tr></table></figure>
+
+<img src="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202304081637565.png" srcset="/img/loading.gif" lazyload alt="image-20220905180018612" style="zoom: 67%;" />
+
+<h1 id="7-数据合并"><a href="#7-数据合并" class="headerlink" title="7. 数据合并"></a>7. 数据合并</h1><p><code>pd.concat([data1, data2], axis=1)</code></p>
+<ul>
+<li>列表中是需要合并的数据</li>
+<li><code>axis</code>：表示按照列方向【1】合并还是行方向【0】合并【取值与一般用法相反】</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs python">pd.concat([df,df2],axis=<span class="hljs-number">0</span>)<br></code></pre></td></tr></table></figure>
+
+<img src="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202304142041179.png" srcset="/img/loading.gif" lazyload alt="image-20220905204225586" style="zoom:67%;" />
+
+<p><code>pd.merge(left, right, how=&#39;inner&#39;, on=None)</code></p>
+<blockquote>
+<p>可以指定按照两组数据的共同键值对合并</p>
+</blockquote>
+<ul>
+<li><p><code>left/right</code>：要合并的两个<code>DataFrame</code></p>
+</li>
+<li><p><code>how</code>：按照什么方式连接【<code>left</code>，<code>right</code>，<code>outer</code>，<code>inner</code>】，默认内连接</p>
+<ul>
+<li><p>内连接<code>inner</code>：合并后有<code>NaN</code>的行会被清除</p>
+<p><img src="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202304142041544.png" srcset="/img/loading.gif" lazyload alt="image-20220905212438387"></p>
+</li>
+<li><p>外连接<code>outer</code>：完全进行合并，有NaN的行也会进行保留</p>
+<p><img src="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202304142041573.png" srcset="/img/loading.gif" lazyload alt="image-20220905212504290"></p>
+</li>
+<li><p>左连接<code>left</code>：左边部分完全保留，若右边有不能匹配的地方则填入<code>NaN</code></p>
+<p><img src="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202304142041547.png" srcset="/img/loading.gif" lazyload alt="image-20220905212526242"></p>
+</li>
+<li><p>右连接<code>right</code>：右边部分完全保留，若左边有不能匹配的地方则填入<code>NaN</code></p>
+<p><img src="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202304142041394.png" srcset="/img/loading.gif" lazyload alt="image-20220905212542829"></p>
+</li>
+</ul>
+</li>
+<li><p><code>on</code>：指定的共同键</p>
+</li>
+</ul>
+<h1 id="8-交叉表与透视表"><a href="#8-交叉表与透视表" class="headerlink" title="8. 交叉表与透视表"></a>8. 交叉表与透视表</h1><h2 id="8-1-交叉表"><a href="#8-1-交叉表" class="headerlink" title="8.1 交叉表"></a>8.1 交叉表</h2><blockquote>
+<p>交叉表用于计算一列数据对于另外一列数据的分组个数(用于统计分组频率的特殊透视表) </p>
+</blockquote>
+<p><code>pd.crosstab(...)</code></p>
+<ul>
+<li><code>index</code>：要在行中分组的值</li>
+<li><code>columns</code>：要在列中分组的值</li>
+<li><code>values</code>：根据因子聚合的值数组，需指定<code>aggfunc</code></li>
+<li><code>aggfunc</code>：如指定，还需指定<code>value</code></li>
+<li><code>normalize</code>：将所有值除以值的总和进行归一化 ，为<code>True</code>时候显示百分比</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs python">df = pd.DataFrame(&#123;<span class="hljs-string">&#x27;A&#x27;</span>: [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">2</span>, <span class="hljs-number">2</span>, <span class="hljs-number">2</span>],<br>                   <span class="hljs-string">&#x27;B&#x27;</span>: [<span class="hljs-number">3</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">4</span>, <span class="hljs-number">4</span>],<br>                   <span class="hljs-string">&#x27;C&#x27;</span>: [<span class="hljs-number">1</span>, <span class="hljs-number">1</span>, np.nan, <span class="hljs-number">1</span>, <span class="hljs-number">1</span>]&#125;)<br></code></pre></td></tr></table></figure>
+
+<img src="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202304142041081.png" srcset="/img/loading.gif" lazyload alt="image-20220906152253741" style="zoom:67%;" />
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># B的3和4出现时，对应A的1和3出现时的次数</span><br>pd.crosstab(df[<span class="hljs-string">&#x27;A&#x27;</span>],df[<span class="hljs-string">&#x27;B&#x27;</span>])<br></code></pre></td></tr></table></figure>
+
+<img src="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202304142041741.png" srcset="/img/loading.gif" lazyload alt="image-20220906152328750" style="zoom:67%;" />
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># B的3和4出现时，对应A的1和3出现时的C列值之和</span><br>pd.crosstab(df[<span class="hljs-string">&#x27;A&#x27;</span>],df[<span class="hljs-string">&#x27;B&#x27;</span>],values=df[<span class="hljs-string">&#x27;C&#x27;</span>],aggfunc=np.<span class="hljs-built_in">sum</span>)<br></code></pre></td></tr></table></figure>
+
+<img src="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202304142041748.png" srcset="/img/loading.gif" lazyload alt="image-20220906152357553" style="zoom:67%;" />
+
+<h2 id="8-2-透视表"><a href="#8-2-透视表" class="headerlink" title="8.2 透视表"></a>8.2 透视表</h2><blockquote>
+<p>透视表是将原有的<code>DataFrame</code>的列分别作为行索引和列索引，然后对指定的列应用聚集函数 </p>
+</blockquote>
+<p><code>pd.pivot_table(...)</code></p>
+<ul>
+<li><code>data</code>：<code>DataFrame</code>对象</li>
+<li><code>values</code>：要聚合的列或列的列表</li>
+<li><code>index</code>：数据透视表的<code>index</code>，从原数据的列中筛选</li>
+<li><code>columns</code>：数据透视表的<code>columns</code>，从原数据的列中筛选</li>
+<li><code>aggfunc</code>：用于聚合的函数，默认为<code>numpy.mean</code>，支持<code>numpy</code>计算方法</li>
+<li><code>fill_value</code>：用于替换缺失值的值</li>
+<li><code>margin</code>：添加所有行&#x2F;列</li>
+<li><code>dropna</code>：不包括条目为<code>NaN</code>的列，默认为<code>True</code></li>
+<li><code>margin_name</code>：当<code>margin</code>为<code>True</code>时，将包含总计的行&#x2F;列的名称</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># 列由key组成，行由data组成，行列相同的项利用sum函数进行计算形成新值</span><br>pd.pivot_table(df, values = <span class="hljs-string">&#x27;values&#x27;</span>, index = <span class="hljs-string">&#x27;date&#x27;</span>, columns = <span class="hljs-string">&#x27;key&#x27;</span>, aggfunc=np.<span class="hljs-built_in">sum</span>)<br></code></pre></td></tr></table></figure>
+
+<img src="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202304142041928.png" srcset="/img/loading.gif" lazyload alt="image-20220906150854514" style="zoom:67%;" />
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># data和 key共同构成行索引，索引完全相同的部分利用len计算并放入新values中</span><br>pd.pivot_table(df, values = <span class="hljs-string">&#x27;values&#x27;</span>, index = [<span class="hljs-string">&#x27;date&#x27;</span>,<span class="hljs-string">&#x27;key&#x27;</span>], aggfunc=<span class="hljs-built_in">len</span>)<br></code></pre></td></tr></table></figure>
+
+<img src="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202304142041042.png" srcset="/img/loading.gif" lazyload alt="image-20220906150935761" style="zoom:67%;" />
+
+<p><strong>透视表是一种进行分组统计的函数，而交叉表是特殊的透视表，当只统计分组频率时更方便</strong></p>
+<h1 id="9-分组与聚合"><a href="#9-分组与聚合" class="headerlink" title="9. 分组与聚合"></a>9. 分组与聚合</h1><p><code>DataFrame.groupby(key, as_index=False)</code> </p>
+<ul>
+<li><code>key</code>：分组的列数据，可以多个</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python">col = pd.DataFrame(&#123;<span class="hljs-string">&#x27;color&#x27;</span>: [<span class="hljs-string">&#x27;white&#x27;</span>, <span class="hljs-string">&#x27;red&#x27;</span>, <span class="hljs-string">&#x27;green&#x27;</span>, <span class="hljs-string">&#x27;red&#x27;</span>, <span class="hljs-string">&#x27;green&#x27;</span>], <span class="hljs-string">&#x27;object&#x27;</span>: [<br>                   <span class="hljs-string">&#x27;pen&#x27;</span>, <span class="hljs-string">&#x27;pencil&#x27;</span>, <span class="hljs-string">&#x27;pencil&#x27;</span>, <span class="hljs-string">&#x27;ashtray&#x27;</span>, <span class="hljs-string">&#x27;pen&#x27;</span>], <span class="hljs-string">&#x27;price1&#x27;</span>: [<span class="hljs-number">5.56</span>, <span class="hljs-number">4.20</span>, <span class="hljs-number">1.30</span>, <span class="hljs-number">0.56</span>, <span class="hljs-number">2.75</span>], <span class="hljs-string">&#x27;price2&#x27;</span>: [<span class="hljs-number">4.75</span>, <span class="hljs-number">4.12</span>, <span class="hljs-number">1.60</span>, <span class="hljs-number">0.75</span>, <span class="hljs-number">3.15</span>]&#125;)<br></code></pre></td></tr></table></figure>
+
+<img src="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202304142041580.png" srcset="/img/loading.gif" lazyload alt="image-20220906154127119" style="zoom:67%;" />
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># 按照color进行分组，并且对一个分组中的多个数据取平均值</span><br>col.groupby([<span class="hljs-string">&#x27;color&#x27;</span>])[<span class="hljs-string">&#x27;price1&#x27;</span>].mean()<br><span class="hljs-comment"># 输出</span><br>color<br>green    <span class="hljs-number">2.025</span><br>red      <span class="hljs-number">2.380</span><br>white    <span class="hljs-number">5.560</span><br>Name: price1, dtype: float64<br></code></pre></td></tr></table></figure>
+
+<h1 id="10-常用操作"><a href="#10-常用操作" class="headerlink" title="10. 常用操作"></a>10. 常用操作</h1><blockquote>
+<p>下图为示例 DataFrame，名称为 <strong>data</strong>，后续将直接演示，不再说明</p>
+</blockquote>
+<img src="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202304142041580.png" srcset="/img/loading.gif" lazyload alt="image-20220906154127119" style="zoom: 67%;" />
+
+<h2 id="遍历DatFrame每一行"><a href="#遍历DatFrame每一行" class="headerlink" title="遍历DatFrame每一行"></a>遍历DatFrame每一行</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">for</span> index,item <span class="hljs-keyword">in</span> data.iterrows():<br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">&#x27;第一行索引：&#x27;</span>,index)<br>    <span class="hljs-comment"># 得到的item是Series格式，可用数字索引或者列名索引直接访问元素</span><br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">&#x27;第一行内容：&#x27;</span>,<span class="hljs-built_in">list</span>(item))<br>    <span class="hljs-keyword">break</span><br></code></pre></td></tr></table></figure>
+
+<img src="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202307261122238.png" srcset="/img/loading.gif" lazyload alt="image-20230726112235195" style="zoom: 80%;" />
+
+<h2 id="删除指定行-列"><a href="#删除指定行-列" class="headerlink" title="删除指定行&#x2F;列"></a>删除指定行&#x2F;列</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># 删除 object, color 两列，inplace参数若设置为True则会对原数据修改</span><br>data.drop([<span class="hljs-string">&#x27;object&#x27;</span>,<span class="hljs-string">&#x27;color&#x27;</span>],axis=<span class="hljs-number">1</span>)<br></code></pre></td></tr></table></figure>
+
+<img src="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202307261135335.png" srcset="/img/loading.gif" lazyload alt="image-20230726113547292" style="zoom: 67%;" />
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># 删除行索引为0，2的两行元素</span><br>data.drop([<span class="hljs-number">0</span>,<span class="hljs-number">2</span>],axis=<span class="hljs-number">0</span>)<br></code></pre></td></tr></table></figure>
+
+<img src="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202307261136901.png" srcset="/img/loading.gif" lazyload alt="image-20230726113636857" style="zoom:67%;" />
+
+<h2 id="按行拼接"><a href="#按行拼接" class="headerlink" title="按行拼接"></a>按行拼接</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs python">pd.concat([data,data],ignore_index=<span class="hljs-literal">True</span>)<br></code></pre></td></tr></table></figure>
+
+<img src="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202308041116248.png" srcset="/img/loading.gif" lazyload alt="image-20230804111642050" style="zoom: 50%;" />
+
+<h2 id="固定间隔求均值"><a href="#固定间隔求均值" class="headerlink" title="固定间隔求均值"></a>固定间隔求均值</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs python">y = pd.DataFrame([...])<br><span class="hljs-comment"># 将 index 分为200组，存储在新列 group</span><br>y[<span class="hljs-string">&#x27;group&#x27;</span>] = y.index // <span class="hljs-number">200</span>  <br><span class="hljs-comment"># 假设原数据列名为y，按照group分组对y取平均值</span><br>res = y.groupby(<span class="hljs-string">&#x27;group&#x27;</span>)[<span class="hljs-string">&#x27;y&#x27;</span>].mean()<br></code></pre></td></tr></table></figure>
+
+
+
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/Python/" class="category-chain-item">Python</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/Python/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/" class="category-chain-item">数据分析</a>
+  
+  
+
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/" class="print-no-link">#数据分析</a>
+      
+    </div>
+  
+</div>
+
+
+              
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/blog/%E6%B5%8B%E8%AF%95%E6%8A%80%E6%9C%AF%E6%A0%88/UI%E8%87%AA%E5%8A%A8%E5%8C%96/%E6%B5%8B%E8%AF%95%E6%8A%80%E6%9C%AF%E6%A0%88/UI%E8%87%AA%E5%8A%A8%E5%8C%96/Appium%E5%9F%BA%E7%A1%80/" title="Appium基础">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">Appium基础</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/blog/Python/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/Python/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/Numpy%E5%BA%93%E4%BD%BF%E7%94%A8%E6%89%8B%E5%86%8C/" title="Numpy库使用手册">
+                        <span class="hidden-mobile">Numpy库使用手册</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       用文字锁住记忆 
+    </div>
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+<!-- hexo injector body_end start --><script src="/js/backgroundize.js"></script><!-- hexo injector body_end end --></body>
+</html>

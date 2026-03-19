@@ -1,0 +1,914 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/our/logo.png">
+  <link rel="icon" href="/img/our/logo.png">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="Z_Jump_Dragon">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="路由器与交换机是网络通信的重要媒介，本文总结了在eNSP虚拟设备上路由与交换技术基础配置步骤">
+<meta property="og:type" content="article">
+<meta property="og:title" content="路由与交换技术笔记">
+<meta property="og:url" content="https://dragooon.top/blog/%E7%90%86%E8%AE%BA%E7%9F%A5%E8%AF%86/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/%E7%90%86%E8%AE%BA%E7%9F%A5%E8%AF%86/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E8%B7%AF%E7%94%B1%E4%B8%8E%E4%BA%A4%E6%8D%A2%E6%8A%80%E6%9C%AF/index.html">
+<meta property="og:site_name" content="棱镜里的日常">
+<meta property="og:description" content="路由器与交换机是网络通信的重要媒介，本文总结了在eNSP虚拟设备上路由与交换技术基础配置步骤">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202211171615308.png">
+<meta property="og:image" content="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202211171615040.png">
+<meta property="og:image" content="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202211171615548.png">
+<meta property="og:image" content="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202211171616573.png">
+<meta property="og:image" content="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202211171616624.png">
+<meta property="article:published_time" content="2022-11-17T06:27:23.000Z">
+<meta property="article:modified_time" content="2026-03-19T08:40:14.292Z">
+<meta property="article:author" content="Z_Jump_Dragon">
+<meta property="article:tag" content="计算机网络">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202211171615308.png">
+  
+  
+  
+  <title>路由与交换技术笔记 - 棱镜里的日常</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+  
+<link rel="stylesheet" href="/css/cloudedGlass.css">
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"dragooon.top","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":60,"cursorChar":"_","loop":false,"scope":["home"]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"left","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":3},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":false};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+
+<body><!-- hexo injector body_begin start --><div id="web_bg"></div><!-- hexo injector body_begin end -->
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 100vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>棱镜里的日常</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/our/article.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle">路由与交换技术笔记</span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-author" aria-hidden="true"></i>
+        Z_Jump_Dragon
+      </span>
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2022-11-17 14:27" pubdate>
+          2022年11月17日 下午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          9.5k 字
+        
+      </span>
+    
+
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+        <div class="scroll-down-bar">
+          <i class="iconfont icon-arrowdown"></i>
+        </div>
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="padding-left: 2rem; margin-right: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">路由与交换技术笔记</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <p><code>本学期学习了路由与交换技术，因此将其中一些重点内容记录下来，代码部分多为伪代码，只标记了重点步骤，一些进入接口、接口类型等基本操作多已省略</code><br><strong>在学习时避免不了计算机网络的知识，此部分知识可看↓</strong>：<br><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_45488428/article/details/115102326">计算机网络详细笔记【湖科大教书匠，内含B站链接】</a></p>
+<h1 id="一、交换机"><a href="#一、交换机" class="headerlink" title="一、交换机"></a>一、交换机</h1><h2 id="1-双工模式"><a href="#1-双工模式" class="headerlink" title="1. 双工模式"></a>1. 双工模式</h2><blockquote>
+<p>双工模式是指<strong>接口传输数据的方向性</strong>。接口在全双工模式下，表示可以同时在收发两个方向上传输和处理数据，若是半双工则同一时间只能收收或发。华为交换机默认启用自动协商机制设置模式，因此若我们要强制设置的话需要执行以下语句</p>
+</blockquote>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs c">undo negotiation <span class="hljs-keyword">auto</span>        <span class="hljs-comment">//关闭该接口的自动协商功能</span><br>speed <span class="hljs-number">10</span>                <span class="hljs-comment">//该接口速率为10Mbit/s</span><br>duplex half      <span class="hljs-comment">//设置为半双工模式，全双工则把half变为full</span><br></code></pre></td></tr></table></figure>
+
+<h2 id="2-MAC地址"><a href="#2-MAC地址" class="headerlink" title="2. MAC地址"></a>2. MAC地址</h2><blockquote>
+<p>交换机上存储映射关系的逻辑表叫作MAC地址表**(告诉交换机数据怎么走)**</p>
+</blockquote>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs c">display max-address      <span class="hljs-comment">//查看当前交换机的MAC地址表</span><br><span class="hljs-comment">//静态配置的条目不会老化且优先级高于动态学习得来的</span><br><span class="hljs-comment">//配置静态地址，意思为要去MAC地址要通过接口A，在vlan1(默认就是vlan1)下有效</span><br>mac-address <span class="hljs-type">static</span> MAC地址 接口A vlan <span class="hljs-number">1</span><br>display mac-address aging-time      <span class="hljs-comment">//查看当前交换机的动态条目老化时间</span><br>mac-address aging-time (秒数)     <span class="hljs-comment">//设置老化时间，如果为0表示禁用老化功能</span><br></code></pre></td></tr></table></figure>
+
+<h2 id="3-VLAN"><a href="#3-VLAN" class="headerlink" title="3. VLAN"></a>3. VLAN</h2><blockquote>
+<p><code>VLAN</code>（Virtual LAN<strong>虚拟局域网</strong>）的根本作用就是让交换机具备分隔广播域的能力<br>数据帧类比为乘客；<code>VLAN</code>是公交车。<code>VLAN</code>技术通过为数据打上标签从而让交换机知道这是属于哪一辆公交车的乘客，即使<code>公交车A</code>和<code>公交车B</code>的目的地相同，但是<code>A</code>的乘客也是不能搭<code>B</code>车的。因此划分<code>VLAN</code>后洪泛也只是洪泛同一个<code>VLAN</code>的地址</p>
+</blockquote>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-comment">//以下语句在系统视图下进行</span><br>vlan <span class="hljs-number">2</span>    <span class="hljs-comment">//在交换机创建VLAN2并进入此VLAN配置视图</span><br>vlan batch <span class="hljs-number">10</span> <span class="hljs-number">20</span>   <span class="hljs-comment">//创建VLAN10和VLAN20</span><br>vlan batch <span class="hljs-number">10</span> to <span class="hljs-number">20</span>  <span class="hljs-comment">//创建VLAN10至20</span><br>display vlan 数字   <span class="hljs-comment">//查看当前交换机所有VLAN，若有数字则看对应VLAN信息</span><br>display vlan <span class="hljs-number">10</span> verbose  <span class="hljs-comment">//查看VLAN10的详细信息    </span><br>只有设置了接口类型后才能知道这个接口与哪个VLAN绑定，通过接口的允许通过的VLAN进行绑定<br></code></pre></td></tr></table></figure>
+
+<p>若需要具体例子可看👉<a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_45488428/article/details/123706282?spm=1001.2014.3001.5501">VLAN原理与应用【eNSP实现】</a></p>
+<h3 id="Access接口"><a href="#Access接口" class="headerlink" title="Access接口"></a>Access接口</h3><blockquote>
+<p>发送出来的数据会去除<code>VLAN</code>标签；进入的数据会打上<code>VLAN</code>标签。常用于<strong>终端设备与交换机</strong>之间<br>终端接收到的数据是最终数据，不能有标签。终端没有为数据打标签的功能，因此需要帮助打标签便于在<code>VLAN</code>中转发</p>
+<p>&#x3D;&#x3D;注意：交换机与路由器连接的接口也需要使用access接口。这是因为路由器中的消息也不带VLAN标签，就像终端一样，保证路由器的数据能够进入交换机领域，数据由路由器进入交换机是会被打上默认标签，接着猜按照交换机间VLAN的规则行走。<strong>简单理解就是把路由器当作终端</strong>&#x3D;&#x3D;</p>
+</blockquote>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-comment">//在系统视图或以上的视图下执行</span><br>interface e0/<span class="hljs-number">0</span>/<span class="hljs-number">1</span>     	 <span class="hljs-comment">//进入e/0/1接口</span><br><span class="hljs-comment">//在接口视图下执行</span><br>port link-type access    <span class="hljs-comment">//设置接口类型为access</span><br>port <span class="hljs-keyword">default</span> vlan <span class="hljs-number">5</span>    <span class="hljs-comment">//只允许VLAN5的数据进入或发送</span><br></code></pre></td></tr></table></figure>
+
+<h3 id="Trunk接口"><a href="#Trunk接口" class="headerlink" title="Trunk接口"></a>Trunk接口</h3><blockquote>
+<p>发送出去的数据有<code>VLAN</code>标签(为了让对方知道数据划分)；接收的数据也有<code>VLAN</code>标签(知道对方数据划分)。常用于<strong>交换机与交换机之间</strong><br>交换机与交换机之间会有多个<code>VLAN</code>流量，因此要正确转发需要打上标签进行发送</p>
+</blockquote>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-comment">//在接口视图下执行</span><br>port trunk pvid vlan <span class="hljs-number">4</span> <span class="hljs-comment">//将Trunk的PVID改为4</span><br>port link-type trunk    <span class="hljs-comment">//设置接口类型为trunk</span><br>port trunk allow-pass vlan <span class="hljs-number">5</span>    <span class="hljs-comment">//只允许VLAN5的数据或者不带VID的数据进入或发送</span><br></code></pre></td></tr></table></figure>
+
+<h3 id="Hybrid接口"><a href="#Hybrid接口" class="headerlink" title="Hybrid接口"></a>Hybrid接口</h3><blockquote>
+<p>既有<code>Access端口</code>的特点，也有<code>Trunk端口</code>的特点<br>根据需要对某些接口设置带标签(需要<code>Trunk</code>的地方)，对某些设置不用带标签(需要<code>Access</code>的地方)</p>
+</blockquote>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-comment">//在接口视图下执行</span><br>port link-type hybrid     <span class="hljs-comment">//将接口类型设置为Hybrid</span><br><span class="hljs-comment">//接口接送Vlan10和Vlan20的数据时带上各自标签，其中vlan也可以用to语句或者valn all等</span><br>port hybrid tagged vlan <span class="hljs-number">10</span> <span class="hljs-number">20</span>  <br><span class="hljs-comment">//接口接送所有VLAN数据时都不带标签</span><br>port hybrid untagged vlan all  <br><span class="hljs-comment">//当用了untagged后意味着去标签，但是终端设备发送数据时又没有打标签的功能，因此需要设置端口的pvid，即当设置了去标签时，从这个端口出去的数据都会打上设置好的pvid标签</span><br>port hybrid pvid vlan <span class="hljs-number">5</span>  <span class="hljs-comment">//设置此端口的默认VLAN为Vlan5</span><br></code></pre></td></tr></table></figure>
+
+<h3 id="GVRP"><a href="#GVRP" class="headerlink" title="GVRP"></a>GVRP</h3><blockquote>
+<p>全称为通用属性注册协议。管理员手动配置的<code>VLAN</code>为”<code>静态VLAN</code>“，<strong>通过GVRP自动学习到的VLAN为”动态VLAN”</strong><br><code>GVRP</code>不仅需要在端口（<strong>必须是Trunk</strong>）上进行配置，也需要在交换机全局上进行配置。<br><code>GVRP</code>是单向协议，只有进入的方向才会动态学习，如下图</p>
+</blockquote>
+<p>若需要具体例子可看👉<a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_45488428/article/details/123901791">GVRP基础配置【eNSP实现】</a></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-comment">//在系统视图下执行</span><br>gvrp     <br><span class="hljs-comment">//保证所有使用GVRP的接口都是trunk接口</span><br><span class="hljs-comment">//在接口视图下执行，每个需要通告消息的接口都需要配置</span><br>gvrp    <br></code></pre></td></tr></table></figure>
+
+<p><img src="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202211171615308.png" srcset="/img/loading.gif" lazyload alt="1"></p>
+<p>配置完所有接口后并启动<code>GVRP</code>协议后<br>由<code>LSW1</code>创建一个<code>VLAN10</code>，则<code>LSW2</code>的<code>G1</code>会动态学习到<code>VLAN10</code>，<code>G2</code>不会学习到；<code>LSW3</code>的<code>G1</code>会学习到。<br>此时若想要<code>G2</code>学习到<code>VLAN</code>，可以在<code>LSW3</code>上创建<code>VLAN10</code>，则箭头方向会反过来，<code>G2</code>就可以学习到了。</p>
+<h2 id="4-生成树协议STP"><a href="#4-生成树协议STP" class="headerlink" title="4. 生成树协议STP"></a>4. 生成树协议STP</h2><blockquote>
+<p>由于通信只靠一条线路很容易出现故障（一条路不通就没得走了）。因此在实际线路中会有很多环路，但是环路一多很容易产生广播风暴（交换机互相转发造成死锁，<code>MAC地址表</code>不断更新），为了解决这个问题，出现了生成树协议。<br>其原理是在拥有冗余链路的交换环境中，既保证每个节点可达，又能打破网络中的逻辑环路。<br>其中一个有效的方法是通过<strong>判断当前端口是否适合转发数据（会不会环路），若不合适则阻塞</strong></p>
+</blockquote>
+<p>若需要具体例子可看👉<a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_45488428/article/details/123738530">生成树协议STP的原理与应用【eNSP实现】</a></p>
+<p>若需要具体例子可看👉<a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_45488428/article/details/123741784">STP计时器的理解与应用【eNSP实现】</a></p>
+<h3 id="功能"><a href="#功能" class="headerlink" title="功能"></a>功能</h3><ul>
+<li><strong>消除环路</strong>：<code>STP</code>可以通过阻塞冗余端口，保证交换网络无环且连通</li>
+<li><strong>链路备份</strong>：当正在转发数据的链路因故障而断开时，<code>STP</code>会马上检测到这一情况，并<strong>根据需要自动开启某些处于阻塞状态的冗余端口</strong>，以迅速恢复交换网络的连通性</li>
+</ul>
+<h3 id="具体实现"><a href="#具体实现" class="headerlink" title="具体实现"></a>具体实现</h3><p>&#x3D;&#x3D;执行选举、赢得选举的端口成为转发端口，剩下的端口自然成为阻塞端口&#x3D;&#x3D;</p>
+<ul>
+<li><strong>根网桥(根交换机)</strong>：这是交换网络中的一台交换机，它将成为<code>STP</code>树的树根</li>
+<li><strong>根端口</strong>：这是交换网络中的一些端口，负责转发数据</li>
+<li><strong>指定端口</strong>：这是交换网络中的一些端口，负责转发数据</li>
+<li><strong>预备端口</strong>：这是交换网络中的一些端口，处于阻塞状态，不能转发数据。预备端口并不是选举出来的，而是在所有选举中全部落选的端口</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th align="center">选举角色</th>
+<th align="center">参选者</th>
+<th align="center">选举范围</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">根网桥</td>
+<td align="center">交换机</td>
+<td align="center">整个交换网络</td>
+</tr>
+<tr>
+<td align="center">根端口</td>
+<td align="center">端口</td>
+<td align="center">每台交换机</td>
+</tr>
+<tr>
+<td align="center">指定端口</td>
+<td align="center">端口</td>
+<td align="center">每个网段</td>
+</tr>
+</tbody></table>
+<ul>
+<li><strong>整个交换网络</strong>：一整个二层广播域</li>
+<li><strong>每台交换机</strong>：以自身为单位，在多个端口中选举</li>
+<li><strong>每个网段</strong>：指以两个或两个以上的网卡为边界的一段物理链路</li>
+</ul>
+<p><img src="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202211171615040.png" srcset="/img/loading.gif" lazyload alt="2"></p>
+<ol>
+<li><strong>选举根网桥</strong>：每个<code>STP</code>网络中都有且只有一台根网桥，作为根网桥的这台交换机就是<code>STP</code>所构建的<strong>生成树的根</strong></li>
+<li><strong>选举根端口</strong>：非根交换机会在自己的所有端口之间，选出距离根网桥最近的端口作为根端口</li>
+<li><strong>选举指定端口</strong>：在直连的两个端口之间选择出一个距离根网桥最近的端口为指定端口</li>
+<li><strong>阻塞剩余端口</strong>：选出根端口和指定端口后，<code>STP</code>会把那些既不是根端口，也不是指定端口的其他所有端口置于阻塞状态</li>
+</ol>
+<h4 id="桥协议数据单元BPDU"><a href="#桥协议数据单元BPDU" class="headerlink" title="桥协议数据单元BPDU"></a>桥协议数据单元BPDU</h4><ul>
+<li><strong>配置BPDU</strong>：在初始形成<code>STP树</code>的过程中，各<code>STP交换机</code>都会周期性地(默认为<code>2</code>秒)主动产生并发送<code>Configuration BPDU</code>（<code>配置BPDU</code>）。在<code>STP树</code>形成后的稳定期，只有<strong>根网桥</strong>才会周期性地产生并发送<code>Configuration BPDU</code>；相应地，非根交换机会从自己的根端口周期性地接收到<code>Configuration BPDU</code>，并立即被触发而产生自己的<code>Configuration BPDU</code>，且从自己的<strong>指定端口</strong>发送出去。</li>
+<li><strong>拓扑变化通知BPDU</strong>：是<strong>非根交换机通过根端口向根网桥方向发送</strong>的。当非根交换机检测到拓扑变化后就会发送出去。</li>
+</ul>
+<h4 id="根网桥如何选举？"><a href="#根网桥如何选举？" class="headerlink" title="根网桥如何选举？"></a>根网桥如何选举？</h4><blockquote>
+<p>选举范围是每台交换机<br>交换机之间相互对比的参数是”<code>桥ID</code>“<br><code>桥ID</code>是由<strong>16比特优先级</strong>加上<strong>48比特的MAC地址</strong>构成的，其中<code>桥ID</code>最小的当选<br><code>MAC</code>地址是自带的，优先级可由管理员设置，<code>16</code>比特即<code>0~65535</code>，默认优先级为<code>32768</code></p>
+</blockquote>
+<ol>
+<li><strong>在交换机刚连接到网络中时，每台交换机都会以自己为根网桥，从所有启动的端口向外发送BPDU</strong></li>
+<li><strong>接着收到BPDU的交换机则会用对方BPDU中的根网桥ID与自己的根网桥ID进行对比，如果对端BPDU中的根网桥ID数值小，交换机就会按照对方的根网桥ID修改自己BPDU中的根网桥ID，这也就表示这台交换机承认了选出来的根网桥。</strong></li>
+</ol>
+<h4 id="根端口-Root-Port或RP-如何选举？"><a href="#根端口-Root-Port或RP-如何选举？" class="headerlink" title="根端口(Root Port或RP)如何选举？"></a>根端口(Root Port或RP)如何选举？</h4><blockquote>
+<p>选举范围是每台<strong>非根交换机</strong>，从自己所有启动的端口中选举一个根端口</p>
+</blockquote>
+<ol>
+<li><strong>选择路径开销（Root Path Cost，RPC）最低（路径权值最低）的端口【到根网桥最近】</strong></li>
+<li><strong>若多个端口RPC相等，选择&#x3D;&#x3D;对端&#x3D;&#x3D;桥ID最低的端口（对端交换机BID最小的端口）</strong></li>
+<li><strong>若有多个端口对端桥ID相等，选择&#x3D;&#x3D;对端&#x3D;&#x3D;端口ID（PID，优先级【0~240，华为默认128，16的倍数】和端口号【g0&#x2F;0&#x2F;1，小的当选】）最低的端口</strong></li>
+</ol>
+<h4 id="指定端口-Designated-Port-如何选举？"><a href="#指定端口-Designated-Port-如何选举？" class="headerlink" title="指定端口(Designated Port)如何选举？"></a>指定端口(Designated Port)如何选举？</h4><blockquote>
+<p>参选者是同处于这个网段中的所有端口【不包括已经被选举为根端口的端口】</p>
+</blockquote>
+<ol>
+<li><strong>选择路径开销（Root Path Cost，RPC）最低（路径权值最低）的端口</strong></li>
+<li><strong>若多个端口RPC相等，选择桥ID最低的端口（直连交换机BID最小的端口）</strong></li>
+<li><strong>若有多个端口对端桥ID相等，选择端口ID（PID，优先级【0~240，华为默认128，16的倍数】和端口号【g0&#x2F;0&#x2F;1，小的当选】）最低的端口</strong></li>
+</ol>
+<h4 id="阻塞剩余端口"><a href="#阻塞剩余端口" class="headerlink" title="阻塞剩余端口"></a>阻塞剩余端口</h4><blockquote>
+<p>在物理环路网络<code>STP</code>域中，当一个端口既不是根端口也不是指定端口时称为预备端口<br>预备端口会处于逻辑的阻塞状态，这类端口不会接收或发送任何数据，但它会监听<code>BPDU</code>。在网络因为一些端口出现故障时，<code>STP</code>会让&#x3D;&#x3D;预备端口(Alternate Port)&#x3D;&#x3D;开始转发数据，以恢复网络正常通信</p>
+</blockquote>
+<h3 id="端口状态"><a href="#端口状态" class="headerlink" title="端口状态"></a>端口状态</h3><ul>
+<li><strong>阻塞状态(Discarding)</strong>：这是一种稳定状态，阻塞状态表示如果这个端口进入转发状态的话，<code>STP</code>域中就会出现交换环路。这时端口<strong>接收并处理<code>BPDU</code>，不发送<code>BPDU</code></strong>，不学习<code>MAC</code>地址表，不转发数据</li>
+<li><strong>侦听状态(Listening)</strong>：这是一种过渡状态，这时端口<strong>接收并处理<code>BPDU</code>，参与<code>STP</code>计算</strong>，不学习<code>MAC</code>地址表，不转发数据</li>
+<li><strong>学习状态(Learning)</strong>：这是一种过渡状态，这时端口<strong>接收并处理<code>BPDU</code>，参与<code>STP</code>计算，学习<code>MAC</code>地址表</strong>，不转发数据</li>
+<li><strong>转发状态(Forwarding)</strong>：这是一种稳定状态，也是<strong>根端口和指定端口的最终状态</strong>。这时接收并处理<code>BPDU</code>，参与<code>STP</code>计算，学习<code>MAC</code>地址表，转发数据</li>
+<li><strong>未启用(Disabled)</strong>：端口未启用，什么也干不了</li>
+</ul>
+<h3 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-comment">//以下在系统视图下执行</span><br>stp enable         <span class="hljs-comment">//在交换机上启动stp服务(实际上默认就是启动的)</span><br>stp mode stp     <span class="hljs-comment">//华为交换机默认STP模式是MSTP，因此需要进行模式修改</span><br>stp priority <span class="hljs-number">4096</span>   <span class="hljs-comment">//设置STP优先级，范围0~61440，且为4096倍数</span><br>display stp      <span class="hljs-comment">//查看STP状态，如果根网桥BID与本地交换机BID相同说明本地交换机就是根网桥</span><br>display stp brief   <span class="hljs-comment">//查看交换机上的STP端口角色</span><br>stp timer forward-delay <span class="hljs-number">200</span>  <span class="hljs-comment">//转发延迟设置，单位为厘秒(0.01s)</span><br>stp timer hello <span class="hljs-number">1000</span>   <span class="hljs-comment">//修改hello计时器时间(发送配置BPDU时间)，默认为2秒</span><br>stp timer max-age <span class="hljs-number">2000</span>  <span class="hljs-comment">//修改保存BPDU时间，默认为20秒。当STP环境中发生故障时，若处于阻塞状态的端口(预备端口)无法从对端的指定端口收到BPDU，那么在MaxAge计时器超时候，交换机会重新计算STP</span><br>    <br><span class="hljs-comment">//三个计时器值的设置需要满足以下条件</span><br><span class="hljs-number">2</span>*(	转发延迟<span class="hljs-number">-1</span>)&gt;=MaxAge&gt;=<span class="hljs-number">2</span>*(Hello时间+<span class="hljs-number">1</span>)<br><span class="hljs-comment">//在系统视图下执行    </span><br>stp bridge-diameter 直径  <span class="hljs-comment">//指定STP网络直径，让STP根据直径自动计算出适合这个网络的计时器数值</span><br></code></pre></td></tr></table></figure>
+
+<h2 id="5-快速生成树协议RSTP"><a href="#5-快速生成树协议RSTP" class="headerlink" title="5. 快速生成树协议RSTP"></a>5. 快速生成树协议RSTP</h2><blockquote>
+<p>一个处于阻塞状态的端口所在的交换机由于网络故障，没有再接收到任何<code>BPDU</code>而触发交换机重新计算<code>STP</code>，到<code>STP</code>重新计算后，相应端口进入转发状态，需要花费<code>50</code>秒时间，随着网络规模增大，全网新执行<code>STP</code>收敛的时间会变得更长，这是不能接受的。<br><code>STP</code>过慢是<code>RSTP</code>着意希望解决的问题</p>
+</blockquote>
+<p>对于传统<code>STP</code>中的非根非指定端口，<code>RSTP</code>将其分为了两种情况：<strong>预备端口(AP)和备份端口(BP)</strong></p>
+<ul>
+<li>如果这个端口接收到的更优<code>BPDU</code>是<strong>由其他网桥转发过来的</strong>，代表其为<strong>预备端口</strong>，这类端口可以在根端口及其链路出现故障时，&#x3D;&#x3D;接任根端口的角色&#x3D;&#x3D;，为交换机和根网桥之间提供另一条转发通道</li>
+<li>如果这个端口接收到的更优BPDU是<strong>由本网桥转发过来的</strong>，代表其为<strong>备份端口</strong>，这类端口可以在根端口及其链路出现故障时，&#x3D;&#x3D;接任指定端口的角色&#x3D;&#x3D;，为根网桥与那个物理网段之间提供另一条转发通道</li>
+</ul>
+<p>如果一台交换机根端口进入丢弃状态，且这台交换机上有预备端口，那么这个<strong>根端口的所有预备端口中，优先级最高的会立刻接任根端口的角色</strong>。若对端设备处于转发状态的话，则预备端口会立刻进入转发状态，不需要等待任何计时器和过渡；备份端口转变为指定端口同理，不过可能有过渡状态</p>
+<p><strong>为什么可以不需要计时器？</strong></p>
+<blockquote>
+<p><code>RSTP</code>将端口定义为两种类型：<strong>点到点类型和共享类型</strong>。边缘端口属于点到点端口中的一种特殊类型<br>对于非边缘的点到点类型，<code>RSTP</code>针对点到点链路的指定端口引入了一种<code>P/A(Proposal/Agreement)</code>机制用来提高收敛效率(无需计时器)</p>
+<p>当故障链路恢复后，传统的<code>STP</code>需要<code>30</code>秒才能重新收敛更新状态，而<code>P/A</code>机制通过发送<code>Proposal</code>消息告诉对方字要立刻进入转发状态，对方收到<code>Proposal</code>消息后，先确认消息来源是不是根端口，确认完毕后为避免环路而阻塞自己所有非边缘指定端口，这个过程叫<code>P/A</code>同步。完成同步后，返回<code>Agreement</code>消息同意消息来源切换到转发状态。当消息来源收到<code>Agreement</code>后就可以进入转发状态</p>
+<p>如果一台交换机通过自己的指定端口发送了<code>Proposal</code>，但没有接收到对方【比如终端设备】相应的<code>Agreement</code>，或者这台交换机的指定端口类型是共享型，那么这个端口就会回归传统<code>STP</code>状态转换的方式，也就是<code>30</code>秒后进入转发状态</p>
+</blockquote>
+<h3 id="特殊类型的端口—–边缘端口"><a href="#特殊类型的端口—–边缘端口" class="headerlink" title="特殊类型的端口—–边缘端口"></a>特殊类型的端口—–边缘端口</h3><blockquote>
+<p><strong>如果交换机的端口连接的是终端设备而不是其他交换机的端口，那么这类端口进入转发状态不可能造成环路</strong>。因此，让连接终端设备的端口直接过渡到转发状态只会提高网络的效率，并不会引入任何风险<br>当然交换机并不知道自己的哪些端口连接的是终端设备。所以，如果希望这些边缘端口实现快速收敛，需要管理员通过<strong>手动配置来为交换机指定边缘端口</strong>。在将端口配置为边缘端口之后，<code>RSTP</code>会认为这些端口不会再下游产生环路，因此在计算拓扑时就不会考虑这些端口</p>
+</blockquote>
+<p>若需要具体例子可看👉<a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_45488428/article/details/123751306">RSTP协议的原理与应用【eNSP实现】</a></p>
+<h3 id="配置-1"><a href="#配置-1" class="headerlink" title="配置"></a>配置</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-comment">//以下在系统模式下执行</span><br>stp mode rstp    <span class="hljs-comment">//设置华为交换机STP模式为RSTP</span><br>stp root primary   <span class="hljs-comment">//设置当前交换机为根网桥，优先级被固定为0</span><br>stp root secondary  <span class="hljs-comment">//将当前交换机设置为次根网桥，优先级被固定为4096</span><br>stp edged-port <span class="hljs-keyword">default</span>  <span class="hljs-comment">//(系统视图)将交换机所有端口默认设置为边缘端口</span><br><span class="hljs-comment">//以下在接口模式下执行    </span><br>stp edged-port enable   <span class="hljs-comment">//将交换机上指定端口设置为边缘端口</span><br>stp bpdu-protection    <span class="hljs-comment">//让边缘端口在接收到BPDU消息时被交换机直接禁用，而不会参与STP计算</span><br></code></pre></td></tr></table></figure>
+
+<h2 id="6-多生成树协议MSTP"><a href="#6-多生成树协议MSTP" class="headerlink" title="6. 多生成树协议MSTP"></a>6. 多生成树协议MSTP</h2><blockquote>
+<p><strong><code>STP</code>与<code>RSTP</code>无法解决划分了<code>VLAN</code>环境中的路由环路问题</strong>，因此有了<code>MSTP</code><br>以<code>VLAN</code>为单位进行计算，管理员可以根据自己需求<strong>将一个或者多个VLAN划分到一个多生成树实例</strong><code>(MST Instance，MSTI)</code>中。此后交换机可以<strong>以MSTI为单位</strong>进行收敛，为每个<code>MSTI</code>收敛出一个独立的生成树。<br>如：<code>Instance1：VLAN1、VLAN2</code>											<code>Instance2：VLAN3 </code><br>&#x3D;&#x3D;注意：一个Instance中可以包含多个VLAN，但一个VLAN只能属于某一个Instance&#x3D;&#x3D;</p>
+<p>一个交换机可以拥有多个<code>VLAN</code>，因此交换机也就会多个实例<code>(Instance)--VLAN</code>映射关系。<code>MSTP</code>将相同实例—<code>VLAN</code>映射关系的交换机划分到同一个<code>MST域</code>中</p>
+<ul>
+<li>在域内，域内各台交换机的<code>MSTP</code>会<strong>以每个实例为单位</strong>，计算出实例在域内的生成树</li>
+<li>在全网，所有交换机的<code>MSTP</code>都会<strong>以交换机为单位</strong>，计算出一个全网的总生成树，这个生成树被称为<strong>公共和内部生成树CIST</strong>，<code>CIST</code>的根网桥为整个网络中优先级最高的交换机，称为总根</li>
+<li>在域间，所有交换机上的<code>MSTP</code>会<strong>以每个域为单位</strong>，计算出一个域生成树。这个生成树被称为<strong>公共生成树CST</strong>，<code>CST</code>的根就是总根所在的域</li>
+</ul>
+<p><code>MSTP</code>根据不同的数据对不同的端口进行阻塞，并没有哪条链路会被完全阻塞，每一条链路都是有条件的阻塞，链路利用率会得到提高且交换机的转发工作负载也得到了分担</p>
+</blockquote>
+<p>若需要具体例子可看👉<a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_45488428/article/details/123768966">MSTP原理与应用【eNSP实现】</a></p>
+<h3 id="配置-2"><a href="#配置-2" class="headerlink" title="配置"></a>配置</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-comment">//在系统视图下执行</span><br>stp region-configuration    <span class="hljs-comment">//进入MST域视图</span><br><span class="hljs-comment">//在MST域视图下执行</span><br>check region-configuration   <span class="hljs-comment">//在MST视图下的操作，查看当前域配置</span><br>region-name 名字   <span class="hljs-comment">//指定这个MST域使用的名称</span><br>instance <span class="hljs-number">10</span> vlan <span class="hljs-number">10</span>   <span class="hljs-comment">//建立实例10和VLAN10的映射关系</span><br>active region-configuration    <span class="hljs-comment">//激活MST域中配置的参数</span><br><span class="hljs-comment">//一下在系统视图下执行    </span><br>stp instance <span class="hljs-number">10</span> root primary  <span class="hljs-comment">//为实例10指定根网桥</span><br>stp instance <span class="hljs-number">10</span> root secondary  <span class="hljs-comment">//为实例10指定次根网桥</span><br>display stp brief   <span class="hljs-comment">//查看stp各接口在不同实例中的信息</span><br></code></pre></td></tr></table></figure>
+
+<h2 id="7-二层交换机链路聚合"><a href="#7-二层交换机链路聚合" class="headerlink" title="7. 二层交换机链路聚合"></a>7. 二层交换机链路聚合</h2><blockquote>
+<p>所谓链路聚合就是多条线路拥有共同的功能，实现更大带宽。而在交换机中提供了类似机制。<strong>聚合链路必须在两端交换机上同时都做，且物理链路必须在同一组中才能发挥作用</strong></p>
+</blockquote>
+<p>若需要具体例子可看👉<a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_45488428/article/details/123908319">Eth-Trunk链路聚合理解与应用【eNSP实现】</a></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-comment">//在系统视图下进行</span><br>interface Eth-Trunk <span class="hljs-number">1</span> <span class="hljs-comment">//创建并进入聚合链路组1，一台设备可创建多个聚合组，聚合组编号本地有效</span><br>display interface Eth-Trunk   <span class="hljs-comment">//查看交换机链路聚合情况</span><br><span class="hljs-comment">//在链路组视图下进行    </span><br>mode manual load-balance <span class="hljs-comment">//设置本聚合组模式为手工负载分担模式，创建的聚合组默认为此模式</span><br><span class="hljs-comment">//在接口视图下执行&quot;Eth-Trunk 编号&quot;也可以把端口划入Eth-Trunk组</span><br><span class="hljs-comment">//在链路组视图下执行</span><br>trunkport GigabitEthernet <span class="hljs-number">0</span>/<span class="hljs-number">0</span>/<span class="hljs-number">1</span> <span class="hljs-number">0</span>/<span class="hljs-number">0</span>/<span class="hljs-number">2</span> <span class="hljs-comment">//将物理接口GigabitEthernet 0/0/1 0/0/2划入此聚合组</span><br>least active-linknumber <span class="hljs-number">1</span>      <span class="hljs-comment">//设置此聚合组链路最少活动成员的数量位1，低于此数量此聚合链路将自动关闭（默认阈值为1，最大阈值数为8，两端可以不一样，不一样时以下限阈值最大的为标准）</span><br><br><span class="hljs-comment">//此处是更加具体的负载均衡配置，新手不好理解</span><br>[SW<span class="hljs-number">-1</span>-Eth-Trunk1]load-balance ?<br>  dst-ip       <span class="hljs-comment">//本Eth-Trunk接口的对数据的负载分担方式为基于目的IP地址的负载</span><br>  dst-mac      <span class="hljs-comment">//基于目的mac的负载</span><br>  src-dst-ip   <span class="hljs-comment">//基于源目的ip的负载 </span><br>  src-dst-mac  <span class="hljs-comment">//基于源目的MAC的负载 </span><br>  src-ip       <span class="hljs-comment">//基于源ip的负载</span><br>  src-mac      <span class="hljs-comment">//基于源mac的负载</span><br></code></pre></td></tr></table></figure>
+
+<p>关于各种负载均衡的区别可看👉<a target="_blank" rel="noopener" href="https://ybd99.blog.csdn.net/article/details/108501307">Eth-Trunk链路详情</a></p>
+<h2 id="8-三层交换技术"><a href="#8-三层交换技术" class="headerlink" title="8. 三层交换技术"></a>8. 三层交换技术</h2><blockquote>
+<p>二层交换机内部无法对不同的<code>VLAN</code>之间进行通信，但是这项功能又是特别必要的，因此出现了三层交换机，它可以<strong>实现将终端设备隔离在不同VLAN中，同时为这些终端提供VLAN间路由功能</strong>(跨<code>VLAN</code>通信)<br>在三层交换机上，通过<code>VLANIF</code>虚拟接口实现<code>VLAN</code>间路由</p>
+</blockquote>
+<p>若需要具体例子可看👉<a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_45488428/article/details/124309095">三层交换机【Vlanif详解】开启OSPF与路由器互通【eNSP实现】</a></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs c">interface vlanif <span class="hljs-number">10</span>  <span class="hljs-comment">//为VLAN10创建一个VLANIF接口并进入</span><br><span class="hljs-comment">//VLANIF编号必须与VLAN ID一一对应，逻辑接口与物理接口的&quot;桥&quot;就是VLAN标签</span><br><span class="hljs-comment">//交换机接口类型依然需要配置，三层交换机实际上是交换机承担了路由器部分功能</span><br><span class="hljs-comment">//如果数据从g0/0/1接口进去时携带VLAN 10标签，那么g0/0/1此时就等同于Vlanif 10逻辑接口    </span><br><br><span class="hljs-comment">//在Vlanif接口视图下执行，为此逻辑接口分配IP地址与掩码</span><br>ip address IP地址 掩码<br><span class="hljs-comment">//在系统视图下执行    </span><br>display ip routing-table   <span class="hljs-comment">//三层交换机可查看路由表</span><br></code></pre></td></tr></table></figure>
+
+<h1 id="二、路由器"><a href="#二、路由器" class="headerlink" title="二、路由器"></a>二、路由器</h1><blockquote>
+<p><code>MAC</code>地址好比人的相貌，与生俱来；而<code>IP</code>地址可以看作是家庭住址<br>假设有人在教室里掉了身份证被你捡到，则你归还的方法就是比对相貌寻找并归还；而如果是在路上掉了身份证被捡，比对相貌显然是不合理的，一个好的方法是根据身份证上的地址邮政过去，收件人再进行相貌比对。<br>上述例子即<code>MAC</code>地址与<code>IP</code>地址对应关系，<code>MAC</code>地址适用于小范围，<code>IP</code>地址适用于大范围。交换机是二层设备无法使用<code>IP</code>地址【三层交换机可以实现，但是功能远少于路由器】，而路由器时网络层设备可以使用<code>IP</code>地址，这就是路由器的作用。</p>
+</blockquote>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-comment">//在系统视图下执行</span><br>display ip routing-table   		<span class="hljs-comment">//查看路由表信息</span><br>ip address IP地址 掩码   		<span class="hljs-comment">//在接口上配置IP地址，一般与终端设备相连的接口是网关</span><br>display ip interface brief  <span class="hljs-comment">//查看路由器接口的IP地址和状态</span><br></code></pre></td></tr></table></figure>
+
+<h2 id="1-直连路由"><a href="#1-直连路由" class="headerlink" title="1. 直连路由"></a>1. 直连路由</h2><blockquote>
+<p>同一个路由器连接的路由会叫直连路由，其条目不需要学习，会自动出现在路由表中，路由表中对应的关键字为<code>Direct</code></p>
+</blockquote>
+<p>​	<img src="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202211171615548.png" srcset="/img/loading.gif" lazyload alt="3"></p>
+<h2 id="2-静态路由"><a href="#2-静态路由" class="headerlink" title="2. 静态路由"></a>2. 静态路由</h2><blockquote>
+<p>静态路由是管理员通过命令手动添加到路由表里的路由，告诉路由器数据该往哪里走<br>&#x3D;&#x3D;注意：配置静态路由时要双向配置，因为数据发送出去后还要接收响应才算完成&#x3D;&#x3D;</p>
+</blockquote>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-comment">//在系统视图下执行</span><br><span class="hljs-comment">//下一跳地址表示下一次到哪里，是对端的位置，填写接口号或IP地址都行</span><br>ip route-<span class="hljs-type">static</span> 最终目的IP 掩码 下一跳位置   <span class="hljs-comment">//配置静态路由</span><br><span class="hljs-comment">//路由匹配是根据最大掩码依次向下匹配，因此当掩码为0时优先级最低</span><br><span class="hljs-comment">//掩码为0表示任何网络号都可以接受，即默认路由表示任何地址</span><br>ip route-<span class="hljs-type">static</span> <span class="hljs-number">0.0</span>.<span class="hljs-number">0.0</span> <span class="hljs-number">0</span> 下一跳位置  <span class="hljs-comment">//配置默认路由，当不知道目的地址时候就转发到指定下一跳</span><br></code></pre></td></tr></table></figure>
+
+<p>若需要具体例子可看👉<a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_45488428/article/details/123939181">静态路由与默认路由原理与应用【eNSP实现】</a></p>
+<p><strong>有类编制方案</strong></p>
+<ul>
+<li><code>0.0.0.0~127.255.255.255</code>之间的地址为<code>A</code>类地址。前<code>8</code>位为网络号，后<code>24</code>位为主机号</li>
+<li><code>128.0.0.0~191.255.255.255</code>之间的地址为<code>B</code>类地址。前<code>16</code>位为网络号，后<code>16</code>位为主机号</li>
+<li><code>192.0.0.0~223.255.255.255</code>之间的地址为<code>C</code>类地址。前<code>24</code>位为网络号，后<code>8</code>位为主机号</li>
+</ul>
+<h3 id="静态路由汇总"><a href="#静态路由汇总" class="headerlink" title="静态路由汇总"></a>静态路由汇总</h3><p><strong>无类编制方案</strong></p>
+<blockquote>
+<p>这种技术称为无类域间路由<code>CIDR</code>，<code>CIDR</code>支持使用任意长度的前缀地址来分配地址，以及对数据包进行路由</p>
+</blockquote>
+<blockquote>
+<p>假设当前有3个网段，</p>
+<p>①<code>10.8.80.0/24</code>       ②<code>10.8.81.0/24 </code>     ③<code>10.8.82.0/24</code><br>我们通过二进制转换从左向右匹配，将其中的相同的部分提取出来，其二进制为为掩码长度，不同的部分用0填充，即<code>10.8.80.0/22</code>。这就是三个网段汇总后的网段。具体应用如下图，本质是提取同类项</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs c">ip route-<span class="hljs-type">static</span> <span class="hljs-number">10.8</span>.<span class="hljs-number">80.0</span> <span class="hljs-number">22</span> <span class="hljs-number">192.168</span>.<span class="hljs-number">25.2</span> <span class="hljs-comment">//如果想去汇总的三个网段，走192.168.25.2</span><br></code></pre></td></tr></table></figure></blockquote>
+<p><img src="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202211171616573.png" srcset="/img/loading.gif" lazyload alt="4"></p>
+<p><strong>如果汇总之后的网络，包含了被汇总网络之外的网络，这样的汇总网络有一定风险</strong></p>
+<h3 id="浮动静态路由"><a href="#浮动静态路由" class="headerlink" title="浮动静态路由"></a>浮动静态路由</h3><blockquote>
+<p><strong>静态路由的一大缺陷是缺乏适应性</strong>。如果管理员为路由器配置的静态路由已经无法用来转发去往那个网络的数据包【即静态路由失效】，那么即使这台路由器还有其他路径可以去往那个网络，路由器还是无法自动利用新的路径对这些数据包进行转发【静态路由优先级高】，因此有了浮动静态路由。</p>
+<p>当一台路由器上有两条以不同路径去往同一个网络的<strong>等优先级静态路由</strong>时，路由器就会同时利用这两条链路来转发流量</p>
+</blockquote>
+<h4 id="配置-3"><a href="#配置-3" class="headerlink" title="配置"></a>配置</h4><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-comment">//没有特殊语句，仅仅通过控制优先级实现浮动路由，静态路由优先级默认为60</span><br>ip route-<span class="hljs-type">static</span> <span class="hljs-number">10.8</span>.<span class="hljs-number">84.0</span> <span class="hljs-number">24</span> <span class="hljs-number">192.168</span>.<span class="hljs-number">25.2</span> preference 优先级<br>display ip routing-table protocol <span class="hljs-type">static</span>  <span class="hljs-comment">//查看路由器静态路由条目</span><br></code></pre></td></tr></table></figure>
+
+<p><strong>当优先级不同时，若路径发送故障，则路径选择会按照优先级进行顺延</strong></p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_45488428/article/details/123949207">浮动静态路由与负载均衡原理与应用【eNSP实现】</a></p>
+<h2 id="3-动态路由"><a href="#3-动态路由" class="headerlink" title="3. 动态路由"></a>3. 动态路由</h2><blockquote>
+<p>网络规模很大，使用静态部署路由就显得不现实，因此需要动态部署<br><strong>路由器通过其他路由器分享的路由信息来获取远端网络路由条目的方式称为动态学习</strong>，为实现路由器相互分享路由信息而定义的标准称为动态路由协议</p>
+</blockquote>
+<h3 id="路由学习"><a href="#路由学习" class="headerlink" title="路由学习"></a>路由学习</h3><blockquote>
+<p>路由表由三部分组成：子网，度量(权)，下一跳地址<br>直连路由拥有最高优先级，度量值为<code>0</code>。用以下例子说明具体学习过程</p>
+</blockquote>
+<p><img src="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202211171616624.png" srcset="/img/loading.gif" lazyload alt="5"></p>
+<ul>
+<li>初始状态每个路由器都拥有自己的直连路由，度量值为<code>0</code></li>
+<li><code>R1</code>向<code>R2</code>学习得到了<code>30.1.1.0/24</code>网段，将其记录在路由表内。由于<code>R1</code>是从<code>R2</code>学习到的，因此在<code>R2</code>相关条目的度量值上<code>+1</code>，也就是<code>1</code></li>
+<li><code>R2</code>同时也向<code>R1</code>和<code>R3</code>的路由表学习得到新网段<code>10.1.1.0/24</code>和<code>40.1.1.0/24</code>，度量值分别为<code>1</code></li>
+<li><code>R1</code>向<code>R2</code>学习到<code>40.1.1.0/24</code>网段，这一条目的度量值<code>+1=2</code>更新到<code>R1</code>路由表中</li>
+<li>同理<code>R3,R1</code>向<code>R2</code>学习到<code>10.1.1.0/24</code>网段，这一条目的度量值<code>+1=2</code>更新到<code>R3</code>路由表中</li>
+</ul>
+<h4 id="环路隐患"><a href="#环路隐患" class="headerlink" title="环路隐患"></a>环路隐患</h4><p><strong>如上图，若是10.1.1.0&#x2F;24网段出现故障会出现什么情况？</strong></p>
+<blockquote>
+<p>由于此网段是直连路由，<code>R1</code>路由器当下会在路由表中对故障路由进行删除。因此通过动态学习，<code>R1</code>又从<code>R2</code>那儿学来了这条网段路由，度量值为<code>2</code>，下一跳为<code>R2</code>。假设<code>R3</code>收到发往这个网段的数据包时，<code>R3</code>查询路由表将其发送给<code>R2</code>，<code>R2</code>发给<code>R1</code>，<code>R1</code>又发给<code>R2</code>，如此循环……</p>
+</blockquote>
+<h3 id="RIP原理"><a href="#RIP原理" class="headerlink" title="RIP原理"></a>RIP原理</h3><blockquote>
+<p><code>RIP</code>是一种距离矢量路由协议<br>路由器以<code>RIP</code>更新计时器设置的参数作为周期，每周期向外通过一次路由更新信息</p>
+<blockquote>
+<p>每当一台路由器针对某些路由的更新计时器到期时。它就会封装一个<code>RIP</code>响应消息对外发送。如果收到消息的路由器针对这条路由的老化计时器还没有过期，那么老化计时器就会重置；如果已经进入了垃圾收集计时器，那么这条路由会被重新激活并关闭</p>
+</blockquote>
+<p>通过老化计时器将一段时间没有启用的路由标记为不可达(度量值<code>16</code>)，默认<code>180</code>秒<br>通过垃圾收集计时器记录的是老化后，需要多久彻底删除的时间，默认<code>120</code>秒</p>
+<blockquote>
+<p>如果启动了垃圾计时器，那么路由器就会在网络中发送关于这条路由不可达的更新消息，让其他路由器也更新关于这条路由已经不可达的信息，计时器超时后会将这条路由从<code>RIP</code>数据库中彻底删除</p>
+</blockquote>
+<p>度量值<code>X</code>表示到达目的地址还需要经过<code>X</code>个路由器</p>
+</blockquote>
+<h4 id="水平分割"><a href="#水平分割" class="headerlink" title="水平分割"></a>水平分割</h4><blockquote>
+<p>禁止路由器将从一个接口学习到的路由，再从同一个接口通告出去（RIP2自带水平分割）<br>即<strong>我从你这里学到的已经是最好的，既然是最好的，你就不可能再从我这学到同一条更好的路由，因此我禁止告诉你错误消息，避免环路</strong></p>
+</blockquote>
+<h4 id="毒性反转"><a href="#毒性反转" class="headerlink" title="毒性反转"></a>毒性反转</h4><blockquote>
+<p>当路由器从一个接口学习到一条去往某个网络时，它就会通过这个接口通告一条该网络不可达的路由（路由毒化）<br>即<strong>你已经告诉过我一次，可以不用再告诉我了，避免环路</strong></p>
+</blockquote>
+<p>若需要具体例子可看👉<a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_45488428/article/details/115398545">RIP原理、毒性反转原理与应用【eNSP实现】</a></p>
+<h4 id="配置-4"><a href="#配置-4" class="headerlink" title="配置"></a>配置</h4><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-comment">//在系统视图下执行</span><br>rip        	<span class="hljs-comment">//在交换机上启动RIP协议</span><br><span class="hljs-comment">//在RIP视图下执行    </span><br>version <span class="hljs-number">2</span>     <span class="hljs-comment">//切换成RIPv2版本</span><br>network <span class="hljs-number">10.0</span>.<span class="hljs-number">0.0</span>   <span class="hljs-comment">//当前路由器接口地址属于10.0.0.0子网的都开启RIP服务，A类地址(1~126)取8位掩码，B类(128~191)16位掩码,C类(192~223)24位掩码</span><br>timers rip 更新计时器时间 老化计时器时间 垃圾收集计时器时间 <span class="hljs-comment">//在RIP视图下设置计时器时间</span><br>preference 优先级  <span class="hljs-comment">//在RIP视图下设置RIP学习到的路由优先级（1~255）   </span><br>silent-interface  <span class="hljs-comment">//在RIP视图下使用，令所有接口或指定接口不向外发送广播或组播RIP更新    </span><br>    <br><span class="hljs-comment">//在系统视图下执行    </span><br>display rip    <span class="hljs-comment">//查看RIP情况   </span><br>display rip <span class="hljs-number">1</span> route    <span class="hljs-comment">//查看RIP路由，1位进程号，默认为1  </span><br>display rip <span class="hljs-number">1</span> interface g0/<span class="hljs-number">0</span>/<span class="hljs-number">0</span> verbose <span class="hljs-comment">//查看路由器g0/0/0接口的RIP详情</span><br>display current-configuration configuration rip <span class="hljs-comment">//查看路由器上的RIP配置</span><br>display ip routing-table protocol rip <span class="hljs-comment">//查看通过RIP学到的路由</span><br>display rip <span class="hljs-number">1</span> neighbor   <span class="hljs-comment">//查看邻居情况</span><br>    <br><span class="hljs-comment">//由于RIP需要发送和接收响应，因此只有设置了RIP的路由器才会相互学习</span><br><span class="hljs-comment">//在接口视图上执行</span><br>undo rip split-horizon  <span class="hljs-comment">//接口上禁用水平分割，默认是开启的</span><br>rip poison-reverse   <span class="hljs-comment">//毒性反转，是在接口上的操作，优先级高于水平分割</span><br><span class="hljs-keyword">default</span>-route originate <span class="hljs-comment">//此语句使用于添加了默认路由后，进入RIP状态下动态发布默认路由    </span><br><br><span class="hljs-comment">//RIPv2默认禁用水平分割后才会启动自动汇总</span><br>rip summary-address <span class="hljs-number">10.0</span>.<span class="hljs-number">0.0</span> <span class="hljs-number">255.255</span>.<span class="hljs-number">128.0</span> <span class="hljs-comment">//将当前路由器下属于10.0.0.0/17子网的网络都汇总为10.0.0.0/17向外发送响应，其中掩码必须使用点分十进制位表示</span><br><br><span class="hljs-comment">//RIPV2支持明文认证和MD5认证</span><br><span class="hljs-comment">//其认证需要配置在接口上，以链路为单位，只要直连设备之间使用相同密码，就可以使他们通过认证并建立邻居关系,有相同密码的相邻路由器才互相学习</span><br>rip authentication-mode simple zyl <span class="hljs-comment">//将接口明文密码设置为zyl</span><br>display this <span class="hljs-comment">//在系统视图下查看端口配置信息，明文密码会被查到，因此明文配置不安全</span><br>undo rip output  <span class="hljs-comment">//接口上使用，令此接口不向外发送RIP更新</span><br>undo rip input  <span class="hljs-comment">//接口上使用，令此接口不再接收RIP更新    </span><br><span class="hljs-comment">//采用md5加密，数据包可选择nonstandard（IETF）或usual（华为格式）加密，cipher可以把设置的密码在本地进行加密，最后的数字1是MD5认证的密钥ID</span><br>rip authentication-mode md5 nonstandard/usual cipher 密码 <span class="hljs-number">1</span>  <br></code></pre></td></tr></table></figure>
+
+<h3 id="OSPF"><a href="#OSPF" class="headerlink" title="OSPF"></a>OSPF</h3><blockquote>
+<p><code>OSPF</code>是一个链路状态型路由协议，具有收敛快，路由无环，扩展性好等优点，被快速广泛接受</p>
+<p><code>OSPF</code>支持区域划分，区域是从逻辑上讲路由器划分为不同的组，每个组用区域号【<code>Area ID</code>】来标识。一个网段只能属于一个区域，或者说每个运行<code>OSPF</code>的接口必须指明属于哪一个区域。<strong>区域<code>0</code>位于骨干区域</strong>，骨干区域负责在非骨干区域之间发布区域间的路由信息。在一个<code>OSPF</code>区域中有且只有一个骨干区域。</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">//在系统视图下执行</span><br>ospf	<span class="hljs-comment">//在路由器上启用OSPF协议并进入OSPF视图</span><br><span class="hljs-comment">//在OSPF视图下执行    </span><br>area 区域号		<span class="hljs-comment">//将此路由器划分进指定区域，区域0位骨干区域，OSPF报文必须经由区域0</span><br><span class="hljs-comment">//在区域视图下执行    </span><br>network <span class="hljs-number">192.168</span><span class="hljs-number">.1</span><span class="hljs-number">.0</span> <span class="hljs-number">0.0</span><span class="hljs-number">.0</span><span class="hljs-number">.255</span><span class="hljs-comment">//将192.168.1.0/24网段通告给同区域的其他路由器，掩码用反码形式</span><br>authentication-mode md5 <span class="hljs-number">1</span> cipher 密码	<span class="hljs-comment">//拥有相同密码与验证模式的OSPF设备才会相互交流</span><br></code></pre></td></tr></table></figure>
+
+<p>若需要具体例子可看👉<a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_45488428/article/details/123959000">OSPF单区域配置【eNSP实现】</a></p>
+<p>若需要具体例子可看👉<a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_45488428/article/details/123961216">OSPF多区域配置【eNSP实现】</a></p>
+<p>若需要具体例子可看👉<a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_45488428/article/details/124016974">配置OSPF认证【eNSP实现】</a></p>
+<p>若需要具体例子可看👉<a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_45488428/article/details/124085127">OSPF被动接口配置【eNSP实现】</a></p>
+<h2 id="4-路由优先级"><a href="#4-路由优先级" class="headerlink" title="4. 路由优先级"></a>4. 路由优先级</h2><table>
+<thead>
+<tr>
+<th>路由类型</th>
+<th>路由表中标识</th>
+<th>优先级(越小越先)</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>直连路由</td>
+<td>Direct</td>
+<td>0</td>
+</tr>
+<tr>
+<td>OSPF路由</td>
+<td>OSPF</td>
+<td>10</td>
+</tr>
+<tr>
+<td>静态路由</td>
+<td>Static</td>
+<td>60</td>
+</tr>
+<tr>
+<td>RIP路由</td>
+<td>RIP</td>
+<td>100</td>
+</tr>
+</tbody></table>
+<h2 id="5-单臂路由"><a href="#5-单臂路由" class="headerlink" title="5. 单臂路由"></a>5. 单臂路由</h2><blockquote>
+<p><strong>将一个路由器接口逻辑化成多个接口的技术</strong>，使用上的原理与三层交换机的<code>Vlanif</code>类似</p>
+</blockquote>
+<p>若需要具体例子可看👉<a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_45488428/article/details/123715511">单臂路由原理与应用【eNSP实现】</a></p>
+<h3 id="配置-5"><a href="#配置-5" class="headerlink" title="配置"></a>配置</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs c">interface g0/<span class="hljs-number">0</span>/<span class="hljs-number">0.10</span>    <span class="hljs-comment">//进入g0/0/0的10端口</span><br><span class="hljs-comment">//配置后，在接收数据时，路由器会剥除数据中对应的VLAN标签并三层转发，之后是否带VLAN标签由出站接口决定</span><br><span class="hljs-comment">//接口视图配置    </span><br>dot1q termination vid <span class="hljs-number">10</span><span class="hljs-comment">//配置802.1Q封装(与对端交换机保持一致)，指定端口接收PVID(VLAN值)</span><br>ip address xxx xx   <span class="hljs-comment">//正常为接口配置ip地址和掩码</span><br>arp broadcast enable  <span class="hljs-comment">//使接口能够处理广播帧(单臂路由独有语句)</span><br></code></pre></td></tr></table></figure>
+
+<h2 id="6-DHCP"><a href="#6-DHCP" class="headerlink" title="6. DHCP"></a>6. DHCP</h2><blockquote>
+<p>一种利用路由器自动分配<code>IP</code>地址的技术</p>
+</blockquote>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-comment">//在系统视图下执行，在DHCP服务器上配置</span><br>dhcp enable   <span class="hljs-comment">//打开DHCP服务</span><br>ip pool <span class="hljs-keyword">for</span>-net10  <span class="hljs-comment">//创建地址池for-net10并进入视图</span><br>network <span class="hljs-number">10.10</span>.<span class="hljs-number">10.0</span> mask <span class="hljs-number">24</span>  <span class="hljs-comment">//for-net10地址池分配范围为10.10.10.0/24</span><br>gateway-<span class="hljs-built_in">list</span> <span class="hljs-number">10.10</span>.<span class="hljs-number">10.254</span>  <span class="hljs-comment">//该地址池对应的网关为10.10.10.254 </span><br>dns-<span class="hljs-built_in">list</span> <span class="hljs-number">8.8</span>.<span class="hljs-number">8.8</span>   <span class="hljs-comment">//指定DNS服务器IP地址为8.8.8.8</span><br>excluded-ip-address <span class="hljs-number">10.10</span>.<span class="hljs-number">10.253</span>  <span class="hljs-comment">//地址池中10.10.10.253不要划分出去</span><br>lease day <span class="hljs-number">1</span>     <span class="hljs-comment">//这些地址租期为1天    </span><br><span class="hljs-comment">//在要放出地址的DHCP服务器接口视图下执行</span><br>dhcp select global  <span class="hljs-comment">//开启此接口的DHCP全局地址池分配功能</span><br>    <br><span class="hljs-comment">//在能接收到DHCP报文并有三层转发功能的设备接口上配置</span><br>dhcp select relay<br>dhcp relay server-ip DHCP服务器IP地址  <span class="hljs-comment">//分配地址池的端口都要配置DHCP中继服务</span><br></code></pre></td></tr></table></figure>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E7%90%86%E8%AE%BA%E7%9F%A5%E8%AF%86/" class="category-chain-item">理论知识</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/%E7%90%86%E8%AE%BA%E7%9F%A5%E8%AF%86/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/" class="category-chain-item">计算机基础</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/%E7%90%86%E8%AE%BA%E7%9F%A5%E8%AF%86/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" class="category-chain-item">计算机网络</a>
+  
+  
+
+  
+
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" class="print-no-link">#计算机网络</a>
+      
+    </div>
+  
+</div>
+
+
+              
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/blog/%E7%90%86%E8%AE%BA%E7%9F%A5%E8%AF%86/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/%E7%90%86%E8%AE%BA%E7%9F%A5%E8%AF%86/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/eNSP%E7%BD%91%E7%BB%9C%E6%90%AD%E5%BB%BA%E5%9F%BA%E7%A1%80%E7%AC%94%E8%AE%B0/" title="eNSP网络搭建基础笔记">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">eNSP网络搭建基础笔记</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       用文字锁住记忆 
+    </div>
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+<!-- hexo injector body_end start --><script src="/js/backgroundize.js"></script><!-- hexo injector body_end end --></body>
+</html>

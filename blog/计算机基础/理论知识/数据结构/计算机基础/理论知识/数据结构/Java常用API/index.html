@@ -1,0 +1,725 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/our/logo.png">
+  <link rel="icon" href="/img/our/logo.png">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="Z_Jump_Dragon">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="本文总结了数据结构使用Java语言实现算法时常用的API调用方式">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java常用API">
+<meta property="og:url" content="https://dragooon.top/blog/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/%E7%90%86%E8%AE%BA%E7%9F%A5%E8%AF%86/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/%E7%90%86%E8%AE%BA%E7%9F%A5%E8%AF%86/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/Java%E5%B8%B8%E7%94%A8API/index.html">
+<meta property="og:site_name" content="棱镜里的日常">
+<meta property="og:description" content="本文总结了数据结构使用Java语言实现算法时常用的API调用方式">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202304071838540.png">
+<meta property="article:published_time" content="2024-09-03T06:27:23.000Z">
+<meta property="article:modified_time" content="2026-03-19T08:44:53.701Z">
+<meta property="article:author" content="Z_Jump_Dragon">
+<meta property="article:tag" content="数据结构">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202304071838540.png">
+  
+  
+  
+  <title>Java常用API - 棱镜里的日常</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+  
+<link rel="stylesheet" href="/css/cloudedGlass.css">
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"dragooon.top","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":60,"cursorChar":"_","loop":false,"scope":["home"]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"left","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":3},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":false};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+
+<body><!-- hexo injector body_begin start --><div id="web_bg"></div><!-- hexo injector body_begin end -->
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 100vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>棱镜里的日常</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/our/article.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle">Java常用API</span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-author" aria-hidden="true"></i>
+        Z_Jump_Dragon
+      </span>
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2024-09-03 14:27" pubdate>
+          2024年9月3日 下午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          3.7k 字
+        
+      </span>
+    
+
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+        <div class="scroll-down-bar">
+          <i class="iconfont icon-arrowdown"></i>
+        </div>
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="padding-left: 2rem; margin-right: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">Java常用API</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h1 id="1-栈和队列LinkedList"><a href="#1-栈和队列LinkedList" class="headerlink" title="1. 栈和队列LinkedList"></a>1. 栈和队列LinkedList</h1><blockquote>
+<p>使用<code>push</code>插入元素时【栈】，头部元素<code>peek</code>为栈顶元素<br>使用<code>addLast</code>插入元素时，头部元素<code>peek</code>为队首元素</p>
+<p>通常创建一个对象专精一个数据结构，不要串用</p>
+</blockquote>
+<h2 id="1-1-栈常用方法"><a href="#1-1-栈常用方法" class="headerlink" title="1.1 栈常用方法"></a>1.1 栈常用方法</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">// 栈顶插入元素</span><br>push(ele)   <br><span class="hljs-comment">// 返回栈顶元素并弹出    </span><br>pop()   <br><span class="hljs-comment">//返回栈顶元素但不弹出</span><br>peek()    <br></code></pre></td></tr></table></figure>
+
+<h2 id="1-2-队列常用方法"><a href="#1-2-队列常用方法" class="headerlink" title="1.2 队列常用方法"></a>1.2 队列常用方法</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">// 头插</span><br>addFirst(ele)		<br><span class="hljs-comment">// 尾插</span><br>addLast(ele)<br><span class="hljs-comment">// 获取队列头元素    </span><br>getFirst()		<br><span class="hljs-comment">// 获取队列尾元素    </span><br>getLast()			<br><span class="hljs-comment">// 获取头元素并弹出</span><br>poll()			<br><span class="hljs-comment">// 获取尾元素并弹出【对于栈插入，最先进入的为尾】     </span><br>pollLast()		 <br><span class="hljs-comment">// 删除指定索引元素    </span><br>remove(index)		<br><span class="hljs-comment">// 返回首次出现某元素的索引</span><br>indexOf(ele)				<br></code></pre></td></tr></table></figure>
+
+<h2 id="1-3-通用方法"><a href="#1-3-通用方法" class="headerlink" title="1.3 通用方法"></a>1.3 通用方法</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">// 清空</span><br>clear()				<br><span class="hljs-comment">// 返回大小    </span><br>size()			<br><span class="hljs-comment">// 判断是否为空</span><br>isEmpty()					<br><span class="hljs-comment">// 得到指定索引元素【栈是从栈顶数下来】</span><br>get(index)			<br><span class="hljs-comment">// 改变某索引处的元素</span><br>set(index,ele)		<br></code></pre></td></tr></table></figure>
+
+<h1 id="2-链表ArrayList"><a href="#2-链表ArrayList" class="headerlink" title="2. 链表ArrayList"></a>2. 链表ArrayList</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">// 默认将元素添加到链表尾，可以通过index添加到指定位置</span><br>add(ele)		<br><span class="hljs-comment">// 移除指定位置元素</span><br>remove(index)		<br><span class="hljs-comment">// 修改指定位置元素</span><br>set(index,element)		<br><span class="hljs-comment">// 得到指定位置元素</span><br>get(index)			<br><span class="hljs-comment">// 返回第一次/最后一次出现某元素的索引</span><br>indexOf/lastIndexOf(ele)	<br><span class="hljs-comment">//返回大小/是否为空    </span><br>size()/isEmpty()			<br><span class="hljs-comment">// 链表变数组    </span><br>toArray()			<br><span class="hljs-comment">// 字符串形式输出【若要输出自定义形式，可以遍历后用StringBuilder拼接】</span><br>toString()	<br><span class="hljs-comment">// 使用Stream流将列表转为数组</span><br><span class="hljs-type">int</span>[] arr = list.stream().mapToInt(Integer::intValue).toArray();<br></code></pre></td></tr></table></figure>
+
+<h1 id="3-集合Set"><a href="#3-集合Set" class="headerlink" title="3. 集合Set"></a>3. 集合Set</h1><blockquote>
+<p><code>TreeSet</code>相较于<code>HashSet</code>多了排序功能【排序通过重写<code>Comparator</code>的方法实现】，因此用<code>TreeSet</code>就行</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">// 集合如果不存在元素ele，则添加此元素</span><br>add(ele)			<br><span class="hljs-comment">// 清空</span><br>clear()				<br><span class="hljs-comment">// 查询指定元素是否存在，存在返回true</span><br>contains(ele)		<br><span class="hljs-comment">// 判空</span><br>isEmpty()				<br><span class="hljs-comment">// 如果指定元素在此set中则移除</span><br>remove(ele)			<br><span class="hljs-comment">// 返回元素数量</span><br>size()			<br><span class="hljs-comment">// 返回一个大于等于当前元素的最小元素【屋顶上一个】，不存在返回null</span><br>ceiling(ele)		<br><span class="hljs-comment">// 返回一个小于等于当前元素的最大元素【地板下一个】，不存在返回null</span><br>floor(ele)			<br><span class="hljs-comment">// 返回此set中严格大于给定元素的最小元素,不存在返回null</span><br>higher(ele)			<br><span class="hljs-comment">// 返回此set中严格小于给定元素的最大元素，不存在返回null</span><br>lower(ele)			<br><span class="hljs-comment">// 返回第一个元素</span><br>first()			<br><span class="hljs-comment">// 返回最后一个元素</span><br>last()					<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">// 差集</span><br>removeall()<br><span class="hljs-comment">// 交集</span><br>retainAll()<br><span class="hljs-comment">// 并集</span><br>addAll()<br></code></pre></td></tr></table></figure>
+
+
+
+<h1 id="4-映射Map"><a href="#4-映射Map" class="headerlink" title="4. 映射Map"></a>4. 映射Map</h1><blockquote>
+<p>理由同<code>Set</code>，只讲<code>TreeMap</code>，可根据关键字排序</p>
+</blockquote>
+<p><code>LinkedHashMap</code>会保证遍历时按照插入顺序【默认】或者访问顺序取出</p>
+<p>首元素可用 <strong>map.entrySet().iterator().next().getKey()</strong> 得到</p>
+<img src="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202304071838540.png" srcset="/img/loading.gif" lazyload alt="image-20230407183829471" style="zoom: 80%;" />
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">// 在此映射中关联指定值与指定键</span><br>put(key,value)			<br><span class="hljs-comment">// 从此映射中移除指定键的映射关系（如果存在)</span><br>remove(key)			<br><span class="hljs-comment">// 清空</span><br>clear() 				<br><span class="hljs-comment">// 如果包含指定键，返回true</span><br>containsKey(key)		<br><span class="hljs-comment">// 如果包含指定值，返回true</span><br>containsValue(value)<br><span class="hljs-comment">// 返回指定键的值，如果不存在返回null</span><br>get(key)	<br><span class="hljs-comment">// 返回指定键的值，如果不存在返回defaultValue</span><br>getOrDefault(key, defaultValue)<br><span class="hljs-comment">// 返回此映射中当前第一个（最低）键</span><br>firstKey()				<br><span class="hljs-comment">// 返回映射中当前最后一个（最高）键</span><br>lastKey()				<br><span class="hljs-comment">// 返回大于等于给定键的最小键；如果不存在这样的键，则返回 null</span><br>ceilingKey(key)		<br><span class="hljs-comment">// 返回小于等于给定键的最大键；如果不存在这样的键，则返回 null</span><br>floorKey(key)	<br><span class="hljs-comment">// 是否空/map大小    </span><br>isEmpty()/size()<br></code></pre></td></tr></table></figure>
+
+<h2 id="遍历方式"><a href="#遍历方式" class="headerlink" title="遍历方式"></a>遍历方式</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs java">TreeMap&lt;Integer, Integer&gt; map = <span class="hljs-keyword">new</span> <span class="hljs-title class_">TreeMap</span>&lt;Integer,Integer&gt;();<br>map.put(<span class="hljs-number">1</span>, <span class="hljs-number">2</span>);<br><span class="hljs-keyword">for</span> (Map.Entry&lt;Integer, Integer&gt; entry : map.entrySet()) &#123;<br>    System.out.println(<span class="hljs-string">&quot;关键字：&quot;</span>+entry.getKey());<br>    System.out.println(<span class="hljs-string">&quot;值：&quot;</span>+entry.getValue());<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h1 id="5-大-小根堆PriorityQueue"><a href="#5-大-小根堆PriorityQueue" class="headerlink" title="5. 大&#x2F;小根堆PriorityQueue"></a>5. 大&#x2F;小根堆PriorityQueue</h1><blockquote>
+<p>因为其本质是根堆而不是队列，因此遍历输出得到的元素无序，<strong>依次弹出根顶元素才有序</strong></p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">// 清空</span><br>clear()				<br><span class="hljs-comment">// 如果包含指定元素返回true</span><br>contains(ele) 		<br><span class="hljs-comment">// 将指定元素插入此优先队列</span><br>offer(ele) 			<br><span class="hljs-comment">// 获取根堆顶元素</span><br>peek() 				<br><span class="hljs-comment">// 获取并移除根堆顶元素</span><br>poll() 				<br><span class="hljs-comment">// 移除指定元素</span><br>remove(ele) <br><span class="hljs-comment">// 返回元素个数</span><br>size() 					<br></code></pre></td></tr></table></figure>
+
+<h2 id="大小根堆选择"><a href="#大小根堆选择" class="headerlink" title="大小根堆选择"></a>大小根堆选择</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">// 默认为小根堆，大根堆需要重新方法</span><br>PriorityQueue&lt;Integer&gt; queue = <span class="hljs-keyword">new</span> <span class="hljs-title class_">PriorityQueue</span>&lt;Integer&gt;(<span class="hljs-keyword">new</span> <span class="hljs-title class_">Comparator</span>&lt;Integer&gt;() &#123;<br>			<span class="hljs-meta">@Override</span><br>			<span class="hljs-keyword">public</span> <span class="hljs-type">int</span> <span class="hljs-title function_">compare</span><span class="hljs-params">(Integer o1, Integer o2)</span> &#123;<br>                 <span class="hljs-comment">// 后面比前面大就交换，即大的在前面，就是大根堆</span><br>				<span class="hljs-keyword">return</span> o2-o1; <br>			&#125;<br>		&#125;);<br></code></pre></td></tr></table></figure>
+
+<h1 id="6-字符串"><a href="#6-字符串" class="headerlink" title="6. 字符串"></a>6. 字符串</h1><blockquote>
+<p><code>String</code>用来处理最终结果，<code>StringBuilder</code>用来拼接</p>
+</blockquote>
+<h2 id="6-1-String"><a href="#6-1-String" class="headerlink" title="6.1 String"></a>6.1 String</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">// 返回此字符串的长度</span><br>length()			<br><span class="hljs-comment">// 判空，当长度为0时返回true</span><br>isEmpty()<br><span class="hljs-comment">// 除去任何前导和尾随空格，如果该字符串没有前导或尾随的空格，则返回值为该字符串本身</span><br>trim()		<br><span class="hljs-comment">// 返回索引i处的字符，也可以通过toCharArray()转变成数组再遍历</span><br>charAt(<span class="hljs-type">int</span> i)	<br><span class="hljs-comment">// 按字典顺序比较两个字符串</span><br>compareTo(String anotherString)			<br><span class="hljs-comment">// 按字典顺序且不区分大小写比较两个字符串</span><br>compareToIgnoreCase(String anotherString)<br><span class="hljs-comment">// 判断两个字符串是否相等，相等返回true否则返回false</span><br>equals(String anotherString)<br><span class="hljs-comment">// 同上，不区分大小写</span><br>equalsIgnoreCase(String str)		<br><span class="hljs-comment">// 检查是否以某一前缀开始</span><br>startsWith(String prefix)		<br><span class="hljs-comment">// 根据指定字符串拆分</span><br>split(String regex) 			<br><span class="hljs-comment">// 返回从begin开始到end-1结束的子串</span><br>substring(<span class="hljs-type">int</span> beginIndex, <span class="hljs-type">int</span> end)	<br><span class="hljs-comment">// 将此字符串中的所有字母都换为大写</span><br>toUpperCase() 	<br><span class="hljs-comment">// 将此字符串中的所有字母都换为小写</span><br>toLowerCase()	<br><br><span class="hljs-comment">// lastIndexOf有类似用法👇</span><br><span class="hljs-comment">// 返回指定字符在此字符串中第一次出现的索引</span><br>indexOf(<span class="hljs-type">char</span> ch)			<br><span class="hljs-comment">// 同上，从指定索引开始搜索</span><br>indexOf(<span class="hljs-type">char</span> ch, <span class="hljs-type">int</span> fromindex) 	<br><span class="hljs-comment">// 返回子串在此字符串中第一次出现的索引</span><br>indexOf(String str)			<br><span class="hljs-comment">// 同上，从指定索引开始搜索</span><br>indexOf(String str, <span class="hljs-type">int</span> fromindex)	<br><span class="hljs-comment">// 用s2替换目标字符串中出现的所有s1</span><br>replaceAll(String s1,String s2)	<br><span class="hljs-comment">// 用s2替换目标字符串中出现的第一个s1</span><br>replaceFirst(String s1,String s2)	<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">// 类方法【即String.xxx】</span><br><span class="hljs-comment">// 返回 char数组的字符串表示形式</span><br>valueOf(<span class="hljs-type">char</span>[] data)				<br><span class="hljs-comment">// 返回 char 数组参数的特定子数组的字符串表示形式</span><br>valueOf(<span class="hljs-type">char</span>[] data,<span class="hljs-type">int</span> offset,<span class="hljs-type">int</span> count)<br><span class="hljs-comment">// 返回参数【int,boolean...】的字符串表示形式</span><br>valueOf(ele)								<br></code></pre></td></tr></table></figure>
+
+<h2 id="6-2-StringBuilder"><a href="#6-2-StringBuilder" class="headerlink" title="6.2 StringBuilder"></a>6.2 StringBuilder</h2><blockquote>
+<p>相较于<code>String</code>来说，处理速度更快，所以处理字符串的时候一般使用<code>StringBuilder</code>，最后再通过<code>toString()</code>方法转为字符串</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">// 构建一个值为str的可变字符串【也可传空参数】</span><br>StringBuilder(String str)<br><span class="hljs-comment">// 返回索引i位置的字符</span><br>charAt(<span class="hljs-type">int</span> i)<br><span class="hljs-comment">// 返回此字符串的长度</span><br>length()<br><span class="hljs-comment">// 在此字符串追加str【参数为StringBuilder也可以】</span><br>append(String str)<br><span class="hljs-comment">// 在index处插入字符数组c【c也可以是单个字符或者其他类型】</span><br>insert(<span class="hljs-type">int</span> index, <span class="hljs-type">char</span>[] c)	<br><span class="hljs-comment">// 将char的子数组【下标offset开始，长度len】追加到此字符串</span><br>append(<span class="hljs-type">char</span>[] str, <span class="hljs-type">int</span> offset, <span class="hljs-type">int</span> len)	<br><span class="hljs-comment">// 移除此序列从start到end-1的字符串</span><br>delete(<span class="hljs-type">int</span> start, <span class="hljs-type">int</span> end)	<br><span class="hljs-comment">// 移除指定索引上的字符</span><br>deleteCharAt(<span class="hljs-type">int</span> index)	<br><span class="hljs-comment">// 将指定索引处的字符替换为ch</span><br>setCharAt(<span class="hljs-type">int</span> index, <span class="hljs-type">char</span> ch)	<br><span class="hljs-comment">// 将此字符串反转</span><br>reverse()			<br><span class="hljs-comment">// 返回此字符串从start开始至length-1结束的String</span><br>substring(<span class="hljs-type">int</span> start)		<br><span class="hljs-comment">// 返回此字符串从start开始至end-1结束的String</span><br>substring(<span class="hljs-type">int</span> start, <span class="hljs-type">int</span> end)	<br><span class="hljs-comment">// 返回此序列中的String表示形式</span><br>toString()		<br><br><span class="hljs-comment">// lastIndexOf有类似用法👇</span><br><span class="hljs-comment">// 返回子字符串第一次出现的索引</span><br>indexOf(String str)		<br><span class="hljs-comment">// 同上，从指定位置查找</span><br>indexOf(String str, <span class="hljs-type">int</span> fromIndex)<br></code></pre></td></tr></table></figure>
+
+<h1 id="7-工具类"><a href="#7-工具类" class="headerlink" title="7. 工具类"></a>7. 工具类</h1><h2 id="Arrays"><a href="#Arrays" class="headerlink" title="Arrays"></a>Arrays</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">// 将arr数组元素变为字符串，一般用于输出看看数组情况，省去遍历的繁琐操作</span><br>toString(arr)  		<br><span class="hljs-comment">// arr数组排序，可以传入匿名类Comparator自定义排序方式</span><br>sort(arr,<span class="hljs-keyword">new</span> <span class="hljs-title class_">Comparator</span>&lt;T&gt;()&#123;&#125;) 	<br><span class="hljs-comment">// arr数组二分查找(需要排好序)元素ele，返回目标值索引，找不到返回-1			</span><br>binarySearch(arr,ele) 	<br><span class="hljs-comment">// 复制arr数组[from,to)位置元素，返回复制好的数组副本</span><br>copyOfRange(arr,from,to)<br><span class="hljs-comment">// 使用ele元素将数组填充</span><br>fill(arr,ele) 		<br><span class="hljs-comment">// 比较两个数组元素的内容是否完全一致</span><br>equals(arr1,arr2) 				<br></code></pre></td></tr></table></figure>
+
+<h2 id="Collections"><a href="#Collections" class="headerlink" title="Collections"></a>Collections</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">// 仅List可用</span><br><span class="hljs-comment">// 反转List中的元素</span><br>reverse(list) 	<br><span class="hljs-comment">// 按照小到大对链表进行排序【默认】，也可以实现Compartor接口自定义排序</span><br>sort(list,<span class="hljs-keyword">new</span> <span class="hljs-title class_">Cpmparator</span>&lt;T&gt;()&#123;&#125;) <br><span class="hljs-comment">// 将list中的i处元素和j处元素进行交换</span><br>swap(list,i,j) <br><span class="hljs-comment">// list2拷贝到list1，要确保list1有足够空间</span><br>copy(list1,list2) 	<br><span class="hljs-comment">// 将list中的A替换成B</span><br>replaceAll(list,A,B)	<br>    <br><span class="hljs-comment">// List和Set都可用</span><br><span class="hljs-comment">// 返回最大、最小元素</span><br>max(list)/min(list) <br><span class="hljs-comment">// ele出现次数</span><br>frequency(list,ele) <br></code></pre></td></tr></table></figure>
+
+<h2 id="Integer"><a href="#Integer" class="headerlink" title="Integer"></a>Integer</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">// Boolean，Double等都有类似将字符串转换的方法👇</span><br><span class="hljs-comment">// 将字符串参数解析为带符号的十进制整数</span><br>parseInt(String s) 	<br><span class="hljs-comment">// 将字符串参数解析为第二个参数指定的基数中的有符号正整数</span><br><span class="hljs-comment">// radix参数不填则默认以十进制数进行解析</span><br>parseInt(String s, <span class="hljs-type">int</span> radix)  <br><span class="hljs-comment">// 将i转为k进制真值【有正负号】</span><br>toString(<span class="hljs-type">int</span> i，k) <br></code></pre></td></tr></table></figure>
+
+<h1 id="8-日期Calendar"><a href="#8-日期Calendar" class="headerlink" title="8. 日期Calendar"></a>8. 日期Calendar</h1><blockquote>
+<p>通过设置对象内部字段再通过<code>get</code>方法获得数值</p>
+</blockquote>
+<ul>
+<li><p><code>YEAR </code>：指示年份</p>
+</li>
+<li><p><code>MONTH</code>：指示月份</p>
+<blockquote>
+<p>&#x3D;&#x3D;<em><strong>MONTH</strong></em>字段是从<code>0</code>月开始计数的，所以<code>12</code>月对应的值是<code>11</code>&#x3D;&#x3D;</p>
+</blockquote>
+</li>
+<li><p><code>DAY_OF_MONTH</code>：指示一个月中的某天。</p>
+</li>
+<li><p><code>DAY_OF_WEEK</code>：指示一个星期中的某天。</p>
+</li>
+<li><p><code>DAY_OF_YEAR</code>：指示当前年中的天数。</p>
+</li>
+<li><p><code>DAY_OF_WEEK_IN_MONTH</code>：指示当前月中的第几个星期。</p>
+</li>
+<li><p><code>HOUR</code>：指示当天中的某小时</p>
+</li>
+<li><p><code>MINUTE</code>：指示当前小时中的某分钟</p>
+</li>
+<li><p><code>SECOND</code>：指示当前分钟中的某秒</p>
+</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">// 得到Calendar对象</span><br><span class="hljs-type">Calendar</span> <span class="hljs-variable">calendar</span> <span class="hljs-operator">=</span> Calendar.getInstance();	<br><span class="hljs-comment">// 第一个参数是日期字段，诸如YEAR、MONTH等将给定的日历字段设置为给定值</span><br>set(<span class="hljs-type">int</span> field, <span class="hljs-type">int</span> value)<br><span class="hljs-comment">// 设置日历字段年月日的值</span><br>set(<span class="hljs-type">int</span> year, <span class="hljs-type">int</span> month, <span class="hljs-type">int</span> day)<br><span class="hljs-comment">// 获取给定字段的值</span><br>get(<span class="hljs-type">int</span> field);		<br><span class="hljs-comment">// 以毫秒为单位返回日历时间值</span><br>getTimeInMillis() 		<br><span class="hljs-comment">// 根据日历的规则，为给定的日历字段添加或减去指定的时间量</span><br>add(<span class="hljs-type">int</span> field, <span class="hljs-type">int</span> amount)<br></code></pre></td></tr></table></figure>
+
+<h1 id="9-数学工具Math"><a href="#9-数学工具Math" class="headerlink" title="9. 数学工具Math"></a>9. 数学工具Math</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">// a,b的最值</span><br>min(a,b)/max(a,b)<br><span class="hljs-comment">// 返回正确舍入的 double 值的正平方根</span><br>sqrt(<span class="hljs-type">double</span> a)		<br><span class="hljs-comment">// 绝对值</span><br>abs(a)		<br><span class="hljs-comment">// a的b次方，返回一个double类型的数。</span><br>pow(<span class="hljs-type">double</span> a, <span class="hljs-type">double</span> b) <br><span class="hljs-comment">// 向上取整</span><br>ceil(<span class="hljs-type">double</span> x)		<br><span class="hljs-comment">// 向下取整</span><br>floor(<span class="hljs-type">double</span> x)	<br><span class="hljs-comment">// 四舍五入取整</span><br>round(<span class="hljs-type">double</span> x)	<br><span class="hljs-comment">// 生成一个[0,1)之间的double类型的伪随机数</span><br>random()				<br><span class="hljs-comment">// tan，cos与sin类似</span><br><span class="hljs-comment">// acos(-1)=π</span><br><span class="hljs-comment">// 正弦值</span><br>sin(<span class="hljs-type">double</span> a) <br><span class="hljs-comment">// 反正弦值</span><br>asin(<span class="hljs-type">double</span> a) 			<br></code></pre></td></tr></table></figure>
+
+<h1 id="10-大数类"><a href="#10-大数类" class="headerlink" title="10. 大数类"></a>10. 大数类</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">// 传入字符串参数直接创建，可以使用=进行同类型赋值</span><br><span class="hljs-type">BigInteger</span> <span class="hljs-variable">a</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">BigInteger</span>(<span class="hljs-string">&quot;123456789101112131415&quot;</span>);<br><span class="hljs-type">BigDecimal</span> <span class="hljs-variable">c</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">BigDecimal</span>(<span class="hljs-string">&quot;123456.123456&quot;</span>);<br><span class="hljs-comment">// 以二进制解析&quot;111110&quot;，变为10进制赋值给d</span><br><span class="hljs-type">BigInteger</span> <span class="hljs-variable">d</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">BigInteger</span>(<span class="hljs-string">&quot;111110&quot;</span>, <span class="hljs-number">2</span>);	<br><span class="hljs-comment">// 把a转化为16进制的字符串输出</span><br>System.out.println(a.toString(<span class="hljs-number">16</span>));			<br><span class="hljs-comment">// a对象值+b对象值并将结果返回</span><br>a.add(b)<br><span class="hljs-comment">// 减法，同上👆</span><br>a.subtract(b) <br><span class="hljs-comment">// 乘法，同上</span><br>a.multiply(b) <br><span class="hljs-comment">// 除法，同上</span><br>a.divide(b)   <br><span class="hljs-comment">// 取余，同上</span><br>a.mod(b)<br><span class="hljs-comment">// 最大公因数，同上</span><br>a.gcd(b)	<br><span class="hljs-comment">// 最值，同上</span><br>a.max(b)/a.min(b)	<br><span class="hljs-comment">// a的b次方</span><br>a.pow(b) <br><span class="hljs-comment">// 比较大小，a大返回1</span><br>a.compareTo(b) <br><span class="hljs-comment">// 把BigInteger 转化为 BigDecimal</span><br>toBigDecimal() <br><span class="hljs-comment">// 把BigDecimal 转化为 BigInteger</span><br>toBigInteger() <br></code></pre></td></tr></table></figure>
+
+<blockquote>
+<p><code>BigDecimal</code>在乘除时可以指定结果舍入方式</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">// 只有乘除法才有舍入这个说法</span><br><span class="hljs-comment">// 向零舍入。 即1.55 变为 1.5 , -1.55 变为-1.5</span><br>ROUND_DOWN <br><span class="hljs-comment">// 向正无穷舍入. 即 1.55 变为 1.6 , -1.55 变为 -1.5</span><br>ROUND_CEILING<br><span class="hljs-comment">// 向负无穷舍入. 即 1.55 变为 1.5 , -1.55 变为 -1.6</span><br>ROUND_FLOOR<br><span class="hljs-comment">// 四舍五入 即1.55 变为1.6, -1.55变为-1.6</span><br>ROUND_HALF_UP <br><span class="hljs-comment">// 五舍六入 即 1.55 变为 1.5, -1.5变为-1.5</span><br>ROUND_HALF_DOWN <br>    <br><span class="hljs-comment">// a除b结果四舍五入并保留两位小数返回给c</span><br><span class="hljs-type">BigDecimal</span> <span class="hljs-variable">c</span> <span class="hljs-operator">=</span> a.divide(b, <span class="hljs-number">2</span>, BigDecimal.ROUND_HALF_UP);<br><span class="hljs-comment">// a保留两位小数并且向0舍入</span><br>a = a.setScale(<span class="hljs-number">2</span>, BigDecimal.ROUND_DOWN);<br></code></pre></td></tr></table></figure>
+
+<h1 id="11-输入输出"><a href="#11-输入输出" class="headerlink" title="11. 输入输出"></a>11. 输入输出</h1><h2 id="Scanner"><a href="#Scanner" class="headerlink" title="Scanner"></a>Scanner</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-type">Scanner</span> <span class="hljs-variable">scanner</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Scanner</span>(System.in);<br><span class="hljs-comment">// 以空格和换行符作为分隔符接收字符串，即跳过空格和换行符接收</span><br>scanner.next();<br><span class="hljs-comment">// 以换行符作为分隔符，返回换行符之前的字符串</span><br>scanner.nextLine();<br></code></pre></td></tr></table></figure>
+
+<h2 id="BufferedReader"><a href="#BufferedReader" class="headerlink" title="BufferedReader"></a>BufferedReader</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">// 初始化一个缓冲输入流</span><br><span class="hljs-type">BufferedReader</span> <span class="hljs-variable">in</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">BufferedReader</span>(<span class="hljs-keyword">new</span> <span class="hljs-title class_">InputStreamReader</span>(System.in));<br><span class="hljs-comment">// 读取一个文本行，一般配合split将读取字符串分割，用Integer将其转型</span><br>readLine();	<br></code></pre></td></tr></table></figure>
+
+<h2 id="BufferedWriter"><a href="#BufferedWriter" class="headerlink" title="BufferedWriter"></a>BufferedWriter</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">// 初始化一个缓冲输出流</span><br><span class="hljs-type">BufferedWriter</span> <span class="hljs-variable">out</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">BufferedWriter</span>(<span class="hljs-keyword">new</span> <span class="hljs-title class_">OutputStreamWriter</span>(System.out));<br><span class="hljs-comment">// 将a送入输出流中，一般将需要的输出一并放到输出流中，此时并未输出</span><br>write(a);<br><span class="hljs-comment">// 刷新输出流，将此时输出流的东西输出</span><br>flush();	<br></code></pre></td></tr></table></figure>
+
+<h1 id="12-常用封装算法"><a href="#12-常用封装算法" class="headerlink" title="12. 常用封装算法"></a>12. 常用封装算法</h1><h2 id="12-1-质数判断"><a href="#12-1-质数判断" class="headerlink" title="12.1 质数判断"></a>12.1 质数判断</h2><p><strong>大于等于<code>5</code>的质数一定和<code>6</code>的<em>倍数</em>相邻，1不是质数</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">// 判断素数的方法，已知1不是素数，在主函数中去除1即可</span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-type">boolean</span> <span class="hljs-title function_">isPrimeNumber</span><span class="hljs-params">(<span class="hljs-type">int</span> n)</span> &#123;<br>		<span class="hljs-keyword">if</span> (n == <span class="hljs-number">2</span> || n == <span class="hljs-number">3</span>) &#123;<br>			<span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;<br>		&#125;<br>		<span class="hljs-keyword">if</span> ((n - <span class="hljs-number">1</span>) % <span class="hljs-number">6</span> == <span class="hljs-number">0</span> || (n + <span class="hljs-number">1</span>) % <span class="hljs-number">6</span> == <span class="hljs-number">0</span>) &#123;<br>			<span class="hljs-comment">// 当前可能是素数</span><br>			<span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">2</span>; i &lt;= Math.sqrt(n); i++) &#123;<br>				<span class="hljs-keyword">if</span> (n % i == <span class="hljs-number">0</span>) &#123;<br>					<span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;<br>				&#125;<br>			&#125;<br>			<span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;<br>		&#125; <span class="hljs-keyword">else</span> &#123;<br>			<span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;<br>		&#125;<br>	&#125;<br></code></pre></td></tr></table></figure>
+
+<h2 id="12-2-最大公因数-最小公倍数"><a href="#12-2-最大公因数-最小公倍数" class="headerlink" title="12.2 最大公因数&#x2F;最小公倍数"></a>12.2 最大公因数&#x2F;最小公倍数</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">// 最大公约数，此法原理为欧几里得算法，可以理解为是发现的一个规律，不必深究</span><br><span class="hljs-type">int</span> <span class="hljs-title function_">gcd</span><span class="hljs-params">(<span class="hljs-type">int</span> a, <span class="hljs-type">int</span> b)</span> &#123;<br>		<span class="hljs-keyword">return</span> b == <span class="hljs-number">0</span> ? a : gcd(b, a % b);<br>&#125;<br><br><span class="hljs-comment">// 最小公倍数 = 两数之积 / 两数最大公约数</span><br><span class="hljs-type">int</span> <span class="hljs-title function_">lcm</span><span class="hljs-params">(<span class="hljs-type">int</span> a, <span class="hljs-type">int</span> b)</span> &#123;<br>		<span class="hljs-keyword">return</span> a * b / gcd(a, b);<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h2 id="12-3-快速幂"><a href="#12-3-快速幂" class="headerlink" title="12.3 快速幂"></a>12.3 快速幂</h2><p><strong>快速幂的原理是通过将幂转换为二进制形式进行分析从而减少相乘次数</strong><br>$$<br>正常进行计算时：3^7&#x3D;3<em>3</em>3<em>3</em>3<em>3</em>3\<br>快速幂则是这样处理，首先7&#x3D;(111)_2，所以7&#x3D;1+2+4\<br>因此3^7&#x3D;3^1<em>3^2</em>3^4(2^0&#x3D;1,2^1&#x3D;2,2^2&#x3D;4)\<br>这样计算次数就从原来的7次降低为3次，问题的关键便是得到每次乘的数字\<br>由于我们是从二进制角度进行分析，因此位运算往往能派上用场，这就是快速幂整体思想<br>$$</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">// 快速幂</span><br><span class="hljs-keyword">static</span> <span class="hljs-type">int</span> <span class="hljs-title function_">qmi</span><span class="hljs-params">(<span class="hljs-type">int</span> a, <span class="hljs-type">int</span> b)</span> &#123;<br>       <span class="hljs-comment">// 保存结果</span><br>	<span class="hljs-type">int</span> <span class="hljs-variable">res</span> <span class="hljs-operator">=</span> <span class="hljs-number">1</span>;	<br>	<span class="hljs-keyword">while</span> (b != <span class="hljs-number">0</span>) &#123;<br>		<span class="hljs-keyword">if</span> ((b &amp; <span class="hljs-number">1</span>) == <span class="hljs-number">1</span>) &#123;	<br>               <span class="hljs-comment">// 当前最右边二进制位上有值时，说明当前a值是我们所需要的</span><br>			res = res * a;<br>		&#125;<br>           <span class="hljs-comment">// b每次处理完一位后往右移</span><br>		b = b &gt;&gt; <span class="hljs-number">1</span>;	<br>           <span class="hljs-comment">// b完成一次位移后，a的次方数应当*2才能满足下一次乘数的要求</span><br>		a = a * a;	<br>	&#125;<br>	<span class="hljs-keyword">return</span> res;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p><strong><code>qmi(3,7)</code>计算过程如下(求 $3^7$ )：</strong><br>$$<br>1 .res&#x3D;1，a&#x3D;3,b&#x3D;7&#x3D;(111)_2，此时b &amp; 1&#x3D;(111)_2&amp;(001)_2&#x3D;1\	可知当b二进制形式的最后一位不为0时，b&amp;1&#x3D;&#x3D;1<br>\<br>2. res&#x3D;a<em>res&#x3D;3</em>1&#x3D;3&#x3D;3^1；b&gt;&gt;1&#x3D;(011)_2,a&#x3D;3<em>3&#x3D;3^2\<br>3. 再次进入循环，res&#x3D;res</em>a&#x3D;3^1<em>3^2,b&gt;&gt;1&#x3D;(001)_2,a&#x3D;a</em>a&#x3D;3^2<em>3^2&#x3D;3^4\<br>4. res&#x3D;3^1</em>3^2<em>3^4,b&gt;&gt;1&#x3D;(000)_2,a&#x3D;3^4</em>3^4&#x3D;3^8\<br>5. 由于此时b&#x3D;&#x3D;0，所以跳出循环，返回结果res&#x3D;3^7，即答案<br>$$</p>
+<h2 id="12-3-快速幂求模"><a href="#12-3-快速幂求模" class="headerlink" title="12.3 快速幂求模"></a>12.3 快速幂求模</h2><blockquote>
+<p>详细原理可看<a target="_blank" rel="noopener" href="https://dengbocong.blog.csdn.net/article/details/77646508">快速幂取模</a></p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">// 原理：(a*c)%mode==((a%mode)*(c%mode))%mode</span><br><span class="hljs-comment">// 此函数是求(a^b)%mode</span><br>	<span class="hljs-keyword">static</span> <span class="hljs-type">long</span> <span class="hljs-title function_">Mode</span><span class="hljs-params">(<span class="hljs-type">long</span> a, <span class="hljs-type">long</span> b, <span class="hljs-type">long</span> mode)</span> &#123;<br>		<span class="hljs-type">long</span> <span class="hljs-variable">sum</span> <span class="hljs-operator">=</span> <span class="hljs-number">1</span>;<br>		a = a % mode;<br>		<span class="hljs-keyword">while</span> (b &gt; <span class="hljs-number">0</span>) &#123;<br>			<span class="hljs-keyword">if</span> ((b &amp; <span class="hljs-number">1</span>) == <span class="hljs-number">1</span>) &#123; <br>				sum = (sum * a) % mode;<br>			&#125;<br>			b = b &gt;&gt; <span class="hljs-number">1</span>;<br>			a = (a * a) % mode;<br>		&#125;<br>		<span class="hljs-keyword">return</span> sum;<br>	&#125;<br></code></pre></td></tr></table></figure>
+
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/" class="category-chain-item">计算机基础</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/%E7%90%86%E8%AE%BA%E7%9F%A5%E8%AF%86/" class="category-chain-item">理论知识</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/%E7%90%86%E8%AE%BA%E7%9F%A5%E8%AF%86/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" class="category-chain-item">数据结构</a>
+  
+  
+
+  
+
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" class="print-no-link">#数据结构</a>
+      
+    </div>
+  
+</div>
+
+
+              
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/blog/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/%E7%90%86%E8%AE%BA%E7%9F%A5%E8%AF%86/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/%E7%90%86%E8%AE%BA%E7%9F%A5%E8%AF%86/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/C++%E5%B8%B8%E7%94%A8API/" title="C++常用API">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">C++常用API</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/blog/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/%E7%90%86%E8%AE%BA%E7%9F%A5%E8%AF%86/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/%E7%90%86%E8%AE%BA%E7%9F%A5%E8%AF%86/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%AC%94%E8%AE%B0/" title="计算机网络笔记">
+                        <span class="hidden-mobile">计算机网络笔记</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       用文字锁住记忆 
+    </div>
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+<!-- hexo injector body_end start --><script src="/js/backgroundize.js"></script><!-- hexo injector body_end end --></body>
+</html>
