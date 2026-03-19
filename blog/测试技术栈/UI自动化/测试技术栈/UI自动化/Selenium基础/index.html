@@ -1,0 +1,796 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/our/logo.png">
+  <link rel="icon" href="/img/our/logo.png">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="Z_Jump_Dragon">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="Selenium是一个用于Web应用程序测试的开源自动化框架，它允许通过代码模拟真实用户在浏览器中的操作">
+<meta property="og:type" content="article">
+<meta property="og:title" content="selenium基础">
+<meta property="og:url" content="https://dragooon.top/blog/%E6%B5%8B%E8%AF%95%E6%8A%80%E6%9C%AF%E6%A0%88/UI%E8%87%AA%E5%8A%A8%E5%8C%96/%E6%B5%8B%E8%AF%95%E6%8A%80%E6%9C%AF%E6%A0%88/UI%E8%87%AA%E5%8A%A8%E5%8C%96/Selenium%E5%9F%BA%E7%A1%80/index.html">
+<meta property="og:site_name" content="棱镜里的日常">
+<meta property="og:description" content="Selenium是一个用于Web应用程序测试的开源自动化框架，它允许通过代码模拟真实用户在浏览器中的操作">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202310311541174.png">
+<meta property="og:image" content="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202310311548182.png">
+<meta property="og:image" content="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202310311558293.png">
+<meta property="og:image" content="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202403151510658.png">
+<meta property="og:image" content="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202403151514844.png">
+<meta property="og:image" content="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202403151532766.png">
+<meta property="article:published_time" content="2024-08-19T08:56:02.000Z">
+<meta property="article:modified_time" content="2026-03-19T03:14:46.266Z">
+<meta property="article:author" content="Z_Jump_Dragon">
+<meta property="article:tag" content="UI自动化">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202310311541174.png">
+  
+  
+  
+  <title>selenium基础 - 棱镜里的日常</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+  
+<link rel="stylesheet" href="/css/cloudedGlass.css">
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"dragooon.top","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":60,"cursorChar":"_","loop":false,"scope":["home"]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"left","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":3},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":false};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+
+<body><!-- hexo injector body_begin start --><div id="web_bg"></div><!-- hexo injector body_begin end -->
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 100vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>棱镜里的日常</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/our/article.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle">selenium基础</span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-author" aria-hidden="true"></i>
+        Z_Jump_Dragon
+      </span>
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2024-08-19 16:56" pubdate>
+          2024年8月19日 下午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          3.2k 字
+        
+      </span>
+    
+
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+        <div class="scroll-down-bar">
+          <i class="iconfont icon-arrowdown"></i>
+        </div>
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="padding-left: 2rem; margin-right: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">selenium基础</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h1 id="1-selenium简介"><a href="#1-selenium简介" class="headerlink" title="1. selenium简介"></a>1. selenium简介</h1><blockquote>
+<p>Selenium 是一个用于 Web 应用程序测试的开源自动化框架，它允许通过代码模拟真实用户在浏览器中的操作，如点击、输入、滚动等，从而验证 Web 应用的功能和性能，使用前需要安装对应浏览器驱动</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> time <span class="hljs-keyword">import</span> sleep<br><span class="hljs-keyword">from</span> selenium <span class="hljs-keyword">import</span> webdriver<br>option = webdriver.ChromeOptions()<br><span class="hljs-comment"># 指定chrome存储路径的二进制形式</span><br>option.binary_location=<span class="hljs-string">&#x27;D:\Chrome\Google\Chrome\Application\chrome.exe&#x27;</span><br><span class="hljs-comment"># 获取谷歌浏览器驱动</span><br>driver = webdriver.Chrome(options=option)<br><span class="hljs-comment"># 浏览器访问指定网站</span><br>driver.get(<span class="hljs-string">&#x27;http://www.baidu.com&#x27;</span>)<br><span class="hljs-comment"># 3秒后浏览器关闭</span><br>sleep(<span class="hljs-number">3</span>)<br></code></pre></td></tr></table></figure>
+
+<h1 id="2-控制组件的各种方式"><a href="#2-控制组件的各种方式" class="headerlink" title="2. 控制组件的各种方式"></a>2. 控制组件的各种方式</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># 在输入方法之前一定要清空操作</span><br><span class="hljs-comment"># 输入值为value的方法【文件上传按钮也使用send_keys(path)而不是click】</span><br><span class="hljs-comment"># ele为定位到的组件</span><br>ele.send_keys(value) <br><span class="hljs-comment"># 点击方法</span><br>ele.click() <br><span class="hljs-comment"># 清空</span><br>ele.clear() <br></code></pre></td></tr></table></figure>
+
+<p><strong>driver.find_element(s)</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># 定位到id值为user的组件，并将&#x27;admin&#x27;填入</span><br><span class="hljs-comment"># by另外还能填name,class_name,xpath,css_selector等，返回WebElement单个元素</span><br>driver.find_element(by=<span class="hljs-string">&#x27;id&#x27;</span>,value=<span class="hljs-string">&#x27;user&#x27;</span>).send_keys(<span class="hljs-string">&#x27;admin&#x27;</span>)<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> selenium.webdriver.common.by <span class="hljs-keyword">import</span> By<br><span class="hljs-comment"># find_elements中有s时，by参数需要传入By.xx属性，结果返回是list，装载多个WebElement元素</span><br><span class="hljs-comment"># 定位到tag为input的组件，并将&#x27;admin&#x27;填入第一个input组件中</span><br>driver.find_elements(by=By.TAG_NAME,value=<span class="hljs-string">&#x27;input&#x27;</span>)[<span class="hljs-number">0</span>].send_keys(<span class="hljs-string">&#x27;admin&#x27;</span>)<br></code></pre></td></tr></table></figure>
+
+<p><strong>超链接LINK_TEXT和PARTIAL_LINK_TEXT</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> time <span class="hljs-keyword">import</span> sleep<br><span class="hljs-keyword">from</span> selenium <span class="hljs-keyword">import</span> webdriver<br><span class="hljs-keyword">from</span> selenium.webdriver.common.by <span class="hljs-keyword">import</span> By<br>option = webdriver.ChromeOptions()<br><span class="hljs-comment"># 指定chrome存储路径的二进制形式</span><br>option.binary_location=<span class="hljs-string">&#x27;D:\Chrome\Google\Chrome\Application\chrome.exe&#x27;</span><br>driver = webdriver.Chrome(options=option)<br><span class="hljs-comment"># r是告知字符串内无转义字符</span><br>url = <span class="hljs-string">r&#x27;D:\个人\学习资料\黑马程序员\Web自动化\web自动化_day01_课件+笔记+资料+代码\02_其他资料\注册实例.html&#x27;</span><br><span class="hljs-comment"># 打开url对应的网页</span><br>driver.get(url)<br><span class="hljs-comment"># a标签精确匹配，定位到超链接内容为&#x27;注册A网页&#x27;的地方</span><br><span class="hljs-comment"># ele = driver.find_elements(by=By.LINK_TEXT,value=&#x27;注册A网页&#x27;)</span><br><span class="hljs-comment"># a标签模糊匹配，定位到所有超链接内容包含&#x27;注册&#x27;的地方</span><br>ele = driver.find_elements(by=By.PARTIAL_LINK_TEXT,value=<span class="hljs-string">&#x27;注册&#x27;</span>)<br><span class="hljs-comment"># 选择第二个定位到的超链接并点击</span><br>ele[<span class="hljs-number">1</span>].click()<br><span class="hljs-comment"># 线程暂停3秒</span><br>sleep(<span class="hljs-number">3</span>)<br><span class="hljs-comment"># 浏览器关闭</span><br>driver.quit()<br></code></pre></td></tr></table></figure>
+
+<h2 id="2-1-XPath定位"><a href="#2-1-XPath定位" class="headerlink" title="2.1 XPath定位"></a>2.1 XPath定位</h2><blockquote>
+<p>XPath是xml path的简称。在html页面中，各组件都有自己的层级结构，通过类似路径的方式定位到组件</p>
+</blockquote>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/exlink2012/article/details/126783461?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522169873519516800197011074%2522%252C%2522scm%2522%253A%252220140713.130102334..%2522%257D&request_id=169873519516800197011074&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~all~baidu_landing_v2~default-1-126783461-null-null.142%5Ev96%5Epc_search_result_base6&utm_term=chrome%E5%A6%82%E4%BD%95%E6%9F%A5%E7%9C%8Bxpath&spm=1018.2226.3001.4187">如何在Chrome中查找和验证XPath</a></p>
+<ol>
+<li><p>通过绝对路径进行定位，以 &#x2F;html 开头</p>
+<img src="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202310311541174.png" srcset="/img/loading.gif" lazyload alt="image-20231031154057079" style="zoom: 80%;" />
+</li>
+<li><p>通过相对路径进行定位，以 <strong>&#x2F;&#x2F;</strong> 开头【后续分隔依然是&#x2F;】</p>
+<img src="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202310311548182.png" srcset="/img/loading.gif" lazyload alt="image-20231031154840149" style="zoom: 80%;" />
+</li>
+<li><p>路径 + 属性 + 逻辑 进行定位</p>
+<img src="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202310311558293.png" srcset="/img/loading.gif" lazyload alt="image-20231031155804262" style="zoom:80%;" />
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># 对应的实现代码</span><br>ele = driver.find_elements(by=By.XPATH,<br>                value=<span class="hljs-string">&quot;//p[@id=&#x27;login_user&#x27;]/input[@name=&#x27;user-test&#x27; and @class=&#x27;login&#x27;]&quot;</span>)<br></code></pre></td></tr></table></figure>
+</li>
+<li><p>通过 xpath 内置方法定位</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># 定位到所有标签中文本内容为xxx的元素</span><br>//*[text()=<span class="hljs-string">&#x27;xxx&#x27;</span>]<br><span class="hljs-comment"># 定位到属性中含有xxx的元素【这里的attribute是泛指，可以是id，name等】</span><br>//*[contains(@attribute,<span class="hljs-string">&#x27;xxx&#x27;</span>)]<br><br><span class="hljs-comment"># 属性以xxx开头的元素</span><br>//*[starts-<span class="hljs-keyword">with</span>(@attribute,<span class="hljs-string">&#x27;xxx&#x27;</span>)]<br></code></pre></td></tr></table></figure></li>
+</ol>
+<h2 id="2-2-css选择器"><a href="#2-2-css选择器" class="headerlink" title="2.2 css选择器"></a>2.2 css选择器</h2><blockquote>
+<p>CSS 是一种标记语言，用于控制元素的显示样式，在 css 标记语言中找元素使用 css 选择器，极力推荐使用，查找元素的效率比 Xpath 高，语法比 Xpath 更简单</p>
+</blockquote>
+<ol>
+<li><p><strong>id 选择器</strong>（前提：元素是必须有 id 属性）</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-comment">// 定位到id值为user的元素</span><br><span class="hljs-meta">#user</span><br></code></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># 将name属性为user的第一个元素赋值为admin</span><br>ele = driver.find_elements(by=By.CSS_SELECTOR,value=<span class="hljs-string">&quot;[name=&#x27;user&#x27;]&quot;</span>)<br>ele[<span class="hljs-number">0</span>].send_keys(<span class="hljs-string">&#x27;admin&#x27;</span>)<br></code></pre></td></tr></table></figure>
+</li>
+<li><p><strong>class 选择器</strong>（前提：元素是必须有 class 属性）</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-comment">// 定位到class值为group的元素</span><br>.group<br></code></pre></td></tr></table></figure>
+</li>
+<li><p><strong>元素选择器</strong></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-comment">// 定位到input标签的元素</span><br>input<br></code></pre></td></tr></table></figure>
+</li>
+<li><p><strong>属性选择器</strong></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-comment">// 定位到name属性为admin的元素【任意属性都可以使用这种方法进行定位】</span><br>[name=<span class="hljs-string">&#x27;admin&#x27;</span>]<br><span class="hljs-comment">// input标签中type属性以p字母开头的元素</span><br>input[type^=<span class="hljs-string">&#x27;p&#x27;</span>]<br><span class="hljs-comment">// input标签中type属性以p字母结束的元素</span><br>input[type$=<span class="hljs-string">&#x27;p&#x27;</span>]<br><span class="hljs-comment">// input标签中type属性包含p字母的元素</span><br>input[type*=<span class="hljs-string">&#x27;p&#x27;</span>]<br></code></pre></td></tr></table></figure>
+</li>
+<li><p><strong>层级选择器</strong></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-comment">// 定位到严格在p下一层的input元素</span><br>p&gt;input<br><span class="hljs-comment">// 定位到p下方的input【只要在下方即可】</span><br>p input<br></code></pre></td></tr></table></figure></li>
+</ol>
+<h1 id="3-浏览器常用API"><a href="#3-浏览器常用API" class="headerlink" title="3. 浏览器常用API"></a>3. 浏览器常用API</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># 最大化浏览器</span><br>driver.maximize_window() <br><span class="hljs-comment"># 设置浏览器大小 单位像素</span><br>driver.set_window_size(w, h) <br><span class="hljs-comment"># 设置浏览器位置</span><br>driver.set_window_position(x, y) <br><span class="hljs-comment"># 后退操作</span><br>driver.back() <br><span class="hljs-comment"># 前进操作</span><br>driver.forward()<br><span class="hljs-comment"># 刷新操作</span><br>driver.refresh() <br><span class="hljs-comment"># 关闭当前主窗口(主窗口：默认启动哪个界面，就是主窗口)</span><br>driver.close() <br><span class="hljs-comment"># 关闭由driver对象启动的所有窗口</span><br>driver.quit() <br><span class="hljs-comment"># 获取当前页面title信息</span><br>driver.title <br><span class="hljs-comment"># 获取当前页面url信息</span><br>drive.current_url <br></code></pre></td></tr></table></figure>
+
+<ul>
+<li><p>driver.title 和 driver.current_url 没有括号，一般为判断上步操作是否执行成功</p>
+</li>
+<li><p>driver.maximize_window() 一般为我的前置代码，在获取 driver 后，直接编写最大化浏览器</p>
+</li>
+<li><p>driver.close() 与 driver.quit() 区别</p>
+<blockquote>
+<p>如果当前只有 1 个窗口，close 与 quit 没有任何区别</p>
+</blockquote>
+<ul>
+<li>close()：关闭当前主窗口</li>
+<li>quit()：关闭由 driver 对象启动的所有窗口</li>
+</ul>
+</li>
+</ul>
+<h1 id="4-元素信息操作API"><a href="#4-元素信息操作API" class="headerlink" title="4. 元素信息操作API"></a>4. 元素信息操作API</h1><blockquote>
+<p>获取各组件属性值相关API，如获取id，name等属性</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># 获取元素文本</span><br>ele.text<br><span class="hljs-comment">#获取元素大小</span><br>ele.size<br><span class="hljs-comment"># 获取元素id属性值</span><br>ele.get_attribute(<span class="hljs-string">&quot;id&quot;</span>)<br><span class="hljs-comment"># 判断元素是否可见</span><br>ele.is_displayed()<br><span class="hljs-comment"># 判断元素是否可用</span><br>ele.is_enabled()<br><span class="hljs-comment"># 判断元素是否被选中</span><br>ele.is_selected()<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li>text 和 size 调用时 无括号</li>
+<li>get_attribute 一般应用场景：判断一组元素是否为想要的元素或者判断元素属性值是否正确</li>
+<li>is_displayed、is_enabled、is_selected，在特殊应用场景中使用</li>
+</ul>
+<h1 id="5-鼠标操作API"><a href="#5-鼠标操作API" class="headerlink" title="5. 鼠标操作API"></a>5. 鼠标操作API</h1><blockquote>
+<p>通过鼠标操作API模拟测试鼠标的各种效果</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs python">双击<br><span class="hljs-comment"># 鼠标事件对应的方法在哪个类中ActionChains类中</span><br><span class="hljs-keyword">from</span> selenium.webdriver.common.action_chains <span class="hljs-keyword">import</span> ActionChains<br>action = ActionChains(driver)<br><span class="hljs-comment"># 所有操作均需经过perform()方法才能展示效果，当需要模拟多步操作时将perform()放在最后执行</span><br><span class="hljs-comment"># 右击</span><br>action.context_click(ele).perform()<br><span class="hljs-comment"># 双击</span><br>action.double_click(ele).perform()<br><span class="hljs-comment"># 拖拽【source是需要拖拽的组件，target是目标位置组件】</span><br>action.drag_and_drop(source,target).perform()<br><span class="hljs-comment"># 根据偏移量拖拽</span><br>action.drag_and_drop_by_offset(source,xoffset,yoffset)<br><span class="hljs-comment"># 悬停</span><br>action.move_to_element(ele).perform()<br></code></pre></td></tr></table></figure>
+
+<h1 id="6-键盘操作API"><a href="#6-键盘操作API" class="headerlink" title="6. 键盘操作API"></a>6. 键盘操作API</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> selenium.webdriver.common.keys <span class="hljs-keyword">import</span> Keys<br><span class="hljs-comment"># 删除键</span><br>ele.send_keys(Keys.BACK_SPACE)<br><span class="hljs-comment"># 空格键</span><br>ele.send_keys(Keys. SPACE)<br><span class="hljs-comment"># 制表键</span><br>ele.send_keys (Keys.TAB)<br><span class="hljs-comment"># 回退键</span><br>ele.send_keys(Keys.ESCAPE)<br><span class="hljs-comment"># 回车键</span><br>ele.send_keys(Keys.ENTER)<br><span class="hljs-comment"># 全选</span><br>ele.send_keys(Keys.CONTROL , <span class="hljs-string">&#x27;a&#x27;</span>)<br><span class="hljs-comment"># 复制</span><br>ele.send_keys(Keys.CONTROL , <span class="hljs-string">&#x27;c&#x27;</span>)<br></code></pre></td></tr></table></figure>
+
+<h1 id="7-元素等待"><a href="#7-元素等待" class="headerlink" title="7. 元素等待"></a>7. 元素等待</h1><blockquote>
+<p>由于电脑配置或网络原因，在查找元素时，元素代码未在第一时间内被加载出来，而抛出未找到元素异常。元素在第一次未找到时，元素等待设置的时长被激活，如果在设置的有效时长内找到元素，继续执行代码，</p>
+</blockquote>
+<h2 id="7-1-隐式等待"><a href="#7-1-隐式等待" class="headerlink" title="7.1 隐式等待"></a>7.1 隐式等待</h2><blockquote>
+<p>设置后对所有组件都会等待</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># 找不到组件时等待10秒</span><br>driver.implicitly_wait(<span class="hljs-number">10</span>)<br></code></pre></td></tr></table></figure>
+
+<h2 id="7-2-显示等待"><a href="#7-2-显示等待" class="headerlink" title="7.2 显示等待"></a>7.2 显示等待</h2><blockquote>
+<p>只等待指定组件</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> selenium.webdriver.support.wait <span class="hljs-keyword">import</span> WebDriverWait<br><span class="hljs-comment"># 每隔0.5秒尝试寻找一次id值为d的组件，共持续10秒</span><br>wait_rule = WebDriverWait(driver,timeout=<span class="hljs-number">10</span>,poll_frequency=<span class="hljs-number">0.5</span>)<br><span class="hljs-comment"># until()参数为匿名函数，其中x是创建等待规则时传入的driver类</span><br><span class="hljs-comment"># 按照wait_rule的规则寻找id为user的组件</span><br>ele = wait_rule.until(<span class="hljs-keyword">lambda</span> x:x.find_element_by_id(<span class="hljs-string">&quot;#user&quot;</span>))<br><span class="hljs-comment"># 设置组件值</span><br>ele.send_keys(<span class="hljs-string">&quot;admin&quot;</span>)<br></code></pre></td></tr></table></figure>
+
+<h1 id="8-下拉框API"><a href="#8-下拉框API" class="headerlink" title="8. 下拉框API"></a>8. 下拉框API</h1><blockquote>
+<p>操作下拉框对应API，用 css 选择器配合 click 也可达到同样效果，使用 Select 则不需要使用 click </p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> selenium.webdriver.support.select <span class="hljs-keyword">import</span> Select<br><span class="hljs-comment"># ele是下拉框对应的标签&lt;select&gt;，定位至select标签</span><br>s = Select(ele)<br><span class="hljs-comment"># 通过下标定位选择【从1开始】</span><br>s.select_by_index() <br><span class="hljs-comment"># 通过value属性定位选择</span><br>s.select_by_value() <br><span class="hljs-comment"># 通过下拉框文本定位选择</span><br>s.select_by_visible_text() <br></code></pre></td></tr></table></figure>
+
+<h1 id="9-弹窗处理"><a href="#9-弹窗处理" class="headerlink" title="9. 弹窗处理"></a>9. 弹窗处理</h1><blockquote>
+<p>如果页面由弹出框【alert 警告框，confirm 确认框，prompt 提示框】，不处理，接下来的操作将不生效。</p>
+</blockquote>
+<p>无论以上哪个对话框，都可以使用取消、同意，因为调用的是后台的事件，与页面显示按钮数量无关</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># 获取对话框对象，统一转换为此对象处理</span><br>al = driver.switch_to.alert<br><span class="hljs-comment"># 获取对话框文本</span><br>al.text <br><span class="hljs-comment"># 对话框确认按钮</span><br>al.accept() <br><span class="hljs-comment"># 对话框取消按钮</span><br>al.dismiss() <br></code></pre></td></tr></table></figure>
+
+<h1 id="10-滚动条"><a href="#10-滚动条" class="headerlink" title="10. 滚动条"></a>10. 滚动条</h1><blockquote>
+<p>在 web 自动化中有些特殊场景，如：滚动条拉倒最底层，指定按钮才可用，Selenium 中没有提供直接操作滚动条的API，但是可以通过执行 JS 语句完成此项工作</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># 0是左边距【水平滚动条】，10000是上边距【垂直滚动条】，越界时拉到底</span><br><span class="hljs-comment"># 此处js作用是将滚动条垂直拉到底</span><br>js = <span class="hljs-string">&quot;window.scrollTo(0,10000)&quot;</span><br><span class="hljs-comment"># 执行js方法</span><br>driver.execute_script(js)<br></code></pre></td></tr></table></figure>
+
+<h1 id="11-同一页面内窗口切换"><a href="#11-同一页面内窗口切换" class="headerlink" title="11. 同一页面内窗口切换"></a>11. 同一页面内窗口切换</h1><blockquote>
+<p>常用的 frame 表单有两种：frame、iframe</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># 使用css语法可以定位至对于frame位置【可以使用name、id、iframe元素】</span><br>driver.switch_to.frame(<span class="hljs-string">&quot;id\name\element&quot;</span>)<br><span class="hljs-comment"># 操作完毕后需要切换为主目录才能再次操作其余frame</span><br>driver.switch_to.default_content()<br></code></pre></td></tr></table></figure>
+
+<h1 id="12-多窗口切换"><a href="#12-多窗口切换" class="headerlink" title="12. 多窗口切换"></a>12. 多窗口切换</h1><blockquote>
+<p>多个浏览器窗口间切换</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># 获取当前主窗口句柄</span><br>driver.current_window_handle <br><span class="hljs-comment"># 获取当前由driver启动所有窗口句柄</span><br>driver.window_handles<br><span class="hljs-comment"># 切换至最开启的窗口</span><br>driver.switch_to.window(driver.window_handles[-<span class="hljs-number">1</span>]) <br></code></pre></td></tr></table></figure>
+
+<h1 id="13-截图"><a href="#13-截图" class="headerlink" title="13. 截图"></a>13. 截图</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># 截图并保存至指定位置【png格式】</span><br>driver.get_screenshot_as_file(imgepath)<br><span class="hljs-comment"># 使用时间戳对事件命名</span><br>driver.get_screenshot_as_file(<span class="hljs-string">&quot;../image/%s.png&quot;</span>%(time.strftime(<span class="hljs-string">&quot;%Y_%m_%d %H_%M_%S&quot;</span>)))<br></code></pre></td></tr></table></figure>
+
+<h1 id="14-验证码"><a href="#14-验证码" class="headerlink" title="14. 验证码"></a>14. 验证码</h1><blockquote>
+<p>验证码通常是为了放置恶意请求，因此程序不好直接控制，在测试环境下，通常对于验证码有如下策略</p>
+</blockquote>
+<ol>
+<li><p>去掉验证码（项目在测试环境、公司自己的项目）</p>
+</li>
+<li><p>设置万能验证码（测试环境或线上环境，公司自己项目）</p>
+</li>
+<li><p>使用验证码识别技术 （由于现在的验证码千奇百怪，导致识别率太低）</p>
+</li>
+<li><p>使用cookie解决【推荐】</p>
+<blockquote>
+<p>部分网站是动态生成的cookie则无法使用这种方法</p>
+</blockquote>
+<ul>
+<li>cookie 由服务器生成，标识一次对话的状态（登录的状态）</li>
+<li>浏览器自动记录 cookie，在下一条请求时将 cookie 信息自动附加请求</li>
+</ul>
+</li>
+</ol>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># 获取所有的cookie</span><br>driver.get_cookies() <br><span class="hljs-comment"># 设置cookie</span><br>driver.add_cookies(字典) <br></code></pre></td></tr></table></figure>
+
+<h1 id="15-PO模式"><a href="#15-PO模式" class="headerlink" title="15. PO模式"></a>15. PO模式</h1><p>PO（Page Object），页面对象，将自动化涉及的页面或模块封装成对象，其主要有以下两个好处：</p>
+<ol>
+<li>代码复用性</li>
+<li>便于维护（脚本层和业务分类），如果元素信息变化了也不用修改脚本</li>
+</ol>
+<p>PO 模式通常会将代码分为以下几个部分：</p>
+<ul>
+<li><p>Base 层</p>
+<blockquote>
+<p>存放所有页面公共方法，如定位到某个元素的方法</p>
+</blockquote>
+</li>
+<li><p>Page 层</p>
+<blockquote>
+<p>基于页面或模块单独封装当前页面要操作的对象，是具体的业务操作，如输入用户名密码</p>
+</blockquote>
+</li>
+<li><p>Script 层</p>
+<blockquote>
+<p>脚本层 + UnitTest，获取浏览器对象，调用 Page 层的方法进行操作</p>
+</blockquote>
+</li>
+</ul>
+<p><strong>案例：使用 PO 模式测试网站登录功能</strong></p>
+<img src="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202403151510658.png" srcset="/img/loading.gif" lazyload alt="image-20240315151022422" style="zoom:67%;" />
+
+<img src="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202403151514844.png" srcset="/img/loading.gif" lazyload alt="image-20240315151440813" style="zoom:67%;" />
+
+<h2 id="base-py"><a href="#base-py" class="headerlink" title="base.py"></a>base.py</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> selenium.webdriver.support.wait <span class="hljs-keyword">import</span> WebDriverWait<br><span class="hljs-keyword">class</span> <span class="hljs-title class_">Base</span>:<br>    <span class="hljs-comment"># 在获取浏览器对象后才有后续一系列操作</span><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">__init__</span>(<span class="hljs-params">self,driver</span>):<br>        <span class="hljs-variable language_">self</span>.driver = driver<br>    <span class="hljs-comment"># 切换浏览器窗口</span><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">base_switch_win</span>(<span class="hljs-params">self,index=-<span class="hljs-number">1</span></span>):<br>        <span class="hljs-comment"># -1代表最新打开的窗口，0为主窗口</span><br>        <span class="hljs-variable language_">self</span>.driver.switch_to.window(<span class="hljs-variable language_">self</span>.driver.window_handles[index])<br>    <span class="hljs-comment"># 查找元素【loc为(By.xxx,查询目标)】</span><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">base_find</span>(<span class="hljs-params">self,loc,timeout=<span class="hljs-number">10</span>,frequency=<span class="hljs-number">0.5</span></span>):<br>        <span class="hljs-comment"># 显式等待10秒，每隔0.5秒问询一次</span><br>        <span class="hljs-keyword">return</span> WebDriverWait(<span class="hljs-variable language_">self</span>.driver,timeout,frequency).until(<span class="hljs-keyword">lambda</span> x:x.find_element(*loc))<br>    <span class="hljs-comment"># 输入方法</span><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">base_input</span>(<span class="hljs-params">self,loc,value</span>):<br>        ele = <span class="hljs-variable language_">self</span>.base_find(loc)<br>        ele.clear()<br>        ele.send_keys(value)<br>    <span class="hljs-comment"># 点击方法</span><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">base_click</span>(<span class="hljs-params">self,loc</span>):<br>        <span class="hljs-variable language_">self</span>.base_find(loc).click()<br>    <span class="hljs-comment"># 获取文本值</span><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">base_text</span>(<span class="hljs-params">self,loc</span>):<br>        ele = <span class="hljs-variable language_">self</span>.base_find(loc)<br>        <span class="hljs-keyword">return</span> ele.text<br></code></pre></td></tr></table></figure>
+
+<h2 id="page-login-py"><a href="#page-login-py" class="headerlink" title="page_login.py"></a>page_login.py</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> ..base.base <span class="hljs-keyword">import</span> Base<br><span class="hljs-keyword">from</span> selenium.webdriver.common.by <span class="hljs-keyword">import</span> By<br><span class="hljs-comment"># 参数定位方式</span><br>keywords = By.CSS_SELECTOR,<span class="hljs-string">&#x27;#keywords&#x27;</span><br>password = By.CSS_SELECTOR,<span class="hljs-string">&#x27;#password&#x27;</span><br>login = By.CSS_SELECTOR,<span class="hljs-string">&#x27;#login-btn&#x27;</span><br>nickname = By.CSS_SELECTOR,<span class="hljs-string">&#x27;.a-link1&#x27;</span><br><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">Page</span>(<span class="hljs-title class_ inherited__">Base</span>):<br>    <span class="hljs-comment"># 切换到最新的窗口</span><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">page_switch</span>(<span class="hljs-params">self,index</span>):<br>        <span class="hljs-variable language_">self</span>.base_switch_win(index)<br>    <span class="hljs-comment"># 输入用户名</span><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">page_insert_keywords</span>(<span class="hljs-params">self,value</span>):<br>        <span class="hljs-variable language_">self</span>.base_input(keywords,value)<br>    <span class="hljs-comment"># 输入密码</span><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">page_insert_password</span>(<span class="hljs-params">self,value</span>):<br>        <span class="hljs-variable language_">self</span>.base_input(password, value)<br>    <span class="hljs-comment"># 点击登录按钮</span><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">page_click_login</span>(<span class="hljs-params">self</span>):<br>        <span class="hljs-variable language_">self</span>.base_click(login)<br>    <span class="hljs-comment"># 获取登录成功后的用户名</span><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">page_get_nickname</span>(<span class="hljs-params">self</span>):<br>        <span class="hljs-keyword">return</span> <span class="hljs-variable language_">self</span>.base_text(nickname)<br>    <span class="hljs-comment"># 封装登录业务</span><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">page_login</span>(<span class="hljs-params">self,username,pwd</span>):<br>        <span class="hljs-variable language_">self</span>.page_insert_keywords(username)<br>        <span class="hljs-variable language_">self</span>.page_insert_password(pwd)<br>        <span class="hljs-variable language_">self</span>.page_click_login()<br></code></pre></td></tr></table></figure>
+
+<h2 id="test01-login-py"><a href="#test01-login-py" class="headerlink" title="test01_login.py"></a>test01_login.py</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> time<br><span class="hljs-keyword">import</span> unittest<br><span class="hljs-keyword">from</span> selenium <span class="hljs-keyword">import</span> webdriver<br><span class="hljs-keyword">from</span> ..page.page_login <span class="hljs-keyword">import</span> Page<br><span class="hljs-keyword">from</span> parameterized <span class="hljs-keyword">import</span> parameterized<br><span class="hljs-keyword">class</span> <span class="hljs-title class_">TestLogin</span>(unittest.TestCase):<br>    <span class="hljs-comment"># 每个方法执行前的操作</span><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">setUp</span>(<span class="hljs-params">self</span>) -&gt; <span class="hljs-literal">None</span>:<br>        option = webdriver.ChromeOptions()<br>        <span class="hljs-comment"># 设置浏览器启动地址</span><br>        option.binary_location = <span class="hljs-string">&#x27;D:\Chrome\Google\Chrome\Application\chrome.exe&#x27;</span><br>        <span class="hljs-comment"># 获取浏览器实例对象driver</span><br>        <span class="hljs-variable language_">self</span>.driver = webdriver.Chrome(options=option)<br>        <span class="hljs-comment"># 最大化窗口</span><br>        <span class="hljs-variable language_">self</span>.driver.maximize_window()<br>        <span class="hljs-comment"># 打开浏览器</span><br>        <span class="hljs-variable language_">self</span>.driver.get(<span class="hljs-string">&#x27;http://xxxxx&#x27;</span>)<br>        <span class="hljs-comment"># 获取登录页面示例对象</span><br>        <span class="hljs-variable language_">self</span>.login = Page(<span class="hljs-variable language_">self</span>.driver)<br>    <span class="hljs-comment"># 每个方法执行后的操作</span><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">tearDown</span>(<span class="hljs-params">self</span>) -&gt; <span class="hljs-literal">None</span>:<br>        <span class="hljs-variable language_">self</span>.driver.quit()<br>    <span class="hljs-comment"># 参数化管理数据</span><br><span class="hljs-meta">    @parameterized.expand(<span class="hljs-params">(<span class="hljs-params">(<span class="hljs-params"><span class="hljs-string">&#x27;123xxxxx&#x27;</span>,<span class="hljs-string">&#x27;a1xxxxxxx&#x27;</span></span>),</span>)</span>)</span><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">test001_login</span>(<span class="hljs-params">self,keywords,password</span>):<br>        <span class="hljs-comment"># 执行登录操作</span><br>        <span class="hljs-variable language_">self</span>.login.page_login(keywords,password)<br>        <span class="hljs-comment"># 休眠一段时间等待新页面跳出</span><br>        time.sleep(<span class="hljs-number">5</span>)<br>        <span class="hljs-comment"># 切换浏览器窗口</span><br>        <span class="hljs-variable language_">self</span>.login.page_switch(index=-<span class="hljs-number">1</span>)<br>        <span class="hljs-comment"># 获取关键信息</span><br>        name = <span class="hljs-variable language_">self</span>.login.page_get_nickname()<br>        <span class="hljs-comment"># 断言</span><br>        <span class="hljs-variable language_">self</span>.assertEqual(keywords,name)<br></code></pre></td></tr></table></figure>
+
+<img src="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202403151532766.png" srcset="/img/loading.gif" lazyload alt="image-20240315153206684" style="zoom:80%;" />
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E6%B5%8B%E8%AF%95%E6%8A%80%E6%9C%AF%E6%A0%88/" class="category-chain-item">测试技术栈</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/%E6%B5%8B%E8%AF%95%E6%8A%80%E6%9C%AF%E6%A0%88/UI%E8%87%AA%E5%8A%A8%E5%8C%96/" class="category-chain-item">UI自动化</a>
+  
+  
+
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/UI%E8%87%AA%E5%8A%A8%E5%8C%96/" class="print-no-link">#UI自动化</a>
+      
+    </div>
+  
+</div>
+
+
+              
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/blog/%E6%B5%8B%E8%AF%95%E6%8A%80%E6%9C%AF%E6%A0%88/%E6%B5%8B%E8%AF%95%E6%A1%86%E6%9E%B6/%E6%B5%8B%E8%AF%95%E6%8A%80%E6%9C%AF%E6%A0%88/%E6%B5%8B%E8%AF%95%E6%A1%86%E6%9E%B6/Pytest%E5%9F%BA%E7%A1%80/" title="Pytest基础">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">Pytest基础</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/blog/%E9%9D%A2%E8%AF%95/%E9%9D%A2%E8%AF%95/%E7%89%9B%E5%AE%A2%E7%BD%91%E9%94%99%E9%A2%98%E9%9B%86/" title="易错题集">
+                        <span class="hidden-mobile">易错题集</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       用文字锁住记忆 
+    </div>
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+<!-- hexo injector body_end start --><script src="/js/backgroundize.js"></script><!-- hexo injector body_end end --></body>
+</html>

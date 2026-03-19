@@ -1,0 +1,1208 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/our/logo.png">
+  <link rel="icon" href="/img/our/logo.png">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="Z_Jump_Dragon">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="Jmeter是Apche公司使用Java平台开发的一款测试工具，主要用于对软件、服务器或网络对象模拟巨大的负载，从而测试它们的强度并分析整体性能">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Jmeter基础">
+<meta property="og:url" content="https://dragooon.top/blog/%E6%B5%8B%E8%AF%95%E5%B7%A5%E5%85%B7/%E6%B5%8B%E8%AF%95%E5%B7%A5%E5%85%B7/Jmeter%E5%9F%BA%E7%A1%80/index.html">
+<meta property="og:site_name" content="棱镜里的日常">
+<meta property="og:description" content="Jmeter是Apche公司使用Java平台开发的一款测试工具，主要用于对软件、服务器或网络对象模拟巨大的负载，从而测试它们的强度并分析整体性能">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202402181214917.png">
+<meta property="og:image" content="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202402181553824.png">
+<meta property="og:image" content="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202402181728986.png">
+<meta property="og:image" content="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202402231638796.png">
+<meta property="og:image" content="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202402231735397.png">
+<meta property="og:image" content="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202402231943101.png">
+<meta property="og:image" content="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202402231944147.png">
+<meta property="og:image" content="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202402232003001.png">
+<meta property="og:image" content="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202402232015108.png">
+<meta property="og:image" content="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202402232017770.png">
+<meta property="og:image" content="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202402232034224.png">
+<meta property="og:image" content="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202402232053549.png">
+<meta property="og:image" content="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202402241324388.png">
+<meta property="og:image" content="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202402241326935.png">
+<meta property="og:image" content="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202402241348295.png">
+<meta property="og:image" content="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202402241352361.png">
+<meta property="og:image" content="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202402241353846.png">
+<meta property="og:image" content="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202402241434562.png">
+<meta property="og:image" content="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202402241500435.png">
+<meta property="og:image" content="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202402241500773.png">
+<meta property="og:image" content="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202402241502112.png">
+<meta property="og:image" content="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202402241534102.png">
+<meta property="og:image" content="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202402241554955.png">
+<meta property="og:image" content="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202402241702172.png">
+<meta property="og:image" content="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202402241703081.png">
+<meta property="og:image" content="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202402241704177.png">
+<meta property="og:image" content="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202402241654914.png">
+<meta property="og:image" content="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202402241657005.png">
+<meta property="og:image" content="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202402241708847.png">
+<meta property="og:image" content="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202402241710124.png">
+<meta property="og:image" content="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202402241710337.png">
+<meta property="og:image" content="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202402242035131.png">
+<meta property="og:image" content="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202402242039445.png">
+<meta property="og:image" content="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202402242041811.png">
+<meta property="og:image" content="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202402251051231.png">
+<meta property="og:image" content="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202402251056476.png">
+<meta property="og:image" content="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202402251058819.png">
+<meta property="og:image" content="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202402251121668.png">
+<meta property="og:image" content="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202402251131162.png">
+<meta property="og:image" content="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202402251135054.png">
+<meta property="og:image" content="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202402251139570.png">
+<meta property="og:image" content="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202402251140169.png">
+<meta property="og:image" content="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202402251212995.png">
+<meta property="og:image" content="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202402251451596.png">
+<meta property="og:image" content="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202402251501957.png">
+<meta property="og:image" content="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202402251629376.png">
+<meta property="og:image" content="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202402252038721.png">
+<meta property="og:image" content="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202402252044697.png">
+<meta property="og:image" content="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202402261109026.png">
+<meta property="og:image" content="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202402261129655.png">
+<meta property="og:image" content="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202402261134311.png">
+<meta property="og:image" content="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202402261154609.png">
+<meta property="og:image" content="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202402262245379.png">
+<meta property="og:image" content="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202402262247982.png">
+<meta property="og:image" content="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202402262248009.png">
+<meta property="og:image" content="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202402262251608.png">
+<meta property="og:image" content="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202402262253121.png">
+<meta property="og:image" content="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202402262256719.png">
+<meta property="og:image" content="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202402262300422.png">
+<meta property="og:image" content="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202402291549794.png">
+<meta property="og:image" content="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202402291550204.png">
+<meta property="article:published_time" content="2025-07-07T03:14:14.000Z">
+<meta property="article:modified_time" content="2026-03-19T02:47:15.906Z">
+<meta property="article:author" content="Z_Jump_Dragon">
+<meta property="article:tag" content="测试工具">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202402181214917.png">
+  
+  
+  
+  <title>Jmeter基础 - 棱镜里的日常</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+  
+<link rel="stylesheet" href="/css/cloudedGlass.css">
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"dragooon.top","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":60,"cursorChar":"_","loop":false,"scope":["home"]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"left","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":3},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":false};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+
+<body><!-- hexo injector body_begin start --><div id="web_bg"></div><!-- hexo injector body_begin end -->
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 100vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>棱镜里的日常</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/our/article.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle">Jmeter基础</span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-author" aria-hidden="true"></i>
+        Z_Jump_Dragon
+      </span>
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2025-07-07 11:14" pubdate>
+          2025年7月7日 上午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          5.4k 字
+        
+      </span>
+    
+
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+        <div class="scroll-down-bar">
+          <i class="iconfont icon-arrowdown"></i>
+        </div>
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="padding-left: 2rem; margin-right: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">Jmeter基础</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h1 id="1-介绍"><a href="#1-介绍" class="headerlink" title="1. 介绍"></a>1. 介绍</h1><p>Jmeter是Apche公司使用Java平台开发的一款测试工具，主要用于对软件、服务器或网络对象模拟巨大的负载，从而测试它们的强度并分析整体性能</p>
+<ul>
+<li><strong>接口测试(http接口）</strong></li>
+<li>性能测试</li>
+<li><strong>压力测试</strong>（优势）</li>
+<li>数据库测试</li>
+<li>Java程序测试</li>
+</ul>
+<h1 id="2-元件"><a href="#2-元件" class="headerlink" title="2. 元件"></a>2. 元件</h1><blockquote>
+<p>元件即为多个类似功能组件的容器（类似于类），组件用于实现独立的某个功能（类似于方法）</p>
+</blockquote>
+<img src="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202402181214917.png" srcset="/img/loading.gif" lazyload alt="image-20240218121429794" style="zoom: 33%;" />
+
+<ul>
+<li><strong>取样器</strong>：发送请求</li>
+<li><strong>逻辑控制器</strong>：控制语句的执行顺序</li>
+<li><strong>前置处理器</strong>：对请求参数进行预处理</li>
+<li><strong>后置处理器</strong>：对响应结果进行提取</li>
+<li><strong>断言</strong>：检查接口的返回结果是否与预期结果一致</li>
+<li><strong>定时器</strong>：设置等待</li>
+<li><strong>测试片段</strong>：封装一段代码，供其他脚本调用</li>
+<li><strong>配置元件</strong>：测试数据的初始化配置</li>
+<li><strong>监听器</strong>：查看 Jmeter 脚本的运行结果</li>
+</ul>
+<h2 id="作用域原则"><a href="#作用域原则" class="headerlink" title="作用域原则"></a>作用域原则</h2><ul>
+<li><strong>取样器</strong>：核心，没有作用域</li>
+<li><strong>逻辑控制器</strong>：只对其子节点中的取样器和逻辑控制器起作用</li>
+<li>其余元件<ul>
+<li>如果是某个取样器的子节点，则该元件只对其父节点起作用</li>
+<li>如果其父节点不是取样器，则其作用域是该元件父节点下的其他所有后代节点（包括子节点，子节点的子节点等）</li>
+</ul>
+</li>
+</ul>
+<p><strong>执行顺序</strong></p>
+<ul>
+<li><p>同一作用域下不同元件</p>
+<blockquote>
+<p><em>配置元件 –&gt; 前置处理程序 –&gt; 定时器 –&gt; 取样器 –&gt; 后置处理程序 –&gt; 断言 –&gt; 监听器</em></p>
+</blockquote>
+</li>
+<li><p>同一作用域下相同元件</p>
+<blockquote>
+<p>从上到下的顺序依次执行</p>
+</blockquote>
+</li>
+</ul>
+<p><strong>例子</strong></p>
+<img src="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202402181553824.png" srcset="/img/loading.gif" lazyload alt="image-20240218155318769" style="zoom:50%;" />
+
+<p>各组件执行顺序如下【保证 IF 控制器能正常进入的情况下】👇</p>
+<blockquote>
+<p>定时器1 –&gt; HTTP请求1 –&gt; 定时器1 –&gt; 定时器2 –&gt; HTTP请求2 –&gt; 定时器1 –&gt; 定时器3  –&gt; HTTP请求3</p>
+</blockquote>
+<p><strong>解释</strong>：</p>
+<ol>
+<li>同一作用域下，定时器优先级高于取样器，因此首先执行<strong>定时器1</strong>，再者为<strong>HTTP请求1</strong></li>
+<li>除去取样器与逻辑控制器外，其余元件如果其父节点不是取样器，则其作用域是该元件父节点下的其他所有后代节点。定时器1的父节点为线程组，不属于取样器，因此在后代节点发挥作用前会再次调用<strong>定时器1</strong></li>
+<li>进入逻辑控制器，按照其优先级顺序分别执行<strong>定时器2</strong>与<strong>HTTP请求2</strong>，<strong>定时器3</strong>是取样器的子节点，因此也发挥作用，最后是<strong>HTTP请求3</strong></li>
+</ol>
+<h1 id="3-三个重要组件"><a href="#3-三个重要组件" class="headerlink" title="3. 三个重要组件"></a>3. 三个重要组件</h1><h2 id="3-1-线程组"><a href="#3-1-线程组" class="headerlink" title="3.1 线程组"></a>3.1 线程组</h2><p><strong>特点</strong></p>
+<ul>
+<li>模拟用户，支持多用户操作</li>
+<li>多个线程组可以串行执行，也可以并行执行</li>
+</ul>
+<p><strong>分类</strong></p>
+<ul>
+<li><strong>普通线程组</strong>：编写脚本</li>
+<li><strong>setup 线程组</strong>：前置处理，初始化</li>
+<li><strong>teardown 线程组</strong>：后置处理，环境恢复等</li>
+</ul>
+<p><strong>属性</strong></p>
+<img src="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202402181728986.png" srcset="/img/loading.gif" lazyload alt="image-20240218172852934" style="zoom: 50%;" />
+
+<p>循环次数是指每个线程的循环次数</p>
+<p><strong>案例分析：</strong><br>使用 1 个线程组，添加 HTTP 请求（百度）</p>
+<ul>
+<li>配置线程数为2，循环次数为 3 时，运行观察结果</li>
+<li>配置线程数为3，循环次数为 2 时，运行观察结果，对比是否有不同</li>
+</ul>
+<p>相同点：从请求数量来说，是完全相同的</p>
+<p>不同点：场景不同</p>
+<ul>
+<li>线程数：代表用户数，即性能测试时的负载量（线程数为 2 比线程数为 3 对应的负载量小）</li>
+<li>循环次数：代表时间，即性能测试时的运行时间（循环次数 3 比循环次数 2 对应的时间长）</li>
+</ul>
+<h2 id="3-2-HTTP取样器"><a href="#3-2-HTTP取样器" class="headerlink" title="3.2 HTTP取样器"></a>3.2 HTTP取样器</h2><p><strong>作用</strong>：向服务器发送http及https请求</p>
+<p><strong>位置</strong>：选中线程组 –&gt; 右键 –&gt; 添加 –&gt; 取样器 –&gt; HTTP请求</p>
+<img src="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202402231638796.png" srcset="/img/loading.gif" lazyload alt="image-20240223163755675" style="zoom:80%;" />
+
+<h3 id="3-3-查看结果树"><a href="#3-3-查看结果树" class="headerlink" title="3.3 查看结果树"></a>3.3 查看结果树</h3><p><strong>作用</strong>：查看结果</p>
+<img src="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202402231735397.png" srcset="/img/loading.gif" lazyload alt="image-20240223173538372" style="zoom:67%;" />
+
+<p><strong>位置</strong>：选中线程组 –&gt; 右键 –&gt; 添加 –&gt; 监听器 –&gt; 查看结果树</p>
+<h1 id="4-参数化"><a href="#4-参数化" class="headerlink" title="4. 参数化"></a>4. 参数化</h1><blockquote>
+<p>使用参数的方式来替代脚本中的固定测试数据</p>
+</blockquote>
+<p>实现方式：</p>
+<ul>
+<li>定义变量（最基础）</li>
+<li>文件定义的方式（所有测试数据都是固定的情况下）</li>
+<li>数据库的方式（灵活，业务测试常用）</li>
+<li>函数的方式（灵活，业务测试常用）</li>
+</ul>
+<h2 id="4-1-用户定义的变量"><a href="#4-1-用户定义的变量" class="headerlink" title="4.1 用户定义的变量"></a>4.1 用户定义的变量</h2><p><strong>作用</strong>：定义<strong>全局</strong>变量</p>
+<p><strong>位置</strong>：线程组 –&gt; 配置元件 –&gt;用户定义的变量</p>
+<img src="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202402231943101.png" srcset="/img/loading.gif" lazyload alt="image-20240223194312034" style="zoom:80%;" />
+
+<img src="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202402231944147.png" srcset="/img/loading.gif" lazyload alt="image-20240223194425119" style="zoom:80%;" />
+
+<h2 id="4-2-用户参数"><a href="#4-2-用户参数" class="headerlink" title="4.2 用户参数"></a>4.2 用户参数</h2><p><strong>作用</strong>：针对同一组参数，当不同用户来访问时，可以获取到不同的值</p>
+<p><strong>位置</strong>：选中线程组 –&gt; 右键 –&gt; 添加 –&gt; 前置处理器 –&gt; 用户参数</p>
+<ol>
+<li>添加线程数为 n（代表模拟的用户数）</li>
+<li>添加用户参数<ul>
+<li>第一列添加多个变量名</li>
+<li>后续每一列为一组用户的数据</li>
+</ul>
+</li>
+<li>添加 HTTP 请求，引用定义的变量名，格式：<code>$&#123;&#125;</code></li>
+<li>添加查看结果数</li>
+</ol>
+<p><strong>案例：向百度发送两次get请求，携带name与age参数，值分别为张三、李四，18、20</strong></p>
+<img src="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202402232003001.png" srcset="/img/loading.gif" lazyload alt="image-20240223200352975" style="zoom:67%;" />
+
+<p>线程组中的线程数设置为 2 模拟两个用户</p>
+<img src="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202402232015108.png" srcset="/img/loading.gif" lazyload alt="image-20240223201509074" style="zoom:67%;" />
+
+<p>发送的两次请求URL路径如下👇</p>
+<img src="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202402232017770.png" srcset="/img/loading.gif" lazyload alt="image-20240223201734748" style="zoom: 80%;" />
+
+<h2 id="4-3-csv数据文件设置"><a href="#4-3-csv数据文件设置" class="headerlink" title="4.3 csv数据文件设置"></a>4.3 csv数据文件设置</h2><p><strong>作用</strong>：让不同用户在多次循环时，可以取到不同的值</p>
+<p><strong>位置</strong>：线程组 –&gt; 配置元件 –&gt; CSV数据文件设置</p>
+<p><em>使用方法与用户参数类似</em></p>
+<img src="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202402232034224.png" srcset="/img/loading.gif" lazyload alt="image-20240223203421192" style="zoom:67%;" />
+
+<h2 id="4-4-counter函数"><a href="#4-4-counter函数" class="headerlink" title="4.4 counter函数"></a>4.4 counter函数</h2><p><strong>作用</strong>：自动生成不重复的数据，让每个用户每次循环都能取到不同数据，且不需要提前定义</p>
+<p>位置：菜单栏点击工具 –&gt; 函数助手对话框</p>
+<img src="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202402232053549.png" srcset="/img/loading.gif" lazyload alt="image-20240223205314514" style="zoom:80%;" />
+
+<h1 id="5-断言"><a href="#5-断言" class="headerlink" title="5. 断言"></a>5. 断言</h1><blockquote>
+<p>检查实际的返回结果是否与预期结果保持一致</p>
+</blockquote>
+<p>Jmeter 有自动校验机制，即自动判断响应状态码（2xx：成功，4xx&#x2F;5xx：失败）</p>
+<ul>
+<li><strong>响应断言</strong>：对任意格式的响应数据进行断言</li>
+<li><strong>json断言</strong>：对 json 格式的响应数据进行断言</li>
+<li><strong>持续时间断言</strong>：对响应时间进行断言</li>
+</ul>
+<h2 id="5-1-响应断言"><a href="#5-1-响应断言" class="headerlink" title="5.1 响应断言"></a>5.1 响应断言</h2><p><strong>作用</strong>：对HTTP请求的任意格式响应结果进行断言</p>
+<p><strong>位置</strong>：线程组 –&gt; HTTP请求 –&gt; 断言 –&gt; 响应断言</p>
+<img src="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202402241324388.png" srcset="/img/loading.gif" lazyload alt="image-20240224132403287" style="zoom: 50%;" />
+
+<p>当测试字段预期结果与实际结果不符时，在查看结果树中会出现如下提示</p>
+<img src="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202402241326935.png" srcset="/img/loading.gif" lazyload alt="image-20240224132646911" style="zoom:80%;" />
+
+<h2 id="5-2-JSON断言"><a href="#5-2-JSON断言" class="headerlink" title="5.2 JSON断言"></a>5.2 JSON断言</h2><p><strong>作用</strong>：对 HTTP请求的 json 格式响应数据进行断言</p>
+<p><strong>位置</strong>：线程组 –&gt; HTTP请求 –&gt; 断言 –&gt; JSON 断言</p>
+<img src="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202402241348295.png" srcset="/img/loading.gif" lazyload alt="image-20240224134823261" style="zoom:80%;" />
+
+<h2 id="5-3-持续时间断言"><a href="#5-3-持续时间断言" class="headerlink" title="5.3 持续时间断言"></a>5.3 持续时间断言</h2><p><strong>作用</strong>：对响应时间进行断言</p>
+<p>位置：线程组 –&gt; HTTP请求 –&gt; 断言 –&gt; 断言持续时间</p>
+<img src="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202402241352361.png" srcset="/img/loading.gif" lazyload alt="image-20240224135220331" style="zoom:80%;" />
+
+<p>当持续时间超出最高值时，在查看结果树中会出现如下提示</p>
+<img src="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202402241353846.png" srcset="/img/loading.gif" lazyload alt="image-20240224135358823" style="zoom:80%;" />
+
+<h1 id="6-关联"><a href="#6-关联" class="headerlink" title="6. 关联"></a>6. 关联</h1><blockquote>
+<p>请求之间有依赖关系，一个请求的响应数据作为另一个的请求参数来传递</p>
+</blockquote>
+<h2 id="6-1-正则表达式提取器"><a href="#6-1-正则表达式提取器" class="headerlink" title="6.1 正则表达式提取器"></a>6.1 正则表达式提取器</h2><p><strong>作用</strong>：针对任意格式的响应数据进行提取</p>
+<p><strong>位置</strong>：线程组 –&gt; HTTP请求 –&gt; 后置处理器 –&gt; 正则表达式提取器</p>
+<img src="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202402241434562.png" srcset="/img/loading.gif" lazyload alt="image-20240224143412529" style="zoom:80%;" />
+
+<ul>
+<li><p><strong>.</strong>  ：匹配除换行符（\n、\r）之外的任何单个字符</p>
+</li>
+<li><p>***** ：号代表前面的字符可以不出现，也可以出现一次或者多次（0次、或1次、或多次）</p>
+</li>
+<li><p><strong>?</strong> ：代表前面的字符最多只可以出现一次（0次或1次）</p>
+<p>其余关注正则表达式的规则可参考：<a target="_blank" rel="noopener" href="https://www.runoob.com/regexp/regexp-syntax.html">正则表达式规则</a></p>
+</li>
+</ul>
+<p>模板中，计数以括号为单位，<code>$1$</code>代表第一个括号匹配的值<br>匹配数字是对每个括号匹配元素的计数</p>
+<p><strong>案例：向哔哩哔哩发送请求，获取其title值并作为关键字访问百度</strong></p>
+<img src="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202402241500435.png" srcset="/img/loading.gif" lazyload alt="image-20240224150010408" style="zoom:80%;" />
+
+<img src="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202402241500773.png" srcset="/img/loading.gif" lazyload alt="image-20240224150027739" style="zoom:80%;" />
+
+<p>查看结果树结果如下</p>
+<img src="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202402241502112.png" srcset="/img/loading.gif" lazyload alt="image-20240224150211085" style="zoom:67%;" />
+
+<h2 id="6-2-XPath提取器"><a href="#6-2-XPath提取器" class="headerlink" title="6.2 XPath提取器"></a>6.2 XPath提取器</h2><p><strong>作用</strong>：针对HTML格式的响应结果数据进行提取</p>
+<p><strong>位置</strong>：线程组 –&gt; HTTP请求 –&gt; 后置处理器 –&gt; XPath提取器</p>
+<img src="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202402241534102.png" srcset="/img/loading.gif" lazyload alt="image-20240224153416061" style="zoom:80%;" />
+
+<h2 id="6-3-JSON提取器"><a href="#6-3-JSON提取器" class="headerlink" title="6.3 JSON提取器"></a>6.3 JSON提取器</h2><p><strong>作用</strong>：针对 JSON 格式的响应结果数据进行提取</p>
+<p><strong>位置</strong>：线程组 –&gt; HTTP请求 –&gt; 后置处理器 –&gt; JSON提取器</p>
+<img src="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202402241554955.png" srcset="/img/loading.gif" lazyload alt="image-20240224155416924" style="zoom:80%;" />
+
+<h2 id="6-4-Jmeter属性"><a href="#6-4-Jmeter属性" class="headerlink" title="6.4 Jmeter属性"></a>6.4 Jmeter属性</h2><blockquote>
+<p>需要实现跨线程组的数据传递时，可以使用 JMeter 属性，将线程组的局部属性存储为全局属性</p>
+</blockquote>
+<p><strong>案例：在线程 1 保存请求（<code>http://m.nmc.cn/rest/predict/59289?_=1708762524613</code>）返回的 json 数据中<code>city</code>关键字对应的值，并在线程2中用于百度搜索</strong></p>
+<img src="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202402241702172.png" srcset="/img/loading.gif" lazyload alt="image-20240224170212142" style="zoom:67%;" />
+
+<p>其测试计划对应如下：</p>
+<img src="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202402241703081.png" srcset="/img/loading.gif" lazyload alt="image-20240224170326057" style="zoom:80%;" />
+
+<p>首先使用 JSON 提取器保存关键值到线程 1 中</p>
+<img src="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202402241704177.png" srcset="/img/loading.gif" lazyload alt="image-20240224170450149" style="zoom:80%;" />
+
+<p>接着使用 setProperty 函数实现局部变量到全局变量的转换，同时在此线程组中添加 BeanShell 取样器用于执行此函数，完成变量保存</p>
+<img src="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202402241654914.png" srcset="/img/loading.gif" lazyload alt="image-20240224165423888" style="zoom:67%;" />
+
+<img src="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202402241657005.png" srcset="/img/loading.gif" lazyload alt="image-20240224165752981" style="zoom:67%;" />
+
+<p>再次调用函数助手，生成 property 函数</p>
+<img src="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202402241708847.png" srcset="/img/loading.gif" lazyload alt="image-20240224170845815" style="zoom:80%;" />
+
+<p>最后在线程组 2 中需要传参的地方调用函数，完成传参</p>
+<img src="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202402241710124.png" srcset="/img/loading.gif" lazyload alt="image-20240224171018096" style="zoom:80%;" />
+
+<p>查看结果树</p>
+<img src="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202402241710337.png" srcset="/img/loading.gif" lazyload alt="image-20240224171055313" style="zoom:80%;" />
+
+<h1 id="7-直连数据库"><a href="#7-直连数据库" class="headerlink" title="7. 直连数据库"></a>7. 直连数据库</h1><h2 id="7-1-应用场景"><a href="#7-1-应用场景" class="headerlink" title="7.1 应用场景"></a>7.1 应用场景</h2><ol>
+<li><p>用户请求的参数化</p>
+<blockquote>
+<p>例如登录时需要的用户名，可以从数据库中查询获取</p>
+</blockquote>
+</li>
+<li><p>用作结果的断言</p>
+<blockquote>
+<p>例如添加购物车下订单，检查接口返回的订单号，是否与数据库中生成的订单号一致</p>
+</blockquote>
+</li>
+<li><p>清理垃圾数据</p>
+<blockquote>
+<p>例如添加商品（商品号&#x2F;编号等不能重复），再执行该脚本不能成功，需要在下次执行前删除该商品数据</p>
+</blockquote>
+</li>
+<li><p>准备测试数据</p>
+<blockquote>
+<p>例如通过数据库来准备大量性能测试数据</p>
+</blockquote>
+</li>
+</ol>
+<h2 id="7-2-关键配置"><a href="#7-2-关键配置" class="headerlink" title="7.2 关键配置"></a>7.2 关键配置</h2><blockquote>
+<p>将 MySQL 驱动 jar 包放入到 lib&#x2F;ext 目录下，重启 JMeter</p>
+</blockquote>
+<p><strong>连接数据库配置</strong></p>
+<p><em>位置</em>：线程组 –&gt; 配置元件 –&gt; JDBC Connection Configuration</p>
+<img src="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202402242035131.png" srcset="/img/loading.gif" lazyload alt="image-20240224203456601" style="zoom:67%;" />
+
+<p><strong>执行SQL语句配置</strong></p>
+<p><em>位置</em>：线程组 –&gt; 配置元件 –&gt; JDBC Request</p>
+<img src="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202402242039445.png" srcset="/img/loading.gif" lazyload alt="image-20240224203905387" style="zoom:80%;" />
+
+<p>由于查询的数据条数未知，因此实际上存储的变量名会在 Variable names 的基础上进行编号，如 Variable names 若为 var，则实际上其第一条元素变量引用名为 var_1</p>
+<p>完成配置与语句编写，执行后通过查看结果树即可得到查询结果</p>
+<img src="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202402242041811.png" srcset="/img/loading.gif" lazyload alt="image-20240224204112785" style="zoom:80%;" />
+
+<h1 id="8-逻辑控制器"><a href="#8-逻辑控制器" class="headerlink" title="8. 逻辑控制器"></a>8. 逻辑控制器</h1><h2 id="8-1-IF控制器"><a href="#8-1-IF控制器" class="headerlink" title="8.1 IF控制器"></a>8.1 IF控制器</h2><p><strong>作用</strong>：控制其下测试元素是否运行</p>
+<p><strong>位置</strong>：线程组 –&gt; 逻辑控制器 –&gt; IF控制器</p>
+<img src="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202402251051231.png" srcset="/img/loading.gif" lazyload alt="image-20240225105129120" style="zoom: 67%;" />
+
+<img src="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202402251056476.png" srcset="/img/loading.gif" lazyload alt="image-20240225105602447" style="zoom:67%;" />
+
+<h2 id="8-2-循环控制器"><a href="#8-2-循环控制器" class="headerlink" title="8.2 循环控制器"></a>8.2 循环控制器</h2><p><strong>作用</strong>：控制其下测试元素循环执行</p>
+<p><strong>位置</strong>：线程组 –&gt; 逻辑控制器 –&gt; 循环控制器</p>
+<img src="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202402251058819.png" srcset="/img/loading.gif" lazyload alt="image-20240225105837794" style="zoom:80%;" />
+
+<h2 id="8-3-ForEach控制器"><a href="#8-3-ForEach控制器" class="headerlink" title="8.3 ForEach控制器"></a>8.3 ForEach控制器</h2><p><strong>作用</strong>：一般和用户自定义变量或者正则表达式提取器一起使用，读取返回结果中一系列相关的变量值。该控制器下的取样器都会被执行一次或多次，每次读取不同的变量值</p>
+<p><strong>位置</strong>：线程组 –&gt; 逻辑控制器 –&gt; ForEach控制器</p>
+<img src="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202402251121668.png" srcset="/img/loading.gif" lazyload alt="image-20240225112132632" style="zoom:80%;" />
+
+<p><em>结束循环字段不填时默认遍历到最后一个</em></p>
+<p><strong>案例：引用用户自定义变量访问网站</strong></p>
+<img src="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202402251131162.png" srcset="/img/loading.gif" lazyload alt="image-20240225113124136" style="zoom: 80%;" />
+
+<p>ForEach控制器设置如下</p>
+<img src="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202402251135054.png" srcset="/img/loading.gif" lazyload alt="image-20240225113507025" style="zoom:67%;" />
+
+<img src="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202402251139570.png" srcset="/img/loading.gif" lazyload alt="image-20240225113945536" style="zoom:80%;" />
+
+<img src="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202402251140169.png" srcset="/img/loading.gif" lazyload alt="image-20240225114040144" style="zoom:80%;" />
+
+<h1 id="9-定时器"><a href="#9-定时器" class="headerlink" title="9. 定时器"></a>9. 定时器</h1><h2 id="9-1-同步定时器"><a href="#9-1-同步定时器" class="headerlink" title="9.1 同步定时器"></a>9.1 同步定时器</h2><p><strong>作用</strong>：测试抢购、秒杀或者抢红包等高并发的场景下使用</p>
+<p><strong>位置</strong>：线程组 –&gt; HTTP请求 –&gt; 同步定时器</p>
+<img src="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202402251212995.png" srcset="/img/loading.gif" lazyload alt="image-20240225121211963" style="zoom:80%;" />
+
+<p>设置超时时间需要注意以下两点：</p>
+<ul>
+<li>建议设置：不设置的话，若没有达到设置的线程数会一直死等</li>
+<li>不能设置太小：等待时间后还没达到设置的线程数，会释放已到达的线程</li>
+</ul>
+<p>通过监听器中的聚合报告可以查看线程发送的动态过程</p>
+<h2 id="9-2-常数吞吐量定时器"><a href="#9-2-常数吞吐量定时器" class="headerlink" title="9.2 常数吞吐量定时器"></a>9.2 常数吞吐量定时器</h2><p><strong>作用</strong>：让 JMeter 按指定的吞吐量执行，以每分钟为单位</p>
+<p><strong>位置</strong>：线程组 –&gt; HTTP请求 –&gt; 定时器 –&gt; 常数吞吐量定时器</p>
+<img src="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202402251451596.png" srcset="/img/loading.gif" lazyload alt="image-20240225145133530" style="zoom:67%;" />
+
+<p>QPS（Queries-per-second）即每秒查询率</p>
+<h2 id="9-3-固定定时器"><a href="#9-3-固定定时器" class="headerlink" title="9.3 固定定时器"></a>9.3 固定定时器</h2><p><strong>作用</strong>：让请求间隔一定时间后再执行</p>
+<p><strong>位置</strong>：线程组 –&gt; HTTP请求 –&gt; 定时器 –&gt; 固定定时器</p>
+<img src="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202402251501957.png" srcset="/img/loading.gif" lazyload alt="image-20240225150124929" style="zoom:67%;" />
+
+<h1 id="10-测试报告"><a href="#10-测试报告" class="headerlink" title="10. 测试报告"></a>10. 测试报告</h1><h2 id="10-1-聚合报告"><a href="#10-1-聚合报告" class="headerlink" title="10.1 聚合报告"></a>10.1 聚合报告</h2><p><strong>作用</strong>：收集性能测试结束后，系统的各项性能指标。如:响应时间、并发数、吞吐量、错误率等</p>
+<p><strong>位置</strong>：测试计划 –&gt; 监听器 –&gt; 聚合报告</p>
+<img src="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202402251629376.png" srcset="/img/loading.gif" lazyload alt="image-20240225162909334" style="zoom:80%;" />
+
+<ul>
+<li><strong>Label</strong>：每个请求的名称</li>
+<li><strong>样本</strong>：各请求发出的数量</li>
+<li><strong>平均值</strong>：平均响应时间（单位：毫秒）</li>
+<li><strong>中位数</strong>：中位数，50% &lt;&#x3D; 时间</li>
+<li><strong>90%百分比</strong>：90% &lt;&#x3D; 时间</li>
+<li><strong>95%百分比</strong>：95% &lt;&#x3D; 时间</li>
+<li><strong>99%百分比</strong>：99% &lt;&#x3D; 时间</li>
+<li><strong>最小值</strong>：最小响应时间</li>
+<li><strong>最大值</strong>：最大响应时间</li>
+<li><strong>异常%</strong>：请求的错误率</li>
+<li><strong>吞吐量</strong>：吞吐量。默认情况下表示每秒完成的请求数，一般认为它为TPS</li>
+<li><strong>接收KB&#x2F;sec</strong>：每秒接收到的千字节数</li>
+<li><strong>发送KB&#x2F;sec</strong>：每秒发送的千字节数</li>
+</ul>
+<h2 id="10-2-HTML测试报告"><a href="#10-2-HTML测试报告" class="headerlink" title="10.2 HTML测试报告"></a>10.2 HTML测试报告</h2><p><strong>作用</strong>：JMeter 支持生成 HTML 测试报告，以便从测试计划中获得图表和统计信息</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_"># </span><span class="language-bash">命令需在jmeter的bin目录下执行</span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">存放结果在jmeter中bin目录下的report文件夹，保证此时无report目录</span><br>jmeter -n -t &quot;测试计划.jmx&quot; -l 测试结果.jtl -e -o ./report<br></code></pre></td></tr></table></figure>
+
+<h1 id="11-并发数计算"><a href="#11-并发数计算" class="headerlink" title="11. 并发数计算"></a>11. 并发数计算</h1><p><strong>普通方法</strong></p>
+<ul>
+<li>并发TPS &#x3D; 总请求数&#x2F;总时间</li>
+<li>只能满足最基本的要求，但是不能很好覆盖系统正常的使用情况</li>
+</ul>
+<p><strong>二八原则</strong></p>
+<ul>
+<li>并发TPS &#x3D; 总请求数 * 80% &#x2F; (总时间 * 20%)</li>
+<li>满足系统绝大多数情况下的应用场景需要</li>
+</ul>
+<p><strong>根据业务运营数据的统计计算（通常用来做稳定性测试）</strong></p>
+<ul>
+<li>并发 TPS &#x3D; 有效请求数 * 80% &#x2F; (有效时间 * 20%)</li>
+<li>当运营数据统计越精确时，计算出的并发TPS与实际的越接近</li>
+</ul>
+<p><strong>根据用户峰值业务操作来计算（通常用来做压力测试）</strong></p>
+<ul>
+<li>并发TPS &#x3D; 峰值请求数 &#x2F; (峰值时间 * 系数)</li>
+<li>满足峰值请求时间段内的负载量，系数取决于项目组对于未来业务量的评估</li>
+</ul>
+<p><strong>例子</strong></p>
+<p>某购物商城，经过运营统计，正常一天成交额为100亿，客单价平均为300元，交易时间主要为 10:00 - 14:00，17:00 - 24:00，其中 19:00 - 20:00 的成交量最大，大约成交20亿。</p>
+<p>现升级系统，需要进行性能测试，保证软件在上线后能稳定运行。</p>
+<p>请计算出系统稳定性测试时的并发（负载）量，及保证系统峰值业务时的并发（负载）量。<br>$$<br>稳定并发量： \dfrac{\frac{100E}{300} \times 0.8}{3600\times11*0.2}\<br>压力并发量： \dfrac{\frac{20E}{300} }{3600\times1\times系数}<br>$$</p>
+<h1 id="12-Jmeter插件"><a href="#12-Jmeter插件" class="headerlink" title="12. Jmeter插件"></a>12. Jmeter插件</h1><blockquote>
+<p>使用第三方的扩展功能，可以使得 Jmeter 更为强大</p>
+</blockquote>
+<p>使用插件前，首先需要安装Jmeter插件管理工具，下载地址如下所示👇：</p>
+<p><code>https://jmeter-plugins.org/wiki/PluginsManager/</code></p>
+<p>将下载后的 jar 包放入Jmeter的 lib&#x2F;ext 目录下，接着按照此博客方法进行配置：<a target="_blank" rel="noopener" href="https://blog.csdn.net/u012106306/article/details/109067686">Jmeter插件管理器打开报错解决办法</a></p>
+<p>点击菜单栏“选项” –&gt; “JMeter Plugins Manager”，若能顺利显示如下👇界面，则说明准备工作完成。</p>
+<img src="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202402252038721.png" srcset="/img/loading.gif" lazyload alt="image-20240225203815158" style="zoom:67%;" />
+
+<p>在 Available Plugins 中添加如下四个插件，后续需要使用</p>
+<p><img src="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202402252044697.png" srcset="/img/loading.gif" lazyload alt="image-20240225204453670"></p>
+<h2 id="12-1-阶梯线程组"><a href="#12-1-阶梯线程组" class="headerlink" title="12.1 阶梯线程组"></a>12.1 阶梯线程组</h2><p><strong>作用</strong>：阶梯加压，图形界面显示运行状态</p>
+<p><strong>添加方式</strong>：线程（用户） –&gt; Concurrency Thread Group</p>
+<img src="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202402261109026.png" srcset="/img/loading.gif" lazyload alt="image-20240226110905896" style="zoom: 67%;" />
+
+<h2 id="12-2-各种图表监听器"><a href="#12-2-各种图表监听器" class="headerlink" title="12.2 各种图表监听器"></a>12.2 各种图表监听器</h2><p><strong>作用</strong>：统计各个事务每秒成功的事务个数</p>
+<p><strong>添加方式</strong>：线程组 –&gt; 监听器 –&gt; Transactions per Second</p>
+<img src="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202402261129655.png" srcset="/img/loading.gif" lazyload alt="image-20240226112946612" style="zoom:80%;" />
+
+<p><strong>作用</strong>：查看服务器吞吐流量（单位&#x2F;字节）</p>
+<p><strong>添加方式</strong>：线程组 –&gt; 监听器 –&gt; Bytes Throughput Over Time</p>
+<img src="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202402261134311.png" srcset="/img/loading.gif" lazyload alt="image-20240226113442268" style="zoom: 67%;" />
+
+<p><strong>作用</strong>：用来监控服务端的性能资源指标的工具，包括cpu、内存、磁盘、网络等性能数据</p>
+<p><strong>添加方法</strong>：线程组 –&gt; 监听器 –&gt; PerfMon Metrics Collector</p>
+<p><strong>注意</strong>：使用之前需要在服务器端安装监听服务程序并启动</p>
+<ul>
+<li>下载安装包 ServerAgent-2.2.3.zip，链接地址：<a target="_blank" rel="noopener" href="https://github.com/undera/perfmon-agent">https://github.com/undera/perfmon-agent</a></li>
+<li>上传到服务器上，并解压 ServerAgent-2.2.3.zip</li>
+<li>启动，如果是 Windows 运行 startAgent.bat ，如果是 Linux 运行 startAgent.sh</li>
+<li>启动这个工具后，Jmeter 的插件 PerfMon Metrics Collector 就可以收集服务端的资源使用率，并在 Jmeter 中查看了</li>
+</ul>
+<p>通常需要关注的资源指标有：CPU、内存、磁盘、网络</p>
+<img src="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202402261154609.png" srcset="/img/loading.gif" lazyload alt="image-20240226115442568" style="zoom: 67%;" />
+
+<p>除此之外还要其余一些指标的监听器，此处不再一一展示</p>
+<h1 id="13-单接口测试脚本"><a href="#13-单接口测试脚本" class="headerlink" title="13. 单接口测试脚本"></a>13. 单接口测试脚本</h1><p><strong>案例：在某商城项目中，有登录功能接口信息如下所示，请在 JMeter 完成测试</strong></p>
+<p>请求网址：<a target="_blank" rel="noopener" href="http://www.litemall360.com:8080/wx/auth/login">http://www.litemall360.com:8080/wx/auth/login</a><br>请求方法：POST<br>请求头：Content-Type: application&#x2F;json;charset&#x3D;utf-8<br>请求体：{“username”:”user123”,”password”:”user123”}<br>返回数据：</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs json"><span class="hljs-punctuation">&#123;</span><br>    <span class="hljs-attr">&quot;errno&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">0</span><span class="hljs-punctuation">,</span><br>    <span class="hljs-attr">&quot;data&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">&#123;</span><br>        <span class="hljs-attr">&quot;userInfo&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">&#123;</span><br>            <span class="hljs-attr">&quot;avatarUrl&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;&quot;</span><span class="hljs-punctuation">,</span><br>            <span class="hljs-attr">&quot;nickName&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;user123&quot;</span><br>        <span class="hljs-punctuation">&#125;</span><span class="hljs-punctuation">,</span><br>        <span class="hljs-attr">&quot;token&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ0aGlzIGlzIGxpdGVtYWxsIHRva2VuIiwiYXVkIjoiTUlOSUFQUCIsImlzcyI6IkxJVEVNQUxMIiwiZXhwIjoxNzA4OTY1MTMwLCJ1c2VySWQiOjEsImlhdCI6MTcwODk1NzkzMH0.s4B_e-pUiQc0Fd1SIkBom5F7sY995oDswyvmbZTfj_0&quot;</span><br>    <span class="hljs-punctuation">&#125;</span><span class="hljs-punctuation">,</span><br>    <span class="hljs-attr">&quot;errmsg&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;成功&quot;</span><br><span class="hljs-punctuation">&#125;</span><br></code></pre></td></tr></table></figure>
+
+<p>测试计划结构如下：</p>
+<img src="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202402262245379.png" srcset="/img/loading.gif" lazyload alt="image-20240226224536273" style="zoom:80%;" />
+
+<ul>
+<li><p>信息头管理</p>
+<img src="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202402262247982.png" srcset="/img/loading.gif" lazyload alt="image-20240226224722950" style="zoom:80%;" />
+</li>
+<li><p>请求默认值（存放公共信息）</p>
+<img src="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202402262248009.png" srcset="/img/loading.gif" lazyload alt="image-20240226224807971" style="zoom:80%;" />
+</li>
+<li><p>响应断言 - 状态码</p>
+<img src="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202402262251608.png" srcset="/img/loading.gif" lazyload alt="image-20240226225104563" style="zoom: 67%;" />
+</li>
+<li><p>JSON 断言 - errmsg</p>
+<img src="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202402262253121.png" srcset="/img/loading.gif" lazyload alt="image-20240226225314084" style="zoom: 67%;" />
+</li>
+<li><p>JSON 断言 - nickName</p>
+<img src="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202402262256719.png" srcset="/img/loading.gif" lazyload alt="image-20240226225614684" style="zoom:80%;" />
+</li>
+<li><p>观察查看结果树中的 <code>HTTP请求 - 登录</code> ，绿色则代表断言通过</p>
+<img src="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202402262300422.png" srcset="/img/loading.gif" lazyload alt="image-20240226230058391" style="zoom:80%;" /></li>
+</ul>
+<h1 id="14-业务性能测试"><a href="#14-业务性能测试" class="headerlink" title="14. 业务性能测试"></a>14. 业务性能测试</h1><p>通过将请求放入事务控制器（<code>线程组 --&gt; 逻辑控制器 --&gt; 事务控制器</code> ）可以将整体业务作为单位进行指标统计</p>
+<img src="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202402291549794.png" srcset="/img/loading.gif" lazyload alt="image-20240229154908733" style="zoom:80%;" />
+
+<img src="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202402291550204.png" srcset="/img/loading.gif" lazyload alt="image-20240229155000148" style="zoom:80%;" />
+
+<h1 id="15-稳定性测试"><a href="#15-稳定性测试" class="headerlink" title="15. 稳定性测试"></a>15. 稳定性测试</h1><ul>
+<li>确定出稳定运行的所有业务操作</li>
+<li>根据运营数据，分析出每个业务操作对应的虚拟用户数</li>
+</ul>
+<p><strong>稳定性测试执行</strong>：</p>
+<ul>
+<li>所有脚本同时执行（解除前后依赖）</li>
+<li>每个脚本都是一个业务&#x2F;事务（使用事务控制器封装）</li>
+<li>按照要求设置虚拟用户数和运行时间</li>
+<li>执行稳定性测试并监控</li>
+</ul>
+<p>如以下要求</p>
+<table>
+<thead>
+<tr>
+<th align="center">同时稳定运行的业务操作</th>
+<th align="center">每个业务对应的虚拟用户数</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">登录</td>
+<td align="center">40</td>
+</tr>
+<tr>
+<td align="center">进入首页</td>
+<td align="center">30</td>
+</tr>
+<tr>
+<td align="center">搜索</td>
+<td align="center">20</td>
+</tr>
+<tr>
+<td align="center">获取商品详情</td>
+<td align="center">30</td>
+</tr>
+<tr>
+<td align="center">加入购物车</td>
+<td align="center">20</td>
+</tr>
+<tr>
+<td align="center">查看我的订单</td>
+<td align="center">30</td>
+</tr>
+<tr>
+<td align="center">完整下单业务</td>
+<td align="center">30</td>
+</tr>
+</tbody></table>
+<h1 id="16-性能测试分析与调优"><a href="#16-性能测试分析与调优" class="headerlink" title="16. 性能测试分析与调优"></a>16. 性能测试分析与调优</h1><p><strong>步骤</strong></p>
+<ul>
+<li>确定问题。根据性能测试结果分析 BUG —— 测试人员职责</li>
+<li>分析问题。分析问题产生的原因 —— 开发人员职责</li>
+<li>给出解决方案。可以是修改软件配置、增加硬件资源配置、修改代码等 —— 开发人员职责</li>
+<li>验证解决方案。—— 测试人员回归测试</li>
+<li>分析验证结果 —— 既要保证有问题的指标得到解决，又要保证其他指标没有出现新问题</li>
+</ul>
+<p><strong>注意</strong>：性能分析和调优需要经过很多讨论，才能最终解决问题</p>
+<p><strong>性能问题可能产生的原因</strong></p>
+<ul>
+<li><p>服务器的资源</p>
+<ul>
+<li>CPU 瓶颈：CPU已压满（接近100%），通常其他指标的拐点出现的时刻是否与CPU压满的时刻基本一致</li>
+<li>内存瓶颈：内存不足时，操作系统会使用虚拟内存，从虚拟内存读取数据，影响处理速度</li>
+<li>磁盘 I&#x2F;O 瓶颈：磁盘 I&#x2F;O 成为瓶颈时，会出现磁盘 I&#x2F;O 繁忙，导致交易执行时在 I&#x2F;O 处等待</li>
+<li>网络带宽：如果传递的数据包过大，超过了带宽的传输能力，就会造成网络资源竞争，导致 TPS 上不去</li>
+</ul>
+</li>
+<li><p>JVM 瓶颈分析</p>
+<ul>
+<li><p>JVM内存：内存申请没有及时释放，造成内存泄漏</p>
+<blockquote>
+<p>Java 虚拟机在执行 Java 程序的过程中所管理的不同的内存数据区域。可简单分为：堆内存和非堆内存</p>
+<ul>
+<li>堆内存：主要存放用 new 关键字创建的对象，所有对象实例以及数组都在堆上分配，给开发人员使用的</li>
+<li>非堆内存：保存虚拟机自己的静态数据，存放加载的 Class 类级别静态对象如类、方法等，给 JVM 自己使用的</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+</li>
+<li><p>数据库瓶颈分析</p>
+<ul>
+<li><p>慢查询</p>
+<blockquote>
+<p>MYSQL通过设置慢查询机制可以定位到执行速度低于所设置阈值的 SQL 语句，从而方便更好优化数据库系统性能</p>
+</blockquote>
+</li>
+<li><p>数据库连接池设置过小，导致数据库连接出现排队</p>
+<blockquote>
+<p>数据库连接池是负责分配、管理和释放数据库连接的机制，它允许应用程序重复使用一个现有的数据库连接，而不是再重新建立一个，其可以提高对数据库操作的性能</p>
+</blockquote>
+</li>
+<li><p>数据库出现死锁</p>
+</li>
+</ul>
+</li>
+<li><p>程序内部实现机制 —― 开发人员编写的代码分析</p>
+</li>
+<li><p>压测机</p>
+<blockquote>
+<p>JMeter 单机负载能力有限，如果需要模拟用户请求数超过其负载极限，也会导致 TPS 上不去</p>
+</blockquote>
+</li>
+</ul>
+<h1 id="17-性能测试报告"><a href="#17-性能测试报告" class="headerlink" title="17. 性能测试报告"></a>17. 性能测试报告</h1><ul>
+<li>测试过程回顾</li>
+<li>问题的分析</li>
+<li>测试结论</li>
+<li>经验和教训</li>
+</ul>
+<h1 id="18-性能指标"><a href="#18-性能指标" class="headerlink" title="18. 性能指标"></a>18. 性能指标</h1><ul>
+<li><p>TPS (transaction per second) ：服务端每秒处理请求的数量</p>
+<blockquote>
+<p>最直观的反映了系统的处理能力，是重要的性能指标之一。TPS 是由 RPS 、网络延迟 、服务端本身的处理速度三个因素决定</p>
+</blockquote>
+</li>
+<li><p>RPS (request per second) ： 测试工具每秒发送请求的数量</p>
+<blockquote>
+<p>RPS 和 TPS 概念不同，前者是每秒发出的请求数量，后者是处理完成的请求数量</p>
+</blockquote>
+</li>
+<li><p>EPS (error per second) 是 服务端 每秒处理出错的数量，也包含在TPS中</p>
+<blockquote>
+<p>一个性能表现良好的系统，EPS 应该一直为0</p>
+</blockquote>
+</li>
+<li><p>TOPS (timeout per second) 是 服务端每秒处理超时的数量</p>
+<blockquote>
+<p>一个性能表现良好的系统，TOPS 应该一直为0</p>
+</blockquote>
+</li>
+</ul>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E6%B5%8B%E8%AF%95%E5%B7%A5%E5%85%B7/" class="category-chain-item">测试工具</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/%E6%B5%8B%E8%AF%95%E5%B7%A5%E5%85%B7/" class="print-no-link">#测试工具</a>
+      
+    </div>
+  
+</div>
+
+
+              
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/blog/%E5%BD%92%E7%BA%B3%E6%80%BB%E7%BB%93/%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/%E5%BD%92%E7%BA%B3%E6%80%BB%E7%BB%93/%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/Hexo%20+%20GitHub%E5%AE%8C%E6%88%90%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E9%83%A8%E7%BD%B2/" title="Hexo + GitHub完成个人博客部署">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">Hexo + GitHub完成个人博客部署</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/blog/%E6%BC%94%E7%A4%BA%E9%A1%B9%E7%9B%AE%E9%83%A8%E7%BD%B2/%E8%AF%AD%E9%9F%B3%E8%AF%86%E5%88%AB/%E6%BC%94%E7%A4%BA%E9%A1%B9%E7%9B%AE%E9%83%A8%E7%BD%B2/%E8%AF%AD%E9%9F%B3%E8%AF%86%E5%88%AB/FunASR%E6%A8%A1%E5%9E%8B%E9%83%A8%E7%BD%B2%E7%AC%94%E8%AE%B0/" title="FunASR模型部署笔记">
+                        <span class="hidden-mobile">FunASR模型部署笔记</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       用文字锁住记忆 
+    </div>
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+<!-- hexo injector body_end start --><script src="/js/backgroundize.js"></script><!-- hexo injector body_end end --></body>
+</html>

@@ -4,23 +4,23 @@
   
   
   <entry>
-    <title>服务器离线环境部署指南</title>
-    <link href="/blog/%E5%AD%A6%E4%B9%A0/%E7%8E%AF%E5%A2%83%E9%83%A8%E7%BD%B2/%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%A6%BB%E7%BA%BF%E7%8E%AF%E5%A2%83%E9%83%A8%E7%BD%B2%E6%8C%87%E5%8D%97/"/>
-    <url>/blog/%E5%AD%A6%E4%B9%A0/%E7%8E%AF%E5%A2%83%E9%83%A8%E7%BD%B2/%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%A6%BB%E7%BA%BF%E7%8E%AF%E5%A2%83%E9%83%A8%E7%BD%B2%E6%8C%87%E5%8D%97/</url>
+    <title>Scapy库使用手册</title>
+    <link href="/blog/Python/%E7%BD%91%E7%BB%9C%E9%80%9A%E4%BF%A1/Python/%E7%BD%91%E7%BB%9C%E9%80%9A%E4%BF%A1/Scapy%E5%BA%93%E4%BD%BF%E7%94%A8%E6%89%8B%E5%86%8C/"/>
+    <url>/blog/Python/%E7%BD%91%E7%BB%9C%E9%80%9A%E4%BF%A1/Python/%E7%BD%91%E7%BB%9C%E9%80%9A%E4%BF%A1/Scapy%E5%BA%93%E4%BD%BF%E7%94%A8%E6%89%8B%E5%86%8C/</url>
     
     
     <categories>
       
-      <category>学习</category>
+      <category>Python</category>
       
-      <category>环境部署</category>
+      <category>网络通信</category>
       
     </categories>
     
     
     <tags>
       
-      <tag>Linux环境离线部署</tag>
+      <tag>网络通信</tag>
       
     </tags>
     
@@ -29,23 +29,73 @@
   
   
   <entry>
-    <title>Word文档自动化基础</title>
-    <link href="/blog/%E5%AD%A6%E4%B9%A0/Python%E7%AC%AC%E4%B8%89%E6%96%B9%E5%BA%93/Word%E6%96%87%E6%A1%A3%E8%87%AA%E5%8A%A8%E5%8C%96%E5%9F%BA%E7%A1%80/"/>
-    <url>/blog/%E5%AD%A6%E4%B9%A0/Python%E7%AC%AC%E4%B8%89%E6%96%B9%E5%BA%93/Word%E6%96%87%E6%A1%A3%E8%87%AA%E5%8A%A8%E5%8C%96%E5%9F%BA%E7%A1%80/</url>
+    <title>AISBench大模型推理性能工具指南</title>
+    <link href="/blog/%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%95/%E5%A4%A7%E6%A8%A1%E5%9E%8B%E6%8E%A8%E7%90%86%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%95/%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%95/%E5%A4%A7%E6%A8%A1%E5%9E%8B%E6%8E%A8%E7%90%86%E6%80%A7%E8%83%BD/AISBench%E5%A4%A7%E6%A8%A1%E5%9E%8B%E6%8E%A8%E7%90%86%E6%80%A7%E8%83%BD%E5%B7%A5%E5%85%B7%E6%8C%87%E5%8D%97/"/>
+    <url>/blog/%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%95/%E5%A4%A7%E6%A8%A1%E5%9E%8B%E6%8E%A8%E7%90%86%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%95/%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%95/%E5%A4%A7%E6%A8%A1%E5%9E%8B%E6%8E%A8%E7%90%86%E6%80%A7%E8%83%BD/AISBench%E5%A4%A7%E6%A8%A1%E5%9E%8B%E6%8E%A8%E7%90%86%E6%80%A7%E8%83%BD%E5%B7%A5%E5%85%B7%E6%8C%87%E5%8D%97/</url>
     
     
     <categories>
       
-      <category>学习</category>
+      <category>性能测试</category>
       
-      <category>Python第三方库</category>
+      <category>大模型推理性能测试</category>
       
     </categories>
     
     
     <tags>
       
-      <tag>办公自动化</tag>
+      <tag>大模型推理性能测试</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>Linux服务器环境部署指南</title>
+    <link href="/blog/%E5%BD%92%E7%BA%B3%E6%80%BB%E7%BB%93/%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E9%83%A8%E7%BD%B2/%E5%BD%92%E7%BA%B3%E6%80%BB%E7%BB%93/%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E9%83%A8%E7%BD%B2/Linux%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%8E%AF%E5%A2%83%E9%83%A8%E7%BD%B2%E6%8C%87%E5%8D%97/"/>
+    <url>/blog/%E5%BD%92%E7%BA%B3%E6%80%BB%E7%BB%93/%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E9%83%A8%E7%BD%B2/%E5%BD%92%E7%BA%B3%E6%80%BB%E7%BB%93/%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E9%83%A8%E7%BD%B2/Linux%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%8E%AF%E5%A2%83%E9%83%A8%E7%BD%B2%E6%8C%87%E5%8D%97/</url>
+    
+    
+    <categories>
+      
+      <category>归纳总结</category>
+      
+      <category>开发环境部署</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>开发环境部署</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>docx库使用手册</title>
+    <link href="/blog/Python/%E5%8A%9E%E5%85%AC%E6%95%88%E7%8E%87/Python/%E5%8A%9E%E5%85%AC%E6%95%88%E7%8E%87/docx%E5%BA%93%E4%BD%BF%E7%94%A8%E6%89%8B%E5%86%8C/"/>
+    <url>/blog/Python/%E5%8A%9E%E5%85%AC%E6%95%88%E7%8E%87/Python/%E5%8A%9E%E5%85%AC%E6%95%88%E7%8E%87/docx%E5%BA%93%E4%BD%BF%E7%94%A8%E6%89%8B%E5%86%8C/</url>
+    
+    
+    <categories>
+      
+      <category>Python</category>
+      
+      <category>办公效率</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>办公效率</tag>
       
     </tags>
     
@@ -55,15 +105,15 @@
   
   <entry>
     <title>Hexo + GitHub完成个人博客部署</title>
-    <link href="/blog/%E5%AD%A6%E4%B9%A0/%E7%8E%AF%E5%A2%83%E9%83%A8%E7%BD%B2/Hexo%20+%20GitHub%E5%AE%8C%E6%88%90%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E9%83%A8%E7%BD%B2/"/>
-    <url>/blog/%E5%AD%A6%E4%B9%A0/%E7%8E%AF%E5%A2%83%E9%83%A8%E7%BD%B2/Hexo%20+%20GitHub%E5%AE%8C%E6%88%90%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E9%83%A8%E7%BD%B2/</url>
+    <link href="/blog/%E5%BD%92%E7%BA%B3%E6%80%BB%E7%BB%93/%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/%E5%BD%92%E7%BA%B3%E6%80%BB%E7%BB%93/%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/Hexo%20+%20GitHub%E5%AE%8C%E6%88%90%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E9%83%A8%E7%BD%B2/"/>
+    <url>/blog/%E5%BD%92%E7%BA%B3%E6%80%BB%E7%BB%93/%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/%E5%BD%92%E7%BA%B3%E6%80%BB%E7%BB%93/%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/Hexo%20+%20GitHub%E5%AE%8C%E6%88%90%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E9%83%A8%E7%BD%B2/</url>
     
     
     <categories>
       
-      <category>学习</category>
+      <category>归纳总结</category>
       
-      <category>环境部署</category>
+      <category>个人博客搭建</category>
       
     </categories>
     
@@ -73,6 +123,367 @@
       <tag>博客搭建</tag>
       
       <tag>域名申请</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>Jmeter基础</title>
+    <link href="/blog/%E6%B5%8B%E8%AF%95%E5%B7%A5%E5%85%B7/%E6%B5%8B%E8%AF%95%E5%B7%A5%E5%85%B7/Jmeter%E5%9F%BA%E7%A1%80/"/>
+    <url>/blog/%E6%B5%8B%E8%AF%95%E5%B7%A5%E5%85%B7/%E6%B5%8B%E8%AF%95%E5%B7%A5%E5%85%B7/Jmeter%E5%9F%BA%E7%A1%80/</url>
+    
+    
+    <categories>
+      
+      <category>测试工具</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>测试工具</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>FunASR模型部署笔记</title>
+    <link href="/blog/%E6%BC%94%E7%A4%BA%E9%A1%B9%E7%9B%AE%E9%83%A8%E7%BD%B2/%E8%AF%AD%E9%9F%B3%E8%AF%86%E5%88%AB/%E6%BC%94%E7%A4%BA%E9%A1%B9%E7%9B%AE%E9%83%A8%E7%BD%B2/%E8%AF%AD%E9%9F%B3%E8%AF%86%E5%88%AB/FunASR%E6%A8%A1%E5%9E%8B%E9%83%A8%E7%BD%B2%E7%AC%94%E8%AE%B0/"/>
+    <url>/blog/%E6%BC%94%E7%A4%BA%E9%A1%B9%E7%9B%AE%E9%83%A8%E7%BD%B2/%E8%AF%AD%E9%9F%B3%E8%AF%86%E5%88%AB/%E6%BC%94%E7%A4%BA%E9%A1%B9%E7%9B%AE%E9%83%A8%E7%BD%B2/%E8%AF%AD%E9%9F%B3%E8%AF%86%E5%88%AB/FunASR%E6%A8%A1%E5%9E%8B%E9%83%A8%E7%BD%B2%E7%AC%94%E8%AE%B0/</url>
+    
+    
+    <categories>
+      
+      <category>演示项目部署</category>
+      
+      <category>语音识别</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>语音识别</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>Postman基础</title>
+    <link href="/blog/%E6%B5%8B%E8%AF%95%E5%B7%A5%E5%85%B7/%E6%B5%8B%E8%AF%95%E5%B7%A5%E5%85%B7/Postman%E5%9F%BA%E7%A1%80/"/>
+    <url>/blog/%E6%B5%8B%E8%AF%95%E5%B7%A5%E5%85%B7/%E6%B5%8B%E8%AF%95%E5%B7%A5%E5%85%B7/Postman%E5%9F%BA%E7%A1%80/</url>
+    
+    
+    <categories>
+      
+      <category>测试工具</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>测试工具</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>Pytest基础</title>
+    <link href="/blog/%E6%B5%8B%E8%AF%95%E6%8A%80%E6%9C%AF%E6%A0%88/%E6%B5%8B%E8%AF%95%E6%A1%86%E6%9E%B6/%E6%B5%8B%E8%AF%95%E6%8A%80%E6%9C%AF%E6%A0%88/%E6%B5%8B%E8%AF%95%E6%A1%86%E6%9E%B6/Pytest%E5%9F%BA%E7%A1%80/"/>
+    <url>/blog/%E6%B5%8B%E8%AF%95%E6%8A%80%E6%9C%AF%E6%A0%88/%E6%B5%8B%E8%AF%95%E6%A1%86%E6%9E%B6/%E6%B5%8B%E8%AF%95%E6%8A%80%E6%9C%AF%E6%A0%88/%E6%B5%8B%E8%AF%95%E6%A1%86%E6%9E%B6/Pytest%E5%9F%BA%E7%A1%80/</url>
+    
+    
+    <categories>
+      
+      <category>测试技术栈</category>
+      
+      <category>测试框架</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>测试框架</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>selenium基础</title>
+    <link href="/blog/%E6%B5%8B%E8%AF%95%E6%8A%80%E6%9C%AF%E6%A0%88/UI%E8%87%AA%E5%8A%A8%E5%8C%96/%E6%B5%8B%E8%AF%95%E6%8A%80%E6%9C%AF%E6%A0%88/UI%E8%87%AA%E5%8A%A8%E5%8C%96/Selenium%E5%9F%BA%E7%A1%80/"/>
+    <url>/blog/%E6%B5%8B%E8%AF%95%E6%8A%80%E6%9C%AF%E6%A0%88/UI%E8%87%AA%E5%8A%A8%E5%8C%96/%E6%B5%8B%E8%AF%95%E6%8A%80%E6%9C%AF%E6%A0%88/UI%E8%87%AA%E5%8A%A8%E5%8C%96/Selenium%E5%9F%BA%E7%A1%80/</url>
+    
+    
+    <categories>
+      
+      <category>测试技术栈</category>
+      
+      <category>UI自动化</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>UI自动化</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>易错题集</title>
+    <link href="/blog/%E9%9D%A2%E8%AF%95/%E9%9D%A2%E8%AF%95/%E7%89%9B%E5%AE%A2%E7%BD%91%E9%94%99%E9%A2%98%E9%9B%86/"/>
+    <url>/blog/%E9%9D%A2%E8%AF%95/%E9%9D%A2%E8%AF%95/%E7%89%9B%E5%AE%A2%E7%BD%91%E9%94%99%E9%A2%98%E9%9B%86/</url>
+    
+    
+    <categories>
+      
+      <category>面试</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>面试</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>究极无敌面试宝典合集</title>
+    <link href="/blog/%E9%9D%A2%E8%AF%95/%E9%9D%A2%E8%AF%95/%E7%A9%B6%E6%9E%81%E6%97%A0%E6%95%8C%E9%9D%A2%E8%AF%95%E5%AE%9D%E5%85%B8%E5%90%88%E9%9B%86/"/>
+    <url>/blog/%E9%9D%A2%E8%AF%95/%E9%9D%A2%E8%AF%95/%E7%A9%B6%E6%9E%81%E6%97%A0%E6%95%8C%E9%9D%A2%E8%AF%95%E5%AE%9D%E5%85%B8%E5%90%88%E9%9B%86/</url>
+    
+    
+    <categories>
+      
+      <category>面试</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>面试</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>Fiddler基础</title>
+    <link href="/blog/%E6%B5%8B%E8%AF%95%E5%B7%A5%E5%85%B7/%E6%B5%8B%E8%AF%95%E5%B7%A5%E5%85%B7/Fiddler%E5%9F%BA%E7%A1%80/"/>
+    <url>/blog/%E6%B5%8B%E8%AF%95%E5%B7%A5%E5%85%B7/%E6%B5%8B%E8%AF%95%E5%B7%A5%E5%85%B7/Fiddler%E5%9F%BA%E7%A1%80/</url>
+    
+    
+    <categories>
+      
+      <category>测试工具</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>测试工具</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>UnitTest基础</title>
+    <link href="/blog/%E6%B5%8B%E8%AF%95%E6%8A%80%E6%9C%AF%E6%A0%88/%E6%B5%8B%E8%AF%95%E6%A1%86%E6%9E%B6/%E6%B5%8B%E8%AF%95%E6%8A%80%E6%9C%AF%E6%A0%88/%E6%B5%8B%E8%AF%95%E6%A1%86%E6%9E%B6/UnitTest%E5%9F%BA%E7%A1%80/"/>
+    <url>/blog/%E6%B5%8B%E8%AF%95%E6%8A%80%E6%9C%AF%E6%A0%88/%E6%B5%8B%E8%AF%95%E6%A1%86%E6%9E%B6/%E6%B5%8B%E8%AF%95%E6%8A%80%E6%9C%AF%E6%A0%88/%E6%B5%8B%E8%AF%95%E6%A1%86%E6%9E%B6/UnitTest%E5%9F%BA%E7%A1%80/</url>
+    
+    
+    <categories>
+      
+      <category>测试技术栈</category>
+      
+      <category>测试框架</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>测试框架</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>Requests基础</title>
+    <link href="/blog/Python/%E6%8E%A5%E5%8F%A3%E8%AF%B7%E6%B1%82/Python/%E6%8E%A5%E5%8F%A3%E8%AF%B7%E6%B1%82/Requests%E5%9F%BA%E7%A1%80/"/>
+    <url>/blog/Python/%E6%8E%A5%E5%8F%A3%E8%AF%B7%E6%B1%82/Python/%E6%8E%A5%E5%8F%A3%E8%AF%B7%E6%B1%82/Requests%E5%9F%BA%E7%A1%80/</url>
+    
+    
+    <categories>
+      
+      <category>Python</category>
+      
+      <category>接口请求</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>接口请求</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>Appium基础</title>
+    <link href="/blog/%E6%B5%8B%E8%AF%95%E6%8A%80%E6%9C%AF%E6%A0%88/UI%E8%87%AA%E5%8A%A8%E5%8C%96/%E6%B5%8B%E8%AF%95%E6%8A%80%E6%9C%AF%E6%A0%88/UI%E8%87%AA%E5%8A%A8%E5%8C%96/Appium%E5%9F%BA%E7%A1%80/"/>
+    <url>/blog/%E6%B5%8B%E8%AF%95%E6%8A%80%E6%9C%AF%E6%A0%88/UI%E8%87%AA%E5%8A%A8%E5%8C%96/%E6%B5%8B%E8%AF%95%E6%8A%80%E6%9C%AF%E6%A0%88/UI%E8%87%AA%E5%8A%A8%E5%8C%96/Appium%E5%9F%BA%E7%A1%80/</url>
+    
+    
+    <categories>
+      
+      <category>测试技术栈</category>
+      
+      <category>UI自动化</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>UI自动化</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>PyMysql基础</title>
+    <link href="/blog/Python/%E6%95%B0%E6%8D%AE%E5%BA%93/Python/%E6%95%B0%E6%8D%AE%E5%BA%93/PyMysql%E5%9F%BA%E7%A1%80/"/>
+    <url>/blog/Python/%E6%95%B0%E6%8D%AE%E5%BA%93/Python/%E6%95%B0%E6%8D%AE%E5%BA%93/PyMysql%E5%9F%BA%E7%A1%80/</url>
+    
+    
+    <categories>
+      
+      <category>Python</category>
+      
+      <category>数据库</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>数据库</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>JsonScheme库使用手册</title>
+    <link href="/blog/Python/%E6%A0%BC%E5%BC%8F%E6%A0%A1%E9%AA%8C/Python/%E6%A0%BC%E5%BC%8F%E6%A0%A1%E9%AA%8C/JsonScheme%E5%BA%93%E4%BD%BF%E7%94%A8%E6%89%8B%E5%86%8C/"/>
+    <url>/blog/Python/%E6%A0%BC%E5%BC%8F%E6%A0%A1%E9%AA%8C/Python/%E6%A0%BC%E5%BC%8F%E6%A0%A1%E9%AA%8C/JsonScheme%E5%BA%93%E4%BD%BF%E7%94%A8%E6%89%8B%E5%86%8C/</url>
+    
+    
+    <categories>
+      
+      <category>Python</category>
+      
+      <category>格式校验</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>格式校验</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>Excel基础</title>
+    <link href="/blog/%E5%8A%9E%E5%85%AC%E8%BD%AF%E4%BB%B6/%E5%8A%9E%E5%85%AC%E8%BD%AF%E4%BB%B6/Excel%E5%9F%BA%E7%A1%80/"/>
+    <url>/blog/%E5%8A%9E%E5%85%AC%E8%BD%AF%E4%BB%B6/%E5%8A%9E%E5%85%AC%E8%BD%AF%E4%BB%B6/Excel%E5%9F%BA%E7%A1%80/</url>
+    
+    
+    <categories>
+      
+      <category>办公软件</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>办公软件</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>Word基础</title>
+    <link href="/blog/%E5%8A%9E%E5%85%AC%E8%BD%AF%E4%BB%B6/%E5%8A%9E%E5%85%AC%E8%BD%AF%E4%BB%B6/Word%E5%9F%BA%E7%A1%80/"/>
+    <url>/blog/%E5%8A%9E%E5%85%AC%E8%BD%AF%E4%BB%B6/%E5%8A%9E%E5%85%AC%E8%BD%AF%E4%BB%B6/Word%E5%9F%BA%E7%A1%80/</url>
+    
+    
+    <categories>
+      
+      <category>办公软件</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>办公软件</tag>
       
     </tags>
     

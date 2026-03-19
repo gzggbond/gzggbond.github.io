@@ -1,0 +1,1183 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/our/logo.png">
+  <link rel="icon" href="/img/our/logo.png">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="Z_Jump_Dragon">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="牛客网易错题总结">
+<meta property="og:type" content="article">
+<meta property="og:title" content="易错题集">
+<meta property="og:url" content="https://dragooon.top/blog/%E9%9D%A2%E8%AF%95/%E9%9D%A2%E8%AF%95/%E7%89%9B%E5%AE%A2%E7%BD%91%E9%94%99%E9%A2%98%E9%9B%86/index.html">
+<meta property="og:site_name" content="棱镜里的日常">
+<meta property="og:description" content="牛客网易错题总结">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202403280801680.png">
+<meta property="og:image" content="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202403280904258.png">
+<meta property="og:image" content="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202403280904233.png">
+<meta property="og:image" content="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202403280933664.png">
+<meta property="og:image" content="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202403281020631.png">
+<meta property="og:image" content="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202403281114135.png">
+<meta property="og:image" content="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202404082212145.png">
+<meta property="og:image" content="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202404091058913.png">
+<meta property="og:image" content="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202404091100588.png">
+<meta property="og:image" content="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202404091101468.png">
+<meta property="og:image" content="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202404111108925.png">
+<meta property="og:image" content="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202404111108507.png">
+<meta property="og:image" content="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202404111224804.png">
+<meta property="og:image" content="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202404111224671.png">
+<meta property="og:image" content="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202404111224903.png">
+<meta property="og:image" content="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202404121034300.png">
+<meta property="og:image" content="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202404121035072.png">
+<meta property="og:image" content="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202404121035584.png">
+<meta property="og:image" content="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202404121036636.png">
+<meta property="og:image" content="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202404131126610.png">
+<meta property="og:image" content="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202404131127771.png">
+<meta property="og:image" content="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202404141231898.png">
+<meta property="og:image" content="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202404141232757.png">
+<meta property="og:image" content="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202404211002872.png">
+<meta property="og:image" content="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202404211003948.png">
+<meta property="og:image" content="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202404211004746.png">
+<meta property="og:image" content="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202404211149029.png">
+<meta property="og:image" content="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202404211149210.png">
+<meta property="og:image" content="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202404261730414.png">
+<meta property="og:image" content="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202403281005279.png">
+<meta property="og:image" content="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202403281016139.png">
+<meta property="og:image" content="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202404021453436.png">
+<meta property="article:published_time" content="2024-07-24T03:21:23.000Z">
+<meta property="article:modified_time" content="2026-03-19T04:03:53.022Z">
+<meta property="article:author" content="Z_Jump_Dragon">
+<meta property="article:tag" content="面试">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202403280801680.png">
+  
+  
+  
+  <title>易错题集 - 棱镜里的日常</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+  
+<link rel="stylesheet" href="/css/cloudedGlass.css">
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"dragooon.top","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":60,"cursorChar":"_","loop":false,"scope":["home"]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"left","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":3},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":false};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+
+<body><!-- hexo injector body_begin start --><div id="web_bg"></div><!-- hexo injector body_begin end -->
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 100vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>棱镜里的日常</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/our/article.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle">易错题集</span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-author" aria-hidden="true"></i>
+        Z_Jump_Dragon
+      </span>
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2024-07-24 11:21" pubdate>
+          2024年7月24日 上午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          9.8k 字
+        
+      </span>
+    
+
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+        <div class="scroll-down-bar">
+          <i class="iconfont icon-arrowdown"></i>
+        </div>
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="padding-left: 2rem; margin-right: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">易错题集</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h1 id="1-数据库"><a href="#1-数据库" class="headerlink" title="1. 数据库"></a>1. 数据库</h1><h2 id="1-1-概念相关"><a href="#1-1-概念相关" class="headerlink" title="1.1 概念相关"></a>1.1 概念相关</h2><h3 id="1-1-1-结构化查询语言包含哪些部分？"><a href="#1-1-1-结构化查询语言包含哪些部分？" class="headerlink" title="1.1.1 结构化查询语言包含哪些部分？"></a>1.1.1 结构化查询语言包含哪些部分？</h3><p>①数据查询语言（DQL）②数据操作语言（DML）③事务处理语言（TPL）<br>④数据控制语言（DCL）⑤数据定义语言（DDL）⑥指针控制语言（CCL）</p>
+<hr>
+<h3 id="1-1-2-MySQL查询语句的正确执行顺序是什么？"><a href="#1-1-2-MySQL查询语句的正确执行顺序是什么？" class="headerlink" title="1.1.2 MySQL查询语句的正确执行顺序是什么？"></a>1.1.2 MySQL查询语句的正确执行顺序是什么？</h3><p>FROM(including JOIN) –&gt; WHERE –&gt; GROUP BY –&gt; HAVING –&gt; SELECT –&gt; DISTINCT –&gt; ORDER BY –&gt; LIMIT&#x2F;OFFSET</p>
+<hr>
+<h3 id="1-1-3-如何解决事务的脏读、不可重复读以及幻读？"><a href="#1-1-3-如何解决事务的脏读、不可重复读以及幻读？" class="headerlink" title="1.1.3 如何解决事务的脏读、不可重复读以及幻读？"></a>1.1.3 如何解决事务的脏读、不可重复读以及幻读？</h3><blockquote>
+<ul>
+<li><strong>脏读</strong>：当一个事务<strong>读取到另一个事务尚未提交的修改时</strong>，产生脏读</li>
+<li><strong>不可重复读</strong>：同一查询在同一事务中多次进行，由于<strong>其他提交事务所做的&#x3D;&#x3D;修改或删除&#x3D;&#x3D;，每次返回不同的结果集</strong>，此时发生不可重复读</li>
+<li><strong>幻读</strong>：同一查询在同一事务中多次发生，由于<strong>其他提交事务所做的&#x3D;&#x3D;插入&#x3D;&#x3D;操作，每次返回不同的结果集</strong>，此时发生幻读</li>
+</ul>
+</blockquote>
+<p>脏读解决方案：修改时加排他锁，直到事务提交后释放，读取时加共享锁</p>
+<p>不可重复读&#x2F;幻读解决方案：读取数据时加共享锁，写数据时加排他锁，都是事务提交才释放锁</p>
+<blockquote>
+<ul>
+<li><strong>排他锁</strong>允许一个线程或进程独占地对资源进行读写访问，而阻止其他线程或进程对该资源的访问<ol>
+<li><strong>独占性</strong>：排他锁是独占性的，即只有一个线程或进程能够持有排他锁，允许它对资源进行读写操作，其他线程或进程在该锁被持有期间无法访问资源</li>
+<li><strong>防止并发写入冲突</strong>：排他锁的主要作用是防止并发写入冲突，确保在资源被一个线程或进程写入时不会同时被其他线程或进程写入，从而维护数据的一致性</li>
+<li><strong>阻塞其他访问</strong>：当一个线程或进程持有排他锁时，其他线程或进程在试图获取相同资源的排他锁时通常会被阻塞，直到当前线程或进程释放了该锁</li>
+</ol>
+</li>
+<li><strong>共享锁</strong>是一种锁定机制，用于控制对共享资源的并发访问<ol>
+<li><strong>非排他性</strong>：共享锁是非排他性的，允许多个线程或进程同时持有共享锁，但不允许对资源进行写入操作</li>
+<li><strong>避免写入冲突</strong>：共享锁通过阻止对资源的写入访问来避免写入冲突，从而确保在共享资源被读取时不会发生写入操作</li>
+</ol>
+</li>
+</ul>
+</blockquote>
+<hr>
+<h3 id="1-1-4-drop，delete、truncate"><a href="#1-1-4-drop，delete、truncate" class="headerlink" title="1.1.4 drop，delete、truncate"></a>1.1.4 drop，delete、truncate</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs sql"># 删除表<br><span class="hljs-keyword">drop</span><span class="hljs-operator">/</span><span class="hljs-keyword">truncate</span><span class="hljs-operator">/</span><span class="hljs-keyword">delete</span> <span class="hljs-keyword">table</span> 表名<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li><p>处理效率</p>
+<blockquote>
+<p>drop &gt; truncate &gt; delete</p>
+</blockquote>
+</li>
+<li><p>删除范围</p>
+<blockquote>
+<p>drop 删除整个表（结构和数据一起删除）；truncate 删除全部记录，但不删除表结构；delete 只删除数据</p>
+</blockquote>
+</li>
+<li><p>高水位线</p>
+<blockquote>
+<p>delete 不影响自增 ID 值，高水线保持原位置不动；truncate 会将高水线复位，自增 ID 变为 1</p>
+</blockquote>
+</li>
+</ul>
+<h2 id="1-2-编程相关"><a href="#1-2-编程相关" class="headerlink" title="1.2 编程相关"></a>1.2 编程相关</h2><h3 id="1-2-1-输出题目真实通过率"><a href="#1-2-1-输出题目真实通过率" class="headerlink" title="1.2.1 输出题目真实通过率"></a>1.2.1 输出题目真实通过率</h3><p>牛客刷题记录表<code>done_questions_record</code>，为验证重复刷题率，需要我们查找一些数据： </p>
+<ul>
+<li>question_pass_rate：表示每个用户不同题目的通过率（同一用户同一题重复提交通过仅计算一次）</li>
+<li>pass_rate：表示每个用户的提交正确率（只要有提交一次即计算一次）</li>
+<li>question_per_cnt：表示平均每道不同的题目被提交的次数（只要有一次提交即计算一次）</li>
+</ul>
+<p>请你输出题目通过率 question_pass_rate &gt; 60% 的用户的提交正确率 pass_rate 与每题目平均提交次数  question_per_cnt，按照用户名升序排序。result_info ‘是否通过，1：通过； 0：不通过’</p>
+<img src="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202403280801680.png" srcset="/img/loading.gif" lazyload alt="image-20240328080101606" style="zoom:50%;" />
+
+<p>查询返回结果名称和顺序为：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sql">user_id<span class="hljs-operator">|</span>question_pass_rate<span class="hljs-operator">|</span>pass_rate<span class="hljs-operator">|</span>question_per_cnt<br></code></pre></td></tr></table></figure>
+
+<hr>
+<p>$$<br>question_pass_rate &#x3D; \dfrac{diff_question_pass_num}{all_diff_question_num}\\<br>pass_rate&#x3D;\dfrac{all_question_pass_num}{all_question_num}\\<br>question_per_cnt&#x3D;\dfrac{all_question_num}{all_diff_question_num}<br>$$</p>
+<ul>
+<li>diff_question_pass_num：每个用户提交不同题目通过总数</li>
+<li>all_diff_question_num：每个用户提交不同题目总数</li>
+<li>all_question_pass：每个用户所有提交题目通过次数</li>
+<li>all_question_num：每个用户提交题目次数</li>
+</ul>
+<p>三项指标皆以“每个用户”开头，因此对 user_id 进行分组，接着按照公式对各项信息进行处理即可</p>
+<blockquote>
+<p>select 中对列起的别名可以在 having 中直接使用</p>
+</blockquote>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs sql"># question_pass_rate：每个用户不同题目通过率<br># pass_rate：每个用户的提交正确率<br># question_per_cnt：每个用户平均每道不同的题目被提交的次数<br><span class="hljs-keyword">select</span> user_id,<br><span class="hljs-built_in">count</span>(<span class="hljs-keyword">distinct</span> if(result_info<span class="hljs-operator">=</span><span class="hljs-number">1</span>,question_id,<span class="hljs-keyword">null</span>))<span class="hljs-operator">/</span><span class="hljs-built_in">count</span>(<span class="hljs-keyword">distinct</span> question_id) <span class="hljs-keyword">as</span>  question_pass_rate,<br><span class="hljs-built_in">sum</span>(result_info)<span class="hljs-operator">/</span><span class="hljs-built_in">count</span>(result_info) <span class="hljs-keyword">as</span> pass_rate, <br><span class="hljs-built_in">count</span>(result_info)<span class="hljs-operator">/</span><span class="hljs-built_in">count</span>(<span class="hljs-keyword">distinct</span> question_id) <span class="hljs-keyword">as</span> question_per_cnt<br><span class="hljs-keyword">from</span> done_questions_record <br><span class="hljs-keyword">group</span> <span class="hljs-keyword">by</span> user_id<br># result_info<span class="hljs-operator">=</span><span class="hljs-number">1</span>且question_id不重复的行数<br><span class="hljs-keyword">having</span> question_pass_rate <span class="hljs-operator">&gt;</span> <span class="hljs-number">0.6</span><br><span class="hljs-keyword">order</span> <span class="hljs-keyword">by</span> user_id<br></code></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="1-2-2-统计复旦用户8月练题情况"><a href="#1-2-2-统计复旦用户8月练题情况" class="headerlink" title="1.2.2 统计复旦用户8月练题情况"></a>1.2.2 统计复旦用户8月练题情况</h3><p>现在运营想要了解复旦大学的每个用户在 8 月份练习的总题目数和回答正确的题目数情况，请取出相应明细数据，对于在8 月份没有练习过的用户，答题数结果返回 0</p>
+<img src="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202403280904258.png" srcset="/img/loading.gif" lazyload alt="image-20240328090411188" style="zoom:67%;" />
+
+<img src="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202403280904233.png" srcset="/img/loading.gif" lazyload alt="image-20240328090428191" style="zoom: 67%;" />
+
+<p>查询返回结果名称和顺序为：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sql">device_id<span class="hljs-operator">|</span>university<span class="hljs-operator">|</span>question_cnt<span class="hljs-operator">|</span>right_question_cnt<br></code></pre></td></tr></table></figure>
+
+<hr>
+<ul>
+<li>已知题目有两个限制条件：①复旦②8月份，一者在 user_profile 表，另一者在 question_practice_detail 表中，可用 where 进行过滤</li>
+<li>再通过共有关键字 device_id 对user_profile 表与 question_practice_detail 表进行左连接，此时右表留存的记录即“复旦大学 8 月份有练习的学生”记录</li>
+<li>又因为左表数据被完全保留（即满足条件①，无论是否满足条件②），因此按照 device_id 进行分组并通过 count 进行练习数统计后，可以得到所有复旦学生在 8 月的练习总数，没有练习的置 0</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs sql"># 复旦大学的每个用户在<span class="hljs-number">8</span>月份练习的总题目数和回答正确的题目数情况<br># 在<span class="hljs-number">8</span>月份没有练习过的用户，答题数结果返回<span class="hljs-number">0</span><br><span class="hljs-keyword">select</span> a.device_id,university,<span class="hljs-built_in">count</span>(question_id) <span class="hljs-keyword">as</span> question_cnt,<br><span class="hljs-built_in">sum</span>(<span class="hljs-keyword">case</span> <span class="hljs-keyword">when</span> <span class="hljs-keyword">result</span> <span class="hljs-operator">=</span> <span class="hljs-string">&#x27;right&#x27;</span> <span class="hljs-keyword">then</span> <span class="hljs-number">1</span> <span class="hljs-keyword">else</span> <span class="hljs-number">0</span> <span class="hljs-keyword">END</span>) <span class="hljs-keyword">as</span> right_question_cnt <br><span class="hljs-keyword">from</span> (<span class="hljs-keyword">select</span> device_id,university <br><span class="hljs-keyword">from</span> user_profile <span class="hljs-keyword">where</span> university <span class="hljs-operator">=</span> <span class="hljs-string">&#x27;复旦大学&#x27;</span> )a <br># 左连接，a表被全部保留，b表需要满足<span class="hljs-keyword">on</span>条件才被保留<br><span class="hljs-keyword">left</span> <span class="hljs-keyword">join</span> (<span class="hljs-keyword">select</span> <span class="hljs-operator">*</span> <span class="hljs-keyword">from</span> question_practice_detail <br><span class="hljs-keyword">where</span> <span class="hljs-keyword">month</span>(<span class="hljs-type">date</span>)<span class="hljs-operator">=</span><span class="hljs-string">&#x27;08&#x27;</span>)b<br><span class="hljs-keyword">on</span> a.device_id <span class="hljs-operator">=</span> b.device_id<br><span class="hljs-keyword">group</span> <span class="hljs-keyword">by</span> device_id<br></code></pre></td></tr></table></figure>
+
+<h3 id="1-2-3-计算用户的平均次日留存率"><a href="#1-2-3-计算用户的平均次日留存率" class="headerlink" title="1.2.3 计算用户的平均次日留存率"></a>1.2.3 计算用户的平均次日留存率</h3><p>现在运营想要查看用户在某天刷题后第二天还会再来刷题的平均概率。请你取出相应数据</p>
+<img src="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202403280933664.png" srcset="/img/loading.gif" lazyload alt="image-20240328093324624" style="zoom: 67%;" />
+
+<hr>
+<ul>
+<li>题目中有两个条件：①有刷题②第二天有刷题。只要出现在 question_practice_detail 表中的数据皆满足条件①，通过左连接（自己连接自己），并使用 DATEDIFF 日期函数即可使右表留存下的数据满足条件①与②</li>
+<li>同时，考虑到一个用户在同一天多次刷题只算作一次，因此需要配合 distinct 去重，只统计 (device_id,date) 不重复组合的数量，在左表中这个数量即用户在不同日期的次数，在右表中这个数量即用户在某天刷题后第二天依然刷题的次数</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs sql"># count统计日期和设备id的不重复组合<br># <span class="hljs-built_in">Count</span>(<span class="hljs-keyword">DISTINCT</span> q1.device_id,q1.date)得到用户在不同日期的刷题数<br><span class="hljs-keyword">SELECT</span> <span class="hljs-built_in">COUNT</span>(<span class="hljs-keyword">distinct</span> q2.device_id,q2.date)<span class="hljs-operator">/</span><span class="hljs-built_in">count</span>(<span class="hljs-keyword">DISTINCT</span> q1.device_id,q1.date) <span class="hljs-keyword">as</span> avg_ret <br># 左连接主体为q1被全部保存，q2只有符合条件的行才被保存，其余置<span class="hljs-keyword">NULL</span><br># q2 得到相同用户与q1天数差值为<span class="hljs-number">1</span>的记录<br><span class="hljs-keyword">from</span> question_practice_detail <span class="hljs-keyword">as</span> q1 <span class="hljs-keyword">left</span> <span class="hljs-keyword">join</span> question_practice_detail <span class="hljs-keyword">as</span> q2<br><span class="hljs-keyword">on</span> q1.device_id<span class="hljs-operator">=</span>q2.device_id <span class="hljs-keyword">and</span> DATEDIFF(q2.date,q1.date)<span class="hljs-operator">=</span><span class="hljs-number">1</span><br></code></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="1-2-4-查询每天刷题通过数最多的前二名用户id和刷题数"><a href="#1-2-4-查询每天刷题通过数最多的前二名用户id和刷题数" class="headerlink" title="1.2.4 查询每天刷题通过数最多的前二名用户id和刷题数"></a>1.2.4 查询每天刷题通过数最多的前二名用户id和刷题数</h3><p>现有牛客刷题表 questions_pass_record，请查询每天刷题通过数最多的前二名用户 id 和刷题数，输出按照日期升序排序</p>
+<img src="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202403281020631.png" srcset="/img/loading.gif" lazyload alt="image-20240328102042586" style="zoom:67%;" />
+
+<p>查询返回结果名称和顺序为：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-type">date</span><span class="hljs-operator">|</span>user_id<span class="hljs-operator">|</span>pass_count<br></code></pre></td></tr></table></figure>
+
+<hr>
+<ul>
+<li>题目中隐含三个条件：①每天②用户③前二，按照date，user_id分组可满足条件①②，同时使用 sum 对 pass_count 进行求和即可得到每个用户每天的刷题总数，需要想办法取出前两条数据</li>
+<li>此时可以考虑使用 row_number() over() 窗口函数，其能够按照分组、排序规则给每行数据进行编号，接着通过 where 过滤即可得到想要的数据</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">select</span> <span class="hljs-type">date</span>,user_id,cnt <span class="hljs-keyword">as</span> pass_count<br><span class="hljs-keyword">from</span> (<span class="hljs-keyword">select</span> <span class="hljs-operator">*</span>,<br>            # 此处仅仅起到编号的作用，不改变实际表 <br>            <span class="hljs-built_in">row_number</span>() <span class="hljs-keyword">over</span> (<br>                # 以组日期作为单位，按照刷题量排序<br>                <span class="hljs-keyword">partition</span> <span class="hljs-keyword">by</span> <span class="hljs-type">date</span> <span class="hljs-keyword">order</span> <span class="hljs-keyword">by</span> cnt <span class="hljs-keyword">desc</span>) rw<br>        # 根据日期和id进行分组，得到同一用户在同一天的刷题量<br>        <span class="hljs-keyword">from</span>(<span class="hljs-keyword">select</span> user_id,<span class="hljs-type">date</span>,<span class="hljs-built_in">sum</span>(pass_count) cnt<br>                <span class="hljs-keyword">from</span> questions_pass_record<br>                <span class="hljs-keyword">group</span> <span class="hljs-keyword">by</span> <span class="hljs-type">date</span>,user_id) a<br>      )b<br># 按照日期的分组中取出前两行数据     <br><span class="hljs-keyword">where</span> rw <span class="hljs-operator">&lt;=</span> <span class="hljs-number">2</span> <span class="hljs-keyword">order</span> <span class="hljs-keyword">by</span> <span class="hljs-type">date</span><br></code></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="1-2-5-统计每种性别的人数"><a href="#1-2-5-统计每种性别的人数" class="headerlink" title="1.2.5 统计每种性别的人数"></a>1.2.5 统计每种性别的人数</h3><p>现在运营举办了一场比赛，收到了一些参赛申请，表数据记录形式如下所示，现在运营想要统计每个性别的用户分别有多少参赛者，请取出相应结果</p>
+<img src="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202403281114135.png" srcset="/img/loading.gif" lazyload alt="image-20240328111417091" style="zoom: 67%;" />
+
+<p>查询返回结果名称和顺序为：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sql">gender<span class="hljs-operator">|</span>number<br></code></pre></td></tr></table></figure>
+
+<hr>
+<ul>
+<li>此题主要考察 SQL 语法中对字符串的分割操作，substring_index(str,sep,count) 可以按照 sep 对 str 进行切割</li>
+<li>当 count 为正数时，从左边开始计算，返回第 count 个分隔符前的子字符串；当 count 是负数，则从右边开始计算，返回倒数第 |count| 个分隔符后的子字符串</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">select</span> substring_index(profile,<span class="hljs-string">&#x27;,&#x27;</span>,<span class="hljs-number">-1</span>) <span class="hljs-keyword">as</span> gender,<span class="hljs-built_in">count</span>(device_id) <span class="hljs-keyword">as</span> number<br><span class="hljs-keyword">from</span> user_submit<br><span class="hljs-keyword">group</span> <span class="hljs-keyword">by</span> gender <br></code></pre></td></tr></table></figure>
+
+<h3 id="1-2-6-平均活跃天数和月活人数"><a href="#1-2-6-平均活跃天数和月活人数" class="headerlink" title="1.2.6 平均活跃天数和月活人数"></a>1.2.6 平均活跃天数和月活人数</h3><p>用户在牛客试卷作答区作答记录存储在表exam_record中，内容如下：</p>
+<img src="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202404082212145.png" srcset="/img/loading.gif" lazyload alt="image-20240408221225052" style="zoom:67%;" />
+
+<p>请计算 2021 年每个月里试卷作答区用户平均月活跃天数 avg_active_days 和月度活跃人数 mau</p>
+<blockquote>
+<p>此处活跃指有交卷行为</p>
+</blockquote>
+<p>查询返回结果和顺序为：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">month</span><span class="hljs-operator">|</span>avg_active_days<span class="hljs-operator">|</span>mau<br></code></pre></td></tr></table></figure>
+
+<hr>
+<ul>
+<li>第一层筛选为 2021 年（ where 过滤）；第二个条件为每个月（分组处理）；第三个信息为活跃人数，即有交卷行为的用户才是统计对象</li>
+<li>此题有一个小坑，即一个用户在同一天多次提交，活跃天数算作 1 ，因此使用 count 计数时需要配合 uid 与 submit_time 中的年月日信息进行计数，避免多算</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs sql"># <span class="hljs-number">2021</span>年每个月里试卷作答区用户平均月活跃天数avg_active_days和月度活跃人数mau<br># 活跃指有交卷行为<br><span class="hljs-keyword">select</span> date_format(submit_time,&quot;%Y%m&quot;) <span class="hljs-keyword">as</span> <span class="hljs-keyword">month</span>,<br># 同一天多次登录只算活跃一次，round保留两位小数<br>round(<span class="hljs-built_in">count</span>(<span class="hljs-keyword">distinct</span> uid,date_format(submit_time,&quot;%Y%m%d&quot;))<span class="hljs-operator">/</span><span class="hljs-built_in">count</span>(<span class="hljs-keyword">distinct</span> uid),<span class="hljs-number">2</span>) <span class="hljs-keyword">as</span> avg_active_days,<br><span class="hljs-built_in">count</span>(<span class="hljs-keyword">distinct</span> uid) <span class="hljs-keyword">as</span> mau<br><span class="hljs-keyword">from</span> exam_record<br><span class="hljs-keyword">where</span> <span class="hljs-keyword">year</span>(submit_time) <span class="hljs-operator">=</span><span class="hljs-string">&#x27;2021&#x27;</span><br><span class="hljs-keyword">group</span> <span class="hljs-keyword">by</span> <span class="hljs-keyword">month</span><br></code></pre></td></tr></table></figure>
+
+<h3 id="1-2-7-未完成试卷数大于1的有效用户"><a href="#1-2-7-未完成试卷数大于1的有效用户" class="headerlink" title="1.2.7 未完成试卷数大于1的有效用户"></a>1.2.7 未完成试卷数大于1的有效用户</h3><p>现有试卷作答记录表 exam_record</p>
+<img src="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202404091058913.png" srcset="/img/loading.gif" lazyload alt="image-20240409105758803" style="zoom:67%;" />
+
+<p>还有一张试卷信息表 examination_info</p>
+<img src="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202404091100588.png" srcset="/img/loading.gif" lazyload alt="image-20240409110035538" style="zoom:67%;" />
+
+<p>请统计 2021 年每个未完成试卷作答数大于 1 的有效用户的数据（有效用户指完成试卷作答数至少为 1 且未完成数小于5 ），输出用户ID、未完成试卷作答数、完成试卷作答数、作答过的试卷 tag 集合</p>
+<img src="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202404091101468.png" srcset="/img/loading.gif" lazyload alt="image-20240409110151429" style="zoom:67%;" />
+
+<hr>
+<ul>
+<li>第一层筛选为 2021 年（where）；第二层筛选，以用户作为最小单位（group）；第三层筛选，分组后试卷作答数大于 1，完成试卷作答数至少为 1，未完成数小于 5 的用户（having）</li>
+<li>detail 由两表连接后同一组的 <code>start_time:tag</code> 按行拼接组成，聚合后跨行的拼接需要使用 group_concat 函数，行内列拼接则需要使用 concat_ws 函数</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs sql"># 统计<span class="hljs-number">2021</span>年每个未完成试卷作答数大于<span class="hljs-number">1</span>的有效用户的数据<br>#（有效用户指完成试卷作答数至少为<span class="hljs-number">1</span>且未完成数小于<span class="hljs-number">5</span>）<br><span class="hljs-keyword">select</span> uid,<span class="hljs-built_in">sum</span>(if(submit_time <span class="hljs-keyword">is</span> <span class="hljs-keyword">null</span>,<span class="hljs-number">1</span>,<span class="hljs-number">0</span>)) <span class="hljs-keyword">as</span> incomplete_cnt,<br><span class="hljs-built_in">sum</span>(if(submit_time <span class="hljs-keyword">is</span> <span class="hljs-keyword">null</span>,<span class="hljs-number">0</span>,<span class="hljs-number">1</span>)) <span class="hljs-keyword">as</span> complete_cnt,<br>group_concat(<span class="hljs-keyword">distinct</span> concat_ws(<span class="hljs-string">&#x27;:&#x27;</span>,<span class="hljs-type">date</span>(start_time),tag) <span class="hljs-keyword">order</span> <span class="hljs-keyword">by</span> start_time separator <span class="hljs-string">&#x27;;&#x27;</span>) <span class="hljs-keyword">as</span> detail<br><span class="hljs-keyword">from</span> exam_record <span class="hljs-keyword">left</span> <span class="hljs-keyword">join</span> examination_info <span class="hljs-keyword">using</span>(exam_id)<br><span class="hljs-keyword">WHERE</span> <span class="hljs-keyword">year</span>(start_time) <span class="hljs-operator">=</span> <span class="hljs-number">2021</span><br><span class="hljs-keyword">group</span> <span class="hljs-keyword">by</span> uid<br><span class="hljs-keyword">having</span> incomplete_cnt<span class="hljs-operator">&gt;</span><span class="hljs-number">1</span> <span class="hljs-keyword">and</span> complete_cnt<span class="hljs-operator">&gt;=</span><span class="hljs-number">1</span> <span class="hljs-keyword">and</span> incomplete_cnt<span class="hljs-operator">&lt;</span><span class="hljs-number">5</span><br><span class="hljs-keyword">order</span> <span class="hljs-keyword">by</span> incomplete_cnt	<span class="hljs-keyword">desc</span><br></code></pre></td></tr></table></figure>
+
+<h3 id="1-2-8-分别满足两个活动的人"><a href="#1-2-8-分别满足两个活动的人" class="headerlink" title="1.2.8 分别满足两个活动的人"></a>1.2.8 分别满足两个活动的人</h3><p>假使以前有两拨运营活动，分别给每次试卷得分都能到 85 分的人（activity1）、至少有一次用了一半时间就完成高难度试卷且分数大于80的人（activity2）发了福利券</p>
+<img src="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202404111108925.png" srcset="/img/loading.gif" lazyload alt="image-20240411110825783" style="zoom:80%;" />
+
+<p>请写出一个 SQL 实现：输出 2021 年里，所有每次试卷得分都能到 85 分的人以及至少有一次用了一半时间就完成高难度试卷且分数大于 80 的人的 id 和活动号，按用户 ID 排序输出</p>
+<img src="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202404111108507.png" srcset="/img/loading.gif" lazyload alt="image-20240411110855394" style="zoom:67%;" />
+
+<hr>
+<ul>
+<li><p>从结果中可以看到，同时满足两个条件的用户会被输出两次，因此大概率会使用 union all 连接两个条件筛选出的用户</p>
+</li>
+<li><p>条件一：2021年，每次分数大于等于 85</p>
+<p>条件二：2021年，高难度试卷分数有大于 80 的情况，考试中至少一次用了一半时间完成</p>
+</li>
+<li><p>timestampdiff(unit,start_time,submit_time) 的使用，得到两个时间指定单位的时间差，此处需要用秒，因为需要考虑超出不足一分钟的情况，此时 minute 单位是相同的</p>
+</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">select</span> uid,&quot;activity1&quot; <span class="hljs-keyword">as</span> activity<br><span class="hljs-keyword">from</span> exam_record<br><span class="hljs-keyword">where</span> <span class="hljs-keyword">year</span>(start_time)<span class="hljs-operator">=</span><span class="hljs-number">2021</span><br><span class="hljs-keyword">group</span> <span class="hljs-keyword">by</span> uid<br><span class="hljs-keyword">having</span> <span class="hljs-built_in">min</span>(score) <span class="hljs-operator">&gt;=</span> <span class="hljs-number">85</span><br><span class="hljs-keyword">UNION</span> <span class="hljs-keyword">ALL</span><br><span class="hljs-keyword">select</span> uid,&quot;activity2&quot; <span class="hljs-keyword">as</span> activity<br><span class="hljs-keyword">from</span> exam_record<br><span class="hljs-keyword">left</span> <span class="hljs-keyword">join</span> examination_info <span class="hljs-keyword">using</span>(exam_id)<br><span class="hljs-keyword">where</span> <span class="hljs-keyword">year</span>(start_time)<span class="hljs-operator">=</span><span class="hljs-number">2021</span><br><span class="hljs-keyword">and</span> difficulty<span class="hljs-operator">=</span>&quot;hard&quot;<br><span class="hljs-keyword">and</span> score<span class="hljs-operator">&gt;</span><span class="hljs-number">80</span><br><span class="hljs-keyword">and</span> TIMESTAMPDIFF(<span class="hljs-keyword">SECOND</span>,start_time, submit_time) <span class="hljs-operator">&lt;=</span> duration<span class="hljs-operator">*</span><span class="hljs-number">30</span><br># 写在最后是整体排序<br><span class="hljs-keyword">order</span> <span class="hljs-keyword">by</span> uid;<br></code></pre></td></tr></table></figure>
+
+<h3 id="1-2-9-满足条件的用户的试卷完成数和题目练习数"><a href="#1-2-9-满足条件的用户的试卷完成数和题目练习数" class="headerlink" title="1.2.9 满足条件的用户的试卷完成数和题目练习数"></a>1.2.9 满足条件的用户的试卷完成数和题目练习数</h3><img src="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202404111224804.png" srcset="/img/loading.gif" lazyload alt="image-20240411122407717" style="zoom:80%;" />
+
+<img src="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202404111224671.png" srcset="/img/loading.gif" lazyload alt="image-20240411122431567" style="zoom:67%;" />
+
+<p>找到高难度 SQL 试卷得分平均值大于 80 并且是 7 级的红名大佬，统计他们的 2021 年试卷总完成次数和题目总练习次数，只保留 2021 年有试卷完成记录的用户。结果按试卷完成数升序，按题目练习数降序</p>
+<img src="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202404111224903.png" srcset="/img/loading.gif" lazyload alt="image-20240411122459795" style="zoom: 80%;" />
+
+<hr>
+<ul>
+<li><p>首先统计的对象为”高难度 SQL 试卷得分平均值大于 80 并且是 7 级的红名大佬”，此处可以过滤得到目标 uid ，处理后，user_info 表在此题中不再需要</p>
+</li>
+<li><p>第二个点是 2021 的试卷总完成数和题目总练习数。首先完善关于将过滤条件写在连接条件中与 where 中的区别。 </p>
+<p>当在连接条件中完成过滤，此时记录被过滤但是表行内容并不减少，仅被置空；如果通过 uid 完成左连接后再进行过滤，则行数据会被抹去，以下是一个小例子说明二者的不同之处</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs sql">table1<br><span class="hljs-operator">+</span><span class="hljs-comment">------+--------+</span><br><span class="hljs-operator">|</span> uid  <span class="hljs-operator">|</span>  <span class="hljs-keyword">value</span> <span class="hljs-operator">|</span><br><span class="hljs-operator">+</span><span class="hljs-comment">------+--------+</span><br><span class="hljs-operator">|</span>  <span class="hljs-number">1</span>   <span class="hljs-operator">|</span>   A    <span class="hljs-operator">|</span><br><span class="hljs-operator">|</span>  <span class="hljs-number">2</span>   <span class="hljs-operator">|</span>   B    <span class="hljs-operator">|</span><br><span class="hljs-operator">|</span>  <span class="hljs-number">3</span>   <span class="hljs-operator">|</span>   C    <span class="hljs-operator">|</span><br><span class="hljs-operator">+</span><span class="hljs-comment">------+--------+</span><br><br>table2<br><span class="hljs-operator">+</span><span class="hljs-comment">------+--------+</span><br><span class="hljs-operator">|</span> uid  <span class="hljs-operator">|</span>  <span class="hljs-keyword">value</span> <span class="hljs-operator">|</span><br><span class="hljs-operator">+</span><span class="hljs-comment">------+--------+</span><br><span class="hljs-operator">|</span>  <span class="hljs-number">1</span>   <span class="hljs-operator">|</span>   X    <span class="hljs-operator">|</span><br><span class="hljs-operator">|</span>  <span class="hljs-number">3</span>   <span class="hljs-operator">|</span>   Y    <span class="hljs-operator">|</span><br><span class="hljs-operator">+</span><span class="hljs-comment">------+--------+</span><br></code></pre></td></tr></table></figure>
+
+<ol>
+<li><p>将条件放在<code>LEFT JOIN</code>的<code>ON</code>子句中：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">SELECT</span> <span class="hljs-operator">*</span><br><span class="hljs-keyword">FROM</span> table1 t1<br><span class="hljs-keyword">LEFT</span> <span class="hljs-keyword">JOIN</span> table2 t2 <span class="hljs-keyword">ON</span> t1.uid <span class="hljs-operator">=</span> t2.uid <span class="hljs-keyword">AND</span> t2.value <span class="hljs-operator">=</span> <span class="hljs-string">&#x27;X&#x27;</span>;<br></code></pre></td></tr></table></figure>
+
+<p>结果是：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-operator">+</span><span class="hljs-comment">------+--------+------+--------+</span><br><span class="hljs-operator">|</span> t1.uid <span class="hljs-operator">|</span> t1.value <span class="hljs-operator">|</span> t2.uid <span class="hljs-operator">|</span> t2.value <span class="hljs-operator">|</span><br><span class="hljs-operator">+</span><span class="hljs-comment">------+--------+------+--------+</span><br><span class="hljs-operator">|</span>   <span class="hljs-number">1</span>   <span class="hljs-operator">|</span>    A     <span class="hljs-operator">|</span>   <span class="hljs-number">1</span>    <span class="hljs-operator">|</span>    X     <span class="hljs-operator">|</span><br><span class="hljs-operator">|</span>   <span class="hljs-number">2</span>   <span class="hljs-operator">|</span>    B     <span class="hljs-operator">|</span>  <span class="hljs-keyword">NULL</span>  <span class="hljs-operator">|</span>  <span class="hljs-keyword">NULL</span>    <span class="hljs-operator">|</span><br><span class="hljs-operator">|</span>   <span class="hljs-number">3</span>   <span class="hljs-operator">|</span>    C     <span class="hljs-operator">|</span>  <span class="hljs-keyword">NULL</span>  <span class="hljs-operator">|</span>  <span class="hljs-keyword">NULL</span>    <span class="hljs-operator">|</span><br><span class="hljs-operator">+</span><span class="hljs-comment">------+--------+------+--------+</span><br></code></pre></td></tr></table></figure>
+</li>
+<li><p>将条件放在<code>WHERE</code>子句中：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">SELECT</span> <span class="hljs-operator">*</span><br><span class="hljs-keyword">FROM</span> table1 t1<br><span class="hljs-keyword">LEFT</span> <span class="hljs-keyword">JOIN</span> table2 t2 <span class="hljs-keyword">ON</span> t1.uid <span class="hljs-operator">=</span> t2.uid<br><span class="hljs-keyword">WHERE</span> t2.value <span class="hljs-operator">=</span> <span class="hljs-string">&#x27;X&#x27;</span>;<br></code></pre></td></tr></table></figure>
+
+<p>结果是：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-operator">+</span><span class="hljs-comment">------+--------+------+--------+</span><br><span class="hljs-operator">|</span> t1.uid <span class="hljs-operator">|</span> t1.value <span class="hljs-operator">|</span> t2.uid <span class="hljs-operator">|</span> t2.value <span class="hljs-operator">|</span><br><span class="hljs-operator">+</span><span class="hljs-comment">------+--------+------+--------+</span><br><span class="hljs-operator">|</span>   <span class="hljs-number">1</span>   <span class="hljs-operator">|</span>    A     <span class="hljs-operator">|</span>   <span class="hljs-number">1</span>    <span class="hljs-operator">|</span>    X     <span class="hljs-operator">|</span><br><span class="hljs-operator">+</span><span class="hljs-comment">------+--------+------+--------+</span><br></code></pre></td></tr></table></figure></li>
+</ol>
+<p>2021年完成试卷的人中，可能没有练习过；2021年完成练习的人中，可能没有参加考试。因此使用 where 过滤可能导致 count 计数发生错误，所以需要在连接时过滤数据</p>
+</li>
+<li><p>另一个小坑为：试卷总完成次数指不同试卷的完成次数，题目总练习数指所有题目完成次数，但是由于经过左连接操作，因此在统计时需要使用 distinct 进行去重</p>
+</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs sql"># 高难度<span class="hljs-keyword">SQL</span>试卷得分平均值大于<span class="hljs-number">80</span>并且是<span class="hljs-number">7</span>级的红名大佬<br># 统计他们的<span class="hljs-number">2021</span>年试卷总完成次数和题目总练习次数，只保留<span class="hljs-number">2021</span>年有试卷完成记录的用户<br># 结果按试卷完成数升序，按题目练习数降序<br><span class="hljs-keyword">select</span> a.uid <span class="hljs-keyword">as</span> uid,<span class="hljs-built_in">count</span>(<span class="hljs-keyword">distinct</span> exam_id) <span class="hljs-keyword">as</span> exam_cnt,<br><span class="hljs-built_in">count</span>(<span class="hljs-keyword">distinct</span> b.id) <span class="hljs-keyword">as</span> question_cnt<br><span class="hljs-keyword">from</span> exam_record a <span class="hljs-keyword">left</span> <span class="hljs-keyword">join</span> practice_record b <span class="hljs-keyword">on</span> a.uid<span class="hljs-operator">=</span>b.uid <br><span class="hljs-keyword">and</span> <span class="hljs-keyword">year</span>(a.submit_time)<span class="hljs-operator">=</span><span class="hljs-number">2021</span> <span class="hljs-keyword">and</span> <span class="hljs-keyword">year</span>(b.submit_time)<span class="hljs-operator">=</span><span class="hljs-number">2021</span><br><span class="hljs-keyword">where</span> a.uid <span class="hljs-keyword">in</span> <br>(<span class="hljs-keyword">select</span> uid<br><span class="hljs-keyword">from</span> exam_record <span class="hljs-keyword">left</span> <span class="hljs-keyword">join</span> examination_info <span class="hljs-keyword">using</span>(exam_id)<br><span class="hljs-keyword">left</span> <span class="hljs-keyword">join</span> user_info <span class="hljs-keyword">using</span>(uid)<br><span class="hljs-keyword">where</span> level <span class="hljs-operator">=</span> <span class="hljs-number">7</span> <span class="hljs-keyword">and</span> tag<span class="hljs-operator">=</span><span class="hljs-string">&#x27;SQL&#x27;</span> <span class="hljs-keyword">and</span> difficulty <span class="hljs-operator">=</span><span class="hljs-string">&#x27;hard&#x27;</span><br><span class="hljs-keyword">group</span> <span class="hljs-keyword">by</span> uid <br><span class="hljs-keyword">having</span> <span class="hljs-built_in">avg</span>(score)<span class="hljs-operator">&gt;</span><span class="hljs-number">80</span>)<br><span class="hljs-keyword">group</span> <span class="hljs-keyword">by</span> a.uid<br><span class="hljs-keyword">order</span> <span class="hljs-keyword">by</span> exam_cnt,question_cnt <span class="hljs-keyword">desc</span><br></code></pre></td></tr></table></figure>
+
+<h3 id="1-2-10-每个6-7级用户活跃情况"><a href="#1-2-10-每个6-7级用户活跃情况" class="headerlink" title="1.2.10 每个6&#x2F;7级用户活跃情况"></a>1.2.10 每个6&#x2F;7级用户活跃情况</h3><img src="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202404121034300.png" srcset="/img/loading.gif" lazyload alt="image-20240412103439198" style="zoom: 67%;" />
+
+<img src="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202404121035072.png" srcset="/img/loading.gif" lazyload alt="image-20240412103508007" style="zoom: 67%;" />
+
+<img src="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202404121035584.png" srcset="/img/loading.gif" lazyload alt="image-20240412103534521" style="zoom:67%;" />
+
+<p>请统计每个6&#x2F;7级用户总活跃月份数、2021年活跃天数、2021年试卷作答活跃天数、2021年答题活跃天数，按照总活跃月份数、2021年活跃天数降序排序。由示例数据结果输出如下：</p>
+<img src="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202404121036636.png" srcset="/img/loading.gif" lazyload alt="image-20240412103610573" style="zoom:67%;" />
+
+<hr>
+<ul>
+<li>本题的第一个点在于统计“6&#x2F;7级用户”，即只要是6，7级用户，无论是否有相关数据，都纳入相关统计，所以需要考虑对 user_info 中“6&#x2F;7级用户”进行外连接保存</li>
+<li>第二个点是对用户各种时间的要求，总体上是按照 uid 进行分组。分别处理 exam_record 表和 practice_record 表，各类时间可以通过日期相关函数另起多列分别存放月份，天数等要求，同时增加 tag 列标明此行所属原表，再将二者处理结果进行合并</li>
+<li>第三个点是用聚合函数 count 统计相关数据，其中逻辑控制函数需要正确使用</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs sql"># 统计每个<span class="hljs-number">6</span><span class="hljs-operator">/</span><span class="hljs-number">7</span>级用户总活跃月份数、<span class="hljs-number">2021</span>年活跃天数<br># <span class="hljs-number">2021</span>年试卷作答活跃天数、<span class="hljs-number">2021</span>年答题活跃天数<br># 按照总活跃月份数、<span class="hljs-number">2021</span>年活跃天数降序排序<br><span class="hljs-keyword">select</span> any_value(user_info.uid),<br>    any_value(<span class="hljs-built_in">count</span>(<span class="hljs-keyword">distinct</span> act_month)) <span class="hljs-keyword">as</span> act_month_total,<br>    any_value(<span class="hljs-built_in">count</span>(<span class="hljs-keyword">distinct</span> <span class="hljs-keyword">case</span> <span class="hljs-keyword">when</span> <span class="hljs-keyword">year</span>(act_time)<span class="hljs-operator">=</span><span class="hljs-string">&#x27;2021&#x27;</span><span class="hljs-keyword">then</span> act_day <span class="hljs-keyword">end</span>)) <span class="hljs-keyword">as</span> act_days_2021,<br>    any_value(<span class="hljs-built_in">count</span>(<span class="hljs-keyword">distinct</span> <span class="hljs-keyword">case</span> <span class="hljs-keyword">when</span> <span class="hljs-keyword">year</span>(act_time)<span class="hljs-operator">=</span><span class="hljs-string">&#x27;2021&#x27;</span> <span class="hljs-keyword">and</span> tag<span class="hljs-operator">=</span><span class="hljs-string">&#x27;exam&#x27;</span> <span class="hljs-keyword">then</span> act_day <span class="hljs-keyword">end</span>)) <span class="hljs-keyword">as</span> act_days_2021_exam,<br>any_value(<span class="hljs-built_in">count</span>(<span class="hljs-keyword">distinct</span> <span class="hljs-keyword">case</span> <span class="hljs-keyword">when</span> <span class="hljs-keyword">year</span>(act_time)<span class="hljs-operator">=</span><span class="hljs-string">&#x27;2021&#x27;</span> <span class="hljs-keyword">and</span> tag<span class="hljs-operator">=</span><span class="hljs-string">&#x27;question&#x27;</span><span class="hljs-keyword">then</span> act_day <span class="hljs-keyword">end</span>)) <span class="hljs-keyword">as</span> act_days_2021_question<br><span class="hljs-keyword">from</span> <br>(<br>     <span class="hljs-keyword">select</span> uid,exam_id <span class="hljs-keyword">as</span> ans_id,start_time <span class="hljs-keyword">as</span> act_time,date_format(start_time,<span class="hljs-string">&#x27;%Y%m&#x27;</span>) <span class="hljs-keyword">as</span> act_month, date_format(start_time,<span class="hljs-string">&#x27;%Y%m%d&#x27;</span>) <span class="hljs-keyword">as</span> act_day,<span class="hljs-string">&#x27;exam&#x27;</span> <span class="hljs-keyword">as</span> tag <span class="hljs-keyword">from</span> exam_record<br>     <span class="hljs-keyword">UNION</span> <span class="hljs-keyword">ALL</span><br>     <span class="hljs-keyword">select</span> uid,question_id <span class="hljs-keyword">as</span> ans_id,submit_time <span class="hljs-keyword">as</span> act_time,date_format(submit_time,<span class="hljs-string">&#x27;%Y%m&#x27;</span>) <span class="hljs-keyword">as</span> act_month, date_format(submit_time,<span class="hljs-string">&#x27;%Y%m%d&#x27;</span>) <span class="hljs-keyword">as</span> act_day,<span class="hljs-string">&#x27;question&#x27;</span> <span class="hljs-keyword">as</span> tag <span class="hljs-keyword">from</span> practice_record <br>) total<br># 即使<span class="hljs-number">6</span><span class="hljs-operator">/</span><span class="hljs-number">7</span>级用户没有活跃，也需要纳入统计，所以需要使用连接<br><span class="hljs-keyword">right</span> <span class="hljs-keyword">join</span> user_info <span class="hljs-keyword">using</span>(uid)<br><span class="hljs-keyword">where</span> user_info.level <span class="hljs-keyword">in</span> (<span class="hljs-number">6</span>,<span class="hljs-number">7</span>)<br><span class="hljs-keyword">group</span> <span class="hljs-keyword">by</span> total.uid<br><span class="hljs-keyword">order</span> <span class="hljs-keyword">by</span> act_month_total <span class="hljs-keyword">desc</span>,act_days_2021 <span class="hljs-keyword">desc</span><br></code></pre></td></tr></table></figure>
+
+<h3 id="1-2-11-每类试卷得分前3名"><a href="#1-2-11-每类试卷得分前3名" class="headerlink" title="1.2.11 每类试卷得分前3名"></a>1.2.11 每类试卷得分前3名</h3><img src="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202404131126610.png" srcset="/img/loading.gif" lazyload alt="image-20240413112642524" style="zoom:67%;" />
+
+<p>找到每类试卷得分的前3名，如果两人最大分数相同，选择最小分数大者，如果还相同，选择uid大者</p>
+<img src="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202404131127771.png" srcset="/img/loading.gif" lazyload alt="image-20240413112731720" style="zoom:67%;" />
+
+<hr>
+<ul>
+<li>通常需要取到前几名或者后几名都可以考虑使用窗口函数 row_number()over()，窗口函数在 group by 后执行，因此结果的过滤条件不能放在 where 中</li>
+<li>针对“每类试卷得分前三”这个条件，每类指每种试卷类型，得分指每个用户，因此需要对 tag,uid 进行分组</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs sql"># 找到每类试卷得分的前<span class="hljs-number">3</span>名，<br># 如果两人最大分数相同，选择最小分数大者，如果还相同，选择uid大者<br><span class="hljs-keyword">SELECT</span> <span class="hljs-operator">*</span><span class="hljs-keyword">FROM</span> <br>(<br><span class="hljs-keyword">SELECT</span> tag <span class="hljs-keyword">AS</span> tid,uid,<span class="hljs-built_in">ROW_NUMBER</span>() <span class="hljs-keyword">OVER</span> (<span class="hljs-keyword">PARTITION</span> <span class="hljs-keyword">BY</span> tag <span class="hljs-keyword">ORDER</span> <span class="hljs-keyword">BY</span> <span class="hljs-built_in">MAX</span>(score) <span class="hljs-keyword">desc</span> ,<span class="hljs-built_in">MIN</span>(score) <span class="hljs-keyword">DESC</span>,uid <span class="hljs-keyword">DESC</span>) <span class="hljs-keyword">AS</span> ranking<br><span class="hljs-keyword">FROM</span> examination_info t <span class="hljs-keyword">JOIN</span> exam_record t1 <span class="hljs-keyword">USING</span> (exam_id)<br><span class="hljs-keyword">GROUP</span> <span class="hljs-keyword">BY</span> tag, uid<br>)t<br><span class="hljs-keyword">WHERE</span> ranking <span class="hljs-operator">&lt;=</span> <span class="hljs-number">3</span><br></code></pre></td></tr></table></figure>
+
+<h3 id="1-2-12-第二快-慢用时之差大于试卷时长一半的试卷"><a href="#1-2-12-第二快-慢用时之差大于试卷时长一半的试卷" class="headerlink" title="1.2.12 第二快&#x2F;慢用时之差大于试卷时长一半的试卷"></a>1.2.12 第二快&#x2F;慢用时之差大于试卷时长一半的试卷</h3><img src="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202404141231898.png" srcset="/img/loading.gif" lazyload alt="image-20240414123135796" style="zoom:67%;" />
+
+<p>找到第二快和第二慢用时之差大于试卷时长的一半的试卷信息，按试卷ID降序排序。</p>
+<img src="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202404141232757.png" srcset="/img/loading.gif" lazyload alt="image-20240414123214696" style="zoom: 80%;" />
+
+<hr>
+<ul>
+<li>第二快&#x2F;慢是相对于试卷而言的，因此分组依据为 exam_id，只要做过这类试卷的用户里有满足题目所示条件的，该类试卷就会被保留下来</li>
+<li>第二快&#x2F;慢很容易想到窗口函数 row_number()，但此处介绍一个针对第 x 条记录更方便的窗口函数 nth_value(col,num)over(rule)，表示取出 col 列中按照指定规则 rule 进行处理后的第 num 个值</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">select</span> <span class="hljs-keyword">distinct</span> exam_id,duration,release_time <span class="hljs-keyword">from</span> <br>(<br><span class="hljs-keyword">select</span> exam_id, <br># 做同类试卷用户中，做题时间第二长的时间<br><span class="hljs-built_in">nth_value</span>(TIMESTAMPDIFF(<span class="hljs-keyword">minute</span>,start_time,submit_time),<span class="hljs-number">2</span>) <span class="hljs-keyword">over</span> (<span class="hljs-keyword">partition</span> <span class="hljs-keyword">by</span> exam_id <span class="hljs-keyword">order</span> <span class="hljs-keyword">by</span> TIMESTAMPDIFF(<span class="hljs-keyword">minute</span>,start_time,submit_time) <span class="hljs-keyword">desc</span> ) <span class="hljs-keyword">as</span> low_2,<br><span class="hljs-built_in">nth_value</span>(TIMESTAMPDIFF(<span class="hljs-keyword">minute</span>,start_time,submit_time),<span class="hljs-number">2</span>) <span class="hljs-keyword">over</span> (<span class="hljs-keyword">partition</span> <span class="hljs-keyword">by</span> exam_id <span class="hljs-keyword">order</span> <span class="hljs-keyword">by</span> TIMESTAMPDIFF(<span class="hljs-keyword">minute</span>,start_time,submit_time)) <span class="hljs-keyword">as</span> fast_2,<br>duration,release_time<br><span class="hljs-keyword">from</span> exam_record <span class="hljs-keyword">left</span> <span class="hljs-keyword">join</span> examination_info <span class="hljs-keyword">using</span>(exam_id)<br>)c<br># <br><span class="hljs-keyword">where</span> low_2<span class="hljs-operator">-</span>fast_2<span class="hljs-operator">&gt;</span>duration<span class="hljs-operator">*</span><span class="hljs-number">0.5</span><br><span class="hljs-keyword">order</span> <span class="hljs-keyword">by</span> exam_id <span class="hljs-keyword">desc</span>;<br></code></pre></td></tr></table></figure>
+
+<h3 id="1-2-13-对试卷得分做min-max归一化"><a href="#1-2-13-对试卷得分做min-max归一化" class="headerlink" title="1.2.13 对试卷得分做min-max归一化"></a>1.2.13 对试卷得分做min-max归一化</h3><img src="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202404211002872.png" srcset="/img/loading.gif" lazyload alt="image-20240421100212787" style="zoom: 67%;" />
+
+<img src="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202404211003948.png" srcset="/img/loading.gif" lazyload alt="image-20240421100321880" style="zoom: 67%;" />
+
+<img src="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202404211004746.png" srcset="/img/loading.gif" lazyload alt="image-20240421100439704" style="zoom:67%;" />
+
+<p>请你将用户作答高难度试卷的得分在每份试卷作答记录内执行 min-max 归一化后缩放到 [0,100] 区间，并输出用户ID、试卷ID、归一化后分数平均值；最后按照试卷ID升序、归一化分数降序输出。（注：得分区间默认为[0,100]，如果某个试卷作答记录中只有一个得分，那么无需使用公式，归一化并缩放后分数仍为原分数）</p>
+<hr>
+<ul>
+<li>首先，归一化公式中的最大最小值面对的对象是同一类型难度为 hard 的试卷；而归一化后分数平均值是相对用户而言，分组依据是 uid,exam_id</li>
+<li>没有得分的数据不纳入归一化统计，只有一条数据的试卷不套用归一化公式</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><code class="hljs sql">#高难度试卷的得分在每份试卷作答记录内执行min<span class="hljs-operator">-</span>max归一化后缩放到[<span class="hljs-number">0</span>,<span class="hljs-number">100</span>]区间，并输出用户ID、试卷ID、归一化后分数平均值<br><span class="hljs-keyword">select</span> uid,<br>    exam_id,<br>    # 求所有归一化数据求平均值<br>    round(<span class="hljs-built_in">avg</span>(min_max),<span class="hljs-number">0</span>) <span class="hljs-keyword">as</span> avg_new_score<br><span class="hljs-keyword">from</span><br>    # 没有分数不进行归一化，只有一行数据不需要归一化<br>    (<span class="hljs-keyword">select</span> <span class="hljs-operator">*</span>,<br>        if(max_score<span class="hljs-operator">=</span>min_score,score,(score<span class="hljs-operator">-</span>min_score)<span class="hljs-operator">/</span>(max_score<span class="hljs-operator">-</span>min_score)<span class="hljs-operator">*</span><span class="hljs-number">100</span>) <span class="hljs-keyword">as</span> min_max<br>    <span class="hljs-keyword">from</span> <br>        # 得到hard试卷各类试卷的最大最小分数<br>        (<span class="hljs-keyword">select</span> uid,a.exam_id,score,<br>            <span class="hljs-built_in">max</span>(score) <span class="hljs-keyword">over</span>(<span class="hljs-keyword">partition</span> <span class="hljs-keyword">by</span> a.exam_id) <span class="hljs-keyword">as</span> max_score,<br>            <span class="hljs-built_in">min</span>(score) <span class="hljs-keyword">over</span>(<span class="hljs-keyword">partition</span> <span class="hljs-keyword">by</span> a.exam_id) <span class="hljs-keyword">as</span> min_score<br>        <span class="hljs-keyword">from</span> exam_record a <br>        <span class="hljs-keyword">left</span> <span class="hljs-keyword">join</span> examination_info b <span class="hljs-keyword">using</span>(exam_id)<br>        <span class="hljs-keyword">where</span> difficulty<span class="hljs-operator">=</span><span class="hljs-string">&#x27;hard&#x27;</span><br>    ) t<br>    <span class="hljs-keyword">where</span> score <span class="hljs-keyword">is</span> <span class="hljs-keyword">not null</span>) t1<br><span class="hljs-keyword">group</span> <span class="hljs-keyword">by</span> uid,exam_id<br><span class="hljs-keyword">order</span> <span class="hljs-keyword">by</span> exam_id <span class="hljs-keyword">asc</span>,avg_new_score <span class="hljs-keyword">desc</span>;<br></code></pre></td></tr></table></figure>
+
+<h3 id="1-2-14-每份试卷每月作答数和截止当月的作答总数"><a href="#1-2-14-每份试卷每月作答数和截止当月的作答总数" class="headerlink" title="1.2.14 每份试卷每月作答数和截止当月的作答总数"></a>1.2.14 每份试卷每月作答数和截止当月的作答总数</h3><img src="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202404211149029.png" srcset="/img/loading.gif" lazyload alt="image-20240421114836364" style="zoom: 50%;" />
+
+<p>请输出每份试卷每月作答数和截止当月的作答总数。</p>
+<img src="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202404211149210.png" srcset="/img/loading.gif" lazyload alt="image-20240421114946147" style="zoom:50%;" />
+
+<hr>
+<ul>
+<li>本题的一个难点在于如何统计累加值，count聚合函数配合order by 可以做到</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs sql"># 输出每份试卷每月作答数和截止当月的作答总数<br><span class="hljs-keyword">select</span> <span class="hljs-keyword">distinct</span> exam_id,<br>date_format(start_time,<span class="hljs-string">&#x27;%Y%m&#x27;</span>) <span class="hljs-keyword">as</span> start_month,<br><span class="hljs-built_in">count</span>(start_time)<span class="hljs-keyword">over</span>(<span class="hljs-keyword">partition</span> <span class="hljs-keyword">by</span> exam_id,date_format(start_time,<span class="hljs-string">&#x27;%Y%m&#x27;</span>)) <span class="hljs-keyword">as</span> month_cnt,<br># 以试卷作为单位，计算累积至当前月份的累加值<br><span class="hljs-built_in">count</span>(start_time)<span class="hljs-keyword">over</span>(<span class="hljs-keyword">partition</span> <span class="hljs-keyword">by</span> exam_id <span class="hljs-keyword">order</span> <span class="hljs-keyword">by</span> date_format(start_time,<span class="hljs-string">&#x27;%Y%m&#x27;</span>)) <span class="hljs-keyword">as</span> cum_exam_cnt<br><span class="hljs-keyword">from</span> exam_record<br><span class="hljs-keyword">order</span> <span class="hljs-keyword">by</span> exam_id,start_month<br></code></pre></td></tr></table></figure>
+
+<h3 id="1-2-15-每篇文章同一时刻最大在看人数"><a href="#1-2-15-每篇文章同一时刻最大在看人数" class="headerlink" title="1.2.15 每篇文章同一时刻最大在看人数"></a>1.2.15 每篇文章同一时刻最大在看人数</h3><img src="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202404261730414.png" srcset="/img/loading.gif" lazyload alt="image-20240426173000310" style="zoom:67%;" />
+
+<p>统计每篇文章同一时刻最大在看人数，如果同一时刻有进入也有离开时，先记录用户数增加再记录减少，结果按最大人数降序。</p>
+<hr>
+<ul>
+<li>第一个筛选条件即 article_id&#x3D;0 时代表非文章内容，应该过滤</li>
+<li>同一时刻最大在看人数，实则是找到文章所有时间段重叠最多的部分，可以采用滑动窗口的思想，当有人进入时人数 +1，当有人离开时人数 -1（in_time 标记为 1，out_time标记为 -1）</li>
+<li>采用窗口函数配合 sum 得到文章进行分组累加求和，排序需根据进入&#x2F;离开总日期升序，再根据标记值（+1&#x2F;-1）倒序（因为同一时刻进入时用户数先增加再减少），最后获得累加最大值即为答案</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># 统计每篇文章同一时刻最大在看人数，如果同一时刻有进入也有离开时，先记录用户数增加再记录减少，结果按最大人数降序</span><br>select artical_id,<span class="hljs-built_in">max</span>(cnt) max_uv <span class="hljs-keyword">from</span> <br>(<br>    select artical_id,<br><span class="hljs-built_in">sum</span>(num) over (partition by artical_id order by dt asc,num desc) <span class="hljs-keyword">as</span> cnt<br><span class="hljs-keyword">from</span><br>    (<br>    select artical_id,in_time dt,<span class="hljs-number">1</span> num <span class="hljs-keyword">from</span> tb_user_log<br>    where artical_id != <span class="hljs-number">0</span><br>    union <span class="hljs-built_in">all</span> <br>    select artical_id,out_time dt,-<span class="hljs-number">1</span> num <span class="hljs-keyword">from</span> tb_user_log<br>    where artical_id != <span class="hljs-number">0</span> <br>    ) a<br>) b<br>group by artical_id<br>order by max_uv desc<br></code></pre></td></tr></table></figure>
+
+<h1 id="2-Python"><a href="#2-Python" class="headerlink" title="2. Python"></a>2. Python</h1><h2 id="2-1-概念"><a href="#2-1-概念" class="headerlink" title="2.1 概念"></a>2.1 概念</h2><ul>
+<li><p>使用 sorted() 进行排序会生成新的序列，生成的新序列和原序列 id 值必然不同。对于可变对象，sorted() 进行排序时原序列也发生变化。对于+&#x3D;操作，如果是可变对象，则操作前后序列的 id 值不变，如果是不可变对象，则操作前后序列的 id 值改变</p>
+<blockquote>
+<p><code>id()</code> 方法用于返回对象的唯一标识符，不同的对象具有不同的标识符</p>
+</blockquote>
+</li>
+</ul>
+<h2 id="2-2-基础语法"><a href="#2-2-基础语法" class="headerlink" title="2.2 基础语法"></a>2.2 基础语法</h2><p><strong>执行以下程序👇，输出结果是什么 ？</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs python">lis = [<span class="hljs-string">&#x27;apple&#x27;</span>,<span class="hljs-string">&#x27;lemon&#x27;</span>,<span class="hljs-string">&#x27;pear&#x27;</span>,<span class="hljs-string">&#x27;peach&#x27;</span>] <br><span class="hljs-keyword">def</span> <span class="hljs-title function_">fn</span>(<span class="hljs-params">x</span>): <br>	<span class="hljs-keyword">return</span> x[::-<span class="hljs-number">1</span>] <br>lis.sort(key=fn,reverse=<span class="hljs-literal">True</span>)<br><span class="hljs-built_in">print</span>(lis)<br></code></pre></td></tr></table></figure>
+
+<p>列表 sort 函数，默认升序排序，配合 reverse&#x3D;True 可完成降序排序，key 参数自定义排序前置操作<br>此处fn会将lis各元素进行逆序（如 apple 变 elppa ）后再进行排序，最后将排序结果逆序，因此输出结果如下：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs python">[<span class="hljs-string">&#x27;pear&#x27;</span>,<span class="hljs-string">&#x27;lemon&#x27;</span>,<span class="hljs-string">&#x27;peach&#x27;</span>,<span class="hljs-string">&#x27;apple&#x27;</span>]<br></code></pre></td></tr></table></figure>
+
+<hr>
+<p><strong>列表生成式与*生成列表元素区别</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># 使用列表生成式生成的列表元素是不同的引用，修改其中的一个元素不影响另一个列表元素</span><br>a = [[<span class="hljs-string">&#x27;1&#x27;</span>,<span class="hljs-string">&#x27;2&#x27;</span>] <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">2</span>)]<br><span class="hljs-comment"># 使用*生成的列表，其两个列表元素指向同一个地址，修改时互相影响</span><br>b = [[<span class="hljs-string">&#x27;1&#x27;</span>,<span class="hljs-string">&#x27;2&#x27;</span>]]*<span class="hljs-number">2</span><br>a[<span class="hljs-number">0</span>][<span class="hljs-number">1</span>] = <span class="hljs-string">&#x27;3&#x27;</span><br>b[<span class="hljs-number">0</span>][<span class="hljs-number">0</span>] = <span class="hljs-string">&#x27;4&#x27;</span><br><span class="hljs-comment"># a：[[&#x27;1&#x27;, &#x27;3&#x27;], [&#x27;1&#x27;, &#x27;2&#x27;]]</span><br><span class="hljs-comment"># b：[[&#x27;4&#x27;, &#x27;2&#x27;], [&#x27;4&#x27;, &#x27;2&#x27;]]</span><br><span class="hljs-built_in">print</span>(a,b) <br></code></pre></td></tr></table></figure>
+
+<h2 id="2-3-numpy"><a href="#2-3-numpy" class="headerlink" title="2.3 numpy"></a>2.3 numpy</h2><p><strong>店铺销售的排名</strong></p>
+<p>请你按照销售额对数据进行降序排名，数据集直接从当前目录下的Shop.csv文件中读取</p>
+<img src="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202403281005279.png" srcset="/img/loading.gif" lazyload alt="image-20240328100555244" style="zoom:67%;" />
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> numpy <span class="hljs-keyword">as</span> np<br><span class="hljs-comment"># 自定义题目要求类型</span><br>dt = np.dtype([(<span class="hljs-string">&quot;name&quot;</span>, <span class="hljs-string">&quot;S10&quot;</span>), (<span class="hljs-string">&quot;sales&quot;</span>, np.float64)])  <br><span class="hljs-comment"># 读取数据将其转换为该类型</span><br>mat = np.loadtxt(<span class="hljs-string">&quot;Shop.csv&quot;</span>, delimiter=<span class="hljs-string">&quot;,&quot;</span>, dtype=dt)  <br><span class="hljs-comment"># 进行升序排序</span><br>sorted_mat = np.sort(mat, order=<span class="hljs-string">&quot;sales&quot;</span>)  <br><span class="hljs-comment"># 逆序即为降序</span><br><span class="hljs-built_in">print</span>(sorted_mat[::-<span class="hljs-number">1</span>])  <br></code></pre></td></tr></table></figure>
+
+<hr>
+<p><strong>程序员的工资统计</strong></p>
+<p>部分程序员的平均工资记录在 Salary.csv 文件中，数字之间通过逗号间隔，其中不同列表示不同工作程序员平均工资，不同行表示不同地区程序员平均工资，请你找出各个地区程序员的最高平均工资以及不同工作中最高平均工资与最低平均工资之差。</p>
+<img src="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202403281016139.png" srcset="/img/loading.gif" lazyload alt="image-20240328101634107" style="zoom:67%;" />
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> numpy <span class="hljs-keyword">as</span> np<br><span class="hljs-comment"># 不同行代表不同地区，不同列代表不同工作</span><br>arr = np.loadtxt(<span class="hljs-string">&quot;Salary.csv&quot;</span>, delimiter=<span class="hljs-string">&quot;,&quot;</span>)<br><span class="hljs-comment"># axis=1 是按行方向计算</span><br><span class="hljs-built_in">print</span>(arr.<span class="hljs-built_in">max</span>(axis=<span class="hljs-number">1</span>))<br><span class="hljs-built_in">print</span>(arr.<span class="hljs-built_in">max</span>(axis=<span class="hljs-number">0</span>) - arr.<span class="hljs-built_in">min</span>(axis=<span class="hljs-number">0</span>))<br></code></pre></td></tr></table></figure>
+
+<hr>
+<h1 id="3-计算机网络"><a href="#3-计算机网络" class="headerlink" title="3. 计算机网络"></a>3. 计算机网络</h1><p><strong>数字签名</strong></p>
+<p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV18N411X7ty/?spm_id_from=333.337.search-card.all.click&vd_source=48b8c5af81ea2b8a6e1529726a461744">数字签名与数字证书</a></p>
+<p>数字签名技术是将摘要（原文 + 哈希）用发送者的私钥加密，与原文一起传送给接收者。接收者只有用发送者的公钥才能解密被加密的摘要，然后用哈希函数对收到的原文产生一个摘要，与公钥解密得到的摘要对比，如果相同，则说明收到的信息是完整的，在传输过程中没有被修改，否则，就是被修改过，不是原信息。同时也证明发送者发送了信息，防止了发送者的抵赖。</p>
+<h1 id="4-测试"><a href="#4-测试" class="headerlink" title="4. 测试"></a>4. 测试</h1><h2 id="4-1-概念相关"><a href="#4-1-概念相关" class="headerlink" title="4.1 概念相关"></a>4.1 概念相关</h2><h3 id="4-1-1-逻辑测试覆盖中，覆盖程度由弱到强顺序是什么？"><a href="#4-1-1-逻辑测试覆盖中，覆盖程度由弱到强顺序是什么？" class="headerlink" title="4.1.1 逻辑测试覆盖中，覆盖程度由弱到强顺序是什么？"></a>4.1.1 逻辑测试覆盖中，覆盖程度由弱到强顺序是什么？</h3><blockquote>
+<p>覆盖是测试人员之间常用的交流语言，也即测试到的地方称为覆盖</p>
+</blockquote>
+<ol>
+<li><p>语句覆盖 ：可执行语句至少被执行一次</p>
+<blockquote>
+<p>每行代码都被执行</p>
+</blockquote>
+</li>
+<li><p>判定覆盖：每个判断的取真&#x2F;取假分支至少经历一次</p>
+<blockquote>
+<p>关注分支结构（if…else等）的 True 和 False 分支是否能被正确覆盖</p>
+</blockquote>
+</li>
+<li><p>条件覆盖：每个条件取值至少满足一次</p>
+<blockquote>
+<p>在整个测试过程中，逻辑判断子条件取值（True 或 False）至少一次，但是不关心取值的排列组合</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">foo</span> <span class="hljs-params">(<span class="hljs-type">int</span> a, <span class="hljs-type">int</span> b, <span class="hljs-type">int</span> x)</span> &#123;<br>    <span class="hljs-keyword">if</span>(a&gt;<span class="hljs-number">1</span> &amp;&amp; b==<span class="hljs-number">0</span>) &#123;<br>        x = x/a;<br>    &#125;<br>	 <br>    <span class="hljs-keyword">if</span> (a==<span class="hljs-number">2</span> || x&gt;<span class="hljs-number">1</span>) &#123;<br>        x = x+<span class="hljs-number">1</span>;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>第一个判断的所有条件的可能取值情况是 a&gt;1 或 a≤1 ，b&#x3D;0 或 b≠0 ；第二个判断条件可能的取值情况为 a&#x3D;2 或 a≠2 ，x&gt;1 或 x≤1</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">// 以下测试用例即可满足所有条件覆盖（所有条件值都被取到）</span><br>a=<span class="hljs-number">1</span>，b=<span class="hljs-number">0</span>，x=<span class="hljs-number">3</span> <br>a=<span class="hljs-number">2</span>，b=<span class="hljs-number">1</span>，x=<span class="hljs-number">1</span> <br></code></pre></td></tr></table></figure>
+
+<p>然而在这种情况下第二个判断条件却无法取值为 False，因此满足条件覆盖不一定满足判定覆盖</p>
+</li>
+<li><p>判定&#x2F;条件覆盖：判定覆盖和条件覆盖都要满足</p>
+</li>
+<li><p>条件组合覆盖：每个条件的所有可能都至少出现一次，并且判定结果至少出现一次</p>
+<blockquote>
+<p>关注关注分支结构（if…else等）中所有单个子条件的 True 和 False 组合情况是否能被正确覆盖</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[] args)</span> &#123;<br>		Scanner sc=<span class="hljs-keyword">new</span> <span class="hljs-title class_">Scanner</span>(System.in);<br>		<span class="hljs-type">int</span> x=sc.nextInt();<br>		<span class="hljs-type">int</span> y=sc.nextInt();<br>		<span class="hljs-type">int</span> num=sc.nextInt();<br>		<span class="hljs-keyword">if</span>(x&gt;<span class="hljs-number">0</span> &amp;&amp; y&gt;<span class="hljs-number">0</span>) &#123;<br>			System.out.println(<span class="hljs-string">&quot;Hello1&quot;</span>);<br>		&#125;<span class="hljs-keyword">else</span>&#123;<br>			System.out.println(<span class="hljs-string">&quot;Hello2&quot;</span>);<br>		&#125;<br>		<span class="hljs-keyword">if</span>(num &lt; <span class="hljs-number">0</span>) &#123;<br>			System.out.println(<span class="hljs-string">&quot;Hello3&quot;</span>);<br>		&#125;<br>		System.out.println(<span class="hljs-string">&quot;Hello4&quot;</span>);<br>	&#125;<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li>第一个 if 语句（x&gt;0 &amp;&amp; y&gt;0）定义为 test1</li>
+<li>第二个 if 语句（num &lt; 0）定义为 test2</li>
+<li>x&gt;0 定义为 p1；y&gt;0 定义为 p2；num&lt;0 定义为 p3</li>
+</ul>
+<p>以下测试用例满足条件覆盖</p>
+<table>
+<thead>
+<tr>
+<th>测试数据</th>
+<th>p1</th>
+<th>p2</th>
+<th>p3</th>
+<th>test1</th>
+<th>test2</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>{x&#x3D;1,y&#x3D;1,num&#x3D;2}</td>
+<td>T</td>
+<td>T</td>
+<td>F</td>
+<td>T</td>
+<td>F</td>
+</tr>
+<tr>
+<td>{x&#x3D;-1,y&#x3D;-1,num&#x3D;-2}</td>
+<td>F</td>
+<td>F</td>
+<td>T</td>
+<td>F</td>
+<td>T</td>
+</tr>
+<tr>
+<td>{x&#x3D;1,y&#x3D;-1,num&#x3D;2}</td>
+<td>T</td>
+<td>F</td>
+<td>F</td>
+<td>F</td>
+<td>F</td>
+</tr>
+<tr>
+<td>{x&#x3D;-1,y&#x3D;1,num&#x3D;-2}</td>
+<td>F</td>
+<td>T</td>
+<td>T</td>
+<td>F</td>
+<td>T</td>
+</tr>
+</tbody></table>
+<p>满足条件组合覆盖可能不会覆盖所有的路径，如 test1&#x3D;True 与 test2&#x3D;True 的情况此处未被覆盖</p>
+</li>
+<li><p>路径覆盖：执行所有可能的执行路径</p>
+<blockquote>
+<p>将程序执行抽象为流程图后所有路径进行覆盖</p>
+</blockquote>
+</li>
+</ol>
+<h3 id="4-1-2-各类测试分别对应什么文档？"><a href="#4-1-2-各类测试分别对应什么文档？" class="headerlink" title="4.1.2 各类测试分别对应什么文档？"></a>4.1.2 各类测试分别对应什么文档？</h3><p><strong>v 模型</strong></p>
+<p>用户需求&lt;————————————————&gt;验收测试</p>
+<p>​       需求分析&lt;————————————&gt;系统测试</p>
+<p>​              概要设计&lt;————————&gt;集成测试</p>
+<p>​                     详细设计&lt;————&gt;单元测试</p>
+<p>​                                       	编码</p>
+<ul>
+<li><p><strong>单元测试</strong>：详细设计文档 </p>
+<blockquote>
+<p>单元测试，又称模块测试。对软件的组成单位进行测试，其目的是检验软件<strong>基本组成单位</strong>的正确性。<br>测试的对象的是软件测试的最小单位：模块</p>
+</blockquote>
+</li>
+<li><p><strong>集成测试</strong>：概要设计文档</p>
+<blockquote>
+<p>集成测试也称联合测试（联调）、组装测试，将程序模块采用适当的集成策略组装起来，对系统的接口及<strong>集成后的功能</strong>进行正确性检测的</p>
+</blockquote>
+</li>
+<li><p><strong>系统测试</strong>：需求分析设计文档</p>
+<blockquote>
+<p>系统测试将软件系统看成是一个<strong>系统的测试</strong>。包括对功能、性能以及软件所运行的软硬件环境进行测试。<br>测试所花费的时间大部分在系统测试执行阶段，其从完整的角度，广面去看待问题，不再看模块，包括回归测试和冒烟测试（<strong>先冒烟、再系统、后回归</strong>）</p>
+<ul>
+<li><strong>回归测试</strong>（Regression Testing）：<strong>指修改了旧的代码之后，重新进行测试</strong>以确认修改没有引入新的错误或导致其他代码产生错误</li>
+<li><strong>冒烟测试</strong>（smoke testing）：测试的对象是每一个新编译的需要正式测试的软件版本，目的是确认<strong>软件基本功能正常</strong>，可以进行后续正式的测试工作</li>
+</ul>
+</blockquote>
+</li>
+<li><p><strong>验收测试</strong>：用户需求说明文档</p>
+<p>验收测试是部署软件之前的最后一个测试操作，目的是确保软件准备就绪，按照项目合同、任务书、双方约定的验收依据文档，向软件购买者展示该软件系统满足的原始需求。</p>
+</li>
+</ul>
+<h3 id="各种知识点"><a href="#各种知识点" class="headerlink" title="各种知识点"></a>各种知识点</h3><ul>
+<li><p>TPS 是 TransactionsPerSecond 的缩写，也就是事务数&#x2F;秒</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_21168173/article/details/111402783?ops_request_misc=&request_id=&biz_id=102&utm_term=%E8%BD%AF%E4%BB%B6%E5%BC%80%E5%8F%91%E6%A8%A1%E5%9E%8B&utm_medium=distribute.pc_search_result.none-task-blog-2~all~sobaiduweb~default-6-111402783.nonecase&spm=1018.2226.3001.4187">瀑布模型，喷泉模型，增量模型，螺旋模型</a></p>
+</li>
+<li><p>增量&#x2F;非增量集成测试</p>
+<blockquote>
+<p>一者是测一个模块，就连接一个模块；另一者是每个模块测试完了再连接</p>
+</blockquote>
+</li>
+<li><p>工作说明书 SOW ：指定测试的进度</p>
+<p>概要设计说明书 HLD ：设计测试的用例</p>
+<p>详细设计说明书 LLD ：程序员编码实现</p>
+<p>单元测试用例 UTC ：单元测试使用</p>
+</li>
+<li><p>压力测试是测试软件的瓶颈和极限</p>
+<p>负载测试是性能在极限情况下能坚持多久</p>
+</li>
+<li><p>自顶向下测试：是从程序的初始模块开始测试</p>
+<ul>
+<li><strong>优点</strong>：较早地验证了主要控制和判断点；按深度优先可以首先实现和验证一个完整的软件功能；功能较早证实，带来信心；只需一个驱动，减少驱动器开发的费用；支持故障隔离</li>
+<li><strong>缺点</strong>：柱的开发量大；底层验证被推迟；底层组件测试不充分</li>
+</ul>
+<blockquote>
+<p>mock：对代码中某些不容易获取的对象创建虚拟对象来测试<br>stub：桩函数是代替某些被调用了但是没有编写代码的函数<br>驱动函数：调用被测函数，给被测函数传参</p>
+</blockquote>
+<p>自底向上测试：是从程序的底层模块开始测试</p>
+<ul>
+<li><strong>优点</strong>：对底层组件行为较早验证；工作最初可以并行集成，比自顶向下效率高；减少了桩的工作量；支持故障隔离</li>
+<li><strong>缺点</strong>：驱动的开发工作量大；对高层的验证被推迟，设计上的错误不能被及时发现</li>
+</ul>
+</li>
+<li><p>MCDC（修正条件逻辑判定）：每个条件独立影响判定结果</p>
+<blockquote>
+<p>如 IF（A||B），当 A 为 True 时便能得知整体为 True，无需关注 B 的取值</p>
+</blockquote>
+</li>
+<li><p>α 测试是由一个用户在开发环境下进行的测试，也可以是公司内部的用户在模拟实际操作环境下进行的受控测试</p>
+<p>β 测试是在 α 测试之后进行的测试阶段，它是由最终用户或受邀的外部测试人员进行的</p>
+</li>
+<li><p>动态分析：代码运行结束后。模块功能检查和系统压力测试，必须执行代码后才能分析</p>
+<p>静态分析：代码运行之前。数据流分析和代码覆盖率，不需要执行代码就可分析</p>
+</li>
+<li><p>粒度从小到大：单元测试 &lt; 集成测试 &lt; 系统测试 &lt; 验收测试</p>
+</li>
+<li><p>测试的目的是暴露错误，调试的目的是发现错误发生的原因并修复解决</p>
+</li>
+<li><p>界面元素测试包括：窗口测试、菜单测试、图标测试、文字测试、鼠标测试</p>
+</li>
+</ul>
+<h2 id="4-2-题目"><a href="#4-2-题目" class="headerlink" title="4.2 题目"></a>4.2 题目</h2><p><strong>为实现判定&#x2F;条件覆盖，需要设计的测试用例个数至少应为多少？</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">if</span>(!(ch &gt;= <span class="hljs-string">&#x27;0&#x27;</span> &amp;&amp; ch &lt;= <span class="hljs-string">&#x27;9&#x27;</span>))<br>	printf(<span class="hljs-string">&quot;This is not a digit!&quot;</span>)；<br><span class="hljs-keyword">else</span><br>	printf(<span class="hljs-string">&quot;This is a digit!&quot;</span>)；<br></code></pre></td></tr></table></figure>
+
+<hr>
+<ul>
+<li>首先从条件覆盖入手，当设计完条件覆盖后再看看是否有相关判定未覆盖</li>
+<li>在条件①中（ch &gt;&#x3D; ‘0’）, ch 可能的取值情况为 ch&gt;&#x3D;’0’ 或 ch&lt;’0’ ；在条件②中，ch 可能的取值情况为 ch&lt;&#x3D;’9’ 或 ch&gt;’9’</li>
+<li>其中 ch&gt;&#x3D;’0’ 与 ch&lt;&#x3D;’9’ 可以被一个测试用例覆盖，此时判定结果为 False<br>而 ch&lt;’0’ 与 ch&gt;’9’ 无法使用一个测试用例覆盖，因此针对不同情况各自安排一个测试用例，此时判定结果为 True</li>
+<li>条件覆盖完毕后，发现已经同时覆盖了判定条件为 True 和 False 的情况，因此无需再添加额外测试用例，所以本例完成判定&#x2F;条件覆盖共需要 3 个测试用例</li>
+</ul>
+<hr>
+<p><strong>以下 C 语言函数，用基本路径法测试需要覆盖几条路径</strong></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-type">void</span> <span class="hljs-title function_">Sort</span><span class="hljs-params">(<span class="hljs-type">int</span> a,<span class="hljs-type">int</span> b)</span>&#123;<br>    <span class="hljs-keyword">while</span>(a&gt;<span class="hljs-number">0</span>)&#123;<br>        <span class="hljs-keyword">if</span>(b==<span class="hljs-number">0</span>)&#123;<br>            b++;<br>        &#125;<span class="hljs-keyword">else</span>&#123;<br>            <span class="hljs-keyword">if</span>(b==<span class="hljs-number">1</span>)&#123;<br>                b--;<br>            &#125;<span class="hljs-keyword">else</span>&#123;<br>                b=b+<span class="hljs-number">2</span>;<br>            &#125;<br>        &#125;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<hr>
+<p>基本路径法也就是将程序执行过程抽象为流程图，接着遍历各种可能</p>
+<img src="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202404021453436.png" srcset="/img/loading.gif" lazyload alt="image-20240402145344336" style="zoom:67%;" />
+
+<hr>
+<h1 id="5-数据结构"><a href="#5-数据结构" class="headerlink" title="5. 数据结构"></a>5. 数据结构</h1><h2 id="5-1-算法题"><a href="#5-1-算法题" class="headerlink" title="5.1 算法题"></a>5.1 算法题</h2><h3 id="BM12-单链表的排序"><a href="#BM12-单链表的排序" class="headerlink" title="BM12 单链表的排序"></a>BM12 单链表的排序</h3><blockquote>
+<p>给定一个节点数为n的无序单链表，对其按升序排序。</p>
+</blockquote>
+<p>要求：空间复杂度 O(n)，时间复杂度 O(nlogn)</p>
+<hr>
+<ul>
+<li>时间复杂度为 O(nlogn) 的排序算法为快速排序、归并排序、堆排序。快速排序与堆排序依靠数组索引反复跳变取值，在链表中不具备可操作性，因此此题实则要求对单链表进行<strong>归并排序</strong></li>
+<li>归并排序的思想是先按中间位置反复切割至最小单位，再比较各部分大小情况，逐渐拼接为完整数据，在数组中可以很容易得到 mid 位置，而在链表中则需通过快慢指针来完成 mid 的定位，同时还需要使用 mid 的前置指针 pre，以便将完整的链表一分为二</li>
+<li>merge 操作则是将两个链表升序连接，分别对两个链表遍历，用头结点按照大小顺序连接即可</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> &#123;<br>    <span class="hljs-keyword">public</span> ListNode <span class="hljs-title function_">sortInList</span> <span class="hljs-params">(ListNode head)</span> &#123;<br>        <span class="hljs-keyword">if</span>(head==<span class="hljs-literal">null</span> || head.next==<span class="hljs-literal">null</span>)&#123;<br>            <span class="hljs-keyword">return</span> head;<br>        &#125;<br>        <span class="hljs-keyword">return</span> mergeSort(head);<br>    &#125;<br>    <span class="hljs-keyword">public</span> ListNode <span class="hljs-title function_">mergeSort</span><span class="hljs-params">(ListNode head)</span>&#123;<br>        <span class="hljs-keyword">if</span>(head.next==<span class="hljs-literal">null</span>)&#123;<br>            <span class="hljs-keyword">return</span> head;<br>        &#125;<br>        ListNode low=head,fast=head,pre=<span class="hljs-literal">null</span>;<br>        <span class="hljs-keyword">while</span>(fast!=<span class="hljs-literal">null</span> &amp;&amp; fast.next!=<span class="hljs-literal">null</span>)&#123;<br>            pre=low;<br>            low=low.next;<br>            fast=fast.next.next;<br>        &#125;<br>        <span class="hljs-comment">// 从中间截断链表</span><br>        pre.next=<span class="hljs-literal">null</span>;<br>        <span class="hljs-type">ListNode</span> <span class="hljs-variable">left</span> <span class="hljs-operator">=</span> mergeSort(head);<br>        <span class="hljs-type">ListNode</span> <span class="hljs-variable">right</span> <span class="hljs-operator">=</span> mergeSort(low);<br>        <span class="hljs-keyword">return</span> merge(left,right);<br>    &#125;<br>    <span class="hljs-keyword">public</span> ListNode <span class="hljs-title function_">merge</span><span class="hljs-params">(ListNode left,ListNode right)</span>&#123;<br>        <span class="hljs-type">ListNode</span> <span class="hljs-variable">head</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">ListNode</span>(-<span class="hljs-number">1</span>);<br>        <span class="hljs-type">ListNode</span> <span class="hljs-variable">cur</span> <span class="hljs-operator">=</span> head;<br>        <span class="hljs-keyword">while</span>(left!=<span class="hljs-literal">null</span> &amp;&amp; right!=<span class="hljs-literal">null</span>)&#123;<br>            <span class="hljs-keyword">if</span>(left.val&lt;right.val)&#123;<br>                cur.next = left;<br>                left = left.next;<br>            &#125;<span class="hljs-keyword">else</span>&#123;<br>                cur.next = right;<br>                right = right.next;<br>            &#125;<br>            cur=cur.next;<br>        &#125;<br>        <span class="hljs-keyword">if</span>(left!=<span class="hljs-literal">null</span>)&#123;<br>            cur.next = left;<br>        &#125;<span class="hljs-keyword">else</span>&#123;<br>            cur.next = right;<br>        &#125;<br>        <span class="hljs-keyword">return</span> head.next;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h3 id="BM20-数组中的逆序对"><a href="#BM20-数组中的逆序对" class="headerlink" title="BM20 数组中的逆序对"></a>BM20 数组中的逆序对</h3><blockquote>
+<p>在数组中的两个数字，如果前面一个数字大于后面的数字，则这两个数字组成一个逆序对。输入一个数组，求出这个数组中的逆序对的总数 P 。并将 P 对 1000000007 取模的结果输出。 即输出 P mod 1000000007</p>
+</blockquote>
+<p>要求：空间复杂度 O(n)，时间复杂度 O(nlogn)</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python">输入：[<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>,<span class="hljs-number">4</span>,<span class="hljs-number">5</span>,<span class="hljs-number">6</span>,<span class="hljs-number">7</span>,<span class="hljs-number">0</span>]<br>返回值：<span class="hljs-number">7</span><br></code></pre></td></tr></table></figure>
+
+<hr>
+<ul>
+<li>本题最容易想到的思路是冒泡升序排序，交换次数即为逆序对数量，但是此时时间复杂度为O(n²)，不符合题目要求</li>
+<li>另一个思路是<strong>归并升序排序</strong>，每次 merge 的 [left,mid]，[mid+1,right] 内部升序，当后一部分第 j 个元素小于前一部分第 i 个元素时，说明出现了逆序对，并且由于内部有序，因此元素 j 实际上小于 [i,mid] 之间的所有元素，即逆序对数量为 mid-i+1</li>
+<li>使用全局变量 count 对逆序对数量进行统计，最后取模得到答案</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> &#123;<br>    <span class="hljs-type">long</span> <span class="hljs-variable">count</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>;<br>    <span class="hljs-keyword">public</span> <span class="hljs-type">int</span> <span class="hljs-title function_">InversePairs</span> <span class="hljs-params">(<span class="hljs-type">int</span>[] nums)</span> &#123;<br>        <span class="hljs-keyword">if</span>(nums.length&lt;=<span class="hljs-number">1</span>)&#123;<br>            <span class="hljs-keyword">return</span> -<span class="hljs-number">1</span>;<br>        &#125;<br>        <span class="hljs-comment">// 归并排序</span><br>        MergeSort(nums,<span class="hljs-number">0</span>,nums.length-<span class="hljs-number">1</span>);<br>        <span class="hljs-keyword">return</span> (<span class="hljs-type">int</span>)(count % <span class="hljs-number">1000000007</span>);<br>    &#125;<br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">MergeSort</span><span class="hljs-params">(<span class="hljs-type">int</span>[] nums,<span class="hljs-type">int</span> left,<span class="hljs-type">int</span> right)</span>&#123;<br>        <span class="hljs-keyword">if</span>(left&lt;right)&#123;<br>            <span class="hljs-type">int</span> <span class="hljs-variable">mid</span> <span class="hljs-operator">=</span> (left+right)/<span class="hljs-number">2</span>;<br>            MergeSort(nums,left,mid);<br>            MergeSort(nums,mid+<span class="hljs-number">1</span>,right);<br>            Merge(nums,left,right,mid);<br>        &#125;<br>    &#125;<br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">Merge</span><span class="hljs-params">(<span class="hljs-type">int</span>[] nums,<span class="hljs-type">int</span> left,<span class="hljs-type">int</span> right,<span class="hljs-type">int</span> mid)</span>&#123;<br>        <span class="hljs-type">int</span> temp[]=<span class="hljs-keyword">new</span> <span class="hljs-title class_">int</span>[right-left+<span class="hljs-number">1</span>];<br>        <span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span>left,j=mid+<span class="hljs-number">1</span>,index=<span class="hljs-number">0</span>;<br>        <span class="hljs-keyword">while</span>(i&lt;=mid &amp;&amp; j&lt;=right)&#123;<br>            <span class="hljs-keyword">if</span>(nums[i]&gt;nums[j])&#123;<br>                <span class="hljs-comment">// 此时mid左右两端各自升序</span><br>                <span class="hljs-comment">// 当if成立时，[i,mid]的元素都大于nums[j]</span><br>                count = count + mid - i + <span class="hljs-number">1</span>;<br>                temp[index++]=nums[j++];<br>            &#125;<span class="hljs-keyword">else</span>&#123;<br>                temp[index++]=nums[i++];<br>            &#125;<br>        &#125;<br>        <span class="hljs-keyword">while</span>(i&lt;=mid)&#123;<br>            temp[index++] = nums[i++];<br>        &#125;<br>        <span class="hljs-keyword">while</span>(j&lt;=right)&#123;<br>            temp[index++] = nums[j++];<br>        &#125;<br>        <span class="hljs-comment">// 源数组、源数组起始位置、目标数组、目标数组起始位置、复制元素数量</span><br>        System.arraycopy(temp,<span class="hljs-number">0</span>,nums,left,index);<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h3 id="BM21-旋转数组的最小位置"><a href="#BM21-旋转数组的最小位置" class="headerlink" title="BM21 旋转数组的最小位置"></a>BM21 旋转数组的最小位置</h3><blockquote>
+<p>有一个长度为 n 的非降序数组，比如 [1,2,3,4,5] ，将它进行旋转，即把一个数组最开始的若干个元素搬到数组的末尾，变成一个旋转数组，比如变成了 [3,4,5,1,2]，或者 [4,5,1,2,3] 这样的。请问，给定这样一个旋转数组，求数组中的最小值。</p>
+</blockquote>
+<hr>
+<ul>
+<li>由于原数组为非降序数组，因此旋转之后，子数组内部依旧保持非降序，并且旋转到后面的子数组 2 整体小于前面的子数组 1</li>
+<li>基于上述信息，不难发现可以采用二分法思想，一步步迫近子数组 1 的末尾以及子数组 2 的开头</li>
+<li>特殊情况为：当 left 指向的元素与 right 指向的元素大小一致时，无法判断 mid 属于子数组 1 还是 2 ，因此不能进一步迫近，此时只能采用顺序遍历寻找最小值</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> &#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-type">int</span> <span class="hljs-title function_">minNumberInRotateArray</span> <span class="hljs-params">(<span class="hljs-type">int</span>[] nums)</span> &#123;<br>        <span class="hljs-type">int</span> left=<span class="hljs-number">0</span>,right=nums.length-<span class="hljs-number">1</span>;<br>        <span class="hljs-comment">// 此时没有旋转</span><br>        <span class="hljs-keyword">if</span>(nums[left]&lt;nums[right])&#123;<br>            <span class="hljs-keyword">return</span> nums[left];<br>        &#125;<br>        <span class="hljs-keyword">while</span>(nums[left]&gt;=nums[right])&#123;<br>            <span class="hljs-keyword">if</span>(right-left==<span class="hljs-number">1</span>)&#123;<br>                <span class="hljs-keyword">break</span>;<br>            &#125;<br>            <span class="hljs-type">int</span> <span class="hljs-variable">mid</span> <span class="hljs-operator">=</span> (left+right)/<span class="hljs-number">2</span>;<br>            <span class="hljs-keyword">if</span>(nums[left]==nums[right])&#123;<br>                <span class="hljs-comment">// 此时无法分辨mid属于哪个子数组，只能顺序遍历</span><br>                <span class="hljs-type">int</span> <span class="hljs-variable">temp</span> <span class="hljs-operator">=</span> nums[left];<br>                <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span>left+<span class="hljs-number">1</span>;i&lt;right;i++)&#123;<br>                    <span class="hljs-keyword">if</span>(nums[i]&lt;temp)&#123;<br>                        temp=nums[i];<br>                    &#125;<br>                &#125;<br>                <span class="hljs-keyword">return</span> temp;<br>            &#125;<br>            <span class="hljs-keyword">if</span>(nums[mid]&gt;=nums[left])&#123;<br>                left = mid;<br>            &#125;<span class="hljs-keyword">else</span>&#123;<br>                right = mid;<br>            &#125;<br>        &#125;<br>        <span class="hljs-keyword">return</span> nums[right];<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+
+
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E9%9D%A2%E8%AF%95/" class="category-chain-item">面试</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/%E9%9D%A2%E8%AF%95/" class="print-no-link">#面试</a>
+      
+    </div>
+  
+</div>
+
+
+              
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/blog/%E6%B5%8B%E8%AF%95%E6%8A%80%E6%9C%AF%E6%A0%88/UI%E8%87%AA%E5%8A%A8%E5%8C%96/%E6%B5%8B%E8%AF%95%E6%8A%80%E6%9C%AF%E6%A0%88/UI%E8%87%AA%E5%8A%A8%E5%8C%96/Selenium%E5%9F%BA%E7%A1%80/" title="selenium基础">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">selenium基础</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/blog/%E9%9D%A2%E8%AF%95/%E9%9D%A2%E8%AF%95/%E7%A9%B6%E6%9E%81%E6%97%A0%E6%95%8C%E9%9D%A2%E8%AF%95%E5%AE%9D%E5%85%B8%E5%90%88%E9%9B%86/" title="究极无敌面试宝典合集">
+                        <span class="hidden-mobile">究极无敌面试宝典合集</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       用文字锁住记忆 
+    </div>
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+<!-- hexo injector body_end start --><script src="/js/backgroundize.js"></script><!-- hexo injector body_end end --></body>
+</html>

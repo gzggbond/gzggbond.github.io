@@ -1,0 +1,783 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/our/logo.png">
+  <link rel="icon" href="/img/our/logo.png">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="Z_Jump_Dragon">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="AISBench是《GBT&#x2F;45087-2024人工智能 服务器系统性能测试方法》标准中人工智能服务器系统性能测试工具的典型实现，适用于人工智能服务器、人工智能服务器集群或人工智能计算中心的性能测试，能兼容主流人工智能加速器（如 CPU、GPU 或 NPU等)和深度学习框架">
+<meta property="og:type" content="article">
+<meta property="og:title" content="AISBench大模型推理性能工具指南">
+<meta property="og:url" content="https://dragooon.top/blog/%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%95/%E5%A4%A7%E6%A8%A1%E5%9E%8B%E6%8E%A8%E7%90%86%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%95/%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%95/%E5%A4%A7%E6%A8%A1%E5%9E%8B%E6%8E%A8%E7%90%86%E6%80%A7%E8%83%BD/AISBench%E5%A4%A7%E6%A8%A1%E5%9E%8B%E6%8E%A8%E7%90%86%E6%80%A7%E8%83%BD%E5%B7%A5%E5%85%B7%E6%8C%87%E5%8D%97/index.html">
+<meta property="og:site_name" content="棱镜里的日常">
+<meta property="og:description" content="AISBench是《GBT&#x2F;45087-2024人工智能 服务器系统性能测试方法》标准中人工智能服务器系统性能测试工具的典型实现，适用于人工智能服务器、人工智能服务器集群或人工智能计算中心的性能测试，能兼容主流人工智能加速器（如 CPU、GPU 或 NPU等)和深度学习框架">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202603091511029.png">
+<meta property="og:image" content="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202603101432490.png">
+<meta property="og:image" content="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202603101554173.png">
+<meta property="og:image" content="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202603101846437.png">
+<meta property="og:image" content="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202603101848141.png">
+<meta property="og:image" content="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202603101905316.png">
+<meta property="article:published_time" content="2026-03-19T01:27:50.000Z">
+<meta property="article:modified_time" content="2026-03-19T01:47:28.967Z">
+<meta property="article:author" content="Z_Jump_Dragon">
+<meta property="article:tag" content="大模型推理性能测试">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202603091511029.png">
+  
+  
+  
+  <title>AISBench大模型推理性能工具指南 - 棱镜里的日常</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+  
+<link rel="stylesheet" href="/css/cloudedGlass.css">
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"dragooon.top","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":60,"cursorChar":"_","loop":false,"scope":["home"]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"left","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":3},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":false};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+
+<body><!-- hexo injector body_begin start --><div id="web_bg"></div><!-- hexo injector body_begin end -->
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 100vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>棱镜里的日常</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/our/article.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle">AISBench大模型推理性能工具指南</span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-author" aria-hidden="true"></i>
+        Z_Jump_Dragon
+      </span>
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2026-03-19 09:27" pubdate>
+          2026年3月19日 上午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          3.1k 字
+        
+      </span>
+    
+
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+        <div class="scroll-down-bar">
+          <i class="iconfont icon-arrowdown"></i>
+        </div>
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="padding-left: 2rem; margin-right: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">AISBench大模型推理性能工具指南</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h1 id="1-AISBench简介"><a href="#1-AISBench简介" class="headerlink" title="1. AISBench简介"></a>1. AISBench简介</h1><p>AISBench是<code>《GBT/45087-2024人工智能 服务器系统性能测试方法》</code>标准中人工智能服务器系统性能测试工具的典型实现，适用于人工智能服务器、人工智能服务器集群或人工智能计算中心的性能测试，能兼容主流人工智能加速器（如 CPU、GPU 或 NPU等)和深度学习框架</p>
+<p>AISBench Benchmark是基于 <a target="_blank" rel="noopener" href="https://github.com/open-compass/opencompass">OpenCompass</a> 构建的模型评测工具，兼容 OpenCompass 的配置体系、数据集结构与模型后端实现，并在此基础上扩展了对服务化模型（VLLM）的支持能力。</p>
+<p>当前，AISBench 支持两大类推理任务的评测场景：</p>
+<p>🚀 <a target="_blank" rel="noopener" href="https://ais-bench-benchmark-rf.readthedocs.io/zh-cn/latest/base_tutorials/scenes_intro/home.html#id5">服务化性能测评指南</a>：支持对服务化模型的延迟与吞吐率评估，并可进行压测场景下的极限性能测试，支持稳态性能评测和真实业务流量模拟。</p>
+<p>🔍 <a target="_blank" rel="noopener" href="https://ais-bench-benchmark-rf.readthedocs.io/zh-cn/latest/base_tutorials/scenes_intro/home.html#id2">精度测评</a>：支持对服务化模型和本地模型在各类问答、推理基准数据集上的精度验证，覆盖文本、多模态等多种场景。</p>
+<p><strong>环境安装部署</strong></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_"># </span><span class="language-bash">克隆项目</span><br>git clone https://github.com/AISBench/benchmark.git<br>cd benchmark<br><span class="hljs-meta prompt_"># </span><span class="language-bash">在原先./requirements/runtime.txt基础上加上vllm，openai&gt;=2.0.0与setuptools==67.7.2</span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">安装依赖</span><br>pip install -r ./requirements/runtime.txt<br><span class="hljs-meta prompt_"># </span><span class="language-bash">源码安装安装ais_bench</span><br>pip3 install -e ./<br><span class="hljs-meta prompt_"># </span><span class="language-bash">如需卸载，则使用如下命令</span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">pip uninstall ais_bench_benchmark</span><br></code></pre></td></tr></table></figure>
+
+<h1 id="2-服务化性能测评指南"><a href="#2-服务化性能测评指南" class="headerlink" title="2. 服务化性能测评指南"></a>2. 服务化性能测评指南</h1><p>AISBench Benchmark 提供服务化性能测评能力。针对流式推理场景，通过精确记录每条请求的发送时间、各阶段返回时间及响应内容，系统地评估模型服务在实际部署环境中的响应延迟（如 TTFT、Token间延迟）、吞吐能力（如 QPS、TPUT）、并发处理能力等关键性能指标。</p>
+<p>用户可通过配置服务化后端参数，灵活控制请求内容、请求间隔、并发数量等，适配不同评测场景（如低并发延迟敏感型、高并发吞吐优先型等）。测评支持自动化执行并输出结构化结果，便于横向对比不同模型、部署方案、硬件配置下的服务性能差异。</p>
+<h2 id="2-1-快速入门"><a href="#2-1-快速入门" class="headerlink" title="2.1 快速入门"></a>2.1 快速入门</h2><p><strong>准备工作</strong></p>
+<ol>
+<li><p>本地准备好需要测评的大模型文件</p>
+<blockquote>
+<p>通过<a target="_blank" rel="noopener" href="https://www.modelscope.cn/models">魔塔社区</a>或者<a target="_blank" rel="noopener" href="https://huggingface.co/models">Hugging Face</a>等平台获得开源大模型文件</p>
+</blockquote>
+</li>
+<li><p>终端通过VLLM开启服务化推理后端（默认端口8000）</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_"># </span><span class="language-bash">开启推理服务</span><br>vllm serve [大模型文件本地路径]<br><span class="hljs-meta prompt_"># </span><span class="language-bash">vllm serve /home/user/code/bigmodel/opencompass-main/downloads/models/Qwen2.5-1.5B-Instruct</span><br></code></pre></td></tr></table></figure></li>
+</ol>
+<p><strong>使用如下命令完成性能测评</strong></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">ais_bench --models vllm_api_stream_chat --datasets demo_gsm8k_gen_4_shot_cot_chat_prompt -m perf --debug<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li><p><code>--models</code>: 使用<code>vllm_api_stream_chat</code>模型任务，需要准备支持<code>v1/chat/completions</code>子服务的推理服务</p>
+<blockquote>
+<p>此处对应的文件为<code>./ais_bench/benchmark/configs/models/vllm_api/vllm_api_stream_chat.py</code>，相关参数含义如<a target="_blank" rel="noopener" href="https://ais-bench-benchmark.readthedocs.io/zh-cn/latest/base_tutorials/all_params/models.html#id2">服务化推理后端配置</a>所示</p>
+</blockquote>
+</li>
+<li><p><code>--datasets</code>: 使用<code>demo_gsm8k_gen_4_shot_cot_chat_prompt</code>数据集任务，需要准备<code>gsm8k</code>数据集</p>
+<blockquote>
+<p>此处对应的文件为<code>./ais_bench/benchmark/configs/datasets/gsm8k/gsm8k_gen_4_shot_cot_chat_prompt.py</code>，相关参数含义如<a target="_blank" rel="noopener" href="https://ais-bench-benchmark.readthedocs.io/zh-cn/latest/base_tutorials/all_params/datasets.html">数据集准备指南</a>所示，path使用相对路径时是相对于源码根路径</p>
+</blockquote>
+</li>
+</ul>
+<img src="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202603091511029.png" srcset="/img/loading.gif" lazyload alt="image-20260309151117850" style="zoom: 67%;" />
+
+<p>执行后的结果存在于<code>outputs/default/</code>文件夹下，各参数说明如<a target="_blank" rel="noopener" href="https://ais-bench-benchmark.readthedocs.io/zh-cn/latest/base_tutorials/results_intro/performance_metric.html">性能测评结果说明</a>所示</p>
+<h2 id="2-2-数据集配置命名"><a href="#2-2-数据集配置命名" class="headerlink" title="2.2 数据集配置命名"></a>2.2 数据集配置命名</h2><p>AISBench Benchmark 开源数据集配置按照数据集名称保存在 <code>configs/datasets</code>目录下，在各个数据集对应的文件夹下存在多个数据集配置，文件结构如下所示：</p>
+<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs vim">ais_bench/benchmark/configs/datasets<br>├── agieval<br>├── aime2024<br>├── ARC_c<br>├── ...<br>├── gsm8k  # 数据集<br>│   ├── gsm8k_gen.<span class="hljs-keyword">py</span>  # 不同版本数据集配置文件<br>│   ├── gsm8k_gen_0_shot_cot_str_perf.<span class="hljs-keyword">py</span><br>│   ├── gsm8k_gen_0_shot_cot_chat_prompt.<span class="hljs-keyword">py</span><br>│   ├── gsm8k_gen_0_shot_cot_str.<span class="hljs-keyword">py</span><br>│   ├── gsm8k_gen_4_shot_cot_str.<span class="hljs-keyword">py</span><br>│   ├── gsm8k_gen_4_shot_cot_chat_prompt.<span class="hljs-keyword">py</span><br>│   └── README.md<br>├── ...<br>├── vocalsound<br>├── winogrande<br>└── Xsum<br></code></pre></td></tr></table></figure>
+
+<p>开源数据集配置名称由以下命名方式构成 <code>&#123;数据集名称&#125;_&#123;评测方式&#125;_&#123;shot数目&#125;_shot_&#123;逻辑链规则&#125;_&#123;请求类型&#125;_&#123;任务类别&#125;.py</code>，通过规范的命名我们可以很快得知当前的配置是否满足我们的需求，从而做出相应选择，如下是一个例子：</p>
+<p><strong>gsm8k&#x2F;gsm8k_gen_0_shot_cot_chat_prompt.py</strong></p>
+<ol>
+<li><p><strong><code>gsm8k</code></strong>：数据集名称。表示这个配置文件是基于 <strong>GSM8K</strong>（小学数学题数据集）来设计的。</p>
+</li>
+<li><p><strong><code>gen</code></strong>：生成式评测，AISBench目前只支持 <code>gen</code></p>
+<blockquote>
+<p>让模型直接生成答案，然后与标准答案对比。另一种常用的大模型评估方式为PPL（困惑度）评测不需要模型生成文本，只需要评估已有选项，适用于有限选项的分类任务，其通过比较不同选项的困惑度&#x2F;似然度来选择最优答案。</p>
+</blockquote>
+</li>
+<li><p><strong><code>0_shot</code></strong>：提示中给出的样例数量。<code>0_shot</code> 表示<strong>不给任何例子</strong>，直接问问题。如果是 <code>5_shot</code> 就会在问题前先给5个问答示例。</p>
+<blockquote>
+<p>通过问答示例可以令大模型更好的理解用户需求</p>
+</blockquote>
+</li>
+<li><p><strong><code>cot</code></strong>：逻辑链规则。<code>cot</code> 表示请求中会包含 <strong>“思维链”提示</strong>（比如“请逐步推理”），引导模型输出推理过程。如果这一项缺失，就没有这个提示</p>
+</li>
+<li><p><strong><code>chat_prompt</code></strong>：对话模式请求类型。<code>chat_prompt</code> 表示<strong>使用对话模板</strong>组织输入（像聊天一样，包含角色标识如 <code>user</code>、<code>assistant</code>）。</p>
+<blockquote>
+<p>对话模式请求类型通过前置prompt令大模型更清楚地知道自己的身份、任务的背景以及对话的上下文，从而生成更符合预期的答案；与之相对的另一种请求类型为纯文本请求类型<code>str</code>，其只把问题本身发送给大模型从而得到答案</p>
+</blockquote>
+</li>
+<li><p><strong>任务类别</strong>：这里<strong>没有指定</strong>，所以<strong>默认为精度测试</strong></p>
+<blockquote>
+<p>评估模型回答得准不准，与之相对应的为性能模式<code>perf</code>，其聚焦于模型回答的快不快</p>
+</blockquote>
+<img src="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202603101432490.png" srcset="/img/loading.gif" lazyload alt="image-20260310143228389" style="zoom:50%;" /></li>
+</ol>
+<h2 id="2-3-随机合成数据集使用指南"><a href="#2-3-随机合成数据集使用指南" class="headerlink" title="2.3 随机合成数据集使用指南"></a>2.3 随机合成数据集使用指南</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_"># </span><span class="language-bash">根据synthetic_gen配置生成随机合成数据集并按配置要求喂给model_api_file</span><br>ais_bench --models &#123;model_api_file&#125; --datasets synthetic_gen --mode perf --debug<br></code></pre></td></tr></table></figure>
+
+<blockquote>
+<p>该功能旨在不提供真实数据集，而考虑使用构造随机的合成数据集的场景，用于大语言模型推理性能基准测试</p>
+</blockquote>
+<p>在 <code>ais_bench/datasets/synthetic/synthetic_config.py</code> 配置文件中配置所需参数。</p>
+<ul>
+<li><p><strong><code>string</code>模式</strong>: 生成随机长度字符串（模拟真实输入），当<code>MinValue = MaxValue</code>时生成固定长度序列</p>
+<blockquote>
+<p>该模式下的输入长度指代输入的string的长度，而非token的长度</p>
+<p>使用时需要在model api配置文件（vllm_api_stream_chat.py）中是否正确配置<code>generation_kwargs</code>中的<code>ignore_eos</code>参数（可以使得服务化处理输出时忽略终止符直至输出长度达到预设值）为<code>True</code></p>
+</blockquote>
+<img src="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202603101554173.png" srcset="/img/loading.gif" lazyload alt="image-20260310155215678" style="zoom:67%;" />
+
+<ul>
+<li><p><strong>Uniform均匀分布</strong>：输入&#x2F;输出长度在区间内等概率分布</p>
+<blockquote>
+<p>适用于压力测试的基线场景</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs python">synthetic_config = &#123;<br>    <span class="hljs-string">&quot;Type&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,<br>    <span class="hljs-string">&quot;RequestCount&quot;</span>: <span class="hljs-number">1000</span>,<br>    <span class="hljs-string">&quot;StringConfig&quot;</span>: &#123;<br>        <span class="hljs-string">&quot;Input&quot;</span>: &#123;<br>            <span class="hljs-string">&quot;Method&quot;</span>: <span class="hljs-string">&quot;uniform&quot;</span>,<br>            <span class="hljs-string">&quot;Params&quot;</span>: &#123;<span class="hljs-string">&quot;MinValue&quot;</span>: <span class="hljs-number">50</span>, <span class="hljs-string">&quot;MaxValue&quot;</span>: <span class="hljs-number">500</span>&#125;  <span class="hljs-comment"># 输入长度50-500</span><br>        &#125;,<br>        <span class="hljs-string">&quot;Output&quot;</span>: &#123;<br>            <span class="hljs-string">&quot;Method&quot;</span>: <span class="hljs-string">&quot;uniform&quot;</span>,<br>            <span class="hljs-string">&quot;Params&quot;</span>: &#123;<span class="hljs-string">&quot;MinValue&quot;</span>: <span class="hljs-number">20</span>, <span class="hljs-string">&quot;MaxValue&quot;</span>: <span class="hljs-number">200</span>&#125;  <span class="hljs-comment"># 输出长度20-200</span><br>        &#125;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+</li>
+<li><p><strong>Gaussian高斯分布</strong>：约95%的输入长度在[236,276]范围内（μ±2σ）</p>
+<blockquote>
+<p>模拟真实场景中的平均请求长度</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><code class="hljs python">synthetic_config = &#123;<br>    <span class="hljs-string">&quot;Type&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,<br>    <span class="hljs-string">&quot;RequestCount&quot;</span>: <span class="hljs-number">800</span>,<br>    <span class="hljs-string">&quot;StringConfig&quot;</span>: &#123;<br>        <span class="hljs-string">&quot;Input&quot;</span>: &#123;<br>            <span class="hljs-string">&quot;Method&quot;</span>: <span class="hljs-string">&quot;gaussian&quot;</span>,<br>            <span class="hljs-string">&quot;Params&quot;</span>: &#123;<br>                <span class="hljs-string">&quot;Mean&quot;</span>: <span class="hljs-number">256</span>,       <span class="hljs-comment"># 中心值256</span><br>                <span class="hljs-string">&quot;Var&quot;</span>: <span class="hljs-number">100</span>,        <span class="hljs-comment"># 标准差10（Var是方差，开根号为标准差）</span><br>                <span class="hljs-string">&quot;MinValue&quot;</span>: <span class="hljs-number">64</span>,    <span class="hljs-comment"># 实际范围64-512</span><br>                <span class="hljs-string">&quot;MaxValue&quot;</span>: <span class="hljs-number">512</span><br>            &#125;<br>       <br>        &#125;,<br>        <span class="hljs-string">&quot;Output&quot;</span>: &#123;<br>            <span class="hljs-string">&quot;Method&quot;</span>: <span class="hljs-string">&quot;gaussian&quot;</span>,<br>            <span class="hljs-string">&quot;Params&quot;</span>: &#123;<br>                <span class="hljs-string">&quot;Mean&quot;</span>: <span class="hljs-number">128</span>,<br>                <span class="hljs-string">&quot;Var&quot;</span>: <span class="hljs-number">50</span>,<br>                <span class="hljs-string">&quot;MinValue&quot;</span>: <span class="hljs-number">32</span>,<br>                <span class="hljs-string">&quot;MaxValue&quot;</span>: <span class="hljs-number">256</span><br>            &#125;<br>        &#125;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+</li>
+<li><p><strong>Zipf齐夫分布</strong>：模拟真实场景中的请求长尾分布，当Alpha&#x3D;1.5时，约20%的请求占60%的计算量</p>
+<blockquote>
+<p>大模型推理计算量只和token长度相关，若20%的请求占60%的计算量，则说明这20%的请求长度比较长，生成长尾分布数据（如1%的请求占50%的计算量）</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><code class="hljs python">synthetic_config = &#123;<br>    <span class="hljs-string">&quot;Type&quot;</span>: <span class="hljs-string">&quot;string&quot;</span>,<br>    <span class="hljs-string">&quot;RequestCount&quot;</span>: <span class="hljs-number">1200</span>,<br>    <span class="hljs-string">&quot;StringConfig&quot;</span>: &#123;<br>        <span class="hljs-string">&quot;Input&quot;</span>: &#123;<br>            <span class="hljs-string">&quot;Method&quot;</span>: <span class="hljs-string">&quot;zipf&quot;</span>,<br>            <span class="hljs-string">&quot;Params&quot;</span>: &#123;<br>                <span class="hljs-string">&quot;Alpha&quot;</span>: <span class="hljs-number">1.5</span>,      <span class="hljs-comment"># 强长尾效应</span><br>                <span class="hljs-string">&quot;MinValue&quot;</span>: <span class="hljs-number">10</span>,    <span class="hljs-comment"># 输入长度范围10-1000</span><br>                <span class="hljs-string">&quot;MaxValue&quot;</span>: <span class="hljs-number">1000</span><br>            &#125;<br>        &#125;,<br>        <span class="hljs-string">&quot;Output&quot;</span>: &#123;<br>            <span class="hljs-string">&quot;Method&quot;</span>: <span class="hljs-string">&quot;zipf&quot;</span>,<br>            <span class="hljs-string">&quot;Params&quot;</span>: &#123;<br>                <span class="hljs-string">&quot;Alpha&quot;</span>: <span class="hljs-number">2.0</span>,     <span class="hljs-comment"># 较平缓分布</span><br>                <span class="hljs-string">&quot;MinValue&quot;</span>: <span class="hljs-number">5</span>,<br>                <span class="hljs-string">&quot;MaxValue&quot;</span>: <span class="hljs-number">500</span><br>            &#125;<br>        &#125;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+</li>
+<li><p><strong>混合分布配置</strong>：输入和输出可以是上述的不同分布组合</p>
+</li>
+</ul>
+</li>
+<li><p><strong><code>tokenid</code>模式</strong>: 生成随机token id序列（直接输入编码后的Token）</p>
+<blockquote>
+<p>发送时会将每条由模型权重词表范围下随机生成的token所组成的、指定长度的prompt重新decode为字符串格式后再发送给服务化，由于每个模型的词表映射可能出现多对一、一对多等情况，故可能出现波动</p>
+</blockquote>
+<ul>
+<li><p><strong>长文本压力测试</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs python">synthetic_config = &#123;<br>    <span class="hljs-string">&quot;Type&quot;</span>: <span class="hljs-string">&quot;tokenid&quot;</span>,<br>    <span class="hljs-string">&quot;RequestCount&quot;</span>: <span class="hljs-number">1000</span>,<br>    <span class="hljs-string">&quot;TokenIdConfig&quot;</span>: &#123;<br>        <span class="hljs-string">&quot;RequestSize&quot;</span>: <span class="hljs-number">2048</span>   <span class="hljs-comment"># 单请求2048个token</span><br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+</li>
+<li><p><strong>短文本性能测试</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs python">synthetic_config = &#123;<br>    <span class="hljs-string">&quot;Type&quot;</span>: <span class="hljs-string">&quot;tokenid&quot;</span>,<br>    <span class="hljs-string">&quot;RequestCount&quot;</span>: <span class="hljs-number">5000</span>,<br>    <span class="hljs-string">&quot;TokenIdConfig&quot;</span>: &#123;<br>        <span class="hljs-string">&quot;RequestSize&quot;</span>: <span class="hljs-number">128</span>    <span class="hljs-comment"># 短文本处理场景</span><br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure></li>
+</ul>
+</li>
+</ul>
+<h2 id="2-4-大模型推理吞吐率测试案例"><a href="#2-4-大模型推理吞吐率测试案例" class="headerlink" title="2.4 大模型推理吞吐率测试案例"></a>2.4 大模型推理吞吐率测试案例</h2><p><strong>Qwen2.5-1.5B-Instruct在单机4卡（RTX 5880 Ada）环境、输入输出均为4096长度下的吞吐率</strong></p>
+<ol>
+<li><p>开启VLLM服务端</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_"># </span><span class="language-bash">启动服务端并将模型切分到四张卡上运行</span><br>vllm serve /path/to/Qwen2.5-1.5B-Instruct --tensor-parallel-size 4 <br></code></pre></td></tr></table></figure>
+</li>
+<li><p><code>vllm_api_stream_chat.py</code>修改</p>
+<blockquote>
+<p>batch_size设置建议从小开始往上递增，直至出现吞吐率的转折点，则说明到达峰值</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> ais_bench.benchmark.models <span class="hljs-keyword">import</span> VLLMCustomAPIChatStream<br><br>models = [<br>    <span class="hljs-built_in">dict</span>(<br>        attr=<span class="hljs-string">&quot;service&quot;</span>,<br>        <span class="hljs-built_in">type</span>=VLLMCustomAPIChatStream,<br>        abbr=<span class="hljs-string">&#x27;vllm-api-stream-chat&#x27;</span>,<br>        path=<span class="hljs-string">&quot;/path/to/Qwen2.5-1.5B-Instruct&quot;</span>,  <span class="hljs-comment"># 模型权重路径，用于分词器</span><br>        model=<span class="hljs-string">&quot;Qwen2.5-1.5B-Instruct&quot;</span>,                 <span class="hljs-comment"># 服务端模型名称</span><br>        request_rate = <span class="hljs-number">0</span>,                     <span class="hljs-comment"># 0表示一次性发完所有请求</span><br>        retry = <span class="hljs-number">2</span>,<br>        host_ip = <span class="hljs-string">&quot;localhost&quot;</span>,                 <span class="hljs-comment"># 服务IP</span><br>        host_port = <span class="hljs-number">8000</span>,                      <span class="hljs-comment"># 服务端口</span><br>        max_out_len = <span class="hljs-number">4096</span>,                    <span class="hljs-comment"># 关键：输出长度设为4096</span><br>        batch_size = <span class="hljs-number">32</span>,                        <span class="hljs-comment"># 并发数，需根据显存调整</span><br>        generation_kwargs = <span class="hljs-built_in">dict</span>(<br>            temperature = <span class="hljs-number">0.5</span>,<br>            top_k = <span class="hljs-number">10</span>,<br>            top_p = <span class="hljs-number">0.95</span>,<br>            seed = <span class="hljs-literal">None</span>,<br>            repetition_penalty = <span class="hljs-number">1.03</span>,<br>            ignore_eos = <span class="hljs-literal">True</span>,                  <span class="hljs-comment"># 关键：强制输出达到max_out_len</span><br>        )<br>    )<br>]<br></code></pre></td></tr></table></figure>
+</li>
+<li><p><code>synthetic_gen.py</code>配置<code>tokenid</code>模式精准匹配token长度</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs python">synthetic_config = &#123;<br>    <span class="hljs-string">&quot;Type&quot;</span>: <span class="hljs-string">&quot;tokenid&quot;</span>,                    <span class="hljs-comment"># 使用tokenid模式更精确控制长度</span><br>    <span class="hljs-string">&quot;RequestCount&quot;</span>: <span class="hljs-number">32</span>,                    <span class="hljs-comment"># 请求条数，建议与batch_size一致</span><br>    <span class="hljs-string">&quot;TokenIdConfig&quot;</span>: &#123;<br>        <span class="hljs-string">&quot;RequestSize&quot;</span>: <span class="hljs-number">4096</span>                 <span class="hljs-comment"># 单请求固定4096个token</span><br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+</li>
+<li><p>执行在随机数据集上的性能评估</p>
+<blockquote>
+<p>可通过监听系统资源判断是否满载运行</p>
+</blockquote>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">ais_bench --models vllm_api_stream_chat --datasets synthetic_gen --mode perf --debug<br></code></pre></td></tr></table></figure></li>
+</ol>
+<ul>
+<li><strong>P75 &#x2F; P90 &#x2F; P99</strong>：请求时延的第 75、90、99百分位的性能表现。</li>
+<li><strong>E2EL（End-to-End Latency）</strong>：单个请求从发送到接收全部响应的总时延。</li>
+<li><strong>TTFT（Time To First Token）</strong>：首个 Token 返回的时延。</li>
+<li><strong>TPOT（Time Per Output Token）</strong>：输出阶段每个 Token 的平均生成时延（不含首个 Token）。</li>
+<li><strong>ITL（Inter-token Latency）</strong>：相邻 Token 间的平均间隔时延（不含首个 Token）。</li>
+<li><strong>InputTokens</strong>：请求的输入 Token 数量。</li>
+<li><strong>OutputTokens</strong>：请求生成的输出 Token 数量。</li>
+<li><strong>OutputTokenThroughput</strong>：输出 Token 的吞吐率（Token&#x2F;s）。</li>
+<li><strong>Tokenizer</strong>：Tokenizer 编码耗时。</li>
+<li><strong>Detokenizer</strong>：Detokenizer 解码耗时。</li>
+</ul>
+<img src="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202603101846437.png" srcset="/img/loading.gif" lazyload alt="image-20260310184647393" style="zoom:67%;" />
+
+<img src="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202603101848141.png" srcset="/img/loading.gif" lazyload alt="image-20260310184809079" style="zoom: 67%;" />
+
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><code class="hljs json"><span class="hljs-comment">// 执行结果</span><br><span class="hljs-punctuation">&#123;</span><br>    <span class="hljs-attr">&quot;Benchmark Duration&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">&#123;</span><br>        <span class="hljs-attr">&quot;total&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;40152.6953 ms&quot;</span><br>    <span class="hljs-punctuation">&#125;</span><span class="hljs-punctuation">,</span><br>    <span class="hljs-attr">&quot;Total Requests&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">&#123;</span><br>        <span class="hljs-attr">&quot;total&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">32</span><br>    <span class="hljs-punctuation">&#125;</span><span class="hljs-punctuation">,</span><br>    <span class="hljs-attr">&quot;Failed Requests&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">&#123;</span><br>        <span class="hljs-attr">&quot;total&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">0</span><br>    <span class="hljs-punctuation">&#125;</span><span class="hljs-punctuation">,</span><br>    <span class="hljs-attr">&quot;Success Requests&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">&#123;</span><br>        <span class="hljs-attr">&quot;total&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">32</span><br>    <span class="hljs-punctuation">&#125;</span><span class="hljs-punctuation">,</span><br>    <span class="hljs-attr">&quot;Concurrency&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">&#123;</span><br>        <span class="hljs-attr">&quot;total&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">31.8314</span><br>    <span class="hljs-punctuation">&#125;</span><span class="hljs-punctuation">,</span><br>    <span class="hljs-attr">&quot;Max Concurrency&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">&#123;</span><br>        <span class="hljs-attr">&quot;total&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">32</span><br>    <span class="hljs-punctuation">&#125;</span><span class="hljs-punctuation">,</span><br>    <span class="hljs-attr">&quot;Request Throughput&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">&#123;</span><br>        <span class="hljs-attr">&quot;total&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;0.797 req/s&quot;</span><br>    <span class="hljs-punctuation">&#125;</span><span class="hljs-punctuation">,</span><br>    <span class="hljs-attr">&quot;Total Input Tokens&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">&#123;</span><br>        <span class="hljs-attr">&quot;total&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">139037</span><br>    <span class="hljs-punctuation">&#125;</span><span class="hljs-punctuation">,</span><br>    <span class="hljs-attr">&quot;Prefill Token Throughput&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">&#123;</span><br>        <span class="hljs-attr">&quot;total&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;2576.3843 token/s&quot;</span><br>    <span class="hljs-punctuation">&#125;</span><span class="hljs-punctuation">,</span><br>    <span class="hljs-attr">&quot;Total generated tokens&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">&#123;</span><br>        <span class="hljs-attr">&quot;total&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">131072</span><br>    <span class="hljs-punctuation">&#125;</span><span class="hljs-punctuation">,</span><br>    <span class="hljs-attr">&quot;Input Token Throughput&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">&#123;</span><br>        <span class="hljs-attr">&quot;total&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;3462.7065 token/s&quot;</span><br>    <span class="hljs-punctuation">&#125;</span><span class="hljs-punctuation">,</span><br>    <span class="hljs-attr">&quot;Output Token Throughput&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">&#123;</span><br>        <span class="hljs-attr">&quot;total&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;3264.3388 token/s&quot;</span><br>    <span class="hljs-punctuation">&#125;</span><span class="hljs-punctuation">,</span><br>    <span class="hljs-attr">&quot;Total Token Throughput&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">&#123;</span><br>        <span class="hljs-attr">&quot;total&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;6727.0453 token/s&quot;</span><br>    <span class="hljs-punctuation">&#125;</span><br><span class="hljs-punctuation">&#125;</span><br></code></pre></td></tr></table></figure>
+
+<img src="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202603101905316.png" srcset="/img/loading.gif" lazyload alt="image-20260310190506239"  />
+
+<p>在实际测试中，应当通过如下策略逐步扩大batch_size，直至来到吞吐率的拐点</p>
+<ul>
+<li><strong>前期（1→8）</strong>：步长取 <strong>1 或 2</strong>。小步快跑，精细观察初期性能变化</li>
+<li><strong>中期（8→32）</strong>：步长取 <strong>4 或 8</strong>。此时吞吐率通常线性增长，可以迈大一点步子</li>
+<li><strong>后期（32→128+）</strong>：步长取 <strong>16 或 32</strong>。接近拐点时更要小心，避免一步跨过最佳点</li>
+</ul>
+<p>当出现以下任一情况时，上一个 <code>batch_size</code> 就是最优值</p>
+<blockquote>
+<p>可将每次batch下的相关情况进行记录</p>
+</blockquote>
+<ul>
+<li>吞吐率不再随 <code>batch_size</code> 增加而增加或下降</li>
+<li>延迟（尤其是P99延迟）出现数倍的跳升</li>
+<li>GPU显存即将用尽（建议留10%余量）</li>
+</ul>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%95/" class="category-chain-item">性能测试</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%95/%E5%A4%A7%E6%A8%A1%E5%9E%8B%E6%8E%A8%E7%90%86%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%95/" class="category-chain-item">大模型推理性能测试</a>
+  
+  
+
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/%E5%A4%A7%E6%A8%A1%E5%9E%8B%E6%8E%A8%E7%90%86%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%95/" class="print-no-link">#大模型推理性能测试</a>
+      
+    </div>
+  
+</div>
+
+
+              
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/blog/Python/%E7%BD%91%E7%BB%9C%E9%80%9A%E4%BF%A1/Python/%E7%BD%91%E7%BB%9C%E9%80%9A%E4%BF%A1/Scapy%E5%BA%93%E4%BD%BF%E7%94%A8%E6%89%8B%E5%86%8C/" title="Scapy库使用手册">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">Scapy库使用手册</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/blog/%E5%BD%92%E7%BA%B3%E6%80%BB%E7%BB%93/%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E9%83%A8%E7%BD%B2/%E5%BD%92%E7%BA%B3%E6%80%BB%E7%BB%93/%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E9%83%A8%E7%BD%B2/Linux%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%8E%AF%E5%A2%83%E9%83%A8%E7%BD%B2%E6%8C%87%E5%8D%97/" title="Linux服务器环境部署指南">
+                        <span class="hidden-mobile">Linux服务器环境部署指南</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       用文字锁住记忆 
+    </div>
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+<!-- hexo injector body_end start --><script src="/js/backgroundize.js"></script><!-- hexo injector body_end end --></body>
+</html>
