@@ -1,11 +1,11 @@
 ---
-title: 服务器离线环境部署指南
+title: Linux服务器环境部署指南
 date: 2025-07-31 17:17:50
 excerpt: Linux服务器处于离线环境时，许多资源无法一步到位，需要手动部署相关依赖环境，过程繁琐且易遇到奇奇怪怪的问题，现将完美解决方案进行记录，便于后续有类似需求时提高处理效率
 tags: 
-  - Linux环境离线部署
+  - 开发环境部署
 categories:
-  - [学习,环境部署]
+  - [归纳总结,开发环境部署]
 ---
 
 # 1. VSCode插件离线安装
@@ -158,9 +158,11 @@ categories:
    ls ./offline/*.whl > requirements.txt
    # 安装所有依赖，--proxy http://192.168.10.100:10809【添加代理】
    pip install -r requirements.txt -i https://pypi.tuna.tsinghua.edu.cn/simple 
+   # 删除环境
+   conda remove --name 环境名 --all -y
    ```
 
-# 4.Linux常用命令
+# 4. Linux常用命令
 
 ## 4.1 下载安装
 
@@ -274,6 +276,20 @@ systemctl daemon-reload
 df -h  
 ```
 
+**磁盘分区格式化**
+
+```shell
+# 进入磁盘分区工具
+diskpart
+# 列出所有磁盘
+list disk
+# 选择需要操作的磁盘
+select disk 2
+# 清除磁盘分区表和所有数据
+clean
+# 在我的电脑中右键格式化即可
+```
+
 ## 其他
 
 ```bash
@@ -285,6 +301,14 @@ lsof -i :80
 uname -m
 # 查看显卡状态
 watch -n 1 nvidia-smi
+# 打开终端
+Ctrl + Alt + T
+# 终端进入全屏模式
+F11
+# 调大终端字体
+Ctrl + Shift + +【主键盘上的+】
+# 调小终端字体
+Ctrl + -【主键盘上的-】
 ```
 
 # 5. 显卡工具及驱动安装
@@ -429,4 +453,98 @@ sudo systemctl isolate graphical.target
    ```
 
    <img src="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202602282017600.png" alt="image-20260228201729544" style="zoom:50%;" />
+
+# 8.环境打包
+
+## 8.1 python程序编译
+
+> 建议与目标客户服务器同架构，例如都是 x86_64 Linux
+
+```shell
+# 安装打包工具类
+pip install pyinstaller
+# 只打包必要依赖（检查monitor.py目录下的所有文件以及依赖），可执行文件名为resource_monitor
+pyinstaller --onefile --name resource_monitor monitor.py
+```
+
+# 9. docker使用手册
+
+> 关于docker的部署直接根据需求询问DeepSeek即可，如“在Ubuntu24.04服务器（显卡RTX5880 Ada * 4）上，如何安装支持显卡的docker环境，请一步步告诉我”
+
+## 9.1 镜像
+
+> 镜像是封装好的环境，可以理解为系统安装包
+
+```shell
+# 查看本地所有镜像
+docker images
+```
+
+通过`run`命令可以使镜像实例化，即生成容器，容器是实际可用的环境，如下是例子
+
+> run之后默认开启容器
+
+```shell
+docker run -d -p 8080:80 -v /主机/实际路径:/容器/实际路径 --name app01 nginx
+```
+
++ `-d`：后台运行容器（detach）。
+
++ `-p 8080:80`：将主机的8080端口映射到容器的80端口，访问主机8080端口即访问容器内的nginx服务。
+
++ `-v /主机/路径:/容器/路径`：将主机目录挂载到容器目录（绑定挂载）。
+
+  > 主机目录**必须提前存在**，否则会报错；容器内目录如果不存在，Docker会自动创建。
+
++ `--name app01`：给容器命名为 `app01`。
+
++ `nginx`：使用nginx官方镜像。
+
+**run命令中常见参数**
+
+| 参数               | 作用                                                         |
+| :----------------- | :----------------------------------------------------------- |
+| `-it`              | 交互式运行，分配终端（常与 `--rm` 配合临时测试）             |
+| `--rm`             | 容器退出后自动删除，避免残留                                 |
+| `--restart=always` | 容器停止时自动重启（如开机自启、崩溃重启）                   |
+| `-e VAR=value`     | 设置环境变量，例如 `-e MYSQL_ROOT_PASSWORD=123`              |
+| `--network=bridge` | 指定网络模式（`bridge`/`host`/`none`/自定义）                |
+| `--link`           | 连接其他容器（已逐渐被自定义网络取代）                       |
+| `-v` 或 `--mount`  | 挂载卷或绑定目录（`--mount` 语法更详细）                     |
+| `-p`               | 端口映射，格式 `主机端口:容器端口` 或 `IP:主机端口:容器端口` |
+| `-d`               | 后台运行                                                     |
+| `--name`           | 指定容器名                                                   |
+| `--hostname`       | 设置容器内主机名                                             |
+| `--cpus`           | 限制CPU使用，如 `--cpus=2`                                   |
+| `-m`               | 限制内存，如 `-m 4g`                                         |
+| `--gpus`           | 分配GPU设备👇                                                 |
+
+```shell
+# 使用所有 GPU
+docker run --gpus all ...
+# 使用指定 GPU（从0开始编号）
+docker run --gpus '"device=0,1"' ...
+# 使用一定数量的 GPU（调度器分配）
+docker run --gpus 2 ...
+```
+
+## 9.2 容器
+
+> 容器是镜像的实例，对容器的操作就是对系统本身的操作
+
+```shell
+# 查看运行中的容器
+docker ps 
+# 查看所有容器
+docker ps -a
+```
+
+```shell
+# 启用/关闭/重启【可以理解为开机/关机/重启】一个已经存在的容器（容器ID可以不写全，只要足够区分即可）
+docker start/stop/restart 容器ID/容器NAMES
+# 查看容器状态
+docker stats 容器ID/容器NAMES
+# 进入app01容器的bash环境
+docker exec -it app01 bash
+```
 

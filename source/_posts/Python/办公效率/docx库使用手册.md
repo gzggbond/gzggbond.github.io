@@ -1,11 +1,11 @@
 ---
-title: Word文档自动化基础
+title: docx库使用手册
 date: 2025-07-13 21:54:21
 excerpt: 第三方库python-docx可以实现word的简单自动化，面对Excel数据需要按照一定格式大量转换为Word文档的需求时，掌握此项技术可以大大提高效率！
 tags:
-  - 办公自动化
+  - 办公效率
 categories:
-  - [学习,Python第三方库]
+  - [Python,办公效率]
 ---
 
 # 1. 基本介绍
@@ -283,8 +283,6 @@ for border_name in ['top', 'left', 'bottom', 'right']:
 tblPr.append(tblBorders)
 doc.save('table_with_borders.docx')
 ```
-
-
 
 # 5. 图片相关操作
 
