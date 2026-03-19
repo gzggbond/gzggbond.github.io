@@ -2,7 +2,7 @@
 title: Hexo + GitHub完成个人博客部署
 date: 2025-07-07 20:41:49
 excerpt: 本文详细阐述了通过Hexo + GitHub部署个人在线博客的全部流程，有兴趣的朋友可以跟着动手尝试搭建属于自己的个人博客！
-sticky: 
+sticky: 100
 tags:
   - 博客搭建
   - 域名申请
