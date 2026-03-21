@@ -4,31 +4,6 @@
   
   
   <entry>
-    <title>Scapy库使用手册</title>
-    <link href="/blog/Python/%E7%BD%91%E7%BB%9C%E9%80%9A%E4%BF%A1/Python/%E7%BD%91%E7%BB%9C%E9%80%9A%E4%BF%A1/Scapy%E5%BA%93%E4%BD%BF%E7%94%A8%E6%89%8B%E5%86%8C/"/>
-    <url>/blog/Python/%E7%BD%91%E7%BB%9C%E9%80%9A%E4%BF%A1/Python/%E7%BD%91%E7%BB%9C%E9%80%9A%E4%BF%A1/Scapy%E5%BA%93%E4%BD%BF%E7%94%A8%E6%89%8B%E5%86%8C/</url>
-    
-    
-    <categories>
-      
-      <category>Python</category>
-      
-      <category>网络通信</category>
-      
-    </categories>
-    
-    
-    <tags>
-      
-      <tag>网络通信</tag>
-      
-    </tags>
-    
-  </entry>
-  
-  
-  
-  <entry>
     <title>AISBench大模型推理性能工具指南</title>
     <link href="/blog/%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%95/%E5%A4%A7%E6%A8%A1%E5%9E%8B%E6%8E%A8%E7%90%86%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%95/%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%95/%E5%A4%A7%E6%A8%A1%E5%9E%8B%E6%8E%A8%E7%90%86%E6%80%A7%E8%83%BD/AISBench%E5%A4%A7%E6%A8%A1%E5%9E%8B%E6%8E%A8%E7%90%86%E6%80%A7%E8%83%BD%E5%B7%A5%E5%85%B7%E6%8C%87%E5%8D%97/"/>
     <url>/blog/%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%95/%E5%A4%A7%E6%A8%A1%E5%9E%8B%E6%8E%A8%E7%90%86%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%95/%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%95/%E5%A4%A7%E6%A8%A1%E5%9E%8B%E6%8E%A8%E7%90%86%E6%80%A7%E8%83%BD/AISBench%E5%A4%A7%E6%A8%A1%E5%9E%8B%E6%8E%A8%E7%90%86%E6%80%A7%E8%83%BD%E5%B7%A5%E5%85%B7%E6%8C%87%E5%8D%97/</url>
@@ -46,6 +21,31 @@
     <tags>
       
       <tag>大模型推理性能测试</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>Scapy库使用手册</title>
+    <link href="/blog/Python/%E7%BD%91%E7%BB%9C%E9%80%9A%E4%BF%A1/Python/%E7%BD%91%E7%BB%9C%E9%80%9A%E4%BF%A1/Scapy%E5%BA%93%E4%BD%BF%E7%94%A8%E6%89%8B%E5%86%8C/"/>
+    <url>/blog/Python/%E7%BD%91%E7%BB%9C%E9%80%9A%E4%BF%A1/Python/%E7%BD%91%E7%BB%9C%E9%80%9A%E4%BF%A1/Scapy%E5%BA%93%E4%BD%BF%E7%94%A8%E6%89%8B%E5%86%8C/</url>
+    
+    
+    <categories>
+      
+      <category>Python</category>
+      
+      <category>网络通信</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>网络通信</tag>
       
     </tags>
     
@@ -987,15 +987,15 @@
   
   <entry>
     <title>eNSP网络搭建基础笔记</title>
-    <link href="/blog/%E7%90%86%E8%AE%BA%E7%9F%A5%E8%AF%86/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/%E7%90%86%E8%AE%BA%E7%9F%A5%E8%AF%86/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/eNSP%E7%BD%91%E7%BB%9C%E6%90%AD%E5%BB%BA%E5%9F%BA%E7%A1%80%E7%AC%94%E8%AE%B0/"/>
-    <url>/blog/%E7%90%86%E8%AE%BA%E7%9F%A5%E8%AF%86/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/%E7%90%86%E8%AE%BA%E7%9F%A5%E8%AF%86/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/eNSP%E7%BD%91%E7%BB%9C%E6%90%AD%E5%BB%BA%E5%9F%BA%E7%A1%80%E7%AC%94%E8%AE%B0/</url>
+    <link href="/blog/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/%E7%90%86%E8%AE%BA%E7%9F%A5%E8%AF%86/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/%E7%90%86%E8%AE%BA%E7%9F%A5%E8%AF%86/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/eNSP%E7%BD%91%E7%BB%9C%E6%90%AD%E5%BB%BA%E5%9F%BA%E7%A1%80%E7%AC%94%E8%AE%B0/"/>
+    <url>/blog/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/%E7%90%86%E8%AE%BA%E7%9F%A5%E8%AF%86/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/%E7%90%86%E8%AE%BA%E7%9F%A5%E8%AF%86/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/eNSP%E7%BD%91%E7%BB%9C%E6%90%AD%E5%BB%BA%E5%9F%BA%E7%A1%80%E7%AC%94%E8%AE%B0/</url>
     
     
     <categories>
       
-      <category>理论知识</category>
-      
       <category>计算机基础</category>
+      
+      <category>理论知识</category>
       
       <category>计算机网络</category>
       
@@ -1014,15 +1014,15 @@
   
   <entry>
     <title>路由与交换技术笔记</title>
-    <link href="/blog/%E7%90%86%E8%AE%BA%E7%9F%A5%E8%AF%86/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/%E7%90%86%E8%AE%BA%E7%9F%A5%E8%AF%86/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E8%B7%AF%E7%94%B1%E4%B8%8E%E4%BA%A4%E6%8D%A2%E6%8A%80%E6%9C%AF/"/>
-    <url>/blog/%E7%90%86%E8%AE%BA%E7%9F%A5%E8%AF%86/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/%E7%90%86%E8%AE%BA%E7%9F%A5%E8%AF%86/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E8%B7%AF%E7%94%B1%E4%B8%8E%E4%BA%A4%E6%8D%A2%E6%8A%80%E6%9C%AF/</url>
+    <link href="/blog/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/%E7%90%86%E8%AE%BA%E7%9F%A5%E8%AF%86/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/%E7%90%86%E8%AE%BA%E7%9F%A5%E8%AF%86/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E8%B7%AF%E7%94%B1%E4%B8%8E%E4%BA%A4%E6%8D%A2%E6%8A%80%E6%9C%AF/"/>
+    <url>/blog/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/%E7%90%86%E8%AE%BA%E7%9F%A5%E8%AF%86/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/%E7%90%86%E8%AE%BA%E7%9F%A5%E8%AF%86/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E8%B7%AF%E7%94%B1%E4%B8%8E%E4%BA%A4%E6%8D%A2%E6%8A%80%E6%9C%AF/</url>
     
     
     <categories>
       
-      <category>理论知识</category>
-      
       <category>计算机基础</category>
+      
+      <category>理论知识</category>
       
       <category>计算机网络</category>
       
