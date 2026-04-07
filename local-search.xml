@@ -4,25 +4,11 @@
   
   
   <entry>
-    <title>AISBench大模型推理性能工具指南</title>
-    <link href="/blog/%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%95/%E5%A4%A7%E6%A8%A1%E5%9E%8B%E6%8E%A8%E7%90%86%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%95/%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%95/%E5%A4%A7%E6%A8%A1%E5%9E%8B%E6%8E%A8%E7%90%86%E6%80%A7%E8%83%BD/AISBench%E5%A4%A7%E6%A8%A1%E5%9E%8B%E6%8E%A8%E7%90%86%E6%80%A7%E8%83%BD%E5%B7%A5%E5%85%B7%E6%8C%87%E5%8D%97/"/>
-    <url>/blog/%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%95/%E5%A4%A7%E6%A8%A1%E5%9E%8B%E6%8E%A8%E7%90%86%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%95/%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%95/%E5%A4%A7%E6%A8%A1%E5%9E%8B%E6%8E%A8%E7%90%86%E6%80%A7%E8%83%BD/AISBench%E5%A4%A7%E6%A8%A1%E5%9E%8B%E6%8E%A8%E7%90%86%E6%80%A7%E8%83%BD%E5%B7%A5%E5%85%B7%E6%8C%87%E5%8D%97/</url>
+    <title></title>
+    <link href="/blog/uncategorized/%E5%BD%92%E7%BA%B3%E6%80%BB%E7%BB%93/%E5%A4%87%E8%80%83/%E4%B8%AD%E7%BA%A7%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%84%E5%B8%88%E5%A4%87%E8%80%83%E7%AC%94%E8%AE%B0/"/>
+    <url>/blog/uncategorized/%E5%BD%92%E7%BA%B3%E6%80%BB%E7%BB%93/%E5%A4%87%E8%80%83/%E4%B8%AD%E7%BA%A7%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%84%E5%B8%88%E5%A4%87%E8%80%83%E7%AC%94%E8%AE%B0/</url>
     
     
-    <categories>
-      
-      <category>性能测试</category>
-      
-      <category>大模型推理性能测试</category>
-      
-    </categories>
-    
-    
-    <tags>
-      
-      <tag>大模型推理性能测试</tag>
-      
-    </tags>
     
   </entry>
   
@@ -46,6 +32,31 @@
     <tags>
       
       <tag>网络通信</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>AISBench大模型推理性能工具指南</title>
+    <link href="/blog/%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%95/%E5%A4%A7%E6%A8%A1%E5%9E%8B%E6%8E%A8%E7%90%86%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%95/%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%95/%E5%A4%A7%E6%A8%A1%E5%9E%8B%E6%8E%A8%E7%90%86%E6%80%A7%E8%83%BD/AISBench%E5%A4%A7%E6%A8%A1%E5%9E%8B%E6%8E%A8%E7%90%86%E6%80%A7%E8%83%BD%E5%B7%A5%E5%85%B7%E6%8C%87%E5%8D%97/"/>
+    <url>/blog/%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%95/%E5%A4%A7%E6%A8%A1%E5%9E%8B%E6%8E%A8%E7%90%86%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%95/%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%95/%E5%A4%A7%E6%A8%A1%E5%9E%8B%E6%8E%A8%E7%90%86%E6%80%A7%E8%83%BD/AISBench%E5%A4%A7%E6%A8%A1%E5%9E%8B%E6%8E%A8%E7%90%86%E6%80%A7%E8%83%BD%E5%B7%A5%E5%85%B7%E6%8C%87%E5%8D%97/</url>
+    
+    
+    <categories>
+      
+      <category>性能测试</category>
+      
+      <category>大模型推理性能测试</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>大模型推理性能测试</tag>
       
     </tags>
     
@@ -400,9 +411,9 @@
   
   
   <entry>
-    <title>C++常用API</title>
-    <link href="/blog/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/%E7%90%86%E8%AE%BA%E7%9F%A5%E8%AF%86/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/%E7%90%86%E8%AE%BA%E7%9F%A5%E8%AF%86/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/C++%E5%B8%B8%E7%94%A8API/"/>
-    <url>/blog/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/%E7%90%86%E8%AE%BA%E7%9F%A5%E8%AF%86/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/%E7%90%86%E8%AE%BA%E7%9F%A5%E8%AF%86/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/C++%E5%B8%B8%E7%94%A8API/</url>
+    <title>Java常用API</title>
+    <link href="/blog/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/%E7%90%86%E8%AE%BA%E7%9F%A5%E8%AF%86/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/%E7%90%86%E8%AE%BA%E7%9F%A5%E8%AF%86/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/Java%E5%B8%B8%E7%94%A8API/"/>
+    <url>/blog/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/%E7%90%86%E8%AE%BA%E7%9F%A5%E8%AF%86/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/%E7%90%86%E8%AE%BA%E7%9F%A5%E8%AF%86/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/Java%E5%B8%B8%E7%94%A8API/</url>
     
     
     <categories>
@@ -427,9 +438,9 @@
   
   
   <entry>
-    <title>Java常用API</title>
-    <link href="/blog/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/%E7%90%86%E8%AE%BA%E7%9F%A5%E8%AF%86/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/%E7%90%86%E8%AE%BA%E7%9F%A5%E8%AF%86/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/Java%E5%B8%B8%E7%94%A8API/"/>
-    <url>/blog/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/%E7%90%86%E8%AE%BA%E7%9F%A5%E8%AF%86/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/%E7%90%86%E8%AE%BA%E7%9F%A5%E8%AF%86/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/Java%E5%B8%B8%E7%94%A8API/</url>
+    <title>C++常用API</title>
+    <link href="/blog/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/%E7%90%86%E8%AE%BA%E7%9F%A5%E8%AF%86/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/%E7%90%86%E8%AE%BA%E7%9F%A5%E8%AF%86/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/C++%E5%B8%B8%E7%94%A8API/"/>
+    <url>/blog/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/%E7%90%86%E8%AE%BA%E7%9F%A5%E8%AF%86/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/%E7%90%86%E8%AE%BA%E7%9F%A5%E8%AF%86/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/C++%E5%B8%B8%E7%94%A8API/</url>
     
     
     <categories>
