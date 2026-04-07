@@ -454,17 +454,45 @@ sudo systemctl isolate graphical.target
 
    <img src="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202602282017600.png" alt="image-20260228201729544" style="zoom:50%;" />
 
+## 7.3 代理流量配置
+
+```shell
+# 系统终端代理永久生效
+vim /etc/environment
+# 填写代理地址与端口
+PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin"
+http_proxy="http://192.168.10.102:10809"
+https_proxy="http://192.168.10.102:10809"
+ftp_proxy="http://192.168.10.102:10809"
+no_proxy="localhost,127.0.0.1,.local"
+```
+
+```shell
+# docker流量需要单独
+sudo vim /etc/systemd/system/docker.service.d/http-proxy.conf
+# 填写代理地址与端口
+[Service]
+Environment="HTTP_PROXY=http://192.168.10.102:10809"
+Environment="HTTPS_PROXY=http://192.168.10.102:10809"
+Environment="NO_PROXY=localhost,127.0.0.1,.local"
+# 执行后刷新配置
+# 第一步：通知系统重载服务配置（关键！）
+sudo systemctl daemon-reload
+# 第二步：重启 Docker 让代理生效
+sudo systemctl restart docker
+```
+
 # 8.环境打包
 
 ## 8.1 python程序编译
 
-> 建议与目标客户服务器同架构，例如都是 x86_64 Linux
+> 建议与目标客户服务器同架构，例如都是x86_64 Linux
 
 ```shell
 # 安装打包工具类
 pip install pyinstaller
 # 只打包必要依赖（检查monitor.py目录下的所有文件以及依赖），可执行文件名为resource_monitor
-pyinstaller --onefile --name resource_monitor monitor.py
+pyinstaller -w --onefile --name resource_monitor monitor.py
 ```
 
 # 9. docker使用手册
