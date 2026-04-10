@@ -49,7 +49,7 @@
 <meta property="og:image" content="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202602282007820.png">
 <meta property="og:image" content="https://z-cloud-pic-1313046262.cos.ap-guangzhou.myqcloud.com/img/202602282017600.png">
 <meta property="article:published_time" content="2025-07-31T09:17:50.000Z">
-<meta property="article:modified_time" content="2026-04-07T10:10:19.862Z">
+<meta property="article:modified_time" content="2026-04-08T09:10:59.171Z">
 <meta property="article:author" content="Z_Jump_Dragon">
 <meta property="article:tag" content="开发环境部署">
 <meta name="twitter:card" content="summary_large_image">
@@ -429,6 +429,9 @@
 <li><p>方式二：数字加符号👉+，-，&#x3D; 变更权限</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># 二进制数，0-7能囊括所有权限组合【0是无权限】</span><br>r=<span class="hljs-number">4</span>		w=<span class="hljs-number">2</span>		x=<span class="hljs-number">1</span><br><span class="hljs-comment"># 给文件所有者赋予rwx权限(7)，所有组赋予rx权限(5)，其他人赋予x权限(1)</span><br>chmod <span class="hljs-number">751</span> 文件/目录名<br></code></pre></td></tr></table></figure></li>
 </ul>
+<p><strong>配置普通用户sudo无密码</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># 进入配置文件，光标移动到最后一行</span><br>sudo visudo<br><span class="hljs-comment"># 输入内容，Ctrl+O保存，回车确认，Ctrl+X退出 </span><br>用户名    ALL=(ALL)       NOPASSWD: ALL<br></code></pre></td></tr></table></figure>
+
 <h2 id="4-4-服务管理"><a href="#4-4-服务管理" class="headerlink" title="4.4 服务管理"></a>4.4 服务管理</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 设置服务开机启动/关闭服务开机启动</span><br>systemctl <span class="hljs-built_in">enable</span>/disable 服务名<br><span class="hljs-comment"># 查询某个服务是否是自启动的</span><br>systemctl is-enabled 服务名<br><span class="hljs-comment"># 查看服务当前状态[start,stop,restart]</span><br>systemctl status 服务器<br></code></pre></td></tr></table></figure>
 
 <h2 id="4-5-文件"><a href="#4-5-文件" class="headerlink" title="4.5 文件"></a>4.5 文件</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 递归复制</span><br><span class="hljs-built_in">cp</span> -r <span class="hljs-built_in">source</span> dest<br><span class="hljs-comment"># 创建多级文件夹</span><br><span class="hljs-built_in">mkdir</span> -p xxx<br><span class="hljs-comment"># 剪切，不给文件名时默认与原文件名相同</span><br><span class="hljs-built_in">mv</span> <span class="hljs-built_in">source</span> dest<br></code></pre></td></tr></table></figure>
@@ -696,9 +699,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/blog/%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%95/%E5%A4%A7%E6%A8%A1%E5%9E%8B%E6%8E%A8%E7%90%86%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%95/%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%95/%E5%A4%A7%E6%A8%A1%E5%9E%8B%E6%8E%A8%E7%90%86%E6%80%A7%E8%83%BD/AISBench%E5%A4%A7%E6%A8%A1%E5%9E%8B%E6%8E%A8%E7%90%86%E6%80%A7%E8%83%BD%E5%B7%A5%E5%85%B7%E6%8C%87%E5%8D%97/" title="AISBench大模型推理性能工具指南">
+                      <a href="/blog/Python/%E7%BD%91%E7%BB%9C%E9%80%9A%E4%BF%A1/Python/%E7%BD%91%E7%BB%9C%E9%80%9A%E4%BF%A1/Scapy%E5%BA%93%E4%BD%BF%E7%94%A8%E6%89%8B%E5%86%8C/" title="Scapy库使用手册">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">AISBench大模型推理性能工具指南</span>
+                        <span class="hidden-mobile">Scapy库使用手册</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
